@@ -15,7 +15,6 @@
       </v-col>
 
       <v-col cols="6" style="margin-top:4em">
-
         <v-form ref="form" class="form" v-model="valid" lazy-validation>
             <!-- vuetify card -->
             <v-card
@@ -74,7 +73,7 @@
       </v-col>
     </v-row>
 
-    <v-sheet v-else class="pa-2" color="transparent">
+    <v-sheet v-else class="pa-2 ma-2" color="transparent">
       <v-row class="ma-10">
         <v-spacer />
         <v-col cols="8" class="text-center">
@@ -88,12 +87,14 @@
 
       <v-row>
         <v-spacer />
-        <v-col cols="10">
+        <v-col cols="12" class="pa-12">
           <v-form ref="form" v-model="valid"
           lazy-validation color="transparent"
           >
             <!-- vuetify card -->
             <v-card
+              class="pa-2"
+              height="40vh"
               elevation="10"
               outlined
               shaped>
@@ -132,7 +133,7 @@
                 </v-text-field>
               </v-row>
 
-              <v-row class="mt-8" align="center" justify="center">
+              <v-row class="mt-10" align="center" justify="center">
                 <v-btn class="btn white--text"
                 color="#000824">
                   ورود
@@ -145,9 +146,7 @@
 
         </v-col>
         <v-spacer />
-      </v-row>
-
-      
+      </v-row>  
     </v-sheet>
   </v-app>
 </template>
