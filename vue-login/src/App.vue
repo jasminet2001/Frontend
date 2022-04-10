@@ -15,53 +15,61 @@
       </v-col>
 
       <v-col cols="6" style="margin-top:4em">
+
         <v-form ref="form" class="form" v-model="valid" lazy-validation>
-          <v-row class="mt-4"
-          align="center" justify="center">
-            <v-img src="https://svgshare.com/i/g44.svg"
-            height="240">
-            </v-img>
-          </v-row>
+            <!-- vuetify card -->
+            <v-card
+              class="pa-8"
+              elevation="8"
+              outlined
+              height="75vh"
+              shaped>
 
-          <!-- chetor bebaram rast? -->
-          <v-row class="mt-8" justify="center" align="right">
-              <p class="mr-4">
-                <a href="#" style="color:black; text-decoration:none;
-                font-style: italic;">اینجا ثبت نام کنید</a>
-              </p>
-              <p>حساب کاربری ندارید؟</p>
-          </v-row>
+              <v-row class="mt-4"
+              align="center" justify="center">
+                <img src="https://svgshare.com/i/g44.svg" style="height:10%;">
+              </v-row>
 
-          <v-row class="mt-4 ml-16 mr-16">
-            <v-text-field class="field"
-              v-model="email"
-              :rules="emailRules"
-              label="E-mail"
-              required>
-            </v-text-field>
-          </v-row>
+              <v-row class="mt-8" justify="center" align="right">
+                  <p class="mr-4">
+                    <a href="#" style="color:black; text-decoration:none;
+                    font-style: italic;">اینجا ثبت نام کنید</a>
+                  </p>
+                  <p>حساب کاربری ندارید؟</p>
+              </v-row>
 
-          <v-row class="mt-4 ml-16 mr-16">
-            <v-text-field
-              v-model="password"
-              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-              :rules="[rules.required, rules.min]"
-              :type="show1 ? 'text' : 'password'"
-              name="input-10-1"
-              label="Password"
-              hint="At least 8 characters"
-              counter
-              @click:append="show1 = !show1"
-            ></v-text-field>
-          </v-row>
+              <v-row class="mt-5 ml-16 mr-16">
+                <v-text-field
+                  v-model="email"
+                  :rules="emailRules"
+                  label="E-mail"
+                  required>
+                </v-text-field>
+              </v-row>
 
-          <v-row class="mt-12" align="center" justify="center">
-            <a href="#" class="link">فراموشی رمز عبور؟</a>
-            <v-btn class="btn white--text"
-            color="#000824">
-                ورود
-            </v-btn>
-          </v-row>
+              <v-row class="mt-5 ml-16 mr-16">
+                <v-text-field
+                  v-model="password"
+                  :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                  :rules="[rules.required, rules.min]"
+                  :type="show1 ? 'text' : 'password'"
+                  name="input-10-1"
+                  label="Password"
+                  hint="At least 8 characters"
+                  counter
+                  @click:append="show1 = !show1"
+                ></v-text-field>
+              </v-row>
+
+              <v-row class="mt-16" align="center" justify="center">
+                <a href="#" class="link">فراموشی رمز عبور؟</a>
+                <v-btn class="btn white--text"
+                color="#000824">
+                    ورود
+                </v-btn>
+              </v-row>
+
+            </v-card>  
         </v-form>
       </v-col>
     </v-row>
@@ -70,10 +78,6 @@
       <v-row class="ma-10">
         <v-spacer />
         <v-col cols="8" class="text-center">
-          <!-- <v-img src="https://cdn-icons-png.flaticon.com/512/3408/3408455.png"
-          height="50" width="50"
-          >
-          </v-img> -->
           <v-spacer/>
           <span class="font-weight-bold white--text" style="font-size: 1.5em">
             ورود
@@ -85,51 +89,65 @@
       <v-row>
         <v-spacer />
         <v-col cols="10">
-          <v-form ref="form" class="form" v-model="valid" lazy-validation style="background-color: white; width: 75vw;">
-            <v-row class="mt-6" justify="center">
-              <v-col cols="6" class="text-center">
-                <p>حساب کاربری ندارید؟</p>
-              </v-col>
-              <v-col>
-                <a href="#" style="color:black; text-decoration:none;
-                font-style: italic;" class="ml-2">اینجا ثبت نام کنید</a>
-              </v-col>
-            </v-row>
+          <v-form ref="form" v-model="valid"
+          lazy-validation color="transparent"
+          >
+            <!-- vuetify card -->
+            <v-card
+              elevation="10"
+              outlined
+              shaped>
 
-            <v-row class="mt-10">
-              <v-text-field class="field"
-                v-model="email"
-                :rules="emailRules"
-                label="E-mail"
-                required>
-              </v-text-field>
+              <v-row class="mt-2 ml-1 mr-1">
+                <v-col>
+                  <a href="#" style="color:black; 
+                  text-decoration:none;
+                  font-style: italic;">اینجا ثبت نام کنید
+                  </a>
+                </v-col>
+                <v-col class="text-center">
+                  <p>حساب کاربری ندارید؟</p>
+                </v-col>
+              </v-row>
 
-            <v-text-field
-              v-model="password"
-              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-              :rules="[rules.required, rules.min]"
-              :type="show1 ? 'text' : 'password'"
-              name="input-10-1"
-              label="Password"
-              hint="At least 8 characters"
-              counter
-              @click:append="show1 = !show1"
-            ></v-text-field>
-            </v-row>
+              <v-row class="mt-2 ml-10 mr-10">
+                <v-text-field
+                  v-model="email"
+                  :rules="emailRules"
+                  label="E-mail"
+                  required>
+                </v-text-field>
 
-            <v-row class="mt-8" align="center" justify="center">
-              <v-btn class="btn white--text"
-              color="#000824">
-                 ورود
-              </v-btn>
-              <a href="#" class="link">فراموشی رمز عبور؟</a>
-            </v-row>
+                <v-text-field
+                  v-model="password"
+                  :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                  :rules="[rules.required, rules.min]"
+                  :type="show1 ? 'text' : 'password'"
+                  name="input-10-1"
+                  label="Password"
+                  hint="At least 8 characters"
+                  counter
+                  @click:append="show1 = !show1"
+                >
+                </v-text-field>
+              </v-row>
 
+              <v-row class="mt-8" align="center" justify="center">
+                <v-btn class="btn white--text"
+                color="#000824">
+                  ورود
+                </v-btn>
+                <a href="#" class="link">فراموشی رمز عبور؟</a>
+              </v-row>
+
+            </v-card>
           </v-form>
+
         </v-col>
         <v-spacer />
-
       </v-row>
+
+      
     </v-sheet>
   </v-app>
 </template>
@@ -166,11 +184,9 @@
   }
   .form{
     border-radius: 2em;
-    height: 40vw;
-    padding: 2em;
-    width: 27vw;
+    width: 25vw;
     margin-left: 16em;
-    background-color: white;
+    background-color: transparent;
   }
   .btn{
     margin: 1em;
