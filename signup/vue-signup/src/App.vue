@@ -1,20 +1,9 @@
 <template>
   <v-app style="background-color: #353B51;">
-    <!-- why doesnt justify work? -->
+    <!-- Desktop section -->
     <v-row class="ma-2" v-if="this.$vuetify.breakpoint.mdAndUp">
-      <v-col cols="6">        
-        <v-row align="center" justify="center">
-          <h1 style="color: white;" class="mx-4 mt-16">ثبت نام</h1>
-        </v-row>
 
-        <v-row align="center" justify="center">
-          <v-img src="https://svgshare.com/i/g2T.svg"
-          class="img">
-        </v-img>
-        </v-row>
-      </v-col>
-
-      <v-col cols="6" style="margin-top:1em">
+      <v-col cols="6" style="margin-top:1em;">
         <v-form ref="form" class="form" v-model="valid" lazy-validation>
             <!-- vuetify card -->
             <v-card
@@ -31,18 +20,18 @@
 
               <!-- text area -->
               <v-row class="mt-8" justify="center" align="right">
+                  <p>حساب کاربری دارید؟</p>
                   <p class="mr-4">
                     <a href="#" style="color:black; text-decoration:none;
                     font-style: italic;">از اینجا وارد شوید</a>
                   </p>
-                  <p>حساب کاربری دارید؟</p>
               </v-row>
 
               <!-- inputs -->
               <v-row class="mt-5 ml-16 mr-16">
                 <v-text-field
-                  label="Company Name"
-                  placeholder="Enter Company Name"
+                  label="نام شرکت"
+                  placeholder="نام شرکت"
                   autofocus
                   >
                 </v-text-field>
@@ -52,8 +41,8 @@
                 <v-text-field
                   v-model="email"
                   :rules="emailRules"
-                  label="E-mail"
-                  placeholder="Enter Email"
+                  label="ایمیل"
+                  placeholder="ایمیل را وارد کنید"
                   autofocus
                   required>
                 </v-text-field>
@@ -66,8 +55,8 @@
                   :rules="[rules.required, rules.min]"
                   :type="show1 ? 'text' : 'password'"
                   name="input-10-1"
-                  label="Password"
-                  hint="At least 8 characters"
+                  label="رمز عبور"
+                  hint="حداقل 8 کاراکتر باشد"
                   counter
                   @click:append="show1 = !show1"
                 ></v-text-field>
@@ -80,8 +69,8 @@
                   :rules="[rules.required, rules.min]"
                   :type="show1 ? 'text' : 'password'"
                   name="input-10-1"
-                  label="Repeat Password"
-                  hint="At least 8 characters"
+                  label="رمز عبور"
+                  hint="حداقل 8 کاراکتر باشد"
                   counter
                   @click:append="show1 = !show1"
                 ></v-text-field>
@@ -98,8 +87,22 @@
             </v-card>  
         </v-form>
       </v-col>
+
+      <v-col cols="6">        
+        <v-row align="center" justify="center">
+          <h1 style="color: white;" class="mx-4 mt-16">ثبت نام</h1>
+        </v-row>
+
+        <v-row align="center" justify="center">
+          <v-img src="https://svgshare.com/i/g2T.svg"
+          class="img">
+        </v-img>
+        </v-row>
+      </v-col>
+
     </v-row>
 
+    <!-- responsive section -->
     <v-sheet v-else class="pa-2" color="transparent">
       <v-row class="ma-8">
         <v-spacer />
@@ -128,6 +131,9 @@
 
               <!-- text area -->
               <v-row class="mt-2 ml-1 mr-1">
+                <v-col class="text-center">
+                  <p>حساب کاربری دارید؟</p>
+                </v-col>
                 <v-col>
                   <a href="#" style="color:black; 
                   text-decoration:none;
@@ -135,23 +141,22 @@
                   از اینجا وارد شوید
                   </a>
                 </v-col>
-                <v-col class="text-center">
-                  <p>حساب کاربری دارید؟</p>
-                </v-col>
               </v-row>
 
               <v-row class="mt-2 ml-10 mr-10">
                 <v-text-field
-                  label="Company Name"
-                  placeholder="Enter Company Name"
+                  label="نام شرکت"
+                  placeholder="نام شرکت"
+                  autofocus
                   >
                 </v-text-field>
 
                 <v-text-field
                   v-model="email"
                   :rules="emailRules"
-                  label="E-mail"
-                  placeholder="Enter Email"
+                  label="ایمیل"
+                  placeholder="ایمیل را وارد کنید"
+                  autofocus
                   required>
                 </v-text-field>
 
@@ -161,8 +166,8 @@
                   :rules="[rules.required, rules.min]"
                   :type="show1 ? 'text' : 'password'"
                   name="input-10-1"
-                  label="Password"
-                  hint="At least 8 characters"
+                  label="رمز عبور"
+                  hint="حداقل 8 کاراکتر باشد"
                   counter
                   @click:append="show1 = !show1"
                 >
@@ -174,8 +179,8 @@
                   :rules="[rules.required, rules.min]"
                   :type="show1 ? 'text' : 'password'"
                   name="input-10-1"
-                  label="Repeat Password"
-                  hint="At least 8 characters"
+                  label="رمز عبور"
+                  hint="حداقل 8 کاراکتر باشد"
                   counter
                   @click:append="show1 = !show1"
                 ></v-text-field>
@@ -205,7 +210,7 @@
         show2: true,
         show3: false,
         show4: false,
-        password: 'Password',
+        password: 'رمز عبور',
         rules: {
           required: value => !!value || 'Required.',
           min: v => v.length >= 8 || 'Min 8 characters',
@@ -216,7 +221,7 @@
 </script>
 <style scoped>
   v-app{
-    background-color: #000824c8;
+    background-color: #000824c8;  
   }
   .ma-2{
     height: 100%;
@@ -229,7 +234,7 @@
   }
   .form{
     border-radius: 2em;
-    width: 25vw;
+    width: 40vw;
     margin-left: 16em;
     background-color: transparent;
   }
@@ -240,5 +245,10 @@
   .img{
     margin-left: 6em;
     margin-top: 6em;
+  }
+  @font-face {
+  font-family: "Vazir";
+  src: local("Vazir-Medium"),
+   url(./Fonts/Vazir/Vazir-Medium.ttf) format("truetype");
   }
 </style>
