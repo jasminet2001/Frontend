@@ -100,13 +100,13 @@
       </v-col>
     </v-row>
 
-    <v-sheet v-else class="pa-2 ma-2" color="transparent">
-      <v-row class="ma-10">
+    <v-sheet v-else class="pa-2" color="transparent">
+      <v-row class="ma-8">
         <v-spacer />
         <v-col cols="8" class="text-center">
           <v-spacer/>
           <span class="font-weight-bold white--text" style="font-size: 1.5em">
-            ورود
+            ثبت نام
           </span>
         </v-col>
         <v-spacer />
@@ -121,7 +121,7 @@
             <!-- vuetify card -->
             <v-card
               class="pa-2"
-              height="40vh"
+              height="55vh"
               elevation="10"
               outlined
               shaped>
@@ -192,7 +192,6 @@
           </v-form>
 
         </v-col>
-        <v-spacer />
       </v-row>  
     </v-sheet>
   </v-app>
