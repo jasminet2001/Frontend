@@ -1,5 +1,5 @@
 <template>
-    <div class="ma-12 pa-12">
+    <div>
         <v-navigation-drawer
         class="grey darken-4"
         dark
