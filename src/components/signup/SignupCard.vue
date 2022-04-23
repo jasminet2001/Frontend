@@ -14,7 +14,9 @@
           </v-col>
         </v-row>
         <v-row class="mt-5 mx-2" justify="center" align="center">
-          <v-text-field label="نام شرکت" autofocus>
+          <v-text-field label="نام و نام خانوادگی" 
+          autofocus
+          v-model="name">
           </v-text-field>
         </v-row>
         <v-row class="mt-5 mx-2" justify="center" align="center">
@@ -49,7 +51,9 @@
         </v-row>
         <v-row class="mt-16 mx-2" align="center" justify="center" no-gutters>
           <v-col cols="12">
-            <v-btn class="btn white--text" color="#000824" width="100%">
+            <v-btn class="btn white--text" 
+            color="#000824" width="100%"
+            @click="fetchData()">
               ثبت نام
             </v-btn>
           </v-col>
@@ -76,7 +80,24 @@ export default {
       rules: {
         required: value => !!value || 'رمز عبور لازم است!',
         min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
+      },
+      email:'',
+      name:'',
+    }
+  },
+  methods:{
+    fetchData(){
+      fetch('http://127.0.0.1:8000/api/user/register', 
+      {method:'POST',
+      'headers': {'ACCEPT': 'application/json', 
+      'Content-Type': 'application/json'},
+      'body': JSON.stringify({'email':this.email, 
+      'password': this.password1,
+      'password_confirmation': this.password2, 
+      'name': this.name})
       }
+      ).then(response => response.json())
+      .then(response => console.log(response))
     }
   }
 }

@@ -34,10 +34,14 @@
           <v-col cols="6">
             <a href="#" class="link mr-1" style="font-size: 0.9em">فراموشی رمز عبور؟</a>
           </v-col>
+
           <v-col cols="6">
-            <v-btn class="btn white--text" color="#000824" width="100%">
+            <v-btn class="btn white--text" 
+            color="#000824" width="100%"
+            @click="fetchData()">
               ورود
             </v-btn>
+
           </v-col>
         </v-row>
       </v-card-text>
@@ -59,7 +63,20 @@ export default {
       rules: {
         required: value => !!value || 'رمز عبور لازم است!',
         min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
+      },
+      email: '',
+    }
+  },
+  methods:{
+    fetchData(){
+      fetch('http://127.0.0.1:8000/api/user/login', 
+      {method:'POST',
+      'headers': {'ACCEPT': 'application/json', 
+      'Content-Type': 'application/json'},
+      'body': JSON.stringify({'email':this.email, 'password': this.password})
       }
+      ).then(response => response.json())
+      .then(response => console.log(response))
     }
   }
 }
