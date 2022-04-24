@@ -8,15 +8,14 @@
 
         <v-spacer />
 
-        <v-col cols="4" style="margin-top:4em">
+        <v-col cols="5" style="margin-top:4em">
           <login-card />
         </v-col>
       </v-row>
 
     </v-container>
-
     <v-container v-else class="pa-2" color="transparent" fill-height justify="center">
-      <v-card color="transparent" class="text-center" elevation="0" style="margin: 0 auto">
+      <v-card color="transparent" class="text-center" elevation="0" style="margin: 0 auto" width="60vw" min-width="350px">
         <v-card-title style="color: white; font-size: 2em" class="justify-center align-center font-weight-bold mb-3">
           ورود
         </v-card-title>

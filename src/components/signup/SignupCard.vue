@@ -1,5 +1,5 @@
 <template>
-  <v-card class="pa-4" elevation="8" outlined height="75%" shaped justify="center" align="center">
+  <v-card class="pa-4" elevation="8" outlined height="75%" shaped justify="center" align="center" width="100%">
     <v-form ref="form" color="transparent" v-model="valid" lazy-validation>
       <v-card-title v-if="!isMobile">
         <img src="https://svgshare.com/i/g44.svg" style="height:10%; margin: 0 auto">
@@ -14,7 +14,7 @@
           </v-col>
         </v-row>
         <v-row class="mt-5 mx-2" justify="center" align="center">
-          <v-text-field label="نام و نام خانوادگی" 
+          <v-text-field label="نام و نام خانوادگی"
           autofocus
           v-model="name">
           </v-text-field>
@@ -26,7 +26,7 @@
         <v-row class="mt-5 mx-2" justify="center" align="center">
           <v-text-field
               v-model="password1"
-              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+              :append-icon="show1 ? ImdiEye : ImdiEyeOff"
               :rules="[rules.required, rules.min]"
               :type="show1 ? 'text' : 'password'"
               name="input-10-1"
@@ -39,7 +39,7 @@
         <v-row class="mt-5 mx-2" justify="center" align="center">
           <v-text-field
               v-model="password2"
-              :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+              :append-icon="show2 ? ImdiEye : ImdiEyeOff"
               :rules="[rules.required, rules.min]"
               :type="show2 ? 'text' : 'password'"
               name="input-10-1"
@@ -51,7 +51,7 @@
         </v-row>
         <v-row class="mt-16 mx-2" align="center" justify="center" no-gutters>
           <v-col cols="12">
-            <v-btn class="btn white--text" 
+            <v-btn class="btn white--text"
             color="#000824" width="100%"
             @click="fetchData()">
               ثبت نام
@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import {mdiEye, mdiEyeOff} from "@mdi/js";
+
 export default {
   props: {
     isMobile: {
@@ -73,6 +75,8 @@ export default {
   },
   data () {
     return {
+      ImdiEye: mdiEye,
+      ImdiEyeOff: mdiEyeOff,
       show1: false,
       show2: false,
       password1: '',
@@ -87,13 +91,13 @@ export default {
   },
   methods:{
     fetchData(){
-      fetch('http://127.0.0.1:8000/api/user/register', 
+      fetch('http://127.0.0.1:8000/api/user/register',
       {method:'POST',
-      'headers': {'ACCEPT': 'application/json', 
+      'headers': {'ACCEPT': 'application/json',
       'Content-Type': 'application/json'},
-      'body': JSON.stringify({'email':this.email, 
+      'body': JSON.stringify({'email':this.email,
       'password': this.password1,
-      'password_confirmation': this.password2, 
+      'password_confirmation': this.password2,
       'name': this.name})
       }
       ).then(response => response.json())

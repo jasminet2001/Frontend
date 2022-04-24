@@ -8,14 +8,14 @@
 
         <v-spacer />
 
-        <v-col cols="4" style="margin-top:4em">
+        <v-col cols="5" style="margin-top:4em">
           <signup-card />
         </v-col>
       </v-row>
 
     </v-container>
     <v-container v-else class="pa-2" color="transparent" fill-height justify="center">
-      <v-card color="transparent" class="text-center" elevation="0" style="margin: 0 auto">
+      <v-card color="transparent" class="text-center" elevation="0" style="margin: 0 auto" width="60vw" min-width="350px">
         <v-card-title style="color: white; font-size: 2em" class="justify-center align-center font-weight-bold mb-3">
           ثبت نام
         </v-card-title>
@@ -55,28 +55,5 @@ export default {
 <style scoped>
 v-app{
   background-color: #000824c8;
-}
-.ma-2{
-  height: 100%;
-  width: 100%;
-}
-.link{
-  color: #999696;
-  margin: 1em;
-  text-decoration: none;
-}
-.form{
-  border-radius: 2em;
-  width: 40vw;
-  margin-left: 16em;
-  background-color: transparent;
-}
-.btn{
-  margin: 1em;
-  width: 8em;
-}
-.img{
-  margin-left: 6em;
-  margin-top: 6em;
 }
 </style>

@@ -20,7 +20,7 @@
         <v-row class="mt-5 mx-2" justify="center" align="center">
           <v-text-field
               v-model="password"
-              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+              :append-icon="show1 ? ImdiEye : ImdiEyeOff"
               :rules="[rules.required, rules.min]"
               :type="show1 ? 'text' : 'password'"
               name="input-10-1"
@@ -36,7 +36,7 @@
           </v-col>
 
           <v-col cols="6">
-            <v-btn class="btn white--text" 
+            <v-btn class="btn white--text"
             color="#000824" width="100%"
             @click="fetchData()">
               ورود
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import { mdiEye, mdiEyeOff } from '@mdi/js';
 export default {
   props: {
     isMobile: {
@@ -59,6 +60,9 @@ export default {
   },
   data () {
     return {
+      ImdiEye: mdiEye,
+      ImdiEyeOff: mdiEyeOff,
+      show1: false,
       password: '',
       rules: {
         required: value => !!value || 'رمز عبور لازم است!',
@@ -69,9 +73,9 @@ export default {
   },
   methods:{
     fetchData(){
-      fetch('http://127.0.0.1:8000/api/user/login', 
+      fetch('http://127.0.0.1:8000/api/user/login',
       {method:'POST',
-      'headers': {'ACCEPT': 'application/json', 
+      'headers': {'ACCEPT': 'application/json',
       'Content-Type': 'application/json'},
       'body': JSON.stringify({'email':this.email, 'password': this.password})
       }
