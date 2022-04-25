@@ -24,7 +24,7 @@ export default {
   },
     data() {
       return {
-          dashboard: false,
+          dashboard: true,
       };
     }
 }
