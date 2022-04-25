@@ -6,8 +6,10 @@
         <v-col cols="2"><h2>ویرایش پروفایل</h2></v-col>
     </v-row>
     <v-card
-    style="margin-right: 10em; margin-bottom: 4em;"
-    width="60vw"
+    style="margin-right: 15em; 
+    margin-bottom: 5em;"
+    width="70vw"
+    height="80%"
     elevation="4"
     raised
     rounded
