@@ -1,13 +1,15 @@
 <template>  
-<v-app>
-    <v-row width="40vw">
-        <v-col cols="1"><h2>پروفایل</h2></v-col>
-        <v-col cols="1"><v-icon>mdi-chevron-left</v-icon></v-col>
-        <v-col cols="2"><h2>ویرایش پروفایل</h2></v-col>
-    </v-row>
+<v-app class="grey lighten-3">
+    <v-container>
+        <v-layout row class="ma-4">
+            <v-flex><h2>پروفایل</h2></v-flex>
+            <v-flex><v-icon>mdi-chevron-left</v-icon></v-flex>
+            <v-flex><h2>ویرایش پروفایل</h2></v-flex>
+        </v-layout>
+    </v-container>
     <v-card
     style="margin-right: 15em; 
-    margin-bottom: 5em;"
+    margin-bottom: 4em;"
     width="70vw"
     height="80%"
     elevation="4"
@@ -94,3 +96,6 @@ export default {
     },
 }
 </script>
+<style scoped>
+
+</style>
