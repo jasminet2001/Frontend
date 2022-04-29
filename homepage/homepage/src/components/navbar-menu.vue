@@ -1,14 +1,17 @@
 <template>
-    <v-app>
+
         <!-- why is the menu rounded? -->
-        <v-card>
+        <v-card >
             <v-toolbar
             color="#000930"
             dark
-            flat>
+            flat
+            >
                 <v-tabs
                 v-model="tab"
-                align-with-title>
+                align-with-title
+                class="d-flex flex-row"
+                >
                     <v-tab>
                         <v-avatar
                         color="primary"
@@ -34,7 +37,7 @@
                 </v-tabs>
             </v-toolbar>
         </v-card>
-    </v-app>
+
 </template>
 
 <script>

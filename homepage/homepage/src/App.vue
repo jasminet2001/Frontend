@@ -8,19 +8,27 @@
 <!--    </v-layout>-->
 <!--  </v-container>-->
   <v-main>
-    <search-bar />
+    <v-row fluid>
+      <v-col right><navbar-menu/></v-col>
+    </v-row>
+    <v-row>
+      <v-col><search-bar/></v-col>
+    </v-row>
   </v-main>
 
 </template>
 
 <script>
 import SearchBar from "@/components/Search-bar";
-
+import NavbarMenu from '@/components/navbar-menu.vue';
 
 export default {
-  components: {SearchBar},
   name: 'App',
 
+  components: {
+    SearchBar, 
+    NavbarMenu
+  },
 
   data: () => ({
     image: "@/assets/top-pic.jpg",
