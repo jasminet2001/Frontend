@@ -5,16 +5,17 @@
       <v-flex>
         <navbar-menu/>
       </v-flex>
-  </v-layout>
-  <v-layout row>
-    <!-- <v-flex
-    :style="{'background-image': `url(${require(image)})`,
-    height:200,}">
-    </v-flex> -->
-    <v-flex>
-      
-    </v-flex>
-  </v-layout>
+    </v-layout>
+    <v-layout row>
+      <v-flex
+      style="
+      background: url('@/assets/top-pic.jpg') no-repeat center fixed !important; 
+      background-size: cover;">
+      </v-flex>
+      <v-flex>
+        
+      </v-flex>
+    </v-layout>
   </v-container>
 
 </template>
@@ -29,7 +30,8 @@ export default {
 
 
   data: () => ({
-    image: "@/assets/top_pic 1.jpg",
+    image: "@/assets/top-pic.jpg",
   }),
 };
 </script>
+
