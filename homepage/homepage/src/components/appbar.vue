@@ -33,7 +33,7 @@
 
 <script>
 export default({
-    name: 'navbar-menu',
+    name: 'app-bar',
     data(){
         return{
             tab:null,
@@ -42,7 +42,4 @@ export default({
 })
 </script>
 <style scoped>
-  .btn::before{
-   background-color: transparent !important;
-  }
 </style>
