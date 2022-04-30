@@ -7,27 +7,23 @@
 <!--      </v-flex>-->
 <!--    </v-layout>-->
 <!--  </v-container>-->
-  <v-main>
-    <v-row fluid>
-      <v-col right><navbar-menu/></v-col>
-    </v-row>
-    <v-row>
-      <v-col><search-bar/></v-col>
-    </v-row>
-  </v-main>
+  <v-app style="background-color: white">
+    <AppBar />
+    <search-bar />
+  </v-app>
 
 </template>
 
 <script>
-import SearchBar from "@/components/Search-bar";
-import NavbarMenu from '@/components/navbar-menu.vue';
+import SearchBar from '@/components/Search-bar';
+import AppBar from '@/components/appbar.vue';
 
 export default {
   name: 'App',
 
   components: {
-    SearchBar, 
-    NavbarMenu
+    AppBar,
+    SearchBar
   },
 
   data: () => ({
