@@ -4,52 +4,31 @@
     app
     elevate-on-scroll
     color="#000930"
-    dark>
-    <v-btn color="transparent" elevation="0" tile flat>صفحه اصلی</v-btn>
-    <v-btn color="transparent" elevation="0" tile flat>دسته بندی</v-btn>
-    <v-btn color="transparent" elevation="0" tile flat>ثبت شرکت</v-btn>
-    <v-btn color="transparent" elevation="0" tile flat>تماس با ما</v-btn>
-    <v-spacer />
-    <v-btn color="white" elevation="0" tile flat outlined class="rounded-lg">ورود</v-btn>
+    dark
+    class=""
+    height="70%">
+    <v-tabs>
+      <v-tab>
+        <v-btn icon>
+          <v-avatar
+            color="primary"
+            size="36"
+          ></v-avatar>
+        </v-btn>
+      </v-tab>
+      <v-tab>صفحه اصلی</v-tab>
+      <v-tab>دسته بندی</v-tab>
+      <v-tab>ثبت شرکت</v-tab>
+      <v-tab>تماس با ما</v-tab>
+      <v-spacer />
+      <v-tab>
+        <v-btn-toggle background-color="#000930" shaped>
+          <v-btn color="white" elevation="0" tile flat outlined class="pa-5">ورود</v-btn>
+          <v-btn color="white" elevation="0" tile flat outlined class="">ثبت نام</v-btn>
+        </v-btn-toggle>
+      </v-tab>
+    </v-tabs>
   </v-app-bar>
-        <!-- why is the menu rounded? -->
-<!--        <v-card >-->
-<!--            <v-toolbar-->
-<!--            color="#000930"-->
-<!--            dark-->
-<!--            flat-->
-<!--            >-->
-<!--                <v-tabs-->
-<!--                v-model="tab"-->
-<!--                align-with-title-->
-<!--                class="d-flex flex-row"-->
-<!--                >-->
-<!--                    <v-tab>-->
-<!--                        <v-avatar-->
-<!--                        color="primary"-->
-<!--                        size="36"-->
-<!--                        ></v-avatar>-->
-<!--                    </v-tab>-->
-<!--                    <v-tabs-slider color="white"></v-tabs-slider>-->
-<!--                    <v-tab>صفحه اصلی</v-tab>-->
-<!--                    <v-tab>دسته بندی</v-tab>-->
-<!--                    <v-tab>ثبت شرکت</v-tab>-->
-<!--                    <v-tab>تماس با ما</v-tab>-->
-<!--                    <v-spacer></v-spacer>-->
-<!--                    <v-tab>-->
-<!--                        &lt;!&ndash; how to create this btn &ndash;&gt;-->
-<!--                        <v-btn-->
-<!--                        rounded-->
-<!--                        outlined-->
-<!--                        color="white"-->
-<!--                        >-->
-<!--                            ورود-->
-<!--                        </v-btn>-->
-<!--                    </v-tab>-->
-<!--                </v-tabs>-->
-<!--            </v-toolbar>-->
-<!--        </v-card>-->
-
 </template>
 
 <script>
@@ -62,3 +41,8 @@ export default({
     },
 })
 </script>
+<style scoped>
+  .btn::before{
+   background-color: transparent !important;
+  }
+</style>

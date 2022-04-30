@@ -1,12 +1,4 @@
 <template>
-  <!-- why doesnt it take up the whole space? -->
-<!--  <v-container fluid>-->
-<!--    <v-layout row>-->
-<!--      <v-flex>-->
-<!--        <navbar-menu/>-->
-<!--      </v-flex>-->
-<!--    </v-layout>-->
-<!--  </v-container>-->
   <v-app style="background-color: white">
     <AppBar />
     <search-bar />
