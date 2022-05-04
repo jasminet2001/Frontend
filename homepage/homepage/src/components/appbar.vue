@@ -20,6 +20,36 @@
       <v-tab>دسته بندی</v-tab>
       <v-tab>ثبت شرکت</v-tab>
       <v-tab>تماس با ما</v-tab>
+      <template
+      v-slot:activator="{ on, attrs }">
+      <v-tab
+      v-bind="attrs"
+      v-on="on"
+      >دسته بندی ها</v-tab>
+      </template>
+      <v-menu
+        open-on-hover
+        top
+        offset-y
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-tab
+          v-bind="attrs"
+          v-on="on"
+          >دسته بندی ها
+          </v-tab>
+        </template>
+
+        <v-list>
+          <v-list-item
+            v-for="item in items"
+            :key="item"
+            link
+          >
+            <v-list-item-title v-text="item"></v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
       <v-spacer />
       <v-tab>
         <v-btn-toggle background-color="#000930" shaped>
@@ -37,6 +67,12 @@ export default({
     data(){
         return{
             tab:null,
+            items: [
+            'غذایی' ,
+            'برودتی',
+            'پیچ و مهره',
+            'قالب سازی' ,
+          ],
         }
     },
 })
