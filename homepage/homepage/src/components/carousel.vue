@@ -1,17 +1,23 @@
 <template>
     <v-carousel
     cycle
-    hide-delimiter-background
-    
+    hide-delimiter-background    
     >
         <v-carousel-item>
             <v-card
-            color="#000426" class="white--text" rounded
+            color="#000426" class="white--text" 
+            rounded :height="height"
              >
                 <v-row class="d-flex pa-8">
                     <v-col cols="7" >
                         <v-card-title class="text-wrap ma-4">چگونه میتوانیم فروش موفق در چین داشته باشیم؟</v-card-title>
-                        <v-card-text class="white--text text-wrap mr-4 text">
+                        <p class="white--text 
+                        text-wrap mr-6 
+                        text-xs-body-1
+                        text-sm-body-1 
+                        text-md-body-2 
+                        text-lg-body-2 
+                        ">
                             در این مقاله سعی شده روش های نوین یک تجارت موفق در چین را بررسی کنیم.
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
                              چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای
@@ -20,7 +26,7 @@
                               الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام
                               و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی
                               دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                        </v-card-text>
+                        </p>
                         <v-card-actions class="btn">
                             <v-btn color="#394DB8" class="white--text px-8 pa-4">
                                 دیدن مقاله
@@ -149,6 +155,18 @@
 <script>
 export default{
     name: 'carousel-slider',
+    // why does it give me an error?
+    // computed: {
+    //   height () {
+    //     switch (this.$vuetify.breakpoint.name) {
+    //       case 'xs': return 220
+    //       case 'sm': return 400
+    //       case 'md': return 500
+    //       case 'lg': return 600
+    //       case 'xl': return 800
+    //     }
+    //   },
+    // },
 }
 
 </script>
