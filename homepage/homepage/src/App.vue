@@ -3,6 +3,7 @@
     <AppBar />
     <search-bar />
     <carousel/>
+    <category-ads/>
   </v-app>
 
 </template>
@@ -11,6 +12,7 @@
 import SearchBar from '@/components/Search-bar';
 import AppBar from '@/components/appbar.vue';
 import Carousel from './components/carousel.vue';
+import CategoryAds from './components/category-ads.vue';
 
 export default {
   name: 'App',
@@ -18,7 +20,8 @@ export default {
   components: {
     AppBar,
     SearchBar,
-    Carousel
+    Carousel,
+    CategoryAds
   },
 
   data: () => ({
