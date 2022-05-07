@@ -1,32 +1,31 @@
 <template>
-  <v-app>
-    <v-main>
-      <signup-component v-if="showSignup" />
-      <login-component v-if="showLogin" />
-      <ads-list v-if="showAds"/>
-    </v-main>
+  <v-app style="background-color: white">
+    <app-bar />
+    <search-bar />
+    <top-carousel />
+    <costumers-slide-group />
+    <register-company />
+    <homepage-footer />
   </v-app>
+
 </template>
 
 <script>
-import LoginComponent from "@/components/login/LoginComponent";
-import SignupComponent from "@/components/signup/SignupComponent";
-import AdsList from "@/components/profile/AdsList";
+import SearchBar from './components/homepage/SearchBar';
+import AppBar from './components/homepage/AppBar.vue';
+import TopCarousel from './components/homepage/TopCarousel.vue';
+import HomepageFooter from "@/components/homepage/HomepageFooter";
+import CostumersSlideGroup from "@/components/homepage/CostumersSlideGroup";
+import RegisterCompany from "@/components/homepage/RegisterCompany";
 export default {
+  name: 'App',
   components: {
-    AdsList,
-    SignupComponent,
-    LoginComponent
+    RegisterCompany,
+    CostumersSlideGroup,
+    AppBar,
+    SearchBar,
+    TopCarousel,
+    HomepageFooter
   },
-  data () {
-    return {
-      showSignup: false,
-      showLogin: true,
-      showAds: false
-    }
-  }
-}
+};
 </script>
-<style>
-@import "assets/main.css";
-</style>
