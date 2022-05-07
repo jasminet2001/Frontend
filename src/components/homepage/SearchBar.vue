@@ -1,5 +1,28 @@
 <template>
-  <v-container class="main-div" fluid>
+  <v-container v-if="isMobile()" class="main-div" fluid>
+    <v-row class="title-m">
+      <v-col>
+        <h1>صنعت یاب</h1>
+      </v-col>
+    </v-row>
+    <v-row class="description">
+      <v-col>
+        <h2>جست و جوگر پیشرفته صنعت</h2>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <v-text-field
+            placeholder="جست و جوی خدمات، خدمات و آگهی ها"
+            solo
+            rounded
+            prepend-inner-icon="mdi-magnify"
+        ></v-text-field>
+      </v-col>
+    </v-row>
+    <!-- style="width: 80%; margin: 0 auto" -->
+  </v-container>
+  <v-container v-else class="main-div" fluid>
     <v-row class="title">
       <v-col>
         <h1>صنعت یاب</h1>
@@ -24,21 +47,45 @@
   </v-container>
 </template>
 
+<script>
+export default({
+  data(){
+    return{
+
+    }
+  },
+  methods: {
+    isMobile() {
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return true
+      }
+      else {
+        return false
+      }
+    }
+  },
+})
+</script>
+
 <style scoped>
-.main-div {
-  background-image: url("../../assets/top-pic.jpeg") !important;
+.main-div{
+  background-image: url("../../assets/top-pic.jpg") !important;
   background-size: cover;
   height: 90vh;
   padding: 10%;
   color: white;
   text-align: center;
 }
-
-.title {
+.title{
   margin-bottom: 2%;
 }
-
-.description {
+.title-m{
+  margin: 30% 0 2% 0;
+}
+.search-m{
+  margin-top: 30%;
+}
+.description{
   margin: 6%;
 }
 </style>

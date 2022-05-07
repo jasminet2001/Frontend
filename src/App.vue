@@ -3,6 +3,7 @@
     <app-bar />
     <search-bar />
     <top-carousel />
+    <category-ads />
     <costumers-slide-group />
     <register-company />
     <homepage-footer />
@@ -17,6 +18,8 @@ import TopCarousel from './components/homepage/TopCarousel.vue';
 import HomepageFooter from "@/components/homepage/HomepageFooter";
 import CostumersSlideGroup from "@/components/homepage/CostumersSlideGroup";
 import RegisterCompany from "@/components/homepage/RegisterCompany";
+import CategoryAds from "@/components/homepage/CategoryAds";
+
 export default {
   name: 'App',
   components: {
@@ -25,7 +28,8 @@ export default {
     AppBar,
     SearchBar,
     TopCarousel,
-    HomepageFooter
+    HomepageFooter,
+    CategoryAds
   },
 };
 </script>
