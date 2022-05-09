@@ -73,14 +73,27 @@ export default {
   },
   methods:{
     fetchData(){
-      fetch('http://127.0.0.1:8000/api/user/login',
-      {method:'POST',
-      'headers': {'ACCEPT': 'application/json',
-      'Content-Type': 'application/json'},
-      'body': JSON.stringify({'email':this.email, 'password': this.password})
-      }
-      ).then(response => response.json())
-      .then(response => console.log(response))
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      data.append('email', this.email);
+      data.append('password', this.password);
+
+      var config = {
+        method: 'post',
+        url: 'http://localhost:8000/api/user/login',
+        headers: {
+          'Accept': 'application/json',
+        },
+        data : data
+      };
+
+      axios(config)
+          .then(function (response) {
+            var result=response.data;
+            this.$cookies.set('token', result.token);
+            this.$cookies.set('user', result.user);
+          })
     }
   }
 }

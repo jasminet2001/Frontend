@@ -1,5 +1,7 @@
 <template>
-  <v-app style="background-color: white">
+
+  <v-app v-if="homepage"
+         style="background-color: white">
     <app-bar />
     <search-bar />
     <top-carousel />
@@ -8,6 +10,8 @@
     <register-company />
     <homepage-footer />
   </v-app>
+  <login-component v-else-if="login"/>
+  <signup-component v-else/>
 
 </template>
 
@@ -19,6 +23,8 @@ import HomepageFooter from "@/components/homepage/HomepageFooter";
 import CostumersSlideGroup from "@/components/homepage/CostumersSlideGroup";
 import RegisterCompany from "@/components/homepage/RegisterCompany";
 import CategoryAds from "@/components/homepage/CategoryAds";
+import LoginComponent from './components/login/LoginComponent.vue';
+import SignupComponent from './components/signup/SignupComponent.vue';
 
 export default {
   name: 'App',
@@ -29,7 +35,15 @@ export default {
     SearchBar,
     TopCarousel,
     HomepageFooter,
-    CategoryAds
+    CategoryAds,
+    LoginComponent,
+    SignupComponent
+  },
+  data(){
+    return{
+      login: false,
+      homepage: true,
+    }
   },
 };
 </script>

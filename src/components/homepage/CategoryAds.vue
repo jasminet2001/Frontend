@@ -27,84 +27,11 @@
           <!-- container for buttons -->
           <div>
             <v-row>
-              <v-col>
+              <v-col  v-for="(cat, key) in items" :key="key">
                 <v-btn
                     elevation="2"
                     rounded
-                >غذایی</v-btn>
-              </v-col>
-
-              <v-col>
-                <v-btn
-                    elevation="2"
-                    rounded
-                >هاور</v-btn>
-              </v-col>
-              <v-col>
-                <v-btn
-                    elevation="2"
-                    rounded
-                >برودتی</v-btn>
-              </v-col>
-              <v-col>
-                <v-btn
-                    elevation="2"
-                    rounded
-                >پیچ و مهره</v-btn>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <v-btn
-                    elevation="2"
-                    rounded
-                >غذایی</v-btn>
-              </v-col>
-
-              <v-col>
-                <v-btn
-                    elevation="2"
-                    rounded
-                >هاور</v-btn>
-              </v-col>
-              <v-col>
-                <v-btn
-                    elevation="2"
-                    rounded
-                >برودتی</v-btn>
-              </v-col>
-              <v-col>
-                <v-btn
-                    elevation="2"
-                    rounded
-                >پیچ و مهره</v-btn>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <v-btn
-                    elevation="2"
-                    rounded
-                >غذایی</v-btn>
-              </v-col>
-
-              <v-col>
-                <v-btn
-                    elevation="2"
-                    rounded
-                >هاور</v-btn>
-              </v-col>
-              <v-col>
-                <v-btn
-                    elevation="2"
-                    rounded
-                >برودتی</v-btn>
-              </v-col>
-              <v-col>
-                <v-btn
-                    elevation="2"
-                    rounded
-                >پیچ و مهره</v-btn>
+                >{{cat.name}}</v-btn>
               </v-col>
             </v-row>
           </div>
@@ -138,8 +65,42 @@ export default {
       else {
         return false
       }
+    },
+    fetchData() {
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      console.log('hey');
+      var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/categories',
+        headers: {
+          'Accept': 'application/json',
+        },
+        data : data
+      };
+      var catSaver=data=>this.saver(data);
+      axios(config)
+          .then(function (response) {
+            catSaver(response.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    },
+    saver(data){
+      this.items = data.categories;
+      console.log(this.items);
     }
   },
+  mounted() {
+    this.fetchData();
+  },
+  watch:{
+    items: function(){
+      console.log(this.items)
+    }
+  }
 };
 </script>
 <style scoped>

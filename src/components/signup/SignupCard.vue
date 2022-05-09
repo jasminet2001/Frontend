@@ -65,7 +65,6 @@
 
 <script>
 import {mdiEye, mdiEyeOff} from "@mdi/js";
-
 export default {
   props: {
     isMobile: {
@@ -91,18 +90,30 @@ export default {
   },
   methods:{
     fetchData(){
-      fetch('http://127.0.0.1:8000/api/user/register',
-      {method:'POST',
-      'headers': {'ACCEPT': 'application/json',
-      'Content-Type': 'application/json'},
-      'body': JSON.stringify({'email':this.email,
-      'password': this.password1,
-      'password_confirmation': this.password2,
-      'name': this.name})
-      }
-      ).then(response => response.json())
-      .then(response => console.log(response))
-    }
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      data.append('name', this.name);
+      data.append('email', this.email);
+      data.append('password', this.password1);
+      data.append('password_confirmation', this.password2);
+
+      var config = {
+        method: 'post',
+        url: 'http://localhost:8000/api/user/signup',
+        headers: {
+          'Accept': 'application/json',
+        },
+        data : data
+      };
+
+      axios(config)
+          .then(result => {
+            result=result.data;
+            this.$cookies.set('token', result.token);
+            this.$cookies.set('user', result.user);
+          })
+    },
   }
 }
 </script>
