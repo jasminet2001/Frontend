@@ -9,9 +9,14 @@
     <costumers-slide-group />
     <register-company />
     <homepage-footer />
+    <sidebar-navigation />
   </v-app>
   <login-component v-else-if="login"/>
-  <signup-component v-else/>
+  <signup-component v-else-if="signup"/>
+  <v-app v-else-if="userpanel">
+    <sidebar-navigation v-if="this.$vuetify.breakpoint.mdAndUp" />
+    <user-dashboard />
+  </v-app>
 
 </template>
 
@@ -25,10 +30,14 @@ import RegisterCompany from "@/components/homepage/RegisterCompany";
 import CategoryAds from "@/components/homepage/CategoryAds";
 import LoginComponent from './components/login/LoginComponent.vue';
 import SignupComponent from './components/signup/SignupComponent.vue';
+import UserDashboard from "@/components/userpanel/UserDashboard";
+import SidebarNavigation from "@/components/userpanel/SidebarNavigation";
 
 export default {
   name: 'App',
   components: {
+    SidebarNavigation,
+    UserDashboard,
     RegisterCompany,
     CostumersSlideGroup,
     AppBar,
@@ -42,7 +51,9 @@ export default {
   data(){
     return{
       login: false,
-      homepage: true,
+      homepage: false,
+      signup: false,
+      userpanel: true
     }
   },
 };
