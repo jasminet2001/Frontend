@@ -17,6 +17,10 @@
     <sidebar-navigation v-if="this.$vuetify.breakpoint.mdAndUp" />
     <user-dashboard />
   </v-app>
+  <v-app v-else-if="temp">
+    <sidebar-navigation v-if="this.$vuetify.breakpoint.mdAndUp" />
+    <request-ad />
+  </v-app>
 
 </template>
 
@@ -32,10 +36,12 @@ import LoginComponent from './components/login/LoginComponent.vue';
 import SignupComponent from './components/signup/SignupComponent.vue';
 import UserDashboard from "@/components/userpanel/UserDashboard";
 import SidebarNavigation from "@/components/userpanel/SidebarNavigation";
+import RequestAd from "@/components/profile/RequestAd";
 
 export default {
   name: 'App',
   components: {
+    RequestAd,
     SidebarNavigation,
     UserDashboard,
     RegisterCompany,
@@ -53,8 +59,12 @@ export default {
       login: false,
       homepage: false,
       signup: false,
-      userpanel: true
+      userpanel: false,
+      temp: true
     }
   },
 };
 </script>
+<style>
+@import "assets/main.css";
+</style>
