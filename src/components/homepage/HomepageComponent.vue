@@ -21,6 +21,9 @@ import CategoryAds from "./CategoryAds";
 
 export default {
   name: "HomepageComponent",
+  onMounted() {
+    this.$vuetify.rtl = false
+  },
   components: {
     RegisterCompany,
     CostumersSlideGroup,
