@@ -30,22 +30,36 @@
                             </v-row>
 
                             <v-row class="row-res">
-                                <v-text-field
-                                label="نام و نام خانوادگی">
+                                <v-text-field v-model="name"
+                                label="نام و نام خانوادگی"
+                                outlined>
                                 </v-text-field>
                             </v-row>
 
-                            <v-row class="row-res"><v-text-field label="رمز عبور فعلی"></v-text-field></v-row>
-                            <v-row class="row-res"><v-text-field label="رمز عبور جدید"></v-text-field></v-row>
-                            <v-row class="row-res"><v-text-field label="ایمیل"></v-text-field></v-row>
-                            <v-row class="row-res"><v-text-field label="شماره همراه"></v-text-field></v-row>
-                            <v-row class="row-res"><v-text-field label="وبسایت"></v-text-field></v-row>
-                            <v-row class="row-res"><v-text-field label="آدرس"></v-text-field></v-row>
+                            <v-row class="row-res"><v-text-field label="رمز عبور فعلی"
+                            v-model="password1"
+                            outlined></v-text-field></v-row>
+                            <v-row class="row-res"><v-text-field label="رمز عبور جدید"
+                            v-model="password2"
+                            outlined></v-text-field></v-row>
+                            <v-row class="row-res"><v-text-field label="ایمیل"
+                            v-model="email"
+                            outlined></v-text-field></v-row>
+                            <v-row class="row-res"><v-text-field label="شماره همراه"
+                            v-model="phone"
+                            outlined></v-text-field></v-row>
+                            <v-row class="row-res"><v-text-field label="وبسایت"
+                            v-model="website"
+                            outlined></v-text-field></v-row>
+                            <v-row class="row-res"><v-text-field label="آدرس"
+                            v-model="address"
+                            outlined></v-text-field></v-row>
                             <v-row class="row-res">
                                 <v-select
                                 :items="gender"
                                 label="جنسیت"
                                 solo
+                                outlined
                                 style="margin-top: 2em;"
                                 ></v-select>
                             </v-row>
@@ -60,6 +74,7 @@
                             text
                             style="background-color: #3751FF;
                             color:white;"
+                            @click="submit"
                             >
                                 ذخیره تغییرات
                             </v-btn>
@@ -72,6 +87,7 @@
                             outlined
                             large
                             raised
+                            @click="clear"
                             >لغو</v-btn>
                         </v-col>
                     </v-row>
@@ -85,20 +101,20 @@
         <SidebarNavigation/>
         <h2 class="mb-5">ویرایش پروفایل</h2>
         <v-card
-            class="rounded-lg"
-            style="margin-bottom: 4em;"
-            width="70vw"
-            height="80%"
-            elevation="4"
-            raised
-            rounded
-            outlined
+        class="card-desktop"
+        style="margin-bottom: 4em;"
+        width="70vw"
+        height="80%"
+        elevation="4"
+        raised
+        rounded
+        outlined
         >
           <v-card-text>
             <v-form class="px-3" v-model="submitForm">
               <v-row class="pa-3">
                 <v-col cols="6"
-                       class="px-8 col">
+                class="px-8 col">
                   <v-row class="row">
                     <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
                     <p>بارگزاری تصویر پروفایل</p>
@@ -106,56 +122,74 @@
                   <v-row class="row">
                     <input type="file" @change="onFileSelected">
                     <v-btn
-                        color="primary"
-                        elevation="2"
-                        small
-                        @click="onUpload">Upload</v-btn>
+                    color="primary"
+                    elevation="2"
+                    small
+                    @click="onUpload">Upload
+                    </v-btn>
                   </v-row>
 
                   <v-row class="row">
                     <v-text-field
-                        label="نام و نام خانوادگی">
+                    label="نام و نام خانوادگی"
+                    v-model="name"
+                    outlined>
                     </v-text-field>
                   </v-row>
 
-                  <v-row class="row"><v-text-field label="رمز عبور فعلی"></v-text-field></v-row>
-                  <v-row class="row"><v-text-field label="رمز عبور جدید"></v-text-field></v-row>
-                  <v-row class="row"><v-text-field label="ایمیل"></v-text-field></v-row>
+                  <v-row class="row"><v-text-field label="رمز عبور فعلی"
+                  v-model="password1"
+                  outlined></v-text-field></v-row>
+                  <v-row class="row"><v-text-field label="رمز عبور جدید"
+                  v-model="password2"
+                  outlined></v-text-field></v-row>
+                  <v-row class="row"><v-text-field label="ایمیل"
+                  v-model="email"
+                  outlined></v-text-field></v-row>
                 </v-col>
 
                 <v-col cols="6"
-                       class="px-8 col">
-                  <v-text-field label="شماره همراه"></v-text-field>
-                  <v-text-field label="وبسایت"></v-text-field>
-                  <v-text-field label="آدرس">  </v-text-field>
+                class="px-8 col">
+                  <v-text-field label="شماره همراه"
+                  v-model="phone"
+                  outlined></v-text-field>
+                  <v-text-field label="وبسایت"
+                  v-model="website"
+                  outlined></v-text-field>
+                  <v-text-field label="آدرس"
+                  v-model="address"
+                  outlined></v-text-field>
                   <v-select
                       :items="gender"
                       label="جنسیت"
                       solo
+                      outlined
                   ></v-select>
 
                   <!-- save button -->
                   <v-btn
-                      class="btn"
-                      elevation="4"
-                      large
-                      outlined
-                      raised
-                      text
-                      style="background-color: #3751FF;
-                            color:white;"
+                    class="btn"
+                    elevation="4"
+                    large
+                    outlined
+                    raised
+                    text
+                    style="background-color: #3751FF;
+                    color:white;"
+                    @click="submit"
                   >
                     ذخیره تغییرات
                   </v-btn>
 
                   <!-- clear button -->
                   <v-btn
-                      class="btn"
-                      color="#3751FF"
-                      elevation="4"
-                      outlined
-                      large
-                      raised
+                    class="btn"
+                    color="#3751FF"
+                    elevation="4"
+                    outlined
+                    large
+                    raised
+                    @click="clear()"
                   >لغو</v-btn>
                 </v-col>
               </v-row>
@@ -171,6 +205,13 @@ import SidebarNavigation from "./SidebarNavigation.vue"
 export default {
     name: "EditProfile",
     data: () => ({
+        name: '',
+        email: '',
+        password1:'',
+        password2:'',
+        website:'',
+        address:'',
+        phone: '',
         gender: ["زن", "مرد"],
         status: ["کاربر عادی", "کاربر شرکتی"],
         //for birthdate
@@ -207,13 +248,23 @@ export default {
         onUpload(){
 
         },
-        submitForm(e){
-            // var task = this.newTask
-            // this.todoList.push(task)
-            // this.newTask = ''
-            // To prevent the form from submitting
-            e.preventDefault();
-        }
+        submit () {
+            this.$v.$touch()
+        },
+        //why doesn't it work??
+        clear () {
+            this.$v.$reset()
+            this.name = ''
+            this.email = ''
+            this.select = null
+            this.checkbox = false
+            this.website = ''
+            this.phone = ''
+            this.password1 = ''
+            this.password2 = ''
+            this.address = ''
+            this.gender = null
+        },
     },
     components: { SidebarNavigation }
 }
@@ -228,7 +279,7 @@ export default {
         margin: .5em;
     }
     .btn{
-        margin-top: 10em;
+        margin-top: 7em;
     }
     .btn-mobile{
         margin-top: 1em;
@@ -240,6 +291,10 @@ export default {
     .card-res{
         margin: 1em;
         padding: 1em;
+        border: 2px dashed #000080;
+    }
+    .card-desktop{
+        border: 2px dashed #000080;
     }
     .row-res{
         text-align: center;

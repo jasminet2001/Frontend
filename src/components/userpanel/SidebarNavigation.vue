@@ -93,7 +93,14 @@
         <v-list-item-icon>
           <v-icon>mdi-brightness-4</v-icon>
         </v-list-item-icon>
-        <v-list-item-title>light mode</v-list-item-title>
+        <v-list-item-title>
+          <v-switch
+          v-model="$vuetify.theme.dark"
+          inset
+          label="Dark Mode"
+          persistent-hint
+          ></v-switch>
+        </v-list-item-title>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -190,7 +197,14 @@
           <v-list-item-icon>
             <v-icon>mdi-brightness-4</v-icon>
           </v-list-item-icon>
-          <v-list-item-title>light mode</v-list-item-title>
+          <v-list-item-title>
+            <v-switch
+            v-model="$vuetify.theme.dark"
+            inset
+            label="Dark Mode"
+            persistent-hint
+          ></v-switch>
+          </v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
