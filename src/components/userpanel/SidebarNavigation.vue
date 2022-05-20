@@ -218,14 +218,6 @@ export default {
     group: null,
   }),
   methods: {
-    isMobile() {
-      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        return true
-      }
-      else {
-        return false
-      }
-    },
     dashboard(){
       this.$router.push('/userpanel');
     },
