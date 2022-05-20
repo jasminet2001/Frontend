@@ -12,10 +12,11 @@ Vue.use(VueCookies,{expires: '3h'})
 Vue.use(VueRouter)
 const router=new VueRouter({
     routes:Routes,
-    mode:"history"
+    mode:"history",
 })
 new Vue({
   vuetify,
   render: h => h(App),
-  router:router
+  router:router,
 }).$mount('#app')
+

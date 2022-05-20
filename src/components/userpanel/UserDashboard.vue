@@ -1,5 +1,6 @@
 <template>
   <v-main>
+    <SidebarNavigation/>
     <top-display-row :item-list="cardsList" />
     <ads-container :ads-list="adsList" />
     <v-sheet v-if="this.$vuetify.breakpoint.mdAndUp" class="pa-8">
@@ -24,9 +25,14 @@ import TopDisplayRow from "@/components/userpanel/TopDisplayRow";
 import AdsContainer from "@/components/userpanel/AdsContainer";
 import DashboardChecklist from "@/components/userpanel/DashboardChecklist";
 import UnansweredTickets from "@/components/userpanel/UnansweredTickets";
+import SidebarNavigation from "./SidebarNavigation.vue";
+
 
 export default {
-  components: {UnansweredTickets, AdsContainer, TopDisplayRow, DashboardChecklist},
+  components: { UnansweredTickets, AdsContainer, TopDisplayRow, DashboardChecklist, SidebarNavigation },
+  onMounted() {
+    this.$vuetify.rtl = true;
+  },
   data () {
     return {
       cardsList: [
