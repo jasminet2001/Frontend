@@ -84,13 +84,6 @@
     <v-list>
       <v-list-item link>
         <v-list-item-icon>
-          <v-icon>mdi-exit-to-app</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>خروج</v-list-item-title>
-      </v-list-item>
-      <!-- fix this light mode -->
-      <v-list-item link>
-        <v-list-item-icon>
           <v-icon>mdi-brightness-4</v-icon>
         </v-list-item-icon>
         <v-list-item-title>
@@ -101,6 +94,13 @@
           persistent-hint
           ></v-switch>
         </v-list-item-title>
+      </v-list-item>
+
+      <v-list-item link>
+        <v-list-item-icon>
+          <v-icon>mdi-exit-to-app</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>خروج</v-list-item-title>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -188,13 +188,6 @@
       <v-list>
         <v-list-item link>
           <v-list-item-icon>
-            <v-icon>mdi-exit-to-app</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>خروج</v-list-item-title>
-        </v-list-item>
-        <!-- fix this light mode -->
-        <v-list-item link>
-          <v-list-item-icon>
             <v-icon>mdi-brightness-4</v-icon>
           </v-list-item-icon>
           <v-list-item-title>
@@ -205,6 +198,13 @@
             persistent-hint
           ></v-switch>
           </v-list-item-title>
+        </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon>mdi-exit-to-app</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>خروج</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
