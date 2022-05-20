@@ -19,26 +19,10 @@
                         <v-col cols="6"
                         class="px-8 col">
                             <v-row class="row">
-                                <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
-                                <p>بارگزاری تصویر پروفایل</p>
-                            </v-row>
-                            <v-row class="row">
-                                <input type="file" @change="onFileSelected">
-                                <v-btn 
-                                color="primary"
-                                elevation="2"
-                                small
-                                @click="onUpload">Upload</v-btn>
-                            </v-row>
-
-                            <v-row class="row">
                                 <v-text-field 
-                                label="نام و نام خانوادگی">
+                                label="عنوان آگهی">
                                 </v-text-field>
                             </v-row>
-
-                            <v-row class="row"><v-text-field label="رمز عبور فعلی"></v-text-field></v-row>
-                            <v-row class="row"><v-text-field label="رمز عبور جدید"></v-text-field></v-row>
                             <v-row class="row"><v-text-field label="ایمیل"></v-text-field></v-row>
                         </v-col>
 
