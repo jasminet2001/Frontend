@@ -1,15 +1,15 @@
 <template>
   <div>
     <!-- desktop mode -->
-    <v-navigation-drawer 
-    class="grey darken-4"
-    v-if="this.$vuetify.breakpoint.mdAndUp"
-    dark
-    clipped
-    right
-    app
-    permanent
-    >
+    <v-navigation-drawer
+      class="grey darken-4"
+      v-if="this.$vuetify.breakpoint.mdAndUp"
+      dark
+      clipped
+      right
+      app
+      permanent
+      >
       <v-list>
         <v-list-item class="px-2">
           <v-list-item-avatar>
@@ -94,7 +94,7 @@
     </v-navigation-drawer>
 
     <!-- responsive -->
-    <v-card
+    <v-card v-else
       class="mx-auto overflow-hidden"
       height="400"
     >
@@ -161,7 +161,7 @@ export default {
         this.$router.push('/subAds');
       },
   },
-  
+
 }
 </script>
 

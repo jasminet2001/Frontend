@@ -1,23 +1,25 @@
 <template>
-  <v-main>
+  <v-app>
     <SidebarNavigation/>
-    <top-display-row :item-list="cardsList" />
-    <ads-container :ads-list="adsList" />
-    <v-sheet v-if="this.$vuetify.breakpoint.mdAndUp" class="pa-8">
-      <v-row>
-        <v-col cols="6">
-          <dashboard-checklist />
-        </v-col>
-        <v-col cols="6">
-          <unanswered-tickets />
-        </v-col>
-      </v-row>
+    <v-sheet>
+      <top-display-row :item-list="cardsList" />
+      <ads-container :ads-list="adsList" />
+      <v-sheet v-if="this.$vuetify.breakpoint.mdAndUp" class="pa-8">
+        <v-row>
+          <v-col cols="6">
+            <dashboard-checklist />
+          </v-col>
+          <v-col cols="6">
+            <unanswered-tickets />
+          </v-col>
+        </v-row>
+      </v-sheet>
+      <div v-else>
+        <dashboard-checklist class="mb-3"/>
+        <UnansweredTickets />
+      </div>
     </v-sheet>
-    <div v-else>
-      <dashboard-checklist class="mb-3"/>
-      <UnansweredTickets />
-    </div>
-  </v-main>
+  </v-app>
 </template>
 
 <script>

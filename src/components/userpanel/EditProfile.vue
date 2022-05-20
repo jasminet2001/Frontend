@@ -1,5 +1,4 @@
-<template> 
-
+<template>
     <v-app v-if="isMobile()">
         <SidebarNavigation/>
         <h2 class="title-res">ویرایش پروفایل</h2>
@@ -31,7 +30,7 @@
                             </v-row>
 
                             <v-row class="row-res">
-                                <v-text-field 
+                                <v-text-field
                                 label="نام و نام خانوادگی">
                                 </v-text-field>
                             </v-row>
@@ -41,7 +40,7 @@
                             <v-row class="row-res"><v-text-field label="ایمیل"></v-text-field></v-row>
                             <v-row class="row-res"><v-text-field label="شماره همراه"></v-text-field></v-row>
                             <v-row class="row-res"><v-text-field label="وبسایت"></v-text-field></v-row>
-                            <v-row class="row-res"><v-text-field label="آدرس"></v-text-field></v-row>  
+                            <v-row class="row-res"><v-text-field label="آدرس"></v-text-field></v-row>
                             <v-row class="row-res">
                                 <v-select
                                 :items="gender"
@@ -82,87 +81,88 @@
     </v-app>
 
     <v-app class="grey lighten-4" v-else>
+      <v-sheet align="center" justify="center" color="transparent" elevation="0" class="pa-8">
         <SidebarNavigation/>
-        <h2 class="title-res-desktop">ویرایش پروفایل</h2>
+        <h2 class="mb-5">ویرایش پروفایل</h2>
         <v-card
-        class="rounded-lg"
-        style="margin-right: 20em; 
-        margin-bottom: 4em;"
-        width="70vw"
-        height="80%"
-        elevation="4"
-        raised
-        rounded
-        outlined  
+            class="rounded-lg"
+            style="margin-bottom: 4em;"
+            width="70vw"
+            height="80%"
+            elevation="4"
+            raised
+            rounded
+            outlined
         >
-            <v-card-text>
-                <v-form class="px-3" v-model="submitForm">
-                    <v-row class="pa-3">
-                        <v-col cols="6"
-                        class="px-8 col">
-                            <v-row class="row">
-                                <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
-                                <p>بارگزاری تصویر پروفایل</p>
-                            </v-row>
-                            <v-row class="row">
-                                <input type="file" @change="onFileSelected">
-                                <v-btn 
-                                color="primary"
-                                elevation="2"
-                                small
-                                @click="onUpload">Upload</v-btn>
-                            </v-row>
+          <v-card-text>
+            <v-form class="px-3" v-model="submitForm">
+              <v-row class="pa-3">
+                <v-col cols="6"
+                       class="px-8 col">
+                  <v-row class="row">
+                    <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
+                    <p>بارگزاری تصویر پروفایل</p>
+                  </v-row>
+                  <v-row class="row">
+                    <input type="file" @change="onFileSelected">
+                    <v-btn
+                        color="primary"
+                        elevation="2"
+                        small
+                        @click="onUpload">Upload</v-btn>
+                  </v-row>
 
-                            <v-row class="row">
-                                <v-text-field 
-                                label="نام و نام خانوادگی">
-                                </v-text-field>
-                            </v-row>
+                  <v-row class="row">
+                    <v-text-field
+                        label="نام و نام خانوادگی">
+                    </v-text-field>
+                  </v-row>
 
-                            <v-row class="row"><v-text-field label="رمز عبور فعلی"></v-text-field></v-row>
-                            <v-row class="row"><v-text-field label="رمز عبور جدید"></v-text-field></v-row>
-                            <v-row class="row"><v-text-field label="ایمیل"></v-text-field></v-row>
-                        </v-col>
+                  <v-row class="row"><v-text-field label="رمز عبور فعلی"></v-text-field></v-row>
+                  <v-row class="row"><v-text-field label="رمز عبور جدید"></v-text-field></v-row>
+                  <v-row class="row"><v-text-field label="ایمیل"></v-text-field></v-row>
+                </v-col>
 
-                        <v-col cols="6"
-                        class="px-8 col"> 
-                            <v-text-field label="شماره همراه"></v-text-field>
-                            <v-text-field label="وبسایت"></v-text-field>
-                            <v-text-field label="آدرس">  </v-text-field>
-                            <v-select
-                            :items="gender"
-                            label="جنسیت"
-                            solo
-                            ></v-select>
+                <v-col cols="6"
+                       class="px-8 col">
+                  <v-text-field label="شماره همراه"></v-text-field>
+                  <v-text-field label="وبسایت"></v-text-field>
+                  <v-text-field label="آدرس">  </v-text-field>
+                  <v-select
+                      :items="gender"
+                      label="جنسیت"
+                      solo
+                  ></v-select>
 
-                            <!-- save button -->
-                            <v-btn
-                            class="btn"
-                            elevation="4"
-                            large
-                            outlined
-                            raised
-                            text
-                            style="background-color: #3751FF;
+                  <!-- save button -->
+                  <v-btn
+                      class="btn"
+                      elevation="4"
+                      large
+                      outlined
+                      raised
+                      text
+                      style="background-color: #3751FF;
                             color:white;"
-                            >
-                                ذخیره تغییرات
-                            </v-btn>
+                  >
+                    ذخیره تغییرات
+                  </v-btn>
 
-                            <!-- clear button -->
-                            <v-btn
-                            class="btn"
-                            color="#3751FF"
-                            elevation="4"
-                            outlined
-                            large
-                            raised
-                            >لغو</v-btn>
-                        </v-col>
-                    </v-row>
-                </v-form>
-            </v-card-text>
+                  <!-- clear button -->
+                  <v-btn
+                      class="btn"
+                      color="#3751FF"
+                      elevation="4"
+                      outlined
+                      large
+                      raised
+                  >لغو</v-btn>
+                </v-col>
+              </v-row>
+            </v-form>
+          </v-card-text>
         </v-card>
+      </v-sheet>
     </v-app>
 </template>
 
@@ -225,7 +225,7 @@ export default {
         margin-right: 17em;
     }
     .col *{
-        margin: .5em;       
+        margin: .5em;
     }
     .btn{
         margin-top: 10em;
@@ -242,11 +242,6 @@ export default {
     .row-res{
         text-align: center;
         vertical-align: middle;
-    }
-    .title-res-desktop{
-        text-align: right;
-        margin: 2em;
-        margin-right: 14em;
     }
     .upload-title-res{
         margin-left: 4em;
