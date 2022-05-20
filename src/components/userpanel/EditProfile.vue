@@ -5,7 +5,7 @@
         <v-card
         class="card-res"
         width="90vw"
-        height="80%"
+        height="85%"
         elevation="4"
         raised
         rounded
@@ -52,7 +52,7 @@
 
                             <!-- save button -->
                             <v-btn
-                            class="btn"
+                            class="btn-mobile"
                             elevation="4"
                             large
                             outlined
@@ -66,7 +66,7 @@
 
                             <!-- clear button -->
                             <v-btn
-                            class="btn"
+                            class="btn-mobile"
                             color="#3751FF"
                             elevation="4"
                             outlined
@@ -81,7 +81,7 @@
     </v-app>
 
     <v-app class="grey lighten-4" v-else>
-      <v-sheet align="center" justify="center" color="transparent" elevation="0" class="pa-8">
+      <v-sheet color="transparent" elevation="0" class="pa-8">
         <SidebarNavigation/>
         <h2 class="mb-5">ویرایش پروفایل</h2>
         <v-card
@@ -230,13 +230,15 @@ export default {
     .btn{
         margin-top: 10em;
     }
+    .btn-mobile{
+        margin-top: 1em;
+    }
     .title-res{
         text-align: center;
         margin: 2em;
     }
     .card-res{
-        margin-left: 1.5em;
-        margin-bottom: 2em;
+        margin: 1em;
         padding: 1em;
     }
     .row-res{
