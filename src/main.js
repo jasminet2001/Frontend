@@ -10,6 +10,12 @@ Vue.use(VueAxios, axios)
 import VueCookies from 'vue-cookies'
 Vue.use(VueCookies,{expires: '3h'})
 Vue.use(VueRouter)
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
+Vue.use(VueToast, {
+  position: 'top-right',
+  duration: 5000
+});
 const router=new VueRouter({
     routes:Routes,
     mode:"history"

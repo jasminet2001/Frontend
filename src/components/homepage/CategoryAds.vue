@@ -70,7 +70,6 @@ export default {
       var axios = require('axios');
       var FormData = require('form-data');
       var data = new FormData();
-      console.log('hey');
       var config = {
         method: 'get',
         url: 'http://localhost:8000/api/categories',
@@ -84,23 +83,14 @@ export default {
           .then(function (response) {
             catSaver(response.data);
           })
-          .catch(function (error) {
-            console.log(error);
-          });
     },
     saver(data){
       this.items = data.categories;
-      console.log(this.items);
     }
   },
   mounted() {
     this.fetchData();
   },
-  watch:{
-    items: function(){
-      console.log(this.items)
-    }
-  }
 };
 </script>
 <style scoped>

@@ -89,7 +89,7 @@ export default {
     }
   },
   methods:{
-    fetchData(){
+    async fetchData(){
       var axios = require('axios');
       var FormData = require('form-data');
       var data = new FormData();
@@ -106,13 +106,27 @@ export default {
         },
         data : data
       };
-
-      axios(config)
+      let errorToaster = (msg) => {
+        this.$toast.open({
+          message: msg,
+          type: 'error',
+        });
+      };
+      await axios(config)
           .then(result => {
             result=result.data;
             this.$cookies.set('token', result.token);
             this.$cookies.set('user', result.user);
+            this.$router.push('/dashboard');
           })
+          .catch(error => {
+            console.log(error);
+            if (error.response.status === 422) {
+              for (let err in error.response.data.errors) {
+                errorToaster(error.response.data.errors[err][0]);
+              }
+            }
+          });
     },
   }
 }

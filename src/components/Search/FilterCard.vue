@@ -7,12 +7,14 @@
     <v-form>
       <legend class="font-weight-black">فیلتر ها</legend>
       <v-text-field
-          label="دنبال چی می گردی؟"
+          label="عبارت جستجو را وارد کنید"
           v-model="text"
           hide-details="auto"
       ></v-text-field>
       <v-select
-          :items="items"
+          :items="categories"
+          item-text="name"
+          item-value="id"
           v-model="category"
           label="دسته بندی"
       ></v-select>
@@ -49,14 +51,26 @@
 </template>
 
 <script>
+
 export default {
   name: "FilterCard",
+  props: {
+    categories: {
+      type: Array,
+      required: true
+    },
+  },
   data: () => ({
-    items:[1,2,3,4,5,6,7,8,9,10],
     searchFor: 'both',
     text: '',
     category: '',
-  })
+  }),
+  methods: {
+
+  },
+  mounted(){
+    this.categoryFinder();
+  }
 }
 </script>
 

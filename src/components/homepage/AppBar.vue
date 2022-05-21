@@ -62,21 +62,34 @@
       <v-tab>ثبت شرکت</v-tab>
       <v-tab>تماس با ما</v-tab>
       <v-spacer />
-      <v-tab>
+      <v-tab v-if="!loggedIn" >
         <v-btn-toggle background-color="#000930" shaped>
-          <v-btn color="white" elevation="0" tile flat outlined class="pa-5">ورود</v-btn>
-          <v-btn color="white" elevation="0" tile flat outlined class="">ثبت نام</v-btn>
+          <v-btn href="/login" color="white" elevation="0" tile flat outlined class="pa-5">ورود</v-btn>
+          <v-btn href="/signup" color="white" elevation="0" tile flat outlined class="">ثبت نام</v-btn>
         </v-btn-toggle>
+      </v-tab>
+      <v-tab v-else>
+        <v-btn icon>
+          <v-avatar
+              color="transparent"
+              size="50"
+          >
+            <v-img :src="avatar!=null?'http://localhost:8000/storage/avatars/'+avatar:'images/avatar.png/'"></v-img>
+          </v-avatar>
+        </v-btn>
       </v-tab>
     </v-tabs>
   </v-app-bar>
 </template>
 
 <script>
-export default({
+export default{
+  name: 'AppBar',
   data(){
     return{
       tab:null,
+      avatar:this.$cookies.get('user').avatar,
+      loggedIn: false,
     }
   },
   methods: {
@@ -87,9 +100,35 @@ export default({
       else {
         return false
       }
-    }
+    },
+    async updater() {
+      let axios = require('axios');
+      let config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/user/this',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer 47|4w5181Tp5eQLIHTo8OJnIvndeZHl9zJf8aAkBEyL'
+        }
+      };
+      let that=this;
+      await axios(config)
+          .then(function (response) {
+            console.log(response.data.avatar)
+            that.avatar = response.data.avatar
+            that.$cookies.set('user', response.data)
+            that.loggedIn=!!that.$cookies.get('user')
+          })
+          .catch(() => {
+            that.$cookies.remove('user');
+            that.$cookies.remove('token');
+          });
+    },
   },
-})
+  beforeMount() {
+    this.updater();
+  },
+}
 </script>
 <style scoped>
 
