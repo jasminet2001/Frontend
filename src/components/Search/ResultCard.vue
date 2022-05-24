@@ -29,7 +29,13 @@
         <img
             :src="image"
             alt="Avatar"
+            v-if="image"
         />
+        <v-icon
+            v-else
+            class="text-white">
+          mdi-image-off-outline
+        </v-icon>
       </v-list-item-avatar>
     </v-list-item>
   </v-card>

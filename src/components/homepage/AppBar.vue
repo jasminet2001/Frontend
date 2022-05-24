@@ -50,22 +50,22 @@
              class=""
              height="70%">
     <v-tabs>
-      <v-tab>
-        <v-btn icon>
-          <v-avatar
-              color="primary"
-              size="36"
-          ></v-avatar>
-        </v-btn>
-      </v-tab>
-      <v-tab>صفحه اصلی</v-tab>
-      <v-tab>ثبت شرکت</v-tab>
-      <v-tab>تماس با ما</v-tab>
+<!--      <v-tab>-->
+<!--        <v-btn icon>-->
+<!--          <v-avatar-->
+<!--              color="primary"-->
+<!--              size="36"-->
+<!--          ></v-avatar>-->
+<!--        </v-btn>-->
+<!--      </v-tab>-->
+      <v-tab to="/">صفحه اصلی</v-tab>
+      <v-tab to="/search" >جستجو</v-tab>
+      <v-tab to="/contact">تماس با ما</v-tab>
       <v-spacer />
       <v-tab v-if="!loggedIn" >
         <v-btn-toggle background-color="#000930" shaped>
-          <v-btn href="/login" color="white" elevation="0" tile flat outlined class="pa-5">ورود</v-btn>
-          <v-btn href="/signup" color="white" elevation="0" tile flat outlined class="">ثبت نام</v-btn>
+          <v-btn to="/login" color="white" elevation="0" tile flat outlined class="pa-5">ورود</v-btn>
+          <v-btn to="/signup" color="white" elevation="0" tile flat outlined class="">ثبت نام</v-btn>
         </v-btn-toggle>
       </v-tab>
       <v-tab v-else>
@@ -83,13 +83,14 @@
 </template>
 
 <script>
+
 export default{
   name: 'AppBar',
   data(){
     return{
-      tab:null,
-      avatar:this.$cookies.get('user').avatar,
-      loggedIn: false,
+      tab:'',
+      avatar:'',
+      loggedIn: ''
     }
   },
   methods: {
@@ -108,8 +109,8 @@ export default{
         url: 'http://localhost:8000/api/user/this',
         headers: {
           'Accept': 'application/json',
-          'Authorization': 'Bearer 47|4w5181Tp5eQLIHTo8OJnIvndeZHl9zJf8aAkBEyL'
-        }
+          'Authorization': 'Bearer '+this.$cookies.get('token')
+        },
       };
       let that=this;
       await axios(config)
@@ -126,8 +127,8 @@ export default{
     },
   },
   beforeMount() {
-    this.updater();
-  },
+    this.updater()
+  }
 }
 </script>
 <style scoped>

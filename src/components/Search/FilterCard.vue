@@ -64,13 +64,7 @@ export default {
     searchFor: 'both',
     text: '',
     category: '',
-  }),
-  methods: {
-
-  },
-  mounted(){
-    this.categoryFinder();
-  }
+  })
 }
 </script>
 

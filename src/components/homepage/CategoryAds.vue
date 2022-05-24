@@ -18,26 +18,35 @@
   <div v-else class="pa-4 ma-4">
     <p class="title">دسته بندی</p>
     <p class="category-text">خدمات</p>
-    <div class="pa-2">
-      <v-row>
-        <v-col>
-          <img src="../../assets/adone.jpg"/>
+    <div class="pa-2 mx-auto container">
+      <v-row align-content="center">
+        <v-col cols="3">
+          <img height="100%" src="../../assets/adone.jpg"/>
         </v-col>
         <v-col class="mr-6 ml-6">
           <!-- container for buttons -->
           <div>
             <v-row>
-              <v-col  v-for="(cat, key) in items" :key="key">
+              <v-col
+                cols="3"
+                v-for="(cat, key) in items" :key="key"
+              >
                 <v-btn
-                    elevation="2"
+                    elevation="5"
                     rounded
+                    large
+                    color="indigo lighten-3"
+                    width="100%"
+                    height="10em"
+                    style="font-size: 1rem"
+                    :to="'/search?category='+cat.id"
                 >{{cat.name}}</v-btn>
               </v-col>
             </v-row>
           </div>
         </v-col>
-        <v-col>
-          <img src="../../assets/adtwo.jpg"/>
+        <v-col cols="3">
+          <img height="100%" src="../../assets/adtwo.jpg"/>
         </v-col>
       </v-row>
     </div>
