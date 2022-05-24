@@ -72,10 +72,10 @@ export default {
     }
   },
   methods:{
-    fetchData(){
-      var axios = require('axios');
-      var FormData = require('form-data');
-      var data = new FormData();
+    async fetchData(){
+      let axios = require('axios');
+      let FormData = require('form-data');
+      let data = new FormData();
       data.append('email', this.email);
       data.append('password', this.password);
 
@@ -87,13 +87,24 @@ export default {
         },
         data : data
       };
-
-      axios(config)
+      var errorToaster = (msg) => {
+        this.$toast.open({
+          message: msg,
+          type: 'error',
+        });
+      };
+      let that = this;
+      await axios(config)
           .then(function (response) {
             var result=response.data;
-            this.$cookies.set('token', result.token);
-            this.$cookies.set('user', result.user);
+            that.$cookies.set('token', result.token);
+            that.$cookies.set('user', result.user);
+            that.$router.push('/dashboard');
           })
+          .catch(function (error) {
+            console.log(error);
+            errorToaster('!ایمیل یا رمز عبور اشتباه است');
+          });
     }
   }
 }

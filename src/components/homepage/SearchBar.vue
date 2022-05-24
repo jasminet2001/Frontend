@@ -13,10 +13,11 @@
     <v-row>
       <v-col>
         <v-text-field
-            placeholder="جست و جوی خدمات، خدمات و آگهی ها"
+            placeholder="جست و جوی خدمات، شرکت ها و آگهی ها"
             solo
             rounded
             prepend-inner-icon="mdi-magnify"
+            @keydown.enter="search"
         ></v-text-field>
       </v-col>
     </v-row>
@@ -36,10 +37,11 @@
     <v-row>
       <v-col>
         <v-text-field
-            placeholder="جست و جوی خدمات، خدمات و آگهی ها"
+            placeholder="جست و جوی خدمات، شرکت ها و آگهی ها"
             solo
             rounded
             prepend-inner-icon="mdi-magnify"
+            @keydown.enter="search"
         ></v-text-field>
       </v-col>
     </v-row>
@@ -49,11 +51,6 @@
 
 <script>
 export default({
-  data(){
-    return{
-
-    }
-  },
   methods: {
     isMobile() {
       if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -62,6 +59,9 @@ export default({
       else {
         return false
       }
+    },
+    search(event){
+      this.$router.push('search?text=' + event.target.value)
     }
   },
 })
