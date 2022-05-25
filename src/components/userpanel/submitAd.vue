@@ -74,11 +74,11 @@
     <!-- responsive -->
     <v-app v-else>
       <SidebarNavigation/>
-      <v-sheet class="pa-8" color="transparent" elevation="0">
+      <v-sheet class="pa-5" color="transparent" elevation="0">
         <h2 class="mb-5">ثبت آگهی</h2>
         <v-card
             class="card-res"
-            width="90vw"
+            width="85vw"
             height="85%"
             elevation="4"
             raised
