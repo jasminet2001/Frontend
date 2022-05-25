@@ -3,7 +3,7 @@
     <v-app v-if="this.$vuetify.breakpoint.mdAndUp">
       <v-sheet color="transparent" elevation="0" class="pa-8">
         <SidebarNavigation/>
-        <h2 class="mb-5">ثبت آگهی</h2>
+        <h2 class="ma-5">ثبت آگهی</h2>
         <v-card
         class="card-desktop"
         style="margin-bottom: 4em;"
@@ -18,13 +18,14 @@
             <v-form class="px-3" v-model="submitForm">
               <v-row class="pa-3">
                 <v-col cols="6"
-                class="px-8 col">
+                class="px-8 col">        
                     <v-row class="row">
-                    <v-text-field
-                    label="عنوان آگهی"
-                    v-model="name"
-                    outlined>
-                    </v-text-field>
+                        <p>عنوان آگهی</p>
+                        <v-text-field
+                        label="عنوان آگهی"
+                        v-model="name"
+                        outlined>
+                        </v-text-field>
                     </v-row>
 
                     <v-row class="row">
