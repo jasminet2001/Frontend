@@ -4,7 +4,7 @@ import Signup from "./components/signup/SignupComponent"
 import userpanel from "./components/userpanel/UserDashboard.vue";
 import editProfile from "./components/userpanel/EditProfile.vue"
 import submitAds from "./components/userpanel/submitAd.vue"
-import AdsList from "./components/userpanel/AdsListAdCard.vue"
+import AdsList from "./components/userpanel/AdsList.vue"
 
 export default [
     {path: '/', component: Home},

@@ -13,16 +13,16 @@
       {{ ad.Description }}
     </v-card-text>
     <v-card-actions class="justify-center align-center mt-1 mb-0">
-      <v-btn width="80%" text color="teal accent-4">
-        <span>درخواست</span>
-        <v-icon color="teal accent-4" class="mr-2">{{ ImdiCheck }}</v-icon>
+      <v-btn width="80%" text color="#3751FF">
+        <v-icon color="#3751FF" class="ml-2" style="bottom: 1px">{{ ImdiInfo }}</v-icon>
+        <span>اطلاعات بیشتر</span>
       </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
-import { mdiCheckboxMarkedCirclePlusOutline } from '@mdi/js';
+import { mdiInformationOutline } from '@mdi/js';
 export default {
   props: {
     ad: {
@@ -32,7 +32,7 @@ export default {
   },
   data () {
     return {
-      ImdiCheck: mdiCheckboxMarkedCirclePlusOutline
+      ImdiInfo: mdiInformationOutline
     }
   }
 }

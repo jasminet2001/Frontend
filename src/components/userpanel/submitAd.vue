@@ -142,12 +142,9 @@
 
 <script>
 import SidebarNavigation from "./SidebarNavigation.vue";
-export default({   
-    data(){
-       
-    }, 
+export default {
     components: { SidebarNavigation },
-})
+}
 </script>
 
 <style scoped>
