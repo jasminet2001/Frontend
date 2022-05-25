@@ -59,7 +59,7 @@
         </v-list-item-icon>
         <v-list-item-title>ثبت آگهی</v-list-item-title>
       </v-list-item>
-      <v-list-item link>
+      <v-list-item link @click="Upgrade()">
         <v-list-item-icon>
           <v-icon>mdi-arrow-u-up-right-bold</v-icon>
         </v-list-item-icon>
@@ -160,7 +160,7 @@
             <v-list-item-title>ثبت آگهی</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link class="py-2">
+          <v-list-item link @click="Upgrade()" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-arrow-u-up-right-bold</v-icon>
             </v-list-item-icon>
@@ -229,6 +229,9 @@ export default {
     },
     MyAds(){
       this.$router.push('/MyAdsList');
+    },
+    Upgrade(){
+      this.$router.push('/UserUpgrade');
     },
   },
 
