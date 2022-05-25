@@ -3,7 +3,7 @@
     <v-app v-if="this.$vuetify.breakpoint.mdAndUp">
       <SidebarNavigation/>
       <v-sheet color="transparent" elevation="0" class="pa-8">
-        <h2 class="ma-5">ثبت آگهی</h2>
+        <h2 class="mb-5 mr-5">ثبت آگهی</h2>
         <v-card
         class="card-desktop"
         style="margin-bottom: 4em;"
@@ -19,38 +19,34 @@
               <v-row class="pa-3">
                 <v-col cols="6"
                 class="px-8 col">
-                    <v-row class="row">
-                        <p>عنوان آگهی</p>
-                        <v-text-field
-                        label="عنوان آگهی"
-                        v-model="name"
-                        outlined>
-                        </v-text-field>
-                    </v-row>
+                  <p>عنوان آگهی</p>
+                  <v-text-field
+                  label="عنوان آگهی"
+                  v-model="name"
+                  outlined>
+                  </v-text-field>
+                  <p>توضیحات آگهی</p>
+                  <v-textarea
+                  clearable
+                  outlined
+                  shaped
+                  label="توضیحات آگهی">
+                  </v-textarea>
 
-                    <v-row class="row">
-                        <p>توضیحات آگهی</p>
-                        <v-textarea
-                        clearable
-                        outlined
-                        shaped
-                        label="توضیحات آگهی">
-                    </v-textarea>
-                    </v-row>
-                    <!-- save button -->
-                    <v-btn
-                    class="btn-mobile"
-                    elevation="4"
-                    large
-                    outlined
-                    raised
-                    text
-                    style="background-color: #3751FF;
-                    color:white;"
-                    @click="submit"
-                    >
-                        ذخیره تغییرات
-                    </v-btn>
+                  <!-- save button -->
+                  <v-btn
+                  class="btn-mobile"
+                  elevation="4"
+                  large
+                  outlined
+                  raised
+                  text
+                  style="background-color: #3751FF;
+                  color:white;"
+                  @click="submit"
+                  >
+                  ذخیره تغییرات
+                  </v-btn>
 
                     <!-- clear button -->
                     <v-btn
@@ -63,6 +59,17 @@
                     @click="clear"
                     >لغو
                     </v-btn>
+                </v-col>
+                <v-col cols="6"
+                class="px-8 col">
+                  <p>دسته بندی</p>
+                  <v-select
+                  :items="categories"
+                  item-text="name"
+                  item-value="id"
+                  v-model="category"
+                  label="دسته بندی"
+                  ></v-select>
                 </v-col>
               </v-row>
             </v-form>
@@ -77,36 +84,47 @@
       <v-sheet class="pa-5" color="transparent" elevation="0">
         <h2 class="mb-5">ثبت آگهی</h2>
         <v-card
-            class="card-res"
-            width="85vw"
-            height="85%"
-            elevation="4"
-            raised
-            rounded
-            outlined
+        class="card-res"
+        width="85vw"
+        height="90%"
+        elevation="4"
+        raised
+        rounded
+        outlined
         >
           <v-card-text>
             <v-form class="px-3">
               <v-row class="d-flex flex-column">
                 <v-col cols="12"
-                       class="px-8 col">
+                class="px-8 col">
                   <v-row class="row">
-                    <p>توضیحات آگهی</p>
+                    <p>عنوان آگهی</p>
                     <v-text-field
-                        label="عنوان آگهی"
-                        v-model="name"
-                        outlined>
+                    label="عنوان آگهی"
+                    v-model="name"
+                    outlined>
                     </v-text-field>
                   </v-row>
 
                   <v-row class="row">
                     <p>توضیحات آگهی</p>
                     <v-textarea
-                        clearable
-                        outlined
-                        shaped
-                        label="توضیحات آگهی">
+                    clearable
+                    outlined
+                    shaped
+                    label="توضیحات آگهی">
                     </v-textarea>
+                  </v-row>
+
+                  <v-row class="row">
+                    <p>دسته بندی</p>
+                    <v-select
+                    :items="categories"
+                    item-text="name"
+                    item-value="id"
+                    v-model="category"
+                    label="دسته بندی"
+                    ></v-select>
                   </v-row>
 
                   <!-- save button -->
@@ -147,7 +165,18 @@
 <script>
 import SidebarNavigation from "./SidebarNavigation.vue";
 export default {
-    components: { SidebarNavigation },
+  components: { SidebarNavigation },
+  props: {
+    categories: {
+      type: Array,
+      required: true
+    },
+  },
+  data: () => ({
+    searchFor: 'both',
+    text: '',
+    category: '',
+  })
 }
 </script>
 
