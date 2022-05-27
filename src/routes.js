@@ -3,7 +3,6 @@ import Login from './components/login/LoginComponent'
 import Signup from "./components/signup/SignupComponent";
 import dashboard from "./components/userpanel/UserDashboard"
 import Search from "./components/Search/SearchComponent";
-import Signup from "./components/signup/SignupComponent"
 import userpanel from "./components/userpanel/UserDashboard.vue";
 import editProfile from "./components/userpanel/EditProfile.vue"
 import submitAds from "./components/userpanel/submitAd.vue"
