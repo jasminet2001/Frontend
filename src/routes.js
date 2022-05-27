@@ -8,6 +8,7 @@ import editProfile from "./components/userpanel/EditProfile.vue"
 import submitAds from "./components/userpanel/submitAd.vue"
 import AdsList from "./components/userpanel/AdsList.vue"
 import userUpgrade from "./components/userpanel/userUpgrade.vue"
+import changePass from "./components/userpanel/ChangePass.vue"
 
 export default [
     {path: '/', component: Home},
@@ -20,4 +21,5 @@ export default [
     {path: '/subAds', component: submitAds},
     {path: '/MyAdsList', component: AdsList},
     {path: '/UserUpgrade', component: userUpgrade},
+    {path: '/changePass', component: changePass}
 ]

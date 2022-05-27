@@ -51,7 +51,7 @@
         <v-list-item-icon>
           <v-icon>mdi-lock-outline</v-icon>
         </v-list-item-icon>
-        <v-list-item-title>ویرایش پسوورد</v-list-item-title>
+        <v-list-item-title>ویرایش رمز عبور</v-list-item-title>
       </v-list-item>
       <v-list-item link>
         <v-list-item-icon>
@@ -247,7 +247,7 @@ export default {
       this.$router.push('/UserUpgrade');
     },
     changePass(){
-
+      this.$router.push('/changePass');
     },
   },
 

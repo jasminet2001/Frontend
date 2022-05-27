@@ -88,10 +88,11 @@ export default {
         required: password1 => !!password1 || 'رمز عبور لازم است!',
         min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
       },
-      rules: {
-        required: password2 => !!password2 || 'رمز عبور لازم است!',
-        min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
-      },
+      //what to do for pass2?
+      // rules: {
+      //   required: password2 => !!password2 || 'رمز عبور لازم است!',
+      //   min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
+      // },
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+\..+/.test(v) || 'ایمیل صحیح وارد نمایید.',
