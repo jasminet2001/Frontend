@@ -113,7 +113,7 @@
 
   <!-- responsive -->
   <v-card
-  class=" overflow-hidden"
+  class="overflow-hidden"
   v-else
   fixed
   >
