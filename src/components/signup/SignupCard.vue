@@ -81,7 +81,11 @@ export default {
       password1: '',
       password2: '',
       rules: {
-        required: value => !!value || 'رمز عبور لازم است!',
+        required: password1 => !!password1 || 'رمز عبور لازم است!',
+        min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
+      },
+      rules: {
+        required: password2 => !!password2 || 'رمز عبور لازم است!',
         min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
       },
       email:'',
