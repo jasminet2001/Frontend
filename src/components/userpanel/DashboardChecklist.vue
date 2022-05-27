@@ -17,7 +17,7 @@
           @click:append-outer="addTodo"
           width="100%"
           @keyup.enter="addTodo">
-        <v-icon slot="append-outer" color="#3751FF" large style="bottom: 8px">
+        <v-icon slot="append-outer" @click="addTodo" color="#3751FF" large style="bottom: 8px">
           {{ ImdiPlus }}
         </v-icon>
       </v-text-field>
@@ -77,7 +77,7 @@ export default {
     toggleTodo(index) {
       this.todos[index].done = !this.todos[index].done
     }
-  }
+  },
 }
 
 </script>

@@ -2,7 +2,28 @@
   <v-app>
     <SidebarNavigation/>
     <v-sheet>
-      <top-display-row :item-list="cardsList" />
+<!--      <top-display-row :item-list="cardsList" />-->
+      <v-sheet color="transparent" class="pa-4">
+        <div class="pa-4">
+          <v-row class="mb-5">
+            <strong style="font-size: 1.5em">دید کلی</strong>
+          </v-row>
+          <hr class="my-3"/>
+          <v-row>
+            <v-spacer />
+              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
+                <top-display-row :item="{ Title: 'بازدید از آگهی های شما', Info: '۶۴'}" />
+              </v-col>
+              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
+                <top-display-row :item="{ Title: 'آگهی های شما', Info: this.adsList.length}" />
+              </v-col>
+              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
+                <top-display-row :item="{ Title: 'کل آگهی ها', Info: '۳۲۵'}" />
+              </v-col>
+            <v-spacer />
+          </v-row>
+        </div>
+      </v-sheet>
       <ads-container :ads-list="adsList" />
       <v-sheet v-if="this.$vuetify.breakpoint.mdAndUp" class="pa-8">
         <v-row>
@@ -23,7 +44,7 @@
 </template>
 
 <script>
-import TopDisplayRow from "@/components/userpanel/TopDisplayRow";
+import TopDisplayRow from "@/components/userpanel/TopDisplayRowCard";
 import AdsContainer from "@/components/userpanel/AdsContainer";
 import DashboardChecklist from "@/components/userpanel/DashboardChecklist";
 import UnansweredTickets from "@/components/userpanel/UnansweredTickets";
@@ -37,24 +58,37 @@ export default {
   },
   data () {
     return {
-      cardsList: [
-        { Title: 'بازدید از آگهی های شما', Info: '۶۴'},
-        { Title: 'آگهی های شما', Info: '۵'},
-        { Title: 'آگهی های مربوط', Info: '۱۶'},
-        { Title: 'کل آگهی ها', Info: '۳۲۵'}
-      ],
       adsList: [
-        { Title: 'کلین روم برای شرکت دارو سازی', Date: '۱۴۰۱/۲/۱۳', Author: 'علی مهربان', Description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است', Link: '/' },
-        { Title: 'کلین روم برای شرکت دارو سازی', Date: '۱۴۰۱/۲/۱۳', Author: 'علی مهربان', Description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است', Link: '/' },
-        { Title: 'کلین روم برای شرکت دارو سازی', Date: '۱۴۰۱/۲/۱۳', Author: 'علی مهربان', Description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است', Link: '/' },
-        { Title: 'کلین روم برای شرکت دارو سازی', Date: '۱۴۰۱/۲/۱۳', Author: 'علی مهربان', Description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است', Link: '/' },
-        { Title: 'کلین روم برای شرکت دارو سازی', Date: '۱۴۰۱/۲/۱۳', Author: 'علی مهربان', Description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است', Link: '/' },
-        { Title: 'کلین روم برای شرکت دارو سازی', Date: '۱۴۰۱/۲/۱۳', Author: 'علی مهربان', Description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است', Link: '/' },
-        { Title: 'کلین روم برای شرکت دارو سازی', Date: '۱۴۰۱/۲/۱۳', Author: 'علی مهربان', Description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است', Link: '/' },
-        { Title: 'کلین روم برای شرکت دارو سازی', Date: '۱۴۰۱/۲/۱۳', Author: 'علی مهربان', Description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است', Link: '/' },
-        { Title: 'کلین روم برای شرکت دارو سازی', Date: '۱۴۰۱/۲/۱۳', Author: 'علی مهربان', Description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است', Link: '/' },
-      ]
+      ],
     }
+  },
+  methods: {
+    async adFinder(){
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      data.append('sender', this.$cookies.get('user').id);
+
+      var config = {
+        method: 'post',
+        url: 'http://localhost:8000/api/ad/search',
+        headers: {
+          'Accept': 'application/json',
+        },
+        data : data
+      };
+      let that = this;
+      axios(config)
+          .then(function (response) {
+            that.adsList=(response.data)
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
+  },
+  beforeMount() {
+    this.adFinder()
   }
 }
 </script>
