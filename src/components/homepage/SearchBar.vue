@@ -1,29 +1,5 @@
 <template>
-  <v-container v-if="isMobile()" class="main-div" fluid>
-    <v-row class="title-m">
-      <v-col>
-        <h1>صنعت یاب</h1>
-      </v-col>
-    </v-row>
-    <v-row class="description">
-      <v-col>
-        <h2>جست و جوگر پیشرفته صنعت</h2>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-text-field
-            placeholder="جست و جوی خدمات، شرکت ها و آگهی ها"
-            solo
-            rounded
-            prepend-inner-icon="mdi-magnify"
-            @keydown.enter="search"
-        ></v-text-field>
-      </v-col>
-    </v-row>
-    <!-- style="width: 80%; margin: 0 auto" -->
-  </v-container>
-  <v-container v-else class="main-div" fluid>
+  <v-container v-if="this.$vuetify.breakpoint.mdAndUp" class="main-div" fluid>
     <v-row class="title">
       <v-col>
         <h1>صنعت یاب</h1>
@@ -47,19 +23,37 @@
     </v-row>
     <!-- style="width: 80%; margin: 0 auto" -->
   </v-container>
+
+  <v-container v-else class="main-div" fluid>
+    <v-row class="title-m">
+      <v-col>
+        <h1>صنعت یاب</h1>
+      </v-col>
+    </v-row>
+    <v-row class="description">
+      <v-col>
+        <h2>جست و جوگر پیشرفته صنعت</h2>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <v-text-field
+            placeholder="جست و جوی خدمات، شرکت ها و آگهی ها"
+            solo
+            rounded
+            prepend-inner-icon="mdi-magnify"
+            @keydown.enter="search"
+        ></v-text-field>
+      </v-col>
+    </v-row>
+    <!-- style="width: 80%; margin: 0 auto" -->
+  </v-container>
+
 </template>
 
 <script>
 export default({
   methods: {
-    isMobile() {
-      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        return true
-      }
-      else {
-        return false
-      }
-    },
     search(event){
       this.$router.push('search?text=' + event.target.value)
     }
