@@ -47,6 +47,12 @@
         </v-list-item-icon>
         <v-list-item-title>ویرایش پروفایل</v-list-item-title>
       </v-list-item>
+      <v-list-item link @click="changePass()">
+        <v-list-item-icon>
+          <v-icon>mdi-lock-outline</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>ویرایش پسوورد</v-list-item-title>
+      </v-list-item>
       <v-list-item link>
         <v-list-item-icon>
           <v-icon>mdi-bookmark-multiple</v-icon>
@@ -146,6 +152,13 @@
             <v-list-item-title>ویرایش پروفایل</v-list-item-title>
           </v-list-item>
 
+          <v-list-item link @click="changePass()">
+            <v-list-item-icon>
+              <v-icon>mdi-lock-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>ویرایش پسوورد</v-list-item-title>
+          </v-list-item>
+
           <v-list-item link class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-bookmark-multiple</v-icon>
@@ -232,6 +245,9 @@ export default {
     },
     Upgrade(){
       this.$router.push('/UserUpgrade');
+    },
+    changePass(){
+
     },
   },
 

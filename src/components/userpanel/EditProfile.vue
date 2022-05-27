@@ -40,22 +40,18 @@
                     </v-text-field>
                   </v-row>
 
-                  <v-row class="row"><v-text-field label="رمز عبور فعلی"
-                  v-model="password1"
-                  outlined></v-text-field></v-row>
-                  <v-row class="row"><v-text-field label="رمز عبور جدید"
-                  v-model="password2"
-                  outlined></v-text-field></v-row>
-                  <v-row class="row"><v-text-field label="ایمیل"
-                  v-model="email"
-                  outlined></v-text-field></v-row>
+                    <v-row class="row"><v-text-field label="ایمیل"
+                    v-model="email"
+                    outlined></v-text-field></v-row>
+
+                    <v-text-field label="شماره همراه"
+                    v-model="phone"
+                    outlined></v-text-field>
                 </v-col>
 
                 <v-col cols="6"
                 class="px-8 col">
-                  <v-text-field label="شماره همراه"
-                  v-model="phone"
-                  outlined></v-text-field>
+
                   <v-text-field label="وبسایت"
                   v-model="website"
                   outlined></v-text-field>
@@ -140,12 +136,6 @@
                                 </v-text-field>
                             </v-row>
 
-                            <v-row class="row-res"><v-text-field label="رمز عبور فعلی"
-                            v-model="password1"
-                            outlined></v-text-field></v-row>
-                            <v-row class="row-res"><v-text-field label="رمز عبور جدید"
-                            v-model="password2"
-                            outlined></v-text-field></v-row>
                             <v-row class="row-res"><v-text-field label="ایمیل"
                             v-model="email"
                             outlined></v-text-field></v-row>
