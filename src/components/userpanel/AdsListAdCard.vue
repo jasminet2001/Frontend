@@ -51,4 +51,7 @@ export default {
 </script>
 
 <style scoped>
+.blue-text{
+  color: #3751FF !important;
+}
 </style>

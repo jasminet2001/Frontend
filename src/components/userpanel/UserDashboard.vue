@@ -1,22 +1,25 @@
 <template>
-  <v-main>
-    <top-display-row :item-list="cardsList" />
-    <ads-container :ads-list="adsList" />
-    <v-sheet v-if="this.$vuetify.breakpoint.mdAndUp" class="pa-8">
-      <v-row>
-        <v-col cols="6">
-          <dashboard-checklist />
-        </v-col>
-        <v-col cols="6">
-          <unanswered-tickets />
-        </v-col>
-      </v-row>
+  <v-app>
+    <SidebarNavigation/>
+    <v-sheet>
+      <top-display-row :item-list="cardsList" />
+      <ads-container :ads-list="adsList" />
+      <v-sheet v-if="this.$vuetify.breakpoint.mdAndUp" class="pa-8">
+        <v-row>
+          <v-col cols="6">
+            <dashboard-checklist />
+          </v-col>
+          <v-col cols="6">
+            <unanswered-tickets />
+          </v-col>
+        </v-row>
+      </v-sheet>
+      <div v-else>
+        <dashboard-checklist class="mb-3"/>
+        <UnansweredTickets />
+      </div>
     </v-sheet>
-    <div v-else>
-      <dashboard-checklist class="mb-3"/>
-      <UnansweredTickets />
-    </div>
-  </v-main>
+  </v-app>
 </template>
 
 <script>
@@ -24,9 +27,14 @@ import TopDisplayRow from "@/components/userpanel/TopDisplayRow";
 import AdsContainer from "@/components/userpanel/AdsContainer";
 import DashboardChecklist from "@/components/userpanel/DashboardChecklist";
 import UnansweredTickets from "@/components/userpanel/UnansweredTickets";
+import SidebarNavigation from "./SidebarNavigation.vue";
+
 
 export default {
-  components: {UnansweredTickets, AdsContainer, TopDisplayRow, DashboardChecklist},
+  components: { UnansweredTickets, AdsContainer, TopDisplayRow, DashboardChecklist, SidebarNavigation },
+  onMounted() {
+    this.$vuetify.rtl = true;
+  },
   data () {
     return {
       cardsList: [

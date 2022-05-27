@@ -2,12 +2,12 @@
     <v-app class="grey lighten-4" v-if="this.$vuetify.breakpoint.mdAndUp">
       <v-sheet color="transparent" elevation="0" class="pa-8">
         <SidebarNavigation/>
-        <h2 class="mb-5">ویرایش پروفایل</h2>
+        <h2 class="mb-5">پروفایل شرکت</h2>
         <v-card
         class="card-desktop"
-        style="margin-bottom: 4em;"
+        style="margin-bottom: 2em;"
         width="70vw"
-        height="80%"
+        height="87%"
         elevation="4"
         raised
         rounded
@@ -20,7 +20,7 @@
                 class="px-8 col">
                   <v-row class="row">
                     <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
-                    <p>بارگزاری تصویر پروفایل</p>
+                    <p>بارگزاری لوگوی شرکت</p>
                   </v-row>
                   <v-row class="row">
                     <input type="file" @change="onFileSelected">
@@ -34,37 +34,47 @@
 
                   <v-row class="row">
                     <v-text-field
-                    label="نام و نام خانوادگی"
+                    label="نام شرکت"
                     v-model="name"
                     outlined>
                     </v-text-field>
                   </v-row>
 
-                    <v-row class="row"><v-text-field label="ایمیل"
-                    v-model="email"
-                    outlined></v-text-field></v-row>
+                  <v-row class="row"><v-text-field label="ایمیل شرکت"
+                  v-model="email"
+                  outlined></v-text-field></v-row>
 
-                    <v-text-field label="شماره همراه"
+                    <v-text-field label="تلفن شرکت"
                     v-model="phone"
                     outlined></v-text-field>
+                    
+                    <p>دسته بندی شرکت</p>
+                    <v-select
+                    :items="categories"
+                    item-text="name"
+                    item-value="id"
+                    v-model="category"
+                    label="دسته بندی"
+                    ></v-select>
                 </v-col>
 
                 <v-col cols="6"
                 class="px-8 col">
+                    <v-text-field label="وبسایت شرکت"
+                    v-model="website"
+                    outlined></v-text-field>
+                    <v-text-field label="آدرس"
+                    v-model="address"
+                    outlined></v-text-field>
 
-                  <v-text-field label="وبسایت"
-                  v-model="website"
-                  outlined></v-text-field>
-                  <v-text-field label="آدرس"
-                  v-model="address"
-                  outlined></v-text-field>
-                  <v-select
-                      :items="gender"
-                      label="جنسیت"
-                      solo
-                      outlined
-                  ></v-select>
-
+                    <p>درباره شرکت</p>
+                    <v-textarea
+                    clearable
+                    outlined
+                    shaped
+                    label="درباره شرکت">
+                    </v-textarea>
+ 
                   <!-- save button -->
                   <v-btn
                     class="btn"
@@ -118,7 +128,7 @@
                         class="px-8 col">
                             <v-row class="upload-title-res">
                                 <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
-                                <p >بارگزاری تصویر پروفایل</p>
+                                <p>بارگزاری لوگوی شرکت</p>
                             </v-row>
                             <v-row class="upload-title-res">
                                 <input type="file" @change="onFileSelected">
@@ -130,32 +140,49 @@
                             </v-row>
 
                             <v-row class="row-res">
-                                <v-text-field v-model="name"
-                                label="نام و نام خانوادگی"
-                                outlined>
-                                </v-text-field>
+                              <v-text-field
+                              label="نام شرکت"
+                              v-model="name"
+                              outlined>
+                              </v-text-field>
                             </v-row>
 
-                            <v-row class="row-res"><v-text-field label="ایمیل"
+                            <v-row class="row-res"><v-text-field label="ایمیل شرکت"
                             v-model="email"
                             outlined></v-text-field></v-row>
-                            <v-row class="row-res"><v-text-field label="شماره همراه"
-                            v-model="phone"
-                            outlined></v-text-field></v-row>
-                            <v-row class="row-res"><v-text-field label="وبسایت"
-                            v-model="website"
-                            outlined></v-text-field></v-row>
-                            <v-row class="row-res"><v-text-field label="آدرس"
-                            v-model="address"
-                            outlined></v-text-field></v-row>
+
                             <v-row class="row-res">
-                                <v-select
-                                :items="gender"
-                                label="جنسیت"
-                                solo
-                                outlined
-                                style="margin-top: 2em;"
-                                ></v-select>
+                              <v-text-field label="تلفن شرکت"
+                              v-model="phone"
+                              outlined></v-text-field>
+                            </v-row>
+                            <v-row class="row-res">
+                              <v-select
+                              :items="categories"
+                              item-text="name"
+                              item-value="id"
+                              v-model="category"
+                              label="دسته بندی"
+                              ></v-select>
+                            </v-row>
+                            <v-row class="row-res">
+                              <v-text-field label="وبسایت شرکت"
+                              v-model="website"
+                              outlined></v-text-field>
+                            </v-row>
+                            <v-row class="row-res">
+                              <v-text-field label="آدرس"
+                              v-model="address"
+                              outlined></v-text-field>
+                            </v-row>
+
+                            <v-row class="row-res">
+                              <v-textarea
+                              clearable
+                              outlined
+                              shaped
+                              label="درباره شرکت">
+                              </v-textarea>
                             </v-row>
 
                             <!-- save button -->
@@ -192,64 +219,22 @@
 </template>
 
 <script>
-import SidebarNavigation from "./SidebarNavigation.vue"
+import SidebarNavigation from './SidebarNavigation.vue'
 export default {
-    name: "EditProfile",
-    data: () => ({
-        name: '',
-        email: '',
-        password1:'',
-        password2:'',
-        website:'',
-        address:'',
-        phone: '',
-        gender: ["زن", "مرد"],
-        status: ["کاربر عادی", "کاربر شرکتی"],
-        //for birthdate
-        activePicker: null,
-        date: null,
-        menu: false,
-        //name variable to show up on avatar
-        //change this and retrieve the name from database
-        userName: 'JT',
-        selectedFile:null,
-    }),
-    //for birthdate
-    watch: {
-        menu(val) {
-            val && setTimeout(() => (this.activePicker = "YEAR"));
-        },
+  components: {
+    SidebarNavigation,
+  },
+    props: {
+    categories: {
+      type: Array,
+      required: true
     },
-    methods: {
-        save(date) {
-            this.$refs.menu.save(date);
-        },
-        onFileSelected(event){
-            this.selectedFile = event.target.files[0]
-        },
-        //send HTTP request
-        onUpload(){
-
-        },
-        submit () {
-            this.$v.$touch()
-        },
-        //why doesn't it work??
-        clear () {
-            this.$v.$reset()
-            this.name = ''
-            this.email = ''
-            this.select = null
-            this.checkbox = false
-            this.website = ''
-            this.phone = ''
-            this.password1 = ''
-            this.password2 = ''
-            this.address = ''
-            this.gender = null
-        },
-    },
-    components: { SidebarNavigation }
+  },
+  data: () => ({
+    searchFor: 'both',
+    text: '',
+    category: '',
+  }),
 }
 </script>
 
@@ -262,7 +247,7 @@ export default {
         margin: .5em;
     }
     .btn{
-        margin-top: 7em;
+        margin-top: 5em;
     }
     .btn-mobile{
         margin-top: 1em;

@@ -1,7 +1,7 @@
 <template>
   <v-sheet color="transparent" class="pa-4">
     <div class="pa-4">
-      <v-row class="mb-5">
+      <v-row class="mb-5" align="center">
         <strong style="font-size: 1.5em">آگهی ها</strong>
       </v-row>
       <hr class="my-3"/>

@@ -18,10 +18,11 @@ Vue.use(VueToast, {
 });
 const router=new VueRouter({
     routes:Routes,
-    mode:"history"
+    mode:"history",
 })
 new Vue({
   vuetify,
   render: h => h(App),
-  router:router
+  router:router,
 }).$mount('#app')
+
