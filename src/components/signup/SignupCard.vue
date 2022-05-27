@@ -5,15 +5,17 @@
         <img src="https://svgshare.com/i/g44.svg" style="height:10%; margin: 0 auto">
       </v-card-title>
       <v-card-text>
-        <v-row class="mt-8 mx-2" justify="center" align="center" no-gutters>
+        <v-row class="my-4 mx-2" justify="center" align="center" no-gutters>
           <v-col cols="12">
             <v-row>
               <p class="mt-3" style="margin: 0 auto;">حساب کاربری دارید؟</p>
-              <a href="#" class="mt-3" style="color:black; text-decoration:none; font-style: italic; margin: 0 auto">وارد شوید</a>
+              <a @click="Login()" class="mt-3" 
+              style="color:black; text-decoration:none; font-style: italic; margin: 0 auto">
+              وارد شوید</a>
             </v-row>
           </v-col>
         </v-row>
-        <v-row class="mt-5 mx-2" justify="center" align="center">
+        <v-row class="mt-8 mx-2" justify="center" align="center">
           <v-text-field label="نام و نام خانوادگی"
           autofocus
           v-model="name">
@@ -80,6 +82,8 @@ export default {
       show2: false,
       password1: '',
       password2: '',
+      email:'',
+      name:'',
       rules: {
         required: password1 => !!password1 || 'رمز عبور لازم است!',
         min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
@@ -88,8 +92,10 @@ export default {
         required: password2 => !!password2 || 'رمز عبور لازم است!',
         min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
       },
-      email:'',
-      name:'',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'ایمیل صحیح وارد نمایید.',
+      ],
     }
   },
   methods:{
@@ -131,6 +137,9 @@ export default {
               }
             }
           });
+    },
+    Login(){
+      this.$router.push('/login');
     },
   }
 }

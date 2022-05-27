@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row align="center" justify="center">
-      <h1 style="color: white;">ثبت نام</h1>
+      <h1 style="color: white; margin: 2em;">ثبت نام</h1>
     </v-row>
 
     <v-row align="center" justify="center">
@@ -18,6 +18,6 @@ export default {
 
 <style scoped>
 .img{
-  margin-top: 4em;
+  margin-bottom: 8em;
 }
 </style>
