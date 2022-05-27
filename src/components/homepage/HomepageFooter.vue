@@ -66,14 +66,9 @@
             </v-text-field>
           </v-col>
           <v-col cols="4">
-            <v-btn
-                rounded
-                color="yellow"
-                width="100%"
-                height="50%"
-                style="top: 8px !important;">
-              <span style="color: black !important;">عضویت</span>
-            </v-btn>
+            <button class="btn btn-mobile">
+              عضویت
+            </button>
           </v-col>
         </v-row>
       </v-col>
@@ -111,7 +106,7 @@
       <v-spacer />
 
       <v-col v-if="this.$vuetify.breakpoint.mdAndUp" cols="12" md="8" lg="8" xl="6" class="mt-6">
-        <v-row justify="center" style="background-color: transparent; font-size: 1em">
+        <v-row justify="right" style="background-color: transparent; font-size: 1em; margin-right: .5em;">
           برای دریافت جدید ترین خبر ها در خبرنامه عضو شوید
         </v-row>
         <v-row justify="center" style="background-color: transparent">
@@ -130,14 +125,9 @@
             </v-text-field>
           </v-col>
           <v-col cols="4">
-            <v-btn
-                rounded
-                color="yellow"
-                width="100%"
-                height="50%"
-                style="top: 8px !important;">
-              <span style="color: black !important;">عضویت</span>
-            </v-btn>
+            <button class="btn">
+              عضویت
+            </button>
           </v-col>
         </v-row>
       </v-col>
@@ -187,5 +177,62 @@ export default {
 .text-class{
   color: white !important;
 }
+.btn {
+  margin: 4%;
+  margin-top: 4%;
+  --color: white;
+  padding: 0.8em 1.7em;
+  width: 100%;
+  background-color: #ffeb3b;
+  border-radius: 3em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .5s;
+  font-weight: 400;
+  font-size: 17px;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: navy;
+  z-index: 1;
+}
 
+.btn::before, .btn::after {
+ content: '';
+ display: block;
+ width: 50px;
+ height: 50px;
+ transform: translate(-50%, -50%);
+ position: absolute;
+ border-radius: 50%;
+ z-index: -1;
+ background-color: var(--color);
+ transition: 1s ease;
+}
+
+.btn::before {
+ top: -1em;
+ left: -1em;
+}
+
+.btn::after {
+ left: calc(100% + 1em);
+ top: calc(100% + 1em);
+}
+
+.btn:hover::before, .btn:hover::after {
+ height: 410px;
+ width: 410px;
+}
+
+.btn:hover {
+ color: rgb(10, 25, 30);
+}
+
+.btn:active {
+ filter: brightness(.8);
+}
+.btn-mobile{
+  padding: .5em;
+}
 </style>
