@@ -108,7 +108,6 @@
     <!-- change the mobile breakpoint -->
     <v-app v-else>
         <SidebarNavigation/>
-        <h2 class="title-res">ویرایش پروفایل</h2>
         <v-card
         class="card-res"
         width="90vw"
@@ -119,99 +118,100 @@
         outlined
         >
           <v-card-text>
-              <v-form class="px-3">
-                  <v-row class="d-flex flex-column">
-                      <v-col cols="12"
-                      class="px-8 col">
-                          <v-row class="upload-title-res">
-                            <v-file-input
-                                label="بارگذاری لوگوی شرکت"
-                                outlined
-                                prepend-icon="mdi-account-arrow-up"
-                                class="mt-4"
-                                v-model="selectedFile"
-                            ></v-file-input>
-                          </v-row>
-
-                          <v-row class="row-res">
-                            <v-text-field
-                            label="نام شرکت"
-                            v-model="name"
-                            outlined>
-                            </v-text-field>
-                          </v-row>
-
-                          <v-row class="row-res"><v-text-field label="ایمیل شرکت"
-                          v-model="email"
-                          outlined></v-text-field></v-row>
-
-                          <v-row class="row-res">
-                            <v-text-field label="تلفن شرکت"
-                            v-model="phone"
-                            outlined></v-text-field>
-                          </v-row>
-                          <v-row class="row-res">
-                            <v-select
-                            solo
-                            outlined
-                            :items="categories"
-                            item-text="name"
-                            item-value="id"
-                            v-model="category"
-                            label="دسته بندی"
-                            ></v-select>
-                          </v-row>
-                          <v-row class="row-res">
-                            <v-text-field label="وبسایت شرکت"
-                            v-model="website"
-                            outlined></v-text-field>
-                          </v-row>
-                          <v-row class="row-res">
-                            <v-text-field label="آدرس"
-                            v-model="address"
-                            outlined></v-text-field>
-                          </v-row>
-
-                          <v-row class="row-res">
-                            <v-textarea
-                            clearable
-                            outlined
-                            shaped
-                            label="درباره شرکت">
-                            </v-textarea>
-                          </v-row>
-
-                          <!-- save button -->
-                          <v-btn
-                          class="btn-mobile"
-                          elevation="4"
-                          large
+            <v-form class="px-3">
+              <v-row class="d-flex flex-column">
+                <v-col cols="12"
+                class="px-8 col">
+                    <v-row class="upload-title-res">
+                      <v-file-input
+                          label="بارگذاری لوگوی شرکت"
                           outlined
-                          raised
-                          text
-                        beforeMount() {
-  this.categoryFinder();
-  },
-    style="background-color: #3751FF;
-                          color:white;"
-                          @click="submit"
-                          >
-                              ذخیره تغییرات
-                          </v-btn>
+                          prepend-icon="mdi-account-arrow-up"
+                          class="mt-4"
+                          v-model="selectedFile"
+                      ></v-file-input>
+                    </v-row>
 
-                          <!-- clear button -->
-                          <v-btn
-                          class="btn-mobile"
-                          color="#3751FF"
-                          elevation="4"
-                          outlined
-                          large
-                          raised
-                          @click="clear"
-                          >لغو</v-btn>
-                      </v-col>
-                  </v-row>
-              </v-form>
+                    <v-row class="row-res">
+                      <v-text-field
+                      label="نام شرکت"
+                      v-model="name"
+                      outlined>
+                      </v-text-field>
+                    </v-row>
+
+                    <v-row class="row-res"><v-text-field label="ایمیل شرکت"
+                    v-model="email"
+                    outlined></v-text-field></v-row>
+
+                    <v-row class="row-res">
+                      <v-text-field label="تلفن شرکت"
+                      v-model="phone"
+                      outlined></v-text-field>
+                    </v-row>
+                    <v-row class="row-res">
+                      <v-select
+                      solo
+                      outlined
+                      :items="categories"
+                      item-text="name"
+                      item-value="id"
+                      v-model="category"
+                      label="دسته بندی"
+                      ></v-select>
+                    </v-row>
+                    <v-row class="row-res">
+                      <v-text-field label="وبسایت شرکت"
+                      v-model="website"
+                      outlined></v-text-field>
+                    </v-row>
+                    <v-row class="row-res">
+                      <v-text-field label="آدرس"
+                      v-model="address"
+                      outlined></v-text-field>
+                    </v-row>
+
+                    <v-row class="row-res">
+                      <v-textarea
+                      clearable
+                      outlined
+                      shaped
+                      label="درباره شرکت">
+                      </v-textarea>
+                    </v-row>
+
+                    <!-- save button -->
+                    <v-btn
+                    class="btn-mobile"
+                    elevation="4"
+                    large
+                    outlined
+                    raised
+                    text
+                    beforeMount() {
+                    this.categoryFinder();
+                    },
+                    style="background-color: #3751FF;
+                    color:white;"
+                    @click="submit"
+                    >
+                        ذخیره تغییرات
+                    </v-btn>
+
+                    <!-- clear button -->
+                    <v-btn
+                    clearable
+                    class="btn-mobile"
+                    color="#3751FF"
+                    elevation="4"
+                    outlined
+                    large
+                    raised
+                    @click="clear"
+                    >لغو</v-btn>
+                </v-col>
+              </v-row>
+            </v-form>
           </v-card-text>
         </v-card>
     </v-app>
