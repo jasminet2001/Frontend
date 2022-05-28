@@ -8,7 +8,7 @@
             class="py-10 px-5"
             style="position: sticky; top: 20%; z-index: 1;"
             :categories="categories"
-            @search="search"
+            @search="(query)=>{this.query=query; searchBtn(this.query); }"
             @searchType="sectioner"
         >
         </filter-card>
@@ -34,6 +34,14 @@
               :description="c.description"
               :image="c.logo"
           ></ResultCard>
+            <div class="text-center">
+              <v-pagination
+                  v-model="companyPage"
+                  @input="search"
+                  :length="companyLength"
+                  total-visible="8"
+              ></v-pagination>
+            </div>
           </div>
           <div v-else>
             <v-alert
@@ -57,6 +65,14 @@
                 :description="a.description"
                 :image="a.sender.isCompany?a.sender.company.logo:a.sender.avatar"
             ></ResultCard>
+            <div class="text-center">
+              <v-pagination
+                  v-model="adPage"
+                  @input="search"
+                  :length="adLength"
+                  total-visible="8"
+              ></v-pagination>
+            </div>
           </div>
           <div v-else>
             <v-alert
@@ -97,19 +113,24 @@ export default {
       categories:'',
       isLoading: '',
       companies: '',
-      ads: ''
+      ads: '',
+      companyPage: 1,
+      adPage: 1,
+      companyLength: '',
+      adLength: '',
+      query: '',
     }
   },
   methods:{
-    search(query) {
+    search() {
       console.log('hey');
       this.isLoading=true
       if (this.type=='company' || this.type=='both')
-        this.company(query)
+        this.company(this.query, this.companyPage)
       if (this.type=='ad' || this.type=='both')
-        this.ad(query)
+        this.ad(this.query, this.adPage)
     },
-    async company(query){
+    async company(query, page=1) {
       var axios = require('axios');
       var FormData = require('form-data');
       var data = new FormData();
@@ -118,7 +139,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/company/search',
+        url: 'http://localhost:8000/api/company/search?page='+page,
         headers: {
           'Accept': 'application/json',
         },
@@ -128,7 +149,8 @@ export default {
 
       await axios(config)
           .then(function (response) {
-            that.companies = response.data
+            that.companies = response.data.data
+            that.companyLength = response.data.last_page
             that.isLoading=false
           })
           .catch(function (error) {
@@ -166,7 +188,7 @@ export default {
         if(this.categories[i].id==id)return this.categories[i].name
       }
     },
-    async ad(query){
+    async ad(query, page=1) {
       var axios = require('axios');
       var FormData = require('form-data');
       var data = new FormData();
@@ -174,7 +196,7 @@ export default {
       if(query.text)data.append('text', query.text);
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/ad/search',
+        url: 'http://localhost:8000/api/ad/search?page='+page,
         headers: {
           'Accept': 'application/json',
         },
@@ -183,12 +205,18 @@ export default {
       let that = this
       await axios(config)
           .then(function (response) {
-            that.ads = response.data
+            that.ads = response.data.data
+            that.adLength = response.data.last_page
             that.isLoading=false
           })
           .catch(function (error) {
             console.log(error);
           });
+    },
+    searchBtn() {
+      this.companyPage = 1;
+      this.adPage = 1;
+      this.search();
     }
   },
   async mounted(){
