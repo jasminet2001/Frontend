@@ -20,6 +20,13 @@
                 <v-col cols="6"
                 class="px-8 col"
                 >
+                  <p>رمز عبور فعلی</p>
+                  <v-text-field
+                  label="رمز عبور جدید"
+                  v-model="name"
+                  outlined>
+                  </v-text-field>
+
                   <p>رمز عبور جدید</p>
                   <v-text-field
                   label="رمز عبور جدید"
@@ -90,6 +97,13 @@
                 <v-col cols="12"
                 class="px-8 col"
                 >
+                  <p>رمز عبور فعلی</p>
+                  <v-text-field
+                  label="رمز عبور جدید"
+                  v-model="name"
+                  outlined>
+                  </v-text-field>
+
                   <p>رمز عبور جدید</p>
                   <v-text-field
                   label="رمز عبور جدید"
@@ -218,5 +232,8 @@ export default {
     }
     .card-desktop{
         border: 2px dashed #000080;
+    }
+    .img{
+      margin-top: 5em;
     }
 </style>
