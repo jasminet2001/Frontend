@@ -2,6 +2,7 @@
   <v-sheet color="transparent" class="pa-4">
     <div class="pa-4">
       <v-row class="mb-5">
+        <!-- <v-img src="@/assets/dashboard.png" class="img pa-2" height="200"></v-img> -->
         <strong style="font-size: 1.5em">دید کلی</strong>
       </v-row>
       <hr class="my-3"/>
@@ -30,4 +31,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

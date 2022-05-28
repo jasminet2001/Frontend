@@ -9,7 +9,9 @@
           <v-col cols="12">
             <v-row>
               <p class="mt-3" style="margin: 0 auto;">حساب کاربری ندارید؟</p>
-              <a href="#" class="mt-3" style="color:black; text-decoration:none; font-style: italic; margin: 0 auto">ثبت نام کنید</a>
+              <a @click="SignUp()" class="mt-3" 
+              style="color:black; text-decoration:none; font-style: italic; margin: 0 auto">
+              ثبت نام کنید</a>
             </v-row>
           </v-col>
         </v-row>
@@ -64,11 +66,15 @@ export default {
       ImdiEyeOff: mdiEyeOff,
       show1: false,
       password: '',
+      email: '',
       rules: {
         required: value => !!value || 'رمز عبور لازم است!',
         min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
       },
-      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'ایمیل صحیح وارد نمایید.',
+      ],
     }
   },
   methods:{
@@ -105,7 +111,10 @@ export default {
             console.log(error);
             errorToaster('!ایمیل یا رمز عبور اشتباه است');
           });
-    }
+    },
+    SignUp(){
+      this.$router.push('/signup');
+    },
   }
 }
 </script>

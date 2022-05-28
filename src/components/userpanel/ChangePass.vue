@@ -12,62 +12,57 @@
         elevation="4"
         raised
         rounded
-        outlined>
+        outlined
+        >
           <v-card-text>
             <v-form class="px-3" v-model="submitForm">
-              <h3>رمز عبور فعلی</h3>
-              <v-divider />
-              <v-row class="pa-4">
+              <v-row class="pa-3">
                 <v-col cols="6"
-                class="px-8 col">
-                  <v-text-field
-                    type="password"
-                    label="رمز عبور فعلی را وارد نمایید"
-                    v-model="password"
-                    outlined>
-                  </v-text-field>
-                </v-col>
-              </v-row>
-              <h3>رمز عبور جدید</h3>
-              <v-divider />
-              <v-row class="pa-4">
-                <v-col cols="6"
-                class="px-8 col">
-                  <v-text-field
-                      type="password"
-                      style="height: 100%;"
-                      clearable
-                      outlined
-                      v-model="newPassword"
-                      label="رمز عبور جدید را وارد کنید">
-                  </v-text-field>
-                </v-col>
-                <v-col cols="6"
-                class="px-8 col">
-                  <v-text-field
-                      type="password"
-                      style="height: 100%;"
-                      clearable
-                      outlined
-                      v-model="newPasswordConfirm"
-                      label="رمز عبور جدید را تایید کنید">
-                  </v-text-field>
-                </v-col>
-              </v-row>
-              <v-row justify="center">
-                <v-btn
-                    class="btn my-0"
-                    elevation="4"
-                    large
-                    outlined
-                    raised
-                    text
-                    style="background-color: #3751FF;
-                    color:white;"
-                    @click="change"
+                class="px-8 col"
                 >
+                  <p>رمز عبور جدید</p>
+                  <v-text-field
+                  label="رمز عبور جدید"
+                  v-model="name"
+                  outlined>
+                  </v-text-field>
+                  <p>تکرار رمز عبور</p>
+                  <v-text-field
+                  clearable
+                  outlined
+                  label="تکرار رمز عبور">
+                  </v-text-field>
+
+                  <!-- save button -->
+                  <v-btn
+                  class="btn-mobile"
+                  elevation="4"
+                  large
+                  outlined
+                  raised
+                  text
+                  style="background-color: #3751FF;
+                  color:white;"
+                  @click="submit"
+                  >
                   ذخیره تغییرات
-                </v-btn>
+                  </v-btn>
+
+                    <!-- clear button -->
+                    <v-btn
+                    class="btn-mobile"
+                    color="#3751FF"
+                    elevation="4"
+                    outlined
+                    large
+                    raised
+                    @click="clear"
+                    >لغو
+                    </v-btn>
+                </v-col>
+                <v-col cols="6">
+                    <v-img src="@/assets/password.png" class="img"></v-img>
+                </v-col>
               </v-row>
             </v-form>
           </v-card-text>
@@ -79,7 +74,7 @@
     <v-app v-else>
       <SidebarNavigation/>
       <v-sheet class="pa-5" color="transparent" elevation="0">
-        <h2 class="mb-5">تغییر رمز عبور</h2>
+        <h2 class="mb-5">ویرایش رمز عبور</h2>
         <v-card
         class="card-res"
         width="85vw"
@@ -93,62 +88,47 @@
             <v-form class="px-3">
               <v-row class="d-flex flex-column">
                 <v-col cols="12"
-                class="px-8 col">
-                  <h3>رمز عبور فعلی</h3>
-                  <v-divider />
-                  <v-row>
-                    <v-col cols="12"
-                           class="px-8 col">
-                      <v-text-field
-                          type="password"
-                          label="رمز عبور فعلی را وارد نمایید"
-                          v-model="password"
-                          outlined>
-                      </v-text-field>
-                    </v-col>
-                  </v-row>
-                  <h3>رمز عبور جدید</h3>
-                  <v-divider />
-                  <v-row>
-                    <v-col cols="12"
-                           class="px-8 py-0 my-0 col">
-                      <v-text-field
-                          type="password"
-                          clearable
-                          outlined
-                          v-model="newPassword"
-                          label="رمز عبور جدید را وارد کنید">
-                      </v-text-field>
-                    </v-col>
-                  </v-row>
-                  <v-row>
-                    <v-col cols="12"
-                           class="px-8 py-0 my-0 col">
-                      <v-text-field
-                          type="password"
-                          clearable
-                          outlined
-                          v-model="newPasswordConfirm"
-                          class="my-0"
-                          label="رمز عبور جدید را تایید کنید">
-                      </v-text-field>
-                    </v-col>
-                  </v-row>
-                  <v-row justify="center">
+                class="px-8 col"
+                >
+                  <p>رمز عبور جدید</p>
+                  <v-text-field
+                  label="رمز عبور جدید"
+                  v-model="name"
+                  outlined>
+                  </v-text-field>
+                  <p>تکرار رمز عبور</p>
+                  <v-text-field
+                  clearable
+                  outlined
+                  label="تکرار رمز عبور">
+                  </v-text-field>
+
+                  <!-- save button -->
+                  <v-btn
+                  class="btn-mobile"
+                  elevation="4"
+                  large
+                  outlined
+                  raised
+                  text
+                  style="background-color: #3751FF;
+                  color:white;"
+                  @click="change"
+                  >
+                  ذخیره تغییرات
+                  </v-btn>
+
+                    <!-- clear button -->
                     <v-btn
-                        class="btn my-0"
-                        elevation="4"
-                        large
-                        outlined
-                        raised
-                        text
-                        style="background-color: #3751FF;
-                    color:white;"
-                        @click="change"
-                    >
-                      ذخیره تغییرات
+                    class="btn-mobile"
+                    color="#3751FF"
+                    elevation="4"
+                    outlined
+                    large
+                    raised
+                    @click="clear"
+                    >لغو
                     </v-btn>
-                  </v-row>
                 </v-col>
               </v-row>
             </v-form>

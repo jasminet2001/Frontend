@@ -51,7 +51,7 @@
         <v-list-item-icon>
           <v-icon>mdi-lock-outline</v-icon>
         </v-list-item-icon>
-        <v-list-item-title>تغییر رمز عبور</v-list-item-title>
+        <v-list-item-title>ویرایش رمز عبور</v-list-item-title>
       </v-list-item>
       <v-list-item link to="/bookmarks">
         <v-list-item-icon>
@@ -71,17 +71,23 @@
         </v-list-item-icon>
         <v-list-item-title>ارتقای حساب</v-list-item-title>
       </v-list-item>
-      <v-list-item link to="/ticketing">
+      <v-list-item link @click="Wallet()">
         <v-list-item-icon>
-          <v-icon>mdi-ticket-confirmation-outline</v-icon>
+          <v-icon>mdi-credit-card-outline</v-icon>
         </v-list-item-icon>
-        <v-list-item-title>ارسال تیکت</v-list-item-title>
+        <v-list-item-title>کیف پول</v-list-item-title>
       </v-list-item>
       <v-list-item link to="/MyAdsList">
         <v-list-item-icon>
           <v-icon>mdi-file-document-edit-outline</v-icon>
         </v-list-item-icon>
         <v-list-item-title>آگهی های من</v-list-item-title>
+      </v-list-item>
+      <v-list-item link @click="logout">
+        <v-list-item-icon>
+          <v-icon>mdi-exit-to-app</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>خروج</v-list-item-title>
       </v-list-item>
     </v-list>
 
@@ -102,18 +108,12 @@
         </v-list-item-title>
       </v-list-item>
 
-      <v-list-item link @click="logout">
-        <v-list-item-icon>
-          <v-icon>mdi-exit-to-app</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>خروج</v-list-item-title>
-      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 
   <!-- responsive -->
   <v-card
-  class=" overflow-hidden"
+  class="overflow-hidden"
   v-else
   fixed
   >
@@ -156,7 +156,7 @@
             <v-list-item-icon>
               <v-icon>mdi-lock-outline</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>ویرایش پسوورد</v-list-item-title>
+            <v-list-item-title>ویرایش رمز عبور</v-list-item-title>
           </v-list-item>
 
           <v-list-item link to="/bookmarks" class="py-2">
@@ -179,12 +179,11 @@
             </v-list-item-icon>
             <v-list-item-title>ارتقای حساب</v-list-item-title>
           </v-list-item>
-
-          <v-list-item link to="/ticketing" class="py-2">
+          <v-list-item link @click="Wallet()" class="py-2">
             <v-list-item-icon>
-              <v-icon>mdi-ticket-confirmation-outline</v-icon>
+              <v-icon>mdi-credit-card-outline</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>ارسال تیکت</v-list-item-title>
+            <v-list-item-title>کیف پول</v-list-item-title>
           </v-list-item>
 
         <v-list-item link to="/MyAdsList" class="py-2">

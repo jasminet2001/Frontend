@@ -63,15 +63,16 @@
                 </v-col>
                 <v-col cols="6"
                 class="px-8 col">
-                  <p>توضیحات آگهی</p>
-                  <v-textarea
-                      style="height: 100%;"
-                      clearable
-                      outlined
-                      shaped
-                      v-model="description"
-                      label="توضیحات آگهی">
-                  </v-textarea>
+                  <p>دسته بندی</p>
+                  <v-select
+                  :items="categories"
+                  item-text="name"
+                  item-value="id"
+                  v-model="category"
+                  label="دسته بندی"
+                  ></v-select>
+
+                  <v-img src="@/assets/submitAd.png" class="img"></v-img>
                 </v-col>
               </v-row>
             </v-form>
@@ -262,5 +263,8 @@ export default {
     }
     .card-desktop{
         border: 2px dashed #000080;
+    }
+    .img{
+      margin-top: 4em;
     }
 </style>

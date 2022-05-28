@@ -18,13 +18,13 @@
               <v-row class="pa-3">
                 <v-col cols="6"
                 class="px-8 col">
-                  <v-file-input
-                      label="بارگزاری تصویر پروفایل"
-                      outlined
-                      prepend-icon="mdi-account-arrow-up"
-                      class="mt-4"
-                      v-model="selectedFile"
-                  ></v-file-input>
+                  <v-row class="row">
+                    <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
+                    <p>بارگزاری تصویر پروفایل</p>
+                  </v-row>
+                  <v-row class="row">
+                      <UploadPhoto></UploadPhoto>
+                  </v-row>
                   <v-row class="row">
                     <v-text-field
                     label="نام و نام خانوادگی"
@@ -35,7 +35,12 @@
                 </v-col>
                 <v-col cols="6"
                 class="px-8 col">
-
+                    <v-img src="@/assets/profile.png" class="img" height="150"></v-img>
+                    
+                    <v-text-field label="وبسایت"
+                    v-model="website"
+                    outlined
+                    class="mt-16"></v-text-field>
                   <v-row class="row"><v-text-field label="ایمیل"
                                                    v-model="email"
                                                    outlined></v-text-field></v-row>
@@ -60,8 +65,7 @@
                       @click="update"
                   >
                     ذخیره تغییرات
-                  </v-btn>
-
+                    </v-btn>
                   <!-- clear button -->
                   <v-btn
                       class="btn my-0"
@@ -98,12 +102,13 @@
                     <v-row class="d-flex flex-column">
                         <v-col cols="12"
                         class="px-8 col">
-                          <v-file-input
-                              label="بارگزاری تصویر پروفایل"
-                              outlined
-                              prepend-icon="mdi-account-arrow-up"
-                              class="mt-4"
-                          ></v-file-input>
+                            <v-row class="upload-title-res">
+                                <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
+                                <p >بارگزاری تصویر پروفایل</p>
+                            </v-row>
+                            <v-row class="upload-title-res">
+                                <UploadPhoto></UploadPhoto>
+                            </v-row>
                             <v-row class="row-res">
                                 <v-text-field v-model="name"
                                 label="نام و نام خانوادگی"
@@ -152,6 +157,7 @@
 
 <script>
 import SidebarNavigation from "./SidebarNavigation.vue"
+import UploadPhoto from "./uploadPhoto.vue";
 export default {
     name: "EditProfile",
     data: () => ({
@@ -235,7 +241,7 @@ export default {
             });
       }
     },
-    components: { SidebarNavigation }
+    components: { SidebarNavigation, UploadPhoto }
 }
 </script>
 
@@ -248,7 +254,7 @@ export default {
         margin: .5em;
     }
     .btn{
-        margin-top: 7em;
+        margin-top: 1em;
     }
     .btn-mobile{
         margin-top: 1em;

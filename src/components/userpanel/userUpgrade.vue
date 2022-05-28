@@ -19,13 +19,11 @@
                 <v-col cols="6"
                 class="px-8 col">
                   <v-row class="row">
-                    <v-file-input
-                        label="بارگذاری لوگوی شرکت"
-                        outlined
-                        prepend-icon="mdi-account-arrow-up"
-                        class="mt-4"
-                        v-model="selectedFile"
-                    ></v-file-input>
+                    <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
+                    <p>بارگزاری لوگوی شرکت</p>
+                  </v-row>
+                  <v-row class="row">
+                    <UploadPhoto></UploadPhoto>
                   </v-row>
 
                   <v-row class="row">
@@ -46,6 +44,8 @@
                     
                     <p>دسته بندی شرکت</p>
                     <v-select
+                    solo
+                    outlined
                     :items="categories"
                     item-text="name"
                     item-value="id"
@@ -152,6 +152,8 @@
                             </v-row>
                             <v-row class="row-res">
                               <v-select
+                              solo
+                              outlined
                               :items="categories"
                               item-text="name"
                               item-value="id"
@@ -217,9 +219,12 @@
 
 <script>
 import SidebarNavigation from './SidebarNavigation.vue'
+import UploadPhoto from './uploadPhoto.vue'
 export default {
   components: {
     SidebarNavigation,
+    UploadPhoto
+},
   },
   data: () => ({
     selectedFile: '',

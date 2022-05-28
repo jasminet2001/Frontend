@@ -11,13 +11,13 @@
     <hr class="mb-5" style="background-color: black !important; width: 30%; margin: 0 auto; height: 3px; border: none"/>
 
     <v-slide-group
-        v-model="costumerSlider"
-        class="pa-4"
-        multiple
-        :show-arrows="this.$vuetify.breakpoint.mdAndUp">
+    v-model="costumerSlider"
+    class="pa-4"
+    multiple
+    :show-arrows="this.$vuetify.breakpoint.mdAndUp">
       <v-slide-item
-          v-for="(item, index) in costumersList"
-          :key="index"
+      v-for="(item, index) in costumersList"
+      :key="index"
       >
         <costumer-card :item="item"/>
       </v-slide-item>
