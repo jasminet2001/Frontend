@@ -42,7 +42,7 @@
           <v-card width="100%" elevation="1" class="rounded-xl pa-4">
             <v-card-text>
               <v-row>
-                <v-col cols="8">
+                <v-col cols="12">
                   <v-row class="my-4" style="font-size: 1.4em; font-weight: bolder">
                     <span>پلن:</span>
                     <v-spacer />
@@ -68,15 +68,14 @@
                     &nbsp;
                     <span>تومان</span>
                   </v-row>
+                  <v-row class="mt-5" style="font-size: 1.2em">
+                    <v-btn class="rounded-lg pa-3" outlined width="100%" height="100%" color="#3751FF" @click="buyPlan(index)">
+                      پرداخت
+                      (از اعتبار)
+                    </v-btn>
+                  </v-row>
                 </v-col>
                 <v-spacer />
-                <v-col cols="3" style="font-size: 1.2em" justify="center" align="center" class="my-4">
-                  <v-btn class="rounded-lg" outlined width="100%" height="100%" color="#3751FF" @click="buyPlan(index)">
-                    پرداخت
-                    <br />
-                    (از اعتبار)
-                  </v-btn>
-                </v-col>
               </v-row>
             </v-card-text>
           </v-card>
