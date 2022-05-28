@@ -68,7 +68,7 @@
           <v-btn to="/signup" color="white" elevation="0" tile flat outlined class="">ثبت نام</v-btn>
         </v-btn-toggle>
       </v-tab>
-      <v-tab v-else>
+      <v-tab v-else to="/dashboard">
         <v-btn icon>
           <v-avatar
               color="transparent"

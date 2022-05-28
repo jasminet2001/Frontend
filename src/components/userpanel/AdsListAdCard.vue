@@ -4,7 +4,7 @@
       <v-card-title
           class="justify-center"
           style="color: black">
-        <strong>{{ item.Title }}</strong>
+        <strong>{{ item.title }}</strong>
         <v-spacer />
         <span style="color: #9FA2B4 !important; font-size: 0.8em !important;">
           {{ item.Date }}
@@ -12,10 +12,10 @@
       </v-card-title>
       <v-card-subtitle style="color: #9FA2B4 !important;">
         توسط:
-        {{ item.Author }}
+        {{ item.sender.name }}
       </v-card-subtitle>
       <v-card-text align="start">
-        {{ item.Description }}
+        {{ item.description }}
       </v-card-text>
       <v-card-actions>
         <v-spacer />

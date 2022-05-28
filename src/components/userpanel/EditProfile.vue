@@ -18,20 +18,13 @@
               <v-row class="pa-3">
                 <v-col cols="6"
                 class="px-8 col">
-                  <v-row class="row">
-                    <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
-                    <p>بارگزاری تصویر پروفایل</p>
-                  </v-row>
-                  <v-row class="row">
-                    <input type="file" @change="onFileSelected">
-                    <v-btn
-                    color="primary"
-                    elevation="2"
-                    small
-                    @click="onUpload">Upload
-                    </v-btn>
-                  </v-row>
-
+                  <v-file-input
+                      label="بارگزاری تصویر پروفایل"
+                      outlined
+                      prepend-icon="mdi-account-arrow-up"
+                      class="mt-4"
+                      v-model="selectedFile"
+                  ></v-file-input>
                   <v-row class="row">
                     <v-text-field
                     label="نام و نام خانوادگی"
@@ -39,56 +32,45 @@
                     outlined>
                     </v-text-field>
                   </v-row>
-
-                    <v-row class="row"><v-text-field label="ایمیل"
-                    v-model="email"
-                    outlined></v-text-field></v-row>
-
-                    <v-text-field label="شماره همراه"
-                    v-model="phone"
-                    outlined></v-text-field>
                 </v-col>
-
                 <v-col cols="6"
                 class="px-8 col">
 
-                  <v-text-field label="وبسایت"
-                  v-model="website"
-                  outlined></v-text-field>
-                  <v-text-field label="آدرس"
-                  v-model="address"
-                  outlined></v-text-field>
-                  <v-select
-                      :items="gender"
-                      label="جنسیت"
-                      solo
-                      outlined
-                  ></v-select>
+                  <v-row class="row"><v-text-field label="ایمیل"
+                                                   v-model="email"
+                                                   outlined></v-text-field></v-row>
 
+                  <v-text-field label="شماره همراه"
+                                v-model="phone"
+                                outlined></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row class="justify-space-between pr-16 mx-auto">
+                <v-col cols="10" >
                   <!-- save button -->
                   <v-btn
-                    class="btn"
-                    elevation="4"
-                    large
-                    outlined
-                    raised
-                    text
-                    style="background-color: #3751FF;
-                    color:white;"
-                    @click="submit"
+                      class="btn my-0"
+                      elevation="4"
+                      large
+                      outlined
+                      raised
+                      text
+                      style="background-color: #3751FF;
+                      color:white;"
+                      @click="update"
                   >
                     ذخیره تغییرات
                   </v-btn>
 
                   <!-- clear button -->
                   <v-btn
-                    class="btn"
-                    color="#3751FF"
-                    elevation="4"
-                    outlined
-                    large
-                    raised
-                    @click="clear()"
+                      class="btn my-0"
+                      color="#3751FF"
+                      elevation="4"
+                      outlined
+                      large
+                      raised
+                      type="reset"
                   >لغو</v-btn>
                 </v-col>
               </v-row>
@@ -116,19 +98,12 @@
                     <v-row class="d-flex flex-column">
                         <v-col cols="12"
                         class="px-8 col">
-                            <v-row class="upload-title-res">
-                                <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
-                                <p >بارگزاری تصویر پروفایل</p>
-                            </v-row>
-                            <v-row class="upload-title-res">
-                                <input type="file" @change="onFileSelected">
-                                <v-btn class="btn-res"
-                                color="black"
-                                elevation="2"
-                                small
-                                @click="onUpload">Upload</v-btn>
-                            </v-row>
-
+                          <v-file-input
+                              label="بارگزاری تصویر پروفایل"
+                              outlined
+                              prepend-icon="mdi-account-arrow-up"
+                              class="mt-4"
+                          ></v-file-input>
                             <v-row class="row-res">
                                 <v-text-field v-model="name"
                                 label="نام و نام خانوادگی"
@@ -142,22 +117,6 @@
                             <v-row class="row-res"><v-text-field label="شماره همراه"
                             v-model="phone"
                             outlined></v-text-field></v-row>
-                            <v-row class="row-res"><v-text-field label="وبسایت"
-                            v-model="website"
-                            outlined></v-text-field></v-row>
-                            <v-row class="row-res"><v-text-field label="آدرس"
-                            v-model="address"
-                            outlined></v-text-field></v-row>
-                            <v-row class="row-res">
-                                <v-select
-                                :items="gender"
-                                label="جنسیت"
-                                solo
-                                outlined
-                                style="margin-top: 2em;"
-                                ></v-select>
-                            </v-row>
-
                             <!-- save button -->
                             <v-btn
                             class="btn-mobile"
@@ -168,7 +127,7 @@
                             text
                             style="background-color: #3751FF;
                             color:white;"
-                            @click="submit"
+                            @click="update"
                             >
                                 ذخیره تغییرات
                             </v-btn>
@@ -181,7 +140,7 @@
                             outlined
                             large
                             raised
-                            @click="clear"
+                            type="reset"
                             >لغو</v-btn>
                         </v-col>
                     </v-row>
@@ -204,7 +163,6 @@ export default {
         address:'',
         phone: '',
         gender: ["زن", "مرد"],
-        status: ["کاربر عادی", "کاربر شرکتی"],
         //for birthdate
         activePicker: null,
         date: null,
@@ -248,6 +206,34 @@ export default {
             this.address = ''
             this.gender = null
         },
+      async update(){
+        var axios = require('axios');
+        var FormData = require('form-data');
+        var data = new FormData();
+        data.append('name', this.name);
+        data.append('phone', this.phone);
+        data.append('avatar', this.selectedFile);
+        data.append('email', this.email);
+
+        var config = {
+          method: 'post',
+          url: 'http://localhost:8000/api/user/update',
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer '+this.$cookies.get('token'),
+            'Content-Type': 'multipart/form-data'
+          },
+          data : data
+        };
+
+        await axios(config)
+            .then(function (response) {
+              console.log(response.data);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+      }
     },
     components: { SidebarNavigation }
 }
