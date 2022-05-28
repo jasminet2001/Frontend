@@ -53,7 +53,7 @@
         </v-list-item-icon>
         <v-list-item-title>ویرایش پسوورد</v-list-item-title>
       </v-list-item>
-      <v-list-item link>
+      <v-list-item link @click="StarredAds()">
         <v-list-item-icon>
           <v-icon>mdi-bookmark-multiple</v-icon>
         </v-list-item-icon>
@@ -159,7 +159,7 @@
             <v-list-item-title>ویرایش پسوورد</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link class="py-2">
+          <v-list-item link @click="StarredAds()" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-bookmark-multiple</v-icon>
             </v-list-item-icon>
@@ -249,6 +249,9 @@ export default {
     changePass(){
 
     },
+    StarredAds(){
+      this.$router.push('/StarredAds')
+    }
   },
 
 }
