@@ -224,7 +224,6 @@ export default {
   components: {
     SidebarNavigation,
     UploadPhoto
-},
   },
   data: () => ({
     selectedFile: '',
@@ -299,7 +298,6 @@ export default {
               that.errorToaster('خطایی ناشناخته رخ داد!')
             }
           });
-
     }
   },
   beforeMount() {
