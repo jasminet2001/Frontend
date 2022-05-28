@@ -71,11 +71,11 @@
         </v-list-item-icon>
         <v-list-item-title>ارتقای حساب</v-list-item-title>
       </v-list-item>
-      <v-list-item link>
+      <v-list-item link @click="Wallet()">
         <v-list-item-icon>
-          <v-icon>mdi-ticket-confirmation-outline</v-icon>
+          <v-icon>mdi-credit-card-outline</v-icon>
         </v-list-item-icon>
-        <v-list-item-title>ارسال تیکت</v-list-item-title>
+        <v-list-item-title>کیف پول</v-list-item-title>
       </v-list-item>
       <v-list-item link @click="MyAds()">
         <v-list-item-icon>
@@ -248,6 +248,9 @@ export default {
     },
     changePass(){
       this.$router.push('/changePass');
+    },
+    Wallet(){
+
     },
   },
 

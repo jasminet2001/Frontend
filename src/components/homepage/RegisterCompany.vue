@@ -45,7 +45,7 @@
   margin-top: 10%;
   --color: white;
   padding: 0.8em 1.7em;
-  width: 36%;
+  width: 32%;
   background-color: #ffeb3b;
   border-radius: 3em;
   position: relative;

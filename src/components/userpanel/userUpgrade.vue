@@ -50,6 +50,8 @@
                     
                     <p>دسته بندی شرکت</p>
                     <v-select
+                    solo
+                    outlined
                     :items="categories"
                     item-text="name"
                     item-value="id"
@@ -158,6 +160,8 @@
                             </v-row>
                             <v-row class="row-res">
                               <v-select
+                              solo
+                              outlined
                               :items="categories"
                               item-text="name"
                               item-value="id"

@@ -47,26 +47,28 @@
                     <v-text-field label="شماره همراه"
                     v-model="phone"
                     outlined></v-text-field>
+
+                    <v-text-field label="وبسایت"
+                    v-model="website"
+                    outlined></v-text-field>
                 </v-col>
 
                 <v-col cols="6"
                 class="px-8 col">
+                    <v-img src="@/assets/profile.png" class="img"></v-img>
 
-                  <v-text-field label="وبسایت"
-                  v-model="website"
-                  outlined></v-text-field>
-                  <v-text-field label="آدرس"
-                  v-model="address"
-                  outlined></v-text-field>
-                  <v-select
-                      :items="gender"
-                      label="جنسیت"
-                      solo
-                      outlined
-                  ></v-select>
+                    <v-text-field label="آدرس"
+                    v-model="address"
+                    outlined></v-text-field>
+                    <v-select
+                    :items="gender"
+                    label="جنسیت"
+                    solo
+                    outlined
+                    ></v-select>
 
-                  <!-- save button -->
-                  <v-btn
+                    <!-- save button -->
+                    <v-btn
                     class="btn"
                     elevation="4"
                     large
@@ -76,12 +78,12 @@
                     style="background-color: #3751FF;
                     color:white;"
                     @click="submit"
-                  >
+                    >
                     ذخیره تغییرات
-                  </v-btn>
+                    </v-btn>
 
-                  <!-- clear button -->
-                  <v-btn
+                    <!-- clear button -->
+                    <v-btn
                     class="btn"
                     color="#3751FF"
                     elevation="4"
@@ -89,7 +91,7 @@
                     large
                     raised
                     @click="clear()"
-                  >لغو</v-btn>
+                    >لغو</v-btn>
                 </v-col>
               </v-row>
             </v-form>
@@ -262,7 +264,7 @@ export default {
         margin: .5em;
     }
     .btn{
-        margin-top: 7em;
+        margin-top: 5em;
     }
     .btn-mobile{
         margin-top: 1em;
