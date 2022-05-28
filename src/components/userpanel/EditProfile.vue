@@ -23,7 +23,7 @@
                     <p>بارگزاری تصویر پروفایل</p>
                   </v-row>
                   <v-row class="row">
-                      <UploadPhoto></UploadPhoto>
+                    <UploadPhoto></UploadPhoto>
                   </v-row>
                   <v-row class="row">
                     <v-text-field
@@ -32,49 +32,50 @@
                     outlined>
                     </v-text-field>
                   </v-row>
-                </v-col>
-                <v-col cols="6"
-                class="px-8 col">
-                    <v-img src="@/assets/profile.png" class="img" height="150"></v-img>
-                    
+
+                  <v-row class="row"><v-text-field label="ایمیل"
+                  v-model="email"
+                  outlined></v-text-field></v-row>
+
+                  <v-row class="row">
                     <v-text-field label="وبسایت"
                     v-model="website"
                     outlined
-                    class="mt-16"></v-text-field>
-                  <v-row class="row"><v-text-field label="ایمیل"
-                                                   v-model="email"
-                                                   outlined></v-text-field></v-row>
+                    ></v-text-field>
+                  </v-row>
+                </v-col>
+                <v-col cols="6"
+                class="px-8 col">
+                  <v-img src="@/assets/profile.png" class="img" height="150"></v-img>
 
                   <v-text-field label="شماره همراه"
-                                v-model="phone"
-                                outlined></v-text-field>
-                </v-col>
-              </v-row>
-              <v-row class="justify-space-between pr-16 mx-auto">
-                <v-col cols="10" >
+                  class="mt-15"
+                  v-model="phone"
+                  outlined></v-text-field>
+                  
                   <!-- save button -->
                   <v-btn
-                      class="btn my-0"
-                      elevation="4"
-                      large
-                      outlined
-                      raised
-                      text
-                      style="background-color: #3751FF;
-                      color:white;"
-                      @click="update"
+                  class="btn"
+                  elevation="4"
+                  large
+                  outlined
+                  raised
+                  text
+                  style="background-color: #3751FF;
+                  color:white;"
+                  @click="update"
                   >
                     ذخیره تغییرات
                     </v-btn>
                   <!-- clear button -->
                   <v-btn
-                      class="btn my-0"
-                      color="#3751FF"
-                      elevation="4"
-                      outlined
-                      large
-                      raised
-                      type="reset"
+                  class="btn"
+                  color="#3751FF"
+                  elevation="4"
+                  outlined
+                  large
+                  raised
+                  type="reset"
                   >لغو</v-btn>
                 </v-col>
               </v-row>
@@ -254,7 +255,7 @@ export default {
         margin: .5em;
     }
     .btn{
-        margin-top: 1em;
+        margin-top: 2em;
     }
     .btn-mobile{
         margin-top: 1em;
