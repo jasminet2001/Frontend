@@ -25,14 +25,13 @@
                   v-model="name"
                   outlined>
                   </v-text-field>
-                  <p>دسته بندی</p>
-                  <v-select
-                      :items="categories"
-                      item-text="name"
-                      item-value="id"
-                      v-model="category"
-                      label="دسته بندی"
-                  ></v-select>
+                  <p>توضیحات آگهی</p>
+                  <v-textarea
+                  clearable
+                  outlined
+                  shaped
+                  label="توضیحات آگهی">
+                  </v-textarea>
 
                   <!-- save button -->
                   <v-btn
@@ -65,6 +64,7 @@
                 class="px-8 col">
                   <p>دسته بندی</p>
                   <v-select
+                  outlined
                   :items="categories"
                   item-text="name"
                   item-value="id"
@@ -122,6 +122,7 @@
                   <v-row class="row">
                     <p>دسته بندی</p>
                     <v-select
+                    outlined
                     :items="categories"
                     item-text="name"
                     item-value="id"
@@ -132,28 +133,28 @@
 
                   <!-- save button -->
                   <v-btn
-                      class="btn-mobile"
-                      elevation="4"
-                      large
-                      outlined
-                      raised
-                      text
-                      style="background-color: #3751FF;
-                            color:white;"
-                      @click="submit"
+                  class="btn-mobile"
+                  elevation="4"
+                  large
+                  outlined
+                  raised
+                  text
+                  style="background-color: #3751FF;
+                  color:white;"
+                  @click="submit"
                   >
                     ذخیره تغییرات
                   </v-btn>
 
                   <!-- clear button -->
                   <v-btn
-                      class="btn-mobile"
-                      color="#3751FF"
-                      elevation="4"
-                      outlined
-                      large
-                      raised
-                      @click="clear"
+                  class="btn-mobile"
+                  color="#3751FF"
+                  elevation="4"
+                  outlined
+                  large
+                  raised
+                  @click="clear"
                   >لغو
                   </v-btn>
                 </v-col>
@@ -265,6 +266,6 @@ export default {
         border: 2px dashed #000080;
     }
     .img{
-      margin-top: 4em;
+      margin-top: 2em;
     }
 </style>
