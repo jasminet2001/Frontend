@@ -102,7 +102,7 @@
         </v-list-item-title>
       </v-list-item>
 
-      <v-list-item link>
+      <v-list-item link @click="logout">
         <v-list-item-icon>
           <v-icon>mdi-exit-to-app</v-icon>
         </v-list-item-icon>
@@ -138,56 +138,56 @@
         v-model="group"
         active-class="grey lighten-4--text text--accent-4"
         >
-          <v-list-item link @click="dashboard()" class="py-2">
+          <v-list-item link to="/userpanel" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-monitor-dashboard</v-icon>
             </v-list-item-icon>
             <v-list-item-title>داشبورد</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link @click="EditProf()" class="py-2">
+          <v-list-item link to="/editprofile" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-account-edit-outline</v-icon>
             </v-list-item-icon>
             <v-list-item-title>ویرایش پروفایل</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link @click="changePass()">
+          <v-list-item link to="/changepass">
             <v-list-item-icon>
               <v-icon>mdi-lock-outline</v-icon>
             </v-list-item-icon>
             <v-list-item-title>ویرایش پسوورد</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link class="py-2">
+          <v-list-item link to="/bookmarks" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-bookmark-multiple</v-icon>
             </v-list-item-icon>
             <v-list-item-title>نشانک ها</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link @click="submitAds()" class="py-2">
+          <v-list-item link to="/subAds" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-form-select</v-icon>
             </v-list-item-icon>
             <v-list-item-title>ثبت آگهی</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link @click="Upgrade()" class="py-2">
+          <v-list-item link to="/userUpgrade" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-arrow-u-up-right-bold</v-icon>
             </v-list-item-icon>
             <v-list-item-title>ارتقای حساب</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link class="py-2">
+          <v-list-item link to="/ticketing" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-ticket-confirmation-outline</v-icon>
             </v-list-item-icon>
             <v-list-item-title>ارسال تیکت</v-list-item-title>
           </v-list-item>
 
-        <v-list-item link @click="MyAds()" class="py-2">
+        <v-list-item link to="/MyAdsList" class="py-2">
           <v-list-item-icon>
             <v-icon>mdi-file-document-edit-outline</v-icon>
           </v-list-item-icon>
@@ -213,7 +213,7 @@
           </v-list-item-title>
         </v-list-item>
 
-        <v-list-item link>
+        <v-list-item link @click="logout">
           <v-list-item-icon>
             <v-icon>mdi-exit-to-app</v-icon>
           </v-list-item-icon>
@@ -230,6 +230,13 @@ export default {
     drawer: false,
     group: null,
   }),
+  methods: {
+    logout(){
+      this.$cookies.remove('user')
+      this.$cookies.remove('token')
+      this.$router.push('/')
+    }
+  }
 }
 </script>
 
