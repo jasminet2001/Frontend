@@ -23,13 +23,7 @@
                     <p>بارگزاری تصویر پروفایل</p>
                   </v-row>
                   <v-row class="row">
-                    <input type="file" @change="onFileSelected">
-                    <v-btn
-                    color="primary"
-                    elevation="2"
-                    small
-                    @click="onUpload">Upload
-                    </v-btn>
+                      <UploadPhoto></UploadPhoto>
                   </v-row>
 
                   <v-row class="row">
@@ -47,25 +41,16 @@
                     <v-text-field label="شماره همراه"
                     v-model="phone"
                     outlined></v-text-field>
-
-                    <v-text-field label="وبسایت"
-                    v-model="website"
-                    outlined></v-text-field>
                 </v-col>
 
                 <v-col cols="6"
                 class="px-8 col">
-                    <v-img src="@/assets/profile.png" class="img"></v-img>
-
-                    <v-text-field label="آدرس"
-                    v-model="address"
-                    outlined></v-text-field>
-                    <v-select
-                    :items="gender"
-                    label="جنسیت"
-                    solo
+                    <v-img src="@/assets/profile.png" class="img" height="150"></v-img>
+                    
+                    <v-text-field label="وبسایت"
+                    v-model="website"
                     outlined
-                    ></v-select>
+                    class="mt-16"></v-text-field>
 
                     <!-- save button -->
                     <v-btn
@@ -123,12 +108,7 @@
                                 <p >بارگزاری تصویر پروفایل</p>
                             </v-row>
                             <v-row class="upload-title-res">
-                                <input type="file" @change="onFileSelected">
-                                <v-btn class="btn-res"
-                                color="black"
-                                elevation="2"
-                                small
-                                @click="onUpload">Upload</v-btn>
+                                <UploadPhoto></UploadPhoto>
                             </v-row>
 
                             <v-row class="row-res">
@@ -195,6 +175,7 @@
 
 <script>
 import SidebarNavigation from "./SidebarNavigation.vue"
+import UploadPhoto from "./uploadPhoto.vue";
 export default {
     name: "EditProfile",
     data: () => ({
@@ -251,7 +232,7 @@ export default {
             this.gender = null
         },
     },
-    components: { SidebarNavigation }
+    components: { SidebarNavigation, UploadPhoto }
 }
 </script>
 
@@ -264,7 +245,7 @@ export default {
         margin: .5em;
     }
     .btn{
-        margin-top: 5em;
+        margin-top: 1em;
     }
     .btn-mobile{
         margin-top: 1em;

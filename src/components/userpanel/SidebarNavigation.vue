@@ -85,6 +85,13 @@
       </v-list-item>
     </v-list>
 
+    <v-list-item link>
+      <v-list-item-icon>
+        <v-icon>mdi-exit-to-app</v-icon>
+      </v-list-item-icon>
+      <v-list-item-title>خروج</v-list-item-title>
+    </v-list-item>
+
     <v-divider></v-divider>
 
     <v-list>
@@ -100,13 +107,6 @@
           persistent-hint
           ></v-switch>
         </v-list-item-title>
-      </v-list-item>
-
-      <v-list-item link>
-        <v-list-item-icon>
-          <v-icon>mdi-exit-to-app</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>خروج</v-list-item-title>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>

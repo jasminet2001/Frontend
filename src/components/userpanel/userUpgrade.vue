@@ -23,13 +23,7 @@
                     <p>بارگزاری لوگوی شرکت</p>
                   </v-row>
                   <v-row class="row">
-                    <input type="file" @change="onFileSelected">
-                    <v-btn
-                    color="primary"
-                    elevation="2"
-                    small
-                    @click="onUpload">Upload
-                    </v-btn>
+                    <UploadPhoto></UploadPhoto>
                   </v-row>
 
                   <v-row class="row">
@@ -224,10 +218,12 @@
 
 <script>
 import SidebarNavigation from './SidebarNavigation.vue'
+import UploadPhoto from './uploadPhoto.vue'
 export default {
   components: {
     SidebarNavigation,
-  },
+    UploadPhoto
+},
     props: {
     categories: {
       type: Array,
