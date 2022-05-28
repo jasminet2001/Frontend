@@ -1,0 +1,26 @@
+<svg width="377" height="221" viewBox="0 0 377 221" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="377" height="221" rx="30" fill="url(#paint0_linear_12_0)"/>
+<mask id="mask0_12_0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="377" height="221">
+<rect width="377" height="221" rx="30" fill="#ED713C"/>
+</mask>
+<g mask="url(#mask0_12_0)">
+<ellipse opacity="0.1" cx="29.3222" cy="255.832" rx="192.09" ry="135.723" fill="black"/>
+<ellipse opacity="0.08" cx="347.678" cy="-34.8315" rx="192.09" ry="135.723" fill="black"/>
+</g>
+<rect x="34.7079" y="87.6794" width="39.4952" height="26.4239" rx="5" fill="url(#paint1_radial_12_0)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M54.4556 87.9423L50.0672 94.8477C50.0672 94.8477 51.8225 100.89 50.0672 106.069L54.4556 113.838L58.8439 106.069C58.8439 106.069 57.0886 101.753 58.8439 94.8477C58.8439 94.8477 54.4556 87.9423 54.4556 87.9423Z" stroke="#C7C7B6" stroke-width="1.3" stroke-linejoin="bevel"/>
+<path d="M34.7079 95.165H50.0672" stroke="#C7C7B6" stroke-width="1.3" stroke-linejoin="bevel"/>
+<path d="M58.4046 95.165H74.2027" stroke="#C7C7B6" stroke-width="1.3" stroke-linejoin="bevel"/>
+<path d="M34.7079 105.734H50.0672" stroke="#C7C7B6" stroke-width="1.3" stroke-linejoin="bevel"/>
+<path d="M58.4046 105.734H74.2027" stroke="#C7C7B6" stroke-width="1.3" stroke-linejoin="bevel"/>
+<defs>
+<linearGradient id="paint0_linear_12_0" x1="189.8" y1="-36.6395" x2="197.891" y2="248.666" gradientUnits="userSpaceOnUse">
+<stop stop-color="#9C2CF3"/>
+<stop offset="1" stop-color="#3A49F9"/>
+</linearGradient>
+<radialGradient id="paint1_radial_12_0" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(57.3882 97.3047) rotate(141.202) scale(26.8102 26.6274)">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#DDDCDA"/>
+</radialGradient>
+</defs>
+</svg>

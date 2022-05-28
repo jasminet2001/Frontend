@@ -8,7 +8,34 @@
       <v-row>
         <v-spacer />
         <v-col cols="10" md="10" lg="10" xl="8" sm="8">
-          <v-card width="100%" elevation="1" class="rounded-xl py-2 px-4" outlined style="min-height: 218px;">
+          <v-card v-if="this.$vuetify.breakpoint.xsOnly" width="100%" elevation="1" class="rounded-xl py-2 px-4" outlined style="min-height: 181px; max-width: 277px; margin: 0 auto;">
+            <v-card-text>
+              <v-row class="my-2" style="font-size: 1.2em; font-weight: bolder">
+                <span>پلن فعال:</span>
+                <v-spacer />
+                <span>{{ currentPlan.planName }}</span>
+              </v-row>
+              <v-divider />
+              <v-row class="my-2" style="font-size: 1.0em">
+                <span>روزهای باقی مانده:</span>
+                <v-spacer />
+                <span>{{ currentPlan.DaysRemaining }}</span>
+              </v-row>
+              <v-divider />
+              <v-row class="my-2" style="font-size: 1.0em">
+                <span>آگهی های باقی مانده:</span>
+                <v-spacer />
+                <span>{{ currentPlan.AdsRemaining }}</span>
+              </v-row>
+              <v-divider />
+              <v-row class="my-2" style="font-size: 1.0em">
+                <span>آگهی های استفاده شده:</span>
+                <v-spacer />
+                <span>{{ currentPlan.usedAds }}</span>
+              </v-row>
+            </v-card-text>
+          </v-card>
+          <v-card v-else width="100%" elevation="1" class="rounded-xl py-2 px-4" outlined style="min-height: 218px; max-width: 377px; margin: 0 auto">
             <v-card-text>
               <v-row class="my-2" style="font-size: 1.2em; font-weight: bolder">
                 <span>پلن فعال:</span>
