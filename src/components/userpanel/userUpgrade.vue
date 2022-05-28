@@ -68,6 +68,7 @@
                     clearable
                     outlined
                     shaped
+                    v-model="description"
                     label="درباره شرکت">
                     </v-textarea>
  
@@ -123,16 +124,13 @@
                         <v-col cols="12"
                         class="px-8 col">
                             <v-row class="upload-title-res">
-                                <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
-                                <p>بارگزاری لوگوی شرکت</p>
-                            </v-row>
-                            <v-row class="upload-title-res">
-                                <input type="file" @change="onFileSelected">
-                                <v-btn class="btn-res"
-                                color="black"
-                                elevation="2"
-                                small
-                                @click="onUpload">Upload</v-btn>
+                              <v-file-input
+                                  label="بارگذاری لوگوی شرکت"
+                                  outlined
+                                  prepend-icon="mdi-account-arrow-up"
+                                  class="mt-4"
+                                  v-model="selectedFile"
+                              ></v-file-input>
                             </v-row>
 
                             <v-row class="row-res">
@@ -191,7 +189,10 @@
                             outlined
                             raised
                             text
-                            style="background-color: #3751FF;
+                         beforeMount() {
+    this.categoryFinder();
+  },
+     style="background-color: #3751FF;
                             color:white;"
                             @click="submit"
                             >
@@ -224,18 +225,88 @@ export default {
     SidebarNavigation,
     UploadPhoto
 },
-    props: {
-    categories: {
-      type: Array,
-      required: true
-    },
   },
   data: () => ({
-    searchFor: 'both',
-    text: '',
+    selectedFile: '',
+    name: '',
+    email: '',
+    phone: '',
     category: '',
+    website: '',
+    description: '',
+    categories: [],
   }),
+  methods:{
+    async categoryFinder() {
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/categories',
+        headers: {
+          'Accept': 'application/json',
+        },
+        data : data
+      };
+      let that = this;
+      await axios(config)
+          .then(function (response) {
+            that.categories=response.data.categories;
+          })
+    },
+    errorToaster(msg, type='error'){
+      this.$toast.open({
+        message: msg,
+        type: type,
+      })
+    },
+    async submit(){
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      data.append('name', this.name);
+      data.append('category_id', this.category);
+      data.append('email', this.email);
+      data.append('phone', this.email);
+      data.append('description', this.description);
+      data.append('website', this.website);
+      data.append('logo', this.selectedFile);
+
+      var config = {
+        method: 'post',
+        url: 'http://localhost:8000/api/company/add',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer '+this.$cookies.get('token'),
+          'Content-Type': 'multipart/form-data'
+        },
+        data : data
+      };
+      let that = this
+      await axios(config)
+          .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            this.errorToaster('پروفایل شما با موفقیت ارتقا یافت','success')
+          })
+          .catch(function (error) {
+            if (error.response.status === 422) {
+              for (let err in error.response.data.errors) {
+                that.errorToaster(error.response.data.errors[err][0]);
+              }
+            }
+            else {
+              that.errorToaster('خطایی ناشناخته رخ داد!')
+            }
+          });
+
+    }
+  },
+  beforeMount() {
+    this.categoryFinder();
+  },
 }
+
 </script>
 
 <style scoped>

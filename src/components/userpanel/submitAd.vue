@@ -25,13 +25,14 @@
                   v-model="name"
                   outlined>
                   </v-text-field>
-                  <p>توضیحات آگهی</p>
-                  <v-textarea
-                  clearable
-                  outlined
-                  shaped
-                  label="توضیحات آگهی">
-                  </v-textarea>
+                  <p>دسته بندی</p>
+                  <v-select
+                      :items="categories"
+                      item-text="name"
+                      item-value="id"
+                      v-model="category"
+                      label="دسته بندی"
+                  ></v-select>
 
                   <!-- save button -->
                   <v-btn
@@ -43,7 +44,7 @@
                   text
                   style="background-color: #3751FF;
                   color:white;"
-                  @click="submit"
+                  @click="adAdder"
                   >
                   ذخیره تغییرات
                   </v-btn>
@@ -168,17 +169,72 @@
 import SidebarNavigation from "./SidebarNavigation.vue";
 export default {
   components: { SidebarNavigation },
-  props: {
-    categories: {
-      type: Array,
-      required: true
-    },
-  },
   data: () => ({
-    searchFor: 'both',
-    text: '',
-    category: '',
-  })
+    categories: [],
+    name: "",
+    description: "",
+    category: "",
+  }),
+  methods: {
+    errorToaster(msg){
+      this.$toast.open({
+        message: msg,
+        type: 'error',
+      })
+    },
+    async categoryFinder() {
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/categories',
+        headers: {
+          'Accept': 'application/json',
+        },
+        data : data
+      };
+      let that = this;
+      await axios(config)
+          .then(function (response) {
+            that.categories=response.data.categories;
+          })
+    },
+    async adAdder(){
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      data.append('title', this.name);
+      data.append('category_id', this.category);
+      data.append('isCompany', this.$cookies.get('user').role==='company'?1:0);
+      data.append('description', this.description);
+
+      var config = {
+        method: 'post',
+        url: 'http://localhost:8000/api/ad/makead',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer '+this.$cookies.get('token'),
+        },
+        data : data
+      };
+      let that = this;
+      await axios(config)
+          .then(function (response) {
+            console.log(response.data);
+          })
+          .catch(function (error) {
+            if (error.response.status === 422) {
+              for (let err in error.response.data.errors) {
+                that.errorToaster(error.response.data.errors[err][0]);
+              }
+            }
+          });
+    }
+  },
+  beforeMount() {
+    this.categoryFinder();
+  },
 }
 </script>
 

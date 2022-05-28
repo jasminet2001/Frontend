@@ -8,7 +8,9 @@ import editProfile from "./components/userpanel/EditProfile.vue"
 import submitAds from "./components/userpanel/submitAd.vue"
 import AdsList from "./components/userpanel/AdsList.vue"
 import userUpgrade from "./components/userpanel/userUpgrade.vue"
-import changePass from "./components/userpanel/ChangePass.vue"
+import ChangePass from "./components/userpanel/ChangePass";
+import Payment from "./components/userpanel/PaymentPageComponent.vue";
+import StarredAds from "./components/userpanel/StarredAdsPageComponent.vue";
 
 export default [
     {path: '/', component: Home},
@@ -21,5 +23,7 @@ export default [
     {path: '/subAds', component: submitAds},
     {path: '/MyAdsList', component: AdsList},
     {path: '/UserUpgrade', component: userUpgrade},
-    {path: '/changePass', component: changePass}
+    {path: '/ChangePass', component: ChangePass},
+    {path: '/Payment', component: Payment},
+    {path: '/Bookmarks', component: StarredAds}
 ]

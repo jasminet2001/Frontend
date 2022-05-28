@@ -113,7 +113,7 @@
                   text
                   style="background-color: #3751FF;
                   color:white;"
-                  @click="submit"
+                  @click="change"
                   >
                   ذخیره تغییرات
                   </v-btn>
@@ -142,6 +142,54 @@
 import SidebarNavigation from "./SidebarNavigation.vue";
 export default {
   components: { SidebarNavigation },
+  data: () => ({
+    password: "",
+    newPassword: "",
+    newPasswordConfirm: ""
+  }),
+  methods: {
+    errorToaster(msg, type='error'){
+      this.$toast.open({
+        message: msg,
+        type: type,
+      })
+    },
+    async change(){
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      data.append('password', this.password);
+      data.append('new_password', this.newPassword);
+      data.append('new_password_confirmation', this.newPasswordConfirm);
+
+      var config = {
+        method: 'post',
+        url: 'http://localhost:8000/api/user/changepass',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer '+this.$cookies.get('token'),
+        },
+        data : data
+      };
+      let that = this;
+      await axios(config)
+          .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            that.errorToaster('رمز عبور با موفقیت تغییر یافت','success');
+          })
+          .catch(function (error) {
+            console.log(error);
+            if (error.response.status == 422) {
+              for (let err in error.response.data.errors) {
+                that.errorToaster(error.response.data.errors[err][0]);
+              }
+            }
+            if (error.response.status == 401) {
+              that.errorToaster('رمز عبور اشتباه است');
+            }
+          });
+    }
+  },
 }
 </script>
 
