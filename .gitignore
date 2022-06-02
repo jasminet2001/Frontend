@@ -1,6 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/vuejs
 # Edit at https://www.toptal.com/developers/gitignore?templates=vuejs
-
+.idea
 ### Vuejs ###
 # Recommended template: Node.gitignore
 

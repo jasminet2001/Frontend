@@ -2,7 +2,6 @@
   <v-app>
     <SidebarNavigation/>
     <v-sheet>
-<!--      <top-display-row :item-list="cardsList" />-->
       <v-sheet color="transparent" class="pa-4">
         <div class="pa-4">
           <v-row class="mb-5">
@@ -11,13 +10,13 @@
           <hr class="my-3"/>
           <v-row>
             <v-spacer />
-              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
+              <v-col cols="12" sm="6" md="4" lg="4" xl="2">
                 <top-display-row :item="{ Title: 'بازدید از آگهی های شما', Info: '۶۴'}" />
               </v-col>
-              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
+              <v-col cols="12" sm="6" md="4" lg="4" xl="2">
                 <top-display-row :item="{ Title: 'آگهی های شما', Info: this.adsList.length}" />
               </v-col>
-              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
+              <v-col cols="12" sm="6" md="4" lg="4" xl="2">
                 <top-display-row :item="{ Title: 'کل آگهی ها', Info: '۳۲۵'}" />
               </v-col>
             <v-spacer />
@@ -80,7 +79,7 @@ export default {
       let that = this;
       axios(config)
           .then(function (response) {
-            that.adsList=(response.data)
+            that.adsList=(response.data.data)
           })
           .catch(function (error) {
             console.log(error);

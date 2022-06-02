@@ -18,31 +18,31 @@
               <v-row class="pa-3">
                 <v-col cols="6"
                 class="px-8 col">
-                  <v-row class="row">
-                    <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
-                    <p>بارگزاری لوگوی شرکت</p>
+                  <v-row>
+                    <v-file-input
+                        label="بارگزاری تصویر پروفایل"
+                        outlined
+                        prepend-icon="mdi-account-arrow-up"
+                        class="mt-4"
+                        v-model="selectedFile"
+                    ></v-file-input>
                   </v-row>
-                  <v-row class="row">
-                    <UploadPhoto></UploadPhoto>
-                  </v-row>
-
                   <v-row class="row">
                     <v-text-field
-                    label="نام شرکت"
+                    label="نام شرکت*"
                     v-model="name"
                     outlined>
                     </v-text-field>
                   </v-row>
 
-                  <v-row class="row"><v-text-field label="ایمیل شرکت"
+                  <v-row class="row"><v-text-field label="ایمیل شرکت*"
                   v-model="email"
                   outlined></v-text-field></v-row>
 
-                    <v-text-field label="تلفن شرکت"
+                    <v-text-field label="تلفن شرکت*"
                     v-model="phone"
                     outlined></v-text-field>
-                    
-                    <p>دسته بندی شرکت</p>
+
                     <v-select
                     solo
                     outlined
@@ -50,7 +50,7 @@
                     item-text="name"
                     item-value="id"
                     v-model="category"
-                    label="دسته بندی"
+                    label="دسته بندی*"
                     ></v-select>
                 </v-col>
 
@@ -63,7 +63,6 @@
                     v-model="address"
                     outlined></v-text-field>
 
-                    <p>درباره شرکت</p>
                     <v-textarea
                     clearable
                     outlined
@@ -95,7 +94,7 @@
                     outlined
                     large
                     raised
-                    @click="clear()"
+                    type="clear"
                   >لغو</v-btn>
                 </v-col>
               </v-row>
@@ -131,21 +130,20 @@
                           v-model="selectedFile"
                       ></v-file-input>
                     </v-row>
-
                     <v-row class="row-res">
                       <v-text-field
-                      label="نام شرکت"
+                      label="نام شرکت*"
                       v-model="name"
                       outlined>
                       </v-text-field>
                     </v-row>
 
-                    <v-row class="row-res"><v-text-field label="ایمیل شرکت"
+                    <v-row class="row-res"><v-text-field label="ایمیل شرکت*"
                     v-model="email"
                     outlined></v-text-field></v-row>
 
                     <v-row class="row-res">
-                      <v-text-field label="تلفن شرکت"
+                      <v-text-field label="تلفن شرکت*"
                       v-model="phone"
                       outlined></v-text-field>
                     </v-row>
@@ -157,7 +155,7 @@
                       item-text="name"
                       item-value="id"
                       v-model="category"
-                      label="دسته بندی"
+                      label="دسته بندی*"
                       ></v-select>
                     </v-row>
                     <v-row class="row-res">
@@ -219,11 +217,10 @@
 
 <script>
 import SidebarNavigation from './SidebarNavigation.vue'
-import UploadPhoto from './uploadPhoto.vue'
+
 export default {
   components: {
     SidebarNavigation,
-    UploadPhoto
   },
   data: () => ({
     selectedFile: '',
@@ -264,13 +261,13 @@ export default {
       var axios = require('axios');
       var FormData = require('form-data');
       var data = new FormData();
-      data.append('name', this.name);
-      data.append('category_id', this.category);
-      data.append('email', this.email);
-      data.append('phone', this.email);
-      data.append('description', this.description);
-      data.append('website', this.website);
-      data.append('logo', this.selectedFile);
+      if (this.name)data.append('name', this.name);
+      if (this.category)data.append('category_id', this.category);
+      if (this.email)data.append('email', this.email);
+      if (this.phone)data.append('phone', this.phone);
+      if (this.description)data.append('description', this.description);
+      if (this.website)data.append('website', this.website);
+      if (this.selectedFile)data.append('logo', this.selectedFile);
 
       var config = {
         method: 'post',
@@ -284,9 +281,8 @@ export default {
       };
       let that = this
       await axios(config)
-          .then(function (response) {
-            console.log(JSON.stringify(response.data));
-            this.errorToaster('پروفایل شما با موفقیت ارتقا یافت','success')
+          .then(function () {
+            that.errorToaster('پروفایل شما با موفقیت ارتقا یافت','success')
           })
           .catch(function (error) {
             if (error.response.status === 422) {

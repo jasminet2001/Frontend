@@ -14,16 +14,18 @@
         outlined
         >
           <v-card-text>
-            <v-form class="px-3" v-model="submitForm">
+            <v-form class="px-3">
               <v-row class="pa-3">
                 <v-col cols="6"
                 class="px-8 col">
-                  <v-row class="row">
-                    <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
-                    <p>بارگزاری تصویر پروفایل</p>
-                  </v-row>
-                  <v-row class="row">
-                    <UploadPhoto></UploadPhoto>
+                  <v-row>
+                    <v-file-input
+                        label="بارگزاری تصویر پروفایل"
+                        outlined
+                        prepend-icon="mdi-account-arrow-up"
+                        class="mt-4"
+                        v-model="selectedFile"
+                    ></v-file-input>
                   </v-row>
                   <v-row class="row">
                     <v-text-field
@@ -36,23 +38,18 @@
                   <v-row class="row"><v-text-field label="ایمیل"
                   v-model="email"
                   outlined></v-text-field></v-row>
-
-                  <v-row class="row">
-                    <v-text-field label="وبسایت"
-                    v-model="website"
-                    outlined
-                    ></v-text-field>
-                  </v-row>
                 </v-col>
                 <v-col cols="6"
                 class="px-8 col">
-                  <v-img src="@/assets/profile.png" class="img" height="150"></v-img>
-
-                  <v-text-field label="شماره همراه"
-                  class="mt-15"
-                  v-model="phone"
-                  outlined></v-text-field>
-                  
+                  <v-row>
+                    <v-img src="@/assets/profile.png" class="img" height="150"></v-img>
+                  </v-row>
+                  <v-row>
+                    <v-text-field label="شماره همراه"
+                    class="mt-15"
+                    v-model="phone"
+                    outlined></v-text-field>
+                  </v-row>
                   <!-- save button -->
                   <v-btn
                   class="btn"
@@ -103,13 +100,13 @@
                     <v-row class="d-flex flex-column">
                         <v-col cols="12"
                         class="px-8 col">
-                            <v-row class="upload-title-res">
-                                <v-icon class="pa-0 ma-0">mdi-account-arrow-up</v-icon>
-                                <p >بارگزاری تصویر پروفایل</p>
-                            </v-row>
-                            <v-row class="upload-title-res">
-                                <UploadPhoto></UploadPhoto>
-                            </v-row>
+                          <v-file-input
+                              label="بارگزاری تصویر پروفایل"
+                              outlined
+                              prepend-icon="mdi-account-arrow-up"
+                              class="mt-4"
+                              v-model="selectedFile"
+                          ></v-file-input>
                             <v-row class="row-res">
                                 <v-text-field v-model="name"
                                 label="نام و نام خانوادگی"
@@ -123,6 +120,7 @@
                             <v-row class="row-res"><v-text-field label="شماره همراه"
                             v-model="phone"
                             outlined></v-text-field></v-row>
+
                             <!-- save button -->
                             <v-btn
                             class="btn-mobile"
@@ -158,69 +156,24 @@
 
 <script>
 import SidebarNavigation from "./SidebarNavigation.vue"
-import UploadPhoto from "./uploadPhoto.vue";
 export default {
     name: "EditProfile",
     data: () => ({
         name: '',
         email: '',
-        password1:'',
-        password2:'',
-        website:'',
-        address:'',
         phone: '',
-        gender: ["زن", "مرد"],
-        //for birthdate
-        activePicker: null,
-        date: null,
-        menu: false,
-        //name variable to show up on avatar
-        //change this and retrieve the name from database
-        userName: 'JT',
         selectedFile:null,
     }),
-    //for birthdate
-    watch: {
-        menu(val) {
-            val && setTimeout(() => (this.activePicker = "YEAR"));
-        },
-    },
-    methods: {
-        save(date) {
-            this.$refs.menu.save(date);
-        },
-        onFileSelected(event){
-            this.selectedFile = event.target.files[0]
-        },
-        //send HTTP request
-        onUpload(){
 
-        },
-        submit () {
-            this.$v.$touch()
-        },
-        //why doesn't it work??
-        clear () {
-            this.$v.$reset()
-            this.name = ''
-            this.email = ''
-            this.select = null
-            this.checkbox = false
-            this.website = ''
-            this.phone = ''
-            this.password1 = ''
-            this.password2 = ''
-            this.address = ''
-            this.gender = null
-        },
+    methods: {
       async update(){
         var axios = require('axios');
         var FormData = require('form-data');
         var data = new FormData();
-        data.append('name', this.name);
-        data.append('phone', this.phone);
-        data.append('avatar', this.selectedFile);
-        data.append('email', this.email);
+        if (this.name) data.append('name', this.name);
+        if (this.phone) data.append('phone', this.phone);
+        if (this.selectedFile) data.append('avatar', this.selectedFile);
+        if (this.email) data.append('email', this.email);
 
         var config = {
           method: 'post',
@@ -232,17 +185,28 @@ export default {
           },
           data : data
         };
-
+        let that = this;
         await axios(config)
             .then(function (response) {
-              console.log(response.data);
+              that.toaster('اطلاعات با موفقیت ویرایش شد','success')
+              that.$cookies.set('user', response.data.user)
             })
             .catch(function (error) {
-              console.log(error);
+              if (error.response.status === 422) {
+                for (let err in error.response.data.errors) {
+                  this.toaster(error.response.data.errors[err][0]);
+                }
+              }
             });
-      }
+      },
+      toaster(msg,type='error'){
+        this.$toast.open({
+          message: msg,
+          type: type,
+        });
+      },
     },
-    components: { SidebarNavigation, UploadPhoto }
+    components: {SidebarNavigation}
 }
 </script>
 
@@ -273,8 +237,9 @@ export default {
         border: 2px dashed #000080;
     }
     .row-res{
-        text-align: center;
-        vertical-align: middle;
+      width: 100%;
+      text-align: center;
+      vertical-align: middle;
     }
     .upload-title-res{
         margin-left: 4em;

@@ -27,6 +27,7 @@
                   </v-text-field>
                   <p>توضیحات آگهی</p>
                   <v-textarea
+                  v-model="description"
                   clearable
                   outlined
                   shaped
@@ -112,6 +113,7 @@
                   <v-row class="row">
                     <p>توضیحات آگهی</p>
                     <v-textarea
+                    v-model="description"
                     clearable
                     outlined
                     shaped

@@ -3,18 +3,19 @@
     <app-bar></app-bar>
     <top-header></top-header>
     <v-row class="mx-auto mb-15" style="width: 90%">
-      <v-col md="4" sm="12" xs="12" class="pt-15">
+      <v-col cols="12" md="4" class="pt-15">
         <filter-card
             class="py-10 px-5"
             style="position: sticky; top: 20%; z-index: 1;"
             :categories="categories"
-            @search="(query)=>{this.query=query; searchBtn(this.query); }"
-            @searchType="sectioner"
+            @search="(x)=> {this.query=x; search(x)}"
+            @type="x=>{this.type=x;}"
+        >
         >
         </filter-card>
       </v-col>
       <v-col class="ma-auto" md="8" sm="11" xs="12" >
-        <section v-if="type==='company'|| type==='both'">
+        <section v-if="type==='c' || !type">
           <v-overlay :value="isLoading">
             <v-progress-circular
                 indeterminate
@@ -23,24 +24,27 @@
                 width="12"
             ></v-progress-circular>
           </v-overlay>
-          <h3 class="mt-13">شرکت ها</h3>
+          <h3 class="mt-12">شرکت ها</h3>
           <v-divider class="mb-10"></v-divider>
-          <div v-if="companies.length > 0">
-          <ResultCard
-              v-for="c in companies"
-              v-bind:key="c.id"
-              :category="categoryName(c.category_id)"
-              :name="c.name"
-              :description="c.description"
-              :image="c.logo"
-          ></ResultCard>
+          <div v-if="result.length > 0">
+            <v-row class="pb-5">
+              <v-col cols="6" sm="4" md="4" class="my-3"
+                v-for="(item,index) in result"
+                :key="index"
+              >
+                <search-card
+                  :category="categoryName(item.category_id)"
+                  :name="item.name"
+                  :description="item.description"
+              ></search-card>
+              </v-col>
+            </v-row>
             <div class="text-center">
               <v-pagination
                   v-model="companyPage"
-                  @input="search"
-                  :length="companyLength"
-                  total-visible="8"
-              ></v-pagination>
+                  @input="search(query)"
+                  :length="resultLength">
+              </v-pagination>
             </div>
           </div>
           <div v-else>
@@ -53,26 +57,30 @@
             </v-alert>
           </div>
         </section>
-        <section v-if="type==='both'|| type==='ad'">
+        <section v-if="type==='a'">
+          <v-overlay :value="isLoading">
+            <v-progress-circular
+                indeterminate
+                size="94"
+                color="indigo darken-2"
+                width="12"
+            ></v-progress-circular>
+          </v-overlay>
           <h3 class="mt-13">آگهی ها</h3>
           <v-divider class="mb-10"></v-divider>
-          <div v-if="ads.length > 0">
-            <ResultCard
-                v-for="a in ads"
-                v-bind:key="a.id"
-                :category="categoryName(a.category_id)"
-                :name="a.title"
-                :description="a.description"
-                :image="a.sender.isCompany?a.sender.company.logo:a.sender.avatar"
-            ></ResultCard>
-            <div class="text-center">
-              <v-pagination
-                  v-model="adPage"
-                  @input="search"
-                  :length="adLength"
-                  total-visible="8"
-              ></v-pagination>
-            </div>
+          <div v-if="result.length > 0">
+            <v-row class="pb-5">
+              <v-col cols="4" class="my-3"
+                v-for="(item,index) in result"
+                :key="index"
+              >
+                <search-card
+                  :category="categoryName(item.category_id)"
+                  :name="item.title"
+                  :description="item.description"
+              ></search-card>
+              </v-col>
+            </v-row>
           </div>
           <div v-else>
             <v-alert
@@ -82,7 +90,14 @@
             >
               نتیجه ای یافت نشد
             </v-alert>
+            <div class="text-center">
+            </div>
           </div>
+          <v-pagination
+              v-model="adPage"
+              @input="search(query)"
+              :length="resultLength">
+          </v-pagination>
         </section>
       </v-col>
     </v-row>
@@ -94,73 +109,33 @@
 <script>
 import AppBar from "../homepage/AppBar";
 import HomepageFooter from "../homepage/HomepageFooter";
-import ResultCard from "./ResultCard";
 import FilterCard from "./FilterCard";
 import TopHeader from "./Header";
+import searchCard from "./card";
 
 export default {
   name: "SearchComponent",
   components: {
+    searchCard,
     AppBar,
     HomepageFooter,
-    ResultCard,
     FilterCard,
     TopHeader
   },
   data(){
     return{
-      type:'both',
+      type: '',
       categories:'',
       isLoading: '',
-      companies: '',
-      ads: '',
-      companyPage: 1,
+      result: '',
+      resultLength: '',
       adPage: 1,
-      companyLength: '',
-      adLength: '',
+      companyPage: 1,
       query: '',
     }
   },
-  methods:{
-    search() {
-      console.log('hey');
-      this.isLoading=true
-      if (this.type=='company' || this.type=='both')
-        this.company(this.query, this.companyPage)
-      if (this.type=='ad' || this.type=='both')
-        this.ad(this.query, this.adPage)
-    },
-    async company(query, page=1) {
-      var axios = require('axios');
-      var FormData = require('form-data');
-      var data = new FormData();
-      if(query.category)data.append('category', query.category);
-      if(query.text)data.append('text', query.text);
-
-      var config = {
-        method: 'post',
-        url: 'http://localhost:8000/api/company/search?page='+page,
-        headers: {
-          'Accept': 'application/json',
-        },
-        data : data
-      };
-      let that = this
-
-      await axios(config)
-          .then(function (response) {
-            that.companies = response.data.data
-            that.companyLength = response.data.last_page
-            that.isLoading=false
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-    },
-    sectioner(type){
-      this.type = type;
-    },
-    async categoryFinder(){
+  methods: {
+    categoryFinder(){
       var axios = require('axios');
       var FormData = require('form-data');
       var data = new FormData();
@@ -172,28 +147,62 @@ export default {
         },
         data : data
       };
-      let that= this;
-      await axios(config)
+      let that = this;
+      axios(config)
           .then(function (response) {
-            that.categories=(response.data.categories);
-            let temp ={
-              id:'',
-              name:'همه'
-            }
-            that.categories.unshift(temp)
+            that.categories=response.data.categories;
+            that.categories.unshift({id:'',name:'همه'});
           })
     },
-    categoryName(id){
-      for(var i=0;i<this.categories.length;i++){
-        if(this.categories[i].id==id)return this.categories[i].name
+    search(data){
+      this.isLoading = true;
+      this.query=data;
+      switch (this.type){
+        case "":
+        case 'c':
+          this.type="c";
+          this.company(this.companyPage);
+          break;
+        case 'a':
+          this.ad(this.adPage);
+          break;
+        default:
+          this.isLoading = false;
       }
     },
-    async ad(query, page=1) {
+    async company(page){
       var axios = require('axios');
       var FormData = require('form-data');
       var data = new FormData();
-      if(query.category)data.append('category', query.category);
-      if(query.text)data.append('text', query.text);
+      if (this.query.c)data.append('category', this.query.c);
+      if (this.query.q)data.append('text', this.query.q);
+
+      var config = {
+        method: 'post',
+        url: 'http://localhost:8000/api/company/search?page='+page,
+        headers: {
+          'Accept': 'application/json',
+        },
+        data : data
+      };
+      let that = this;
+      await axios(config)
+          .then(function (response) {
+            that.result = response.data.data;
+            that.resultLength = response.data.last_page;
+            that.isLoading = false;
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    },
+    async ad(page){
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      if (this.query.c)data.append('category', this.query.c);
+      if (this.query.q)data.append('text', this.query.q);
+
       var config = {
         method: 'post',
         url: 'http://localhost:8000/api/ad/search?page='+page,
@@ -202,28 +211,36 @@ export default {
         },
         data : data
       };
-      let that = this
+      let that = this;
       await axios(config)
           .then(function (response) {
-            that.ads = response.data.data
-            that.adLength = response.data.last_page
-            that.isLoading=false
+            that.result = response.data.data;
+            that.resultLength = response.data.last_page;
+            that.isLoading = false;
           })
           .catch(function (error) {
             console.log(error);
           });
     },
-    searchBtn() {
-      this.companyPage = 1;
-      this.adPage = 1;
-      this.search();
+    categoryName(id){
+      for (let i=0;i<this.categories.length;i++){
+        if (this.categories[i].id===id){
+          return this.categories[i].name;
+        }
+      }
     }
   },
-  async mounted(){
-    await this.categoryFinder();
-    let query = {text: this.$route.query.text, category: this.$route.query.category}
-    this.search(query)
+  beforeMount() {
+    this.categoryFinder();
+    this.search(this.$route.query);
   },
+  watch: {
+    type(){
+      this.adPage=1;
+      this.companyPage=1;
+      this.search(this.query);
+    }
+  }
 }
 </script>
 

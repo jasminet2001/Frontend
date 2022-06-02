@@ -109,7 +109,7 @@ export default {
           })
           .catch(function (error) {
             console.log(error);
-            errorToaster('!ایمیل یا رمز عبور اشتباه است');
+            if (error.status!=429)errorToaster('!ایمیل یا رمز عبور اشتباه است');
           });
     },
     SignUp(){

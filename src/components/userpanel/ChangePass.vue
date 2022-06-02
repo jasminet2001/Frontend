@@ -15,7 +15,7 @@
         outlined
         >
           <v-card-text>
-            <v-form class="px-3" v-model="submitForm">
+            <v-form class="px-3">
               <v-row class="pa-3">
                 <v-col cols="6"
                 class="px-8 col"
@@ -23,18 +23,22 @@
                   <p>رمز عبور فعلی</p>
                   <v-text-field
                   label="رمز عبور جدید"
-                  v-model="name"
+                  v-model="password"
+                  type="password"
                   outlined>
                   </v-text-field>
 
                   <p>رمز عبور جدید</p>
                   <v-text-field
                   label="رمز عبور جدید"
-                  v-model="name"
+                  v-model="newPassword"
+                  type="password"
                   outlined>
                   </v-text-field>
                   <p>تکرار رمز عبور</p>
                   <v-text-field
+                  v-model="newPasswordConfirm"
+                  type="password"
                   clearable
                   outlined
                   label="تکرار رمز عبور">
@@ -50,7 +54,7 @@
                   text
                   style="background-color: #3751FF;
                   color:white;"
-                  @click="submit"
+                  @click="change"
                   >
                   ذخیره تغییرات
                   </v-btn>
@@ -100,18 +104,22 @@
                   <p>رمز عبور فعلی</p>
                   <v-text-field
                   label="رمز عبور جدید"
-                  v-model="name"
+                  v-model="password"
+                  type="password"
                   outlined>
                   </v-text-field>
 
                   <p>رمز عبور جدید</p>
                   <v-text-field
                   label="رمز عبور جدید"
-                  v-model="name"
+                  v-model="newPassword"
+                  type="password"
                   outlined>
                   </v-text-field>
                   <p>تکرار رمز عبور</p>
                   <v-text-field
+                  v-model="newPasswordConfirm"
+                  type="password"
                   clearable
                   outlined
                   label="تکرار رمز عبور">
@@ -187,8 +195,7 @@ export default {
       };
       let that = this;
       await axios(config)
-          .then(function (response) {
-            console.log(JSON.stringify(response.data));
+          .then(function () {
             that.errorToaster('رمز عبور با موفقیت تغییر یافت','success');
           })
           .catch(function (error) {
