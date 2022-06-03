@@ -22,27 +22,22 @@
       <v-radio-group
           row
           v-model="searchFor"
-          @change="$emit('searchType', searchFor)"
+          @change="$emit('type',searchFor)"
       >
         <v-radio
+            label="شرکت"
+            value="c">
+        </v-radio>
+        <v-radio
             label="آگهی"
-            value="ad"
+            value="a"
         >
-        </v-radio>
-        <v-radio
-          label="شرکت"
-          value="company">
-        </v-radio>
-        <v-radio
-          label="هردو"
-          value="both"
-          aria-checked="true">
         </v-radio>
       </v-radio-group>
       <v-btn
           class="my-8 mx-auto align-center white--text"
           color="#000930"
-          @click="$emit('search',{text:text,category:category})"
+          @click="$emit('search',{q:text,c:category, t:searchFor})"
       >
         جستجو
       </v-btn>
@@ -61,7 +56,7 @@ export default {
     },
   },
   data: () => ({
-    searchFor: 'both',
+    searchFor: 'c',
     text: '',
     category: '',
   })

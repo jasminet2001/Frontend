@@ -55,7 +55,7 @@
 export default({
   methods: {
     search(event){
-      this.$router.push('search?text=' + event.target.value)
+      this.$router.push('search?q=' + event.target.value)
     }
   },
 })

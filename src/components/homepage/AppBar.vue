@@ -155,7 +155,6 @@ export default{
       let that=this;
       await axios(config)
           .then(function (response) {
-            console.log(response.data.avatar)
             that.avatar = response.data.avatar
             that.$cookies.set('user', response.data)
             that.loggedIn=!!that.$cookies.get('user')

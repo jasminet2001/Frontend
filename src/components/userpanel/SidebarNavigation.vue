@@ -179,7 +179,7 @@
             </v-list-item-icon>
             <v-list-item-title>ارتقای حساب</v-list-item-title>
           </v-list-item>
-          <v-list-item link @click="Wallet()" class="py-2">
+          <v-list-item link to="/payment" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-credit-card-outline</v-icon>
             </v-list-item-icon>
@@ -224,17 +224,44 @@
 </template>
 
 <script>
+
 export default {
   data: () => ({
     drawer: false,
     group: null,
+  }),
+  props: ()=> ({
+    update: false,
   }),
   methods: {
     logout(){
       this.$cookies.remove('user')
       this.$cookies.remove('token')
       this.$router.push('/')
-    }
+    },
+    async updater() {
+      let axios = require('axios');
+      let config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/user/this',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer '+this.$cookies.get('token')
+        },
+      };
+      let that=this;
+      await axios(config)
+          .then(function (response) {
+            that.$cookies.set('user', response.data)
+          })
+          .catch(() => {
+            that.$cookies.remove('user');
+            that.$cookies.remove('token');
+          });
+    },
+  },
+  beforeMount() {
+    this.updater()
   }
 }
 </script>
