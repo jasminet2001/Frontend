@@ -1,7 +1,7 @@
 <template>
   <v-hover  v-slot:default="{ hover }">
 <v-card v-if="image" class="pt-5 px-5 pb-8 transition-swing"
-        :style="`background-image: url(http://localhost:8000/storage/avatars/${image}); background-size:cover; color: white;`"
+        :style="`background-image: url(${this.$store.state.host}storage/avatars/${image}); background-size:cover; color: white;`"
         :class="`elevation-${hover ? 24 : 0}`">
   <v-chip
       class="pa-2"

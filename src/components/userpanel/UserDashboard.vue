@@ -66,11 +66,11 @@ export default {
       var axios = require('axios');
       var FormData = require('form-data');
       var data = new FormData();
-      data.append('sender', this.$cookies.get('user').id);
+      data.append('sender', this.$store.state.user.id);
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/ad/search',
+        url: this.$store.state.host+'/api/ad/search',
         headers: {
           'Accept': 'application/json',
         },

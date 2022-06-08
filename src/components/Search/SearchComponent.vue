@@ -141,7 +141,7 @@ export default {
       var data = new FormData();
       var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/categories',
+        url: this.$store.state.host+'/api/categories',
         headers: {
           'Accept': 'application/json',
         },
@@ -179,7 +179,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/company/search?page='+page,
+        url: this.$store.state.host+'/api/company/search?page='+page,
         headers: {
           'Accept': 'application/json',
         },
@@ -205,7 +205,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/ad/search?page='+page,
+        url: this.$store.state.host+'/api/ad/search?page='+page,
         headers: {
           'Accept': 'application/json',
         },

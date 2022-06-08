@@ -177,10 +177,10 @@ export default {
 
         var config = {
           method: 'post',
-          url: 'http://localhost:8000/api/user/update',
+          url: this.$store.state.host+'/api/user/update',
           headers: {
             'Accept': 'application/json',
-            'Authorization': 'Bearer '+this.$cookies.get('token'),
+            'Authorization': 'Bearer '+this.$store.state.token,
             'Content-Type': 'multipart/form-data'
           },
           data : data
@@ -189,7 +189,7 @@ export default {
         await axios(config)
             .then(function (response) {
               that.toaster('اطلاعات با موفقیت ویرایش شد','success')
-              that.$cookies.set('user', response.data.user)
+              that.$store.commit('setUser', response.data.user)
             })
             .catch(function (error) {
               if (error.response.status === 422) {

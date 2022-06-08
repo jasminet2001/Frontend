@@ -12,7 +12,7 @@
     <v-list>
       <v-list-item class="px-2">
         <v-list-item-avatar class="mx-auto">
-          <v-img :src="this.$cookies.get('user').avatar?'http://localhost:8000/storage/avatars/'+this.$cookies.get('user').avatar:'images/avatar.png/'"></v-img>
+          <v-img :src="this.$store.state.user.avatar?this.$store.state.host+'/storage/avatars/'+this.$store.state.user.avatar:'images/avatar.png/'"></v-img>
         </v-list-item-avatar>
       </v-list-item>
 
@@ -20,11 +20,11 @@
         <v-list-item-content>
           <v-list-item-title
           class="text-h6 white--text">
-            {{this.$cookies.get('user').name}}
+            {{this.$store.state.user.name}}
           </v-list-item-title>
           <v-list-item-subtitle
           class="white--text">
-            {{this.$cookies.get('user').email}}
+            {{this.$store.state.user.email}}
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -235,28 +235,28 @@ export default {
   }),
   methods: {
     logout(){
-      this.$cookies.remove('user')
-      this.$cookies.remove('token')
+      this.$store.commit('setUser', '')
+      this.$store.commit('setToken', '')
       this.$router.push('/')
     },
     async updater() {
       let axios = require('axios');
       let config = {
         method: 'get',
-        url: 'http://localhost:8000/api/user/this',
+        url: this.$store.state.host+'/api/user/this',
         headers: {
           'Accept': 'application/json',
-          'Authorization': 'Bearer '+this.$cookies.get('token')
+          'Authorization': 'Bearer '+this.$store.state.token
         },
       };
       let that=this;
       await axios(config)
           .then(function (response) {
-            that.$cookies.set('user', response.data)
+            that.$store.commit('setUser', response.data)
           })
           .catch(() => {
-            that.$cookies.remove('user');
-            that.$cookies.remove('token');
+            that.$store.commit('setUser', '');
+            that.$store.commit('setToken','');
           });
     },
   },

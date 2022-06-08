@@ -68,7 +68,7 @@ export default {
       var data = new FormData();
       var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/categories',
+        url: this.$store.state.host+'/api/categories',
         headers: {
           'Accept': 'application/json',
         },

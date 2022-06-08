@@ -57,7 +57,7 @@ export default {
     return {
       show: true,
       newTodo: "",
-      todos: this.$cookies.get('user').todo,
+      todos: this.$store.state.user.todo,
       ImdiPlus: mdiPlusCircleOutline,
       ImdiDone: mdiCheckboxMarkedCircleOutline,
       ImdiToDo: mdiCheckboxBlankCircleOutline
@@ -89,20 +89,20 @@ export default {
       let axios = require('axios');
       let config = {
         method: 'get',
-        url: 'http://localhost:8000/api/user/this',
+        url: this.$store.state.host+'/api/user/this',
         headers: {
           'Accept': 'application/json',
-          'Authorization': 'Bearer '+this.$cookies.get('token')
+          'Authorization': 'Bearer '+this.$store.state.token
         },
       };
       let that=this;
       await axios(config)
           .then(function (response) {
-            that.$cookies.set('user', response.data)
+            that.$store.commit('setUser', response.data)
           })
           .catch(() => {
-            that.$cookies.remove('user');
-            that.$cookies.remove('token');
+            that.$store.commit('setUser', '');
+            that.$store.commit('setToken','');
           });
     },
     async send(){
@@ -113,10 +113,10 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/user/Todoupdate',
+        url: this.$store.state.host+'/api/user/Todoupdate',
         headers: {
           'Accept': 'application/json',
-          'Authorization': 'Bearer '+this.$cookies.get('token'),
+          'Authorization': 'Bearer '+this.$store.state.token,
         },
         data : data
       };
@@ -132,7 +132,7 @@ export default {
   },
   async beforeMount() {
     await this.updater()
-    this.todos=JSON.parse(this.$cookies.get('user').todo?this.$cookies.get('user').todo:'[]')
+    this.todos=JSON.parse(this.$store.state.user.todo?this.$store.state.user.todo:'[]')
   },
   async beforeDestroy() {
     await this.send()

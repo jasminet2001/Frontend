@@ -191,7 +191,7 @@ export default {
       var data = new FormData();
       var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/categories',
+        url: this.$store.state.host+'/api/categories',
         headers: {
           'Accept': 'application/json',
         },
@@ -209,15 +209,15 @@ export default {
       var data = new FormData();
       data.append('title', this.name);
       data.append('category_id', this.category);
-      data.append('isCompany', this.$cookies.get('user').role==='company'?1:0);
+      data.append('isCompany', this.$store.state.user.role==='company'?1:0);
       data.append('description', this.description);
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/ad/makead',
+        url: this.$store.state.host+'/api/ad/makead',
         headers: {
           'Accept': 'application/json',
-          'Authorization': 'Bearer '+this.$cookies.get('token'),
+          'Authorization': 'Bearer '+this.$store.state.token
         },
         data : data
       };

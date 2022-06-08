@@ -87,7 +87,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/user/login',
+        url: this.$store.state.host+'/api/user/login',
         headers: {
           'Accept': 'application/json',
         },
@@ -103,8 +103,8 @@ export default {
       await axios(config)
           .then(function (response) {
             var result=response.data;
-            that.$cookies.set('token', result.token);
-            that.$cookies.set('user', result.user);
+            that.$store.setToken(result.token);
+            that.$store.setUser(result.user);
             that.$router.push('/dashboard');
           })
           .catch(function (error) {

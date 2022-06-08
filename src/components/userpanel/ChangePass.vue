@@ -186,10 +186,10 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/user/changepass',
+        url: this.$store.state.host+'/api/user/changepass',
         headers: {
           'Accept': 'application/json',
-          'Authorization': 'Bearer '+this.$cookies.get('token'),
+          'Authorization': 'Bearer '+this.$store.state.token,
         },
         data : data
       };

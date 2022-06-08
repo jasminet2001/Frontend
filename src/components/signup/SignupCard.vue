@@ -111,7 +111,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/user/signup',
+        url: this.$store.state.host+'/api/user/signup',
         headers: {
           'Accept': 'application/json',
         },
@@ -123,11 +123,12 @@ export default {
           type: 'error',
         });
       };
+      let that = this;
       await axios(config)
           .then(result => {
             result=result.data;
-            this.$cookies.set('token', result.token);
-            this.$cookies.set('user', result.user);
+            that.$store.commit('setToken', result.token);
+            that.$store.commit('setUser', result.user);
             this.$router.push('/dashboard');
           })
           .catch(error => {

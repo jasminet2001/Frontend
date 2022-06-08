@@ -27,7 +27,7 @@
           color="transparent"
           size="50"
           >
-            <v-img :src="avatar!=null?'http://localhost:8000/storage/avatars/'+avatar:'images/avatar.png/'"></v-img>
+            <v-img :src="avatar!=null?this.$store.state.host+'/storage/avatars/'+avatar:'images/avatar.png/'"></v-img>
           </v-avatar>
         </v-btn>
       </v-tab>
@@ -146,22 +146,22 @@ export default{
       let axios = require('axios');
       let config = {
         method: 'get',
-        url: 'http://localhost:8000/api/user/this',
+        url: this.$store.state.host+'/api/user/this',
         headers: {
           'Accept': 'application/json',
-          'Authorization': 'Bearer '+this.$cookies.get('token')
+          'Authorization': 'Bearer '+this.$store.state.token
         },
       };
       let that=this;
       await axios(config)
           .then(function (response) {
             that.avatar = response.data.avatar
-            that.$cookies.set('user', response.data)
-            that.loggedIn=!!that.$cookies.get('user')
+            that.$store.commit('setUser', response.data)
+            that.loggedIn=!!that.$store.state.user
           })
           .catch(() => {
-            that.$cookies.remove('user');
-            that.$cookies.remove('token');
+            that.$store.commit('setUser','');
+            that.$store.commit('setToken', '');
           });
     },
   },
