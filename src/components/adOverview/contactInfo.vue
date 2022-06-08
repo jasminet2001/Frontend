@@ -1,10 +1,10 @@
 <template>
-<v-card elevation="16" rounded class="pa-3">
+<v-card v-if="info.company" elevation="16" rounded class="pa-3">
   <v-list-item>
     <v-list-item-content>
       <v-list-item-title style="font-size: 1.5rem">
         <v-icon size="3rem" color="#002F50">mdi-account-circle</v-icon>
-        <span>شرکت آزمایشی</span>
+        <span>{{info.company.name}}</span>
       </v-list-item-title>
     </v-list-item-content>
   </v-list-item>
@@ -13,7 +13,7 @@
     <v-list-item-content>
       <v-list-item-title style="font-size: 1rem">
         <v-icon class="ml-3" size="1.5rem" color="#002F50">mdi-phone</v-icon>
-        <a href="tel:09123456789">09123456789</a>
+        <a :href="`tel:${info.company.phone}`">{{info.company.phone}}</a>
       </v-list-item-title>
     </v-list-item-content>
   </v-list-item>
@@ -21,15 +21,42 @@
     <v-list-item-content>
       <v-list-item-title style="font-size: 1rem">
         <v-icon class="ml-3" size="1.5rem" color="#002F50">mdi-email</v-icon>
-        <a href="mailto:sep.mirshahi@gmail.com">sep.mirshai@gmail.com</a>
+        <a :href="`mailto:${info.company.email}`">{{info.company.email}}</a>
+      </v-list-item-title>
+    </v-list-item-content>
+  </v-list-item>
+  <v-list-item v-if="info.company.website">
+    <v-list-item-content>
+      <v-list-item-title style="font-size: 1rem">
+        <v-icon class="ml-3" size="1.5rem" color="#002F50">mdi-web</v-icon>
+        <a :href="`http://${info.company.website}`">{{info.company.website}}</a>
+      </v-list-item-title>
+    </v-list-item-content>
+  </v-list-item>
+</v-card>
+<v-card v-else elevation="16" rounded class="pa-3">
+  <v-list-item>
+    <v-list-item-content>
+      <v-list-item-title style="font-size: 1.5rem">
+        <v-icon size="3rem" color="#002F50">mdi-account-circle</v-icon>
+        <span>{{ info.name }}</span>
+      </v-list-item-title>
+    </v-list-item-content>
+  </v-list-item>
+  <hr class="mx-3">
+  <v-list-item v-if="info.phone">
+    <v-list-item-content>
+      <v-list-item-title style="font-size: 1rem">
+        <v-icon class="ml-3" size="1.5rem" color="#002F50">mdi-phone</v-icon>
+        <a :href="`tel:${info.phone}`">{{info.phone}}</a>
       </v-list-item-title>
     </v-list-item-content>
   </v-list-item>
   <v-list-item>
     <v-list-item-content>
       <v-list-item-title style="font-size: 1rem">
-        <v-icon class="ml-3" size="1.5rem" color="#002F50">mdi-web</v-icon>
-        <a href="http://sepehr.com">sepehr.com</a>
+        <v-icon class="ml-3" size="1.5rem" color="#002F50">mdi-email</v-icon>
+        <a :href="`mailto:${info.email}`">{{info.email}}</a>
       </v-list-item-title>
     </v-list-item-content>
   </v-list-item>
@@ -38,7 +65,10 @@
 
 <script>
 export default {
-  name: "contactInfo"
+  name: "contactInfo",
+  props:[
+      'info'
+  ]
 }
 </script>
 

@@ -5,13 +5,17 @@
       <v-icon size="6rem">mdi-factory</v-icon>
     </v-img>
   </v-card>
-  <h1>عنوان آگهی <v-chip color="#ffeb3b">دسته بندی</v-chip></h1>
+  <h1>{{title}} <v-chip color="#ffeb3b">{{category}}</v-chip></h1>
 </v-card>
 </template>
 
 <script>
 export default {
-  name: "titleCard"
+  name: "titleCard",
+  props:{
+    title:String,
+    category: String
+  }
 }
 </script>
 

@@ -11,7 +11,6 @@ import userUpgrade from "./components/userpanel/userUpgrade.vue"
 import ChangePass from "./components/userpanel/ChangePass";
 import Payment from "./components/userpanel/PaymentPageComponent.vue";
 import StarredAds from "./components/userpanel/StarredAdsPageComponent.vue";
-import adder from "./components/nothing/data adder";
 import adOverview from "./components/adOverview/adOverview";
 export default [
     {path: '/', component: Home},
@@ -27,6 +26,5 @@ export default [
     {path: '/ChangePass', component: ChangePass},
     {path: '/Payment', component: Payment},
     {path: '/Bookmarks', component: StarredAds},
-    {path: '/adder', component: adder},
-    {path: '/ad', component: adOverview},
+    {path: '/ad/:id', component: adOverview},
 ]

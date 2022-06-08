@@ -2,8 +2,8 @@
 <v-app>
   <app-bar></app-bar>
   <v-row class="my-10">
-    <v-col cols="3" class="mr-5">
-      <contact-info></contact-info>
+    <v-col cols="3" class="mr-5 mt-9">
+      <contact-info :info="adInfo.sender"/>
       <v-btn color="blue" rounded class="btn">
         <v-icon>mdi-factory</v-icon>
         <span> مشاهده پروفایل شرکت</span>
@@ -54,10 +54,15 @@
     </v-col>
     <v-col cols="8">
       <v-row>
-        <title-card></title-card>
+        <title-card
+            :title="adInfo.title"
+            :category="categoryName(adInfo.category_id)"
+        ></title-card>
       </v-row>
       <v-row>
-        <description-card></description-card>
+        <description-card
+            :description="adInfo.description"
+        ></description-card>
       </v-row>
     </v-col>
   </v-row>
@@ -81,7 +86,71 @@ export default {
     descriptionCard,
     homepageFooter
   },
-  name: "adOverview"
+  name: "adOverview",
+  data: ()=>{
+    return {
+      adInfo:'',
+      categories:'',
+    }
+  },
+  methods:{
+    async ad(id=this.$route.params.id){
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      data.append('id', id);
+
+      var config = {
+        method: 'post',
+        url: 'http://localhost:8000/api/ad/search',
+        headers: {
+          'Accept': 'application/json',
+        },
+        data : data
+      };
+      let that = this;
+      await axios(config)
+          .then(function (response) {
+            that.adInfo=response.data
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    },
+    categoryFinder(){
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/categories',
+        headers: {
+          'Accept': 'application/json',
+        },
+        data : data
+      };
+      let that = this;
+      axios(config)
+          .then(function (response) {
+            that.categories=response.data.categories;
+            that.categories.unshift({id:'',name:'همه'});
+          })
+    },
+    categoryName(id){
+      for (let i=0;i<this.categories.length;i++){
+        if (this.categories[i].id===id){
+          return this.categories[i].name;
+        }
+      }
+    }
+  },
+  async beforeRouteUpdate(to){
+    await this.ad(to.params.id)
+  },
+  async beforeMount() {
+    await this.categoryFinder()
+    await this.ad()
+  }
 }
 </script>
 
