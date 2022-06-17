@@ -9,7 +9,7 @@
           <v-col cols="12">
             <v-row>
               <p class="mt-3" style="margin: 0 auto;">حساب کاربری دارید؟</p>
-              <a @click="Login()" class="mt-3" 
+              <a @click="Login()" class="mt-3"
               style="color:black; text-decoration:none; font-style: italic; margin: 0 auto">
               وارد شوید</a>
             </v-row>
@@ -22,7 +22,7 @@
           </v-text-field>
         </v-row>
         <v-row class="mt-5 mx-2" justify="center" align="center">
-          <v-text-field v-model="email" :rules="emailRules" label="ایمیل" required>
+          <v-text-field v-model="email" :rules="emailRules" label="ایمیل" required style="direction: ltr !important;">
           </v-text-field>
         </v-row>
         <v-row class="mt-5 mx-2" justify="center" align="center">
@@ -36,6 +36,7 @@
               hint="حداقل ۸ کارکتر بنویسید."
               counter
               @click:append="show1 = !show1"
+              style="direction: ltr !important;"
           ></v-text-field>
         </v-row>
         <v-row class="mt-5 mx-2" justify="center" align="center">
@@ -49,6 +50,7 @@
               hint="حداقل ۸ کارکتر بنویسید"
               counter
               @click:append="show2 = !show2"
+              style="direction: ltr !important;"
           ></v-text-field>
         </v-row>
         <v-row class="mt-16 mx-2" align="center" justify="center" no-gutters>

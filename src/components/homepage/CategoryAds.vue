@@ -16,44 +16,52 @@
               class="my-4"
               v-for="(cat, key) in items" :key="key"
             >
-              <button
-              elevation="5"
-              class="button-50"
+              <v-btn
+              elevation="24"
+              rounded
+              x-large
               :to="'/search?category='+cat.id"
-              >{{cat.name}}</button>
+              style="background-image: linear-gradient( 135deg, #97ABFF 10%, #123597 100%);"
+              >{{cat.name}}</v-btn>
             </v-col>
             <v-col
               cols="3"
               class="my-4"
               v-for="(cat, key) in items" :key="key"
             >
-              <button
-              elevation="5"
-              class="button-50"
+              <v-btn
+              elevation="24"
+              rounded
+              x-large
               :to="'/search?category='+cat.id"
-              >{{cat.name}}</button>
+              style="background-image: linear-gradient( 135deg, #97ABFF 10%, #123597 100%);"
+              >{{cat.name}}</v-btn>
             </v-col>
             <v-col
               cols="3"
               class="my-4"
               v-for="(cat, key) in items" :key="key"
             >
-              <button
-              elevation="5"
-              class="button-50"
+              <v-btn
+              elevation="24"
+              rounded
+              x-large
               :to="'/search?category='+cat.id"
-              >{{cat.name}}</button>
+              style="background-image: linear-gradient( 135deg, #97ABFF 10%, #123597 100%);"
+              >{{cat.name}}</v-btn>
             </v-col>
             <v-col
               cols="3"
               class="my-4"
               v-for="(cat, key) in items" :key="key"
             >
-              <button
-              elevation="5"
-              class="button-50"
+              <v-btn
+              elevation="24"
+              rounded
+              x-large
               :to="'/search?category='+cat.id"
-              >{{cat.name}}</button>
+              style="background-image: linear-gradient( 135deg, #97ABFF 10%, #123597 100%);"
+              >{{cat.name}}</v-btn>
             </v-col>
             </v-row>
           </div>
