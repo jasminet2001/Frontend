@@ -12,6 +12,12 @@ import ChangePass from "./components/userpanel/ChangePass";
 import Payment from "./components/userpanel/PaymentPageComponent.vue";
 import StarredAds from "./components/userpanel/StarredAdsPageComponent.vue";
 import adOverview from "./components/adOverview/adOverview";
+//company panel routes
+import EditCompanyProfile from "./components/companyPanel/EditCompanyProfile.vue";
+import CompanySubAd from "./components/companyPanel/CompanySubmitAd.vue";
+import ChangeCPass from "./components/companyPanel/ChangeCompanyPass.vue";
+import CompanyAdsList from "./components/companyPanel/CompanyAdsList.vue";
+import CompanyDashboard from "./components/companyPanel/CompanyDashboard";
 export default [
     {path: '/', component: Home},
     {path: '/login', component: Login},
@@ -27,4 +33,9 @@ export default [
     {path: '/Payment', component: Payment},
     {path: '/Bookmarks', component: StarredAds},
     {path: '/ad/:id', component: adOverview},
+    {path: '/companyprofile', component: EditCompanyProfile},
+    {path: '/CompanySubAd', component: CompanySubAd},
+    {path: '/ChangeCompanyPass', component: ChangeCPass},
+    {path: '/CompanyAdsList', component: CompanyAdsList},
+    {path: '/CompanyDashboard', component: CompanyDashboard},
 ]
