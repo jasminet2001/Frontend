@@ -12,14 +12,48 @@
           <div>
             <v-row class="flex-wrap">
             <v-col
-              cols="4"
+              cols="3"
+              class="my-4"
               v-for="(cat, key) in items" :key="key"
             >
-            <button
-            elevation="5"
-            class="button-50"
-            :to="'/search?category='+cat.id"
-            >{{cat.name}}</button>
+              <button
+              elevation="5"
+              class="button-50"
+              :to="'/search?category='+cat.id"
+              >{{cat.name}}</button>
+            </v-col>
+            <v-col
+              cols="3"
+              class="my-4"
+              v-for="(cat, key) in items" :key="key"
+            >
+              <button
+              elevation="5"
+              class="button-50"
+              :to="'/search?category='+cat.id"
+              >{{cat.name}}</button>
+            </v-col>
+            <v-col
+              cols="3"
+              class="my-4"
+              v-for="(cat, key) in items" :key="key"
+            >
+              <button
+              elevation="5"
+              class="button-50"
+              :to="'/search?category='+cat.id"
+              >{{cat.name}}</button>
+            </v-col>
+            <v-col
+              cols="3"
+              class="my-4"
+              v-for="(cat, key) in items" :key="key"
+            >
+              <button
+              elevation="5"
+              class="button-50"
+              :to="'/search?category='+cat.id"
+              >{{cat.name}}</button>
             </v-col>
             </v-row>
           </div>
