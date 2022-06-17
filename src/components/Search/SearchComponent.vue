@@ -8,7 +8,7 @@
             class="py-10 px-5"
             style="position: sticky; top: 20%; z-index: 1;"
             :categories="categories"
-            @search="(x)=> {this.query=x; search(x)}"
+            @search="(x)=> {this.query=x; this.adPage=1; this.companyPage=1; search(x)}"
             @type="x=>{this.type=x;}"
         >
         >
@@ -28,7 +28,7 @@
           <v-divider class="mb-10"></v-divider>
           <div v-if="result.length > 0">
             <v-row class="pb-5">
-              <v-col cols="6" sm="4" md="4" class="my-3"
+              <v-col cols="12" sm="6" md="4" lg="3" class="my-3"
                 v-for="(item,index) in result"
                 :key="index"
               >
@@ -38,6 +38,8 @@
                   :description="item.description"
                   :id="item.id"
                   type="company"
+                  :image="item.logo"
+                  :views="item.ViewCount"
               ></search-card>
               </v-col>
             </v-row>
@@ -72,7 +74,7 @@
           <v-divider class="mb-10"></v-divider>
           <div v-if="result.length > 0">
             <v-row class="pb-5">
-              <v-col cols="4" class="my-3"
+              <v-col cols="12" sm="6" md="4" lg="3" class="my-3"
                 v-for="(item,index) in result"
                 :key="index"
               >
@@ -82,6 +84,8 @@
                   :description="item.description"
                   :id="item.id"
                   type="ad"
+                  :image="item.photo"
+                  :views="item.ViewCount"
               ></search-card>
               </v-col>
             </v-row>
