@@ -16,7 +16,7 @@
   <p>{{description.substr(0,35)+'...'}}</p>
   <v-card class="down pa-1" style="background-color: white; border: 5px solid gold; border-radius: 20px" :class="`elevation-${hover ? 24 : 16}`">
     <v-row justify="space-between" class="pa-3">
-      <span><v-icon>mdi-eye</v-icon> 252</span>
+      <span><v-icon>mdi-eye</v-icon> {{views}}</span>
       <v-icon>mdi-bookmark</v-icon>
     </v-row>
   </v-card>
@@ -36,7 +36,7 @@
   <p style="font-size: 0.8rem">{{description.substr(0,50)+(description.length>50?'...':'')}}</p>
   <v-card class="down pa-1" style="background-color: white; border: 5px solid gold; border-radius: 20px" :class="`elevation-${hover ? 24 : 16}`">
     <v-row justify="space-between" class="pa-3">
-      <span><v-icon>mdi-eye</v-icon> 252</span>
+      <span><v-icon>mdi-eye</v-icon> {{views}}</span>
       <v-icon>mdi-bookmark</v-icon>
     </v-row>
   </v-card>
@@ -57,7 +57,8 @@ export default {
       'description',
       'image',
       'type',
-      'id'
+      'id',
+      'views'
   ],
 }
 </script>

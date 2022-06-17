@@ -38,6 +38,7 @@
                   :description="item.description"
                   :id="item.id"
                   type="company"
+                  :views="item.ViewCount"
               ></search-card>
               </v-col>
             </v-row>
@@ -82,6 +83,7 @@
                   :description="item.description"
                   :id="item.id"
                   type="ad"
+                  :views="item.ViewCount"
               ></search-card>
               </v-col>
             </v-row>
