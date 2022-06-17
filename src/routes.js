@@ -1,12 +1,12 @@
-import Home from './components/homepage/HomepageComponent'
-import Login from './components/login/LoginComponent'
+import Home from './components/homepage/HomepageComponent';
+import Login from './components/login/LoginComponent';
 import Signup from "./components/signup/SignupComponent";
-import dashboard from "./components/userpanel/UserDashboard"
+import dashboard from "./components/userpanel/UserDashboard";
 import Search from "./components/Search/SearchComponent";
 import userpanel from "./components/userpanel/UserDashboard.vue";
-import editProfile from "./components/userpanel/EditProfile.vue"
-import submitAds from "./components/userpanel/submitAd.vue"
-import AdsList from "./components/userpanel/AdsList.vue"
+import editProfile from "./components/userpanel/EditProfile.vue";
+import submitAds from "./components/userpanel/submitAd.vue";
+import AdsList from "./components/userpanel/AdsList.vue";
 import userUpgrade from "./components/userpanel/userUpgrade.vue"
 import ChangePass from "./components/userpanel/ChangePass";
 import Payment from "./components/userpanel/PaymentPageComponent.vue";
@@ -19,7 +19,7 @@ import CompanySubAd from "./components/companyPanel/CompanySubmitAd.vue";
 import ChangeCPass from "./components/companyPanel/ChangeCompanyPass.vue";
 import CompanyAdsList from "./components/companyPanel/CompanyAdsList.vue";
 import CompanyDashboard from "./components/companyPanel/CompanyDashboard";
-import RecievedReq from "./components/companyPanel/RecievedRequests.vue"
+import RecievedReq from "./components/companyPanel/RecievedRequests.vue";
 export default [
     {path: '/', component: Home},
     {path: '/login', component: Login},
@@ -35,7 +35,7 @@ export default [
     {path: '/Payment', component: Payment},
     {path: '/Bookmarks', component: StarredAds},
     {path: '/ad/:id', component: adOverview},
-    {path: '/company/:id', component: companyOverview}
+    {path: '/company/:id', component: companyOverview},
     {path: '/companyprofile', component: EditCompanyProfile},
     {path: '/CompanySubAd', component: CompanySubAd},
     {path: '/ChangeCompanyPass', component: ChangeCPass},
