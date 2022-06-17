@@ -36,6 +36,8 @@
                   :category="categoryName(item.category_id)"
                   :name="item.name"
                   :description="item.description"
+                  :id="item.id"
+                  type="company"
               ></search-card>
               </v-col>
             </v-row>
@@ -78,6 +80,8 @@
                   :category="categoryName(item.category_id)"
                   :name="item.title"
                   :description="item.description"
+                  :id="item.id"
+                  type="ad"
               ></search-card>
               </v-col>
             </v-row>

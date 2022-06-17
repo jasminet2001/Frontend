@@ -22,7 +22,7 @@
                 >
                   <p>رمز عبور فعلی</p>
                   <v-text-field
-                  label="رمز عبور جدید"
+                  label="رمز عبور فعلی"
                   v-model="password"
                   type="password"
                   outlined>

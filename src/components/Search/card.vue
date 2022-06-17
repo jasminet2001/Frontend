@@ -2,7 +2,8 @@
   <v-hover  v-slot:default="{ hover }">
 <v-card v-if="image" class="pt-5 px-5 pb-8 transition-swing"
         :style="`background-image: url(http://localhost:8000/storage/avatars/${image}); background-size:cover; color: white;`"
-        :class="`elevation-${hover ? 24 : 0}`">
+        :class="`elevation-${hover ? 24 : 0}`"
+        :to="`/${type}/${id}`">
   <v-chip
       class="pa-2"
       color="#ffeb3b"
@@ -21,7 +22,8 @@
   </v-card>
 </v-card>
 <v-card v-else class=" whole pt-5 px-5 pb-8 transition-swing"
-    :class="`elevation-${hover ? 24 : 0}`">
+        :to="`/${type}/${id}`"
+        :class="`elevation-${hover ? 24 : 0}`">
   <v-chip
       class="pa-2"
       color="#ffeb3b"
@@ -54,6 +56,8 @@ export default {
       'name',
       'description',
       'image',
+      'type',
+      'id'
   ],
 }
 </script>
