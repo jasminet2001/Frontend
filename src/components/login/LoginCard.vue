@@ -78,7 +78,7 @@ export default {
         min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
       },
       emailRules: [
-        v => !!v || 'E-mail is required',
+        v => !!v || 'ایمیل را وارد کنید',
         v => /.+@.+\..+/.test(v) || 'ایمیل صحیح وارد نمایید.',
       ],
     }

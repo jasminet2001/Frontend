@@ -6,7 +6,7 @@
     <v-row align-content="center">
       <v-col cols="3">
         <img height="100%" src="../../assets/adone.jpg"/>
-      </v-col>
+      </v-col >
         <v-col class="mr-6 ml-6" cols="5">
           <!-- container for buttons -->
           <div>
@@ -17,6 +17,7 @@
               v-for="(cat, key) in items" :key="key"
             >
               <v-btn
+              width="100%"
               elevation="24"
               rounded
               x-large
