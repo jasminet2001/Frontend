@@ -12,6 +12,7 @@ import ChangePass from "./components/userpanel/ChangePass";
 import Payment from "./components/userpanel/PaymentPageComponent.vue";
 import StarredAds from "./components/userpanel/StarredAdsPageComponent.vue";
 import adOverview from "./components/adOverview/adOverview";
+import companyOverview from "./components/companyOverview/companyOverview.vue";
 export default [
     {path: '/', component: Home},
     {path: '/login', component: Login},
@@ -27,4 +28,5 @@ export default [
     {path: '/Payment', component: Payment},
     {path: '/Bookmarks', component: StarredAds},
     {path: '/ad/:id', component: adOverview},
+    {path: '/company/:id', component: companyOverview}
 ]
