@@ -10,13 +10,16 @@
           <hr class="my-3"/>
           <v-row>
             <v-spacer />
-              <v-col cols="12" sm="6" md="4" lg="4" xl="2">
+              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
                 <TopDisplayRowCardVue :item="{ Title: 'بازدید از آگهی های شما', Info: '۶۴'}" />
               </v-col>
-              <v-col cols="12" sm="6" md="4" lg="4" xl="2">
+              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
                 <TopDisplayRowCardVue :item="{ Title: 'آگهی های شما', Info: this.adsList.length}" />
               </v-col>
-              <v-col cols="12" sm="6" md="4" lg="4" xl="2">
+              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
+                <TopDisplayRowCardVue :item="{ Title: 'آگهی های مرتبط', Info: '4'}" />
+              </v-col>
+              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
                 <TopDisplayRowCardVue :item="{ Title: 'کل آگهی ها', Info: '۳۲۵'}" />
               </v-col>
             <v-spacer />
@@ -51,7 +54,10 @@ import CompanySidebarNavigationVue from "./CompanySidebarNavigation.vue";
 
 
 export default {
-  components: { UnansweredTicketsVue, AdsContainerVue, TopDisplayRowCardVue, DashboardChecklistVue, CompanySidebarNavigationVue },
+  components: { 
+    UnansweredTicketsVue, AdsContainerVue, TopDisplayRowCardVue, 
+    DashboardChecklistVue, CompanySidebarNavigationVue 
+  },
   onMounted() {
     this.$vuetify.rtl = true;
   },

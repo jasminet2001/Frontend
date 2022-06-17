@@ -2,7 +2,7 @@
   <v-card
       class="rounded-lg pa-2"
       outlined
-      elevation="0"
+      elevation="4"
       height="300px">
     <v-card-title class="mb-4">
       <strong>
