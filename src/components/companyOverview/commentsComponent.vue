@@ -12,10 +12,10 @@
       v-model="name"
       placeholder="نام و نام خانوادگی"></v-text-field>
     <v-row class="mb-1" align="center">
-      <v-col cols="2">
+      <v-col cols="12" sm="4" md="3" lg="3" xl="3">
         <span style="bottom: 5px"> امتیاز شما:‌</span>
       </v-col>
-      <v-col cols="2">
+      <v-col cols="12" sm="8" md="9" lg="9" xl="9" align="center">
         <v-rating
             :empty-icon="ImdiStarOutline"
             :full-icon="ImdiStar"

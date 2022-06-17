@@ -8,12 +8,12 @@
     <div>
       <v-row>
         <v-spacer />
-        <v-col cols="3" align="center">
+        <v-col cols="12" sm="6" md="6" lg="3" xl="3" align="center">
           <h1>
             {{ companyName }}
           </h1>
         </v-col>
-        <v-col cols="3" align="center">
+        <v-col cols="12" sm="6" md="6" lg="3" xl="3" align="center">
           <v-rating
               :empty-icon="ImdiStarOutline"
               :full-icon="ImdiStar"
@@ -27,12 +27,12 @@
               style="direction: ltr;"
           ></v-rating>
         </v-col>
-        <v-col cols="3">
+        <v-col cols="12" sm="6" md="6" lg="3" xl="3" align="center">
           <v-chip color="#ffeb3b">
             {{ companyCategory }}
           </v-chip>
         </v-col>
-        <v-col cols="3">
+        <v-col cols="12" sm="6" md="6" lg="3" xl="3" align="center">
           <v-icon small>
             {{ ImdiPin }}
           </v-icon>
