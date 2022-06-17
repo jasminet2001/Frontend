@@ -1,16 +1,20 @@
 <template>
   <v-card
       rounded
-      elevation="3"
+      elevation="4"
       class="pa-2 ma-2">
-      <v-img
-        height="250"
-        src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
     <v-card-title class="mb-1 mt-0">
       {{ ad.Title }}
     </v-card-title>
     <v-card-text class="my-1">
-      {{ ad.Description }}
+      <v-row>
+        {{ ad.Description }}
+      </v-row>
+      <v-row class="my-4">
+        <v-icon>mdi-check-bold</v-icon>
+        وضعیت:
+        {{ ad.Status }}
+      </v-row>
     </v-card-text>
     <v-card-actions class="justify-center align-center mt-1 mb-0">
       <v-btn width="80%" text color="#3751FF">
