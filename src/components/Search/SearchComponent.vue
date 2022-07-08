@@ -38,7 +38,6 @@
                   :description="item.description"
                   :id="item.id"
                   type="company"
-                  :image="item.logo"
                   :views="item.ViewCount"
               ></search-card>
               </v-col>
@@ -84,7 +83,6 @@
                   :description="item.description"
                   :id="item.id"
                   type="ad"
-                  :image="item.photo"
                   :views="item.ViewCount"
               ></search-card>
               </v-col>
