@@ -13,7 +13,7 @@
     <v-tabs align-with-title >
       <v-tab to="/">صفحه اصلی</v-tab>
       <v-tab to="/search">جستجو</v-tab>
-      <v-tab to="/contact">تماس با ما</v-tab>
+      <v-tab to="/about">درباره ما</v-tab>
       <v-spacer />
       <v-tab v-if="!loggedIn" >
         <v-btn-toggle background-color="#000930" shaped>
@@ -76,11 +76,11 @@
             <v-list-item-title>جستجو</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link to="/contact" class="py-2">
+          <v-list-item link to="/about" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-card-account-phone</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>تماس با ما</v-list-item-title>
+            <v-list-item-title>درباره ما</v-list-item-title>
           </v-list-item>
 
           <v-list-item link to="/login" class="py-2">

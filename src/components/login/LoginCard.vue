@@ -9,14 +9,19 @@
           <v-col cols="12">
             <v-row>
               <p class="mt-3" style="margin: 0 auto;">حساب کاربری ندارید؟</p>
-              <a @click="SignUp()" class="mt-3" 
+              <a @click="SignUp()" class="mt-3"
               style="color:black; text-decoration:none; font-style: italic; margin: 0 auto">
               ثبت نام کنید</a>
             </v-row>
           </v-col>
         </v-row>
         <v-row class="mt-5 mx-2" justify="center" align="center">
-          <v-text-field v-model="email" :rules="emailRules" label="ایمیل" required>
+          <v-text-field
+              v-model="email"
+              :rules="emailRules"
+              label="ایمیل"
+              style="direction: ltr !important;"
+              required>
           </v-text-field>
         </v-row>
         <v-row class="mt-5 mx-2" justify="center" align="center">
@@ -30,6 +35,7 @@
               hint="At least 8 characters"
               counter
               @click:append="show1 = !show1"
+              style="direction: ltr !important;"
           ></v-text-field>
         </v-row>
         <v-row class="mt-16 mx-2" align="center" justify="center" no-gutters>
@@ -72,7 +78,7 @@ export default {
         min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
       },
       emailRules: [
-        v => !!v || 'E-mail is required',
+        v => !!v || 'ایمیل را وارد کنید',
         v => /.+@.+\..+/.test(v) || 'ایمیل صحیح وارد نمایید.',
       ],
     }

@@ -13,6 +13,14 @@ import Payment from "./components/userpanel/PaymentPageComponent.vue";
 import StarredAds from "./components/userpanel/StarredAdsPageComponent.vue";
 import adOverview from "./components/adOverview/adOverview";
 import companyOverview from "./components/companyOverview/companyOverview.vue";
+import aboutUs from "@/components/aboutUs/aboutComponent";
+//company panel routes
+import EditCompanyProfile from "./components/companyPanel/EditCompanyProfile.vue";
+import CompanySubAd from "./components/companyPanel/CompanySubmitAd.vue";
+import ChangeCPass from "./components/companyPanel/ChangeCompanyPass.vue";
+import CompanyAdsList from "./components/companyPanel/CompanyAdsList.vue";
+import CompanyDashboard from "./components/companyPanel/CompanyDashboard";
+import RecievedReq from "./components/companyPanel/RecievedRequests.vue";
 export default [
     {path: '/', component: Home},
     {path: '/login', component: Login},
@@ -28,5 +36,13 @@ export default [
     {path: '/Payment', component: Payment},
     {path: '/Bookmarks', component: StarredAds},
     {path: '/ad/:id', component: adOverview},
-    {path: '/company/:id', component: companyOverview}
+    {path: '/company/:id', component: companyOverview},
+    {path: '/about', component: aboutUs},
+    {path: '/company/:id', component: companyOverview},
+    {path: '/companyprofile', component: EditCompanyProfile},
+    {path: '/CompanySubAd', component: CompanySubAd},
+    {path: '/ChangeCompanyPass', component: ChangeCPass},
+    {path: '/CompanyAdsList', component: CompanyAdsList},
+    {path: '/CompanyDashboard', component: CompanyDashboard},
+    {path: '/RecievedRequests', component: RecievedReq},
 ]
