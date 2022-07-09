@@ -105,8 +105,15 @@
                   <v-text-field
                   label="رمز عبور جدید"
                   v-model="password"
-                  type="password"
-                  outlined>
+                  outlined
+                  :append-icon="show1 ? ImdiEye : ImdiEyeOff"
+                  :rules="[rules.required, rules.min]"
+                  :type="show1 ? 'text' : 'password'"
+                  name="input-10-1"
+                  hint="حداقل 8 حرف"
+                  counter
+                  @click:append="show1 = !show1"
+                  style="direction: ltr !important;">
                   </v-text-field>
 
                   <p>رمز عبور جدید</p>
@@ -114,6 +121,7 @@
                   label="رمز عبور جدید"
                   v-model="newPassword"
                   type="password"
+                  :rules="[rules.required, rules.min]"
                   outlined>
                   </v-text-field>
                   <p>تکرار رمز عبور</p>
@@ -122,6 +130,7 @@
                   type="password"
                   clearable
                   outlined
+                  :rules="[rules.required, rules.min]"
                   label="تکرار رمز عبور">
                   </v-text-field>
 
@@ -161,13 +170,25 @@
 </template>
 
 <script>
+import { mdiEye, mdiEyeOff } from '@mdi/js';
 import CompanySidebarNavigationVue from './CompanySidebarNavigation.vue';
 export default {
   components: { CompanySidebarNavigationVue },
   data: () => ({
     password: "",
     newPassword: "",
-    newPasswordConfirm: ""
+    newPasswordConfirm: "",
+    ImdiEye: mdiEye,
+    ImdiEyeOff: mdiEyeOff,
+    show1: false,
+    rules: {
+      required: value => !!value || 'رمز عبور لازم است!',
+      min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
+    },
+    emailRules: [
+      v => !!v || 'ایمیل را وارد کنید',
+      v => /.+@.+\..+/.test(v) || 'ایمیل صحیح وارد نمایید.',
+    ],
   }),
   methods: {
     errorToaster(msg, type='error'){
