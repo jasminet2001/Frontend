@@ -113,7 +113,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/user/signup',
+        url: this.$store.state.host + 'user/signup',
         headers: {
           'Accept': 'application/json',
         },

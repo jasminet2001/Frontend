@@ -7,7 +7,7 @@
       <hr class="my-3"/>
       <v-row v-if="this.$vuetify.breakpoint.mdAndUp">
         <v-col v-for="(plan, index) in plans" :key="index" cols="3">
-          <v-card width="100%" elevation="1" class="rounded-xl pa-4">
+          <v-card width="100%" elevation="1" class="rounded-xl pa-4" :color="plan.Color">
             <v-card-text>
               <v-row class="my-4" style="font-size: 1.4em; font-weight: bolder">
                 <span>پلن:</span>
@@ -39,7 +39,7 @@
       </v-row>
       <div v-else>
         <v-row v-for="(plan, index) in plans" :key="index" class="my-3">
-          <v-card width="100%" elevation="1" class="rounded-xl pa-4">
+          <v-card width="100%" elevation="1" class="rounded-xl pa-4" :color="plan.Color">
             <v-card-text>
               <v-row>
                 <v-col cols="12">
@@ -104,10 +104,10 @@ export default {
         Max: '#48cae4'
       },
       plans: [
-        {Title: 'کلاسیک', Color: '#caf0f8', Days: 60, Ads: 10, Price: 20000},
-        {Title: 'پرو', Color: '#ade8f4', Days: 60, Ads: 15, Price: 40000},
-        {Title: 'دلوکس', Color: '#90e0ef', Days: 90, Ads: 30, Price: 60000},
-        {Title: 'مکس', Color: '#48cae4', Days: 120, Ads: 45, Price: 80000}
+        {Title: 'کلاسیک', Color: 'rgba(55, 81, 255, 0)', Days: 60, Ads: 10, Price: 20000},
+        {Title: 'پرو', Color: 'rgba(55, 81, 255, 0.1)', Days: 60, Ads: 15, Price: 40000},
+        {Title: 'دلوکس', Color: 'rgba(55, 81, 255, 0.2)', Days: 90, Ads: 30, Price: 60000},
+        {Title: 'مکس', Color: 'rgba(55, 81, 255, 0.3)', Days: 120, Ads: 45, Price: 80000}
       ]
     }
   }
