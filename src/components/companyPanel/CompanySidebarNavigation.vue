@@ -41,48 +41,70 @@
         </v-list-item-icon>
         <v-list-item-title>داشبورد</v-list-item-title>
       </v-list-item>
+
       <v-list-item link to="/companyprofile">
         <v-list-item-icon>
           <v-icon>mdi-account-edit-outline</v-icon>
         </v-list-item-icon>
         <v-list-item-title>ویرایش پروفایل شرکت</v-list-item-title>
       </v-list-item>
+
       <v-list-item link to="/ChangeCompanyPass">
         <v-list-item-icon>
           <v-icon>mdi-lock-outline</v-icon>
         </v-list-item-icon>
         <v-list-item-title>ویرایش رمز عبور</v-list-item-title>
       </v-list-item>
+
       <v-list-item link to="/bookmarks">
         <v-list-item-icon>
           <v-icon>mdi-bookmark-multiple</v-icon>
         </v-list-item-icon>
         <v-list-item-title>نشانک ها</v-list-item-title>
       </v-list-item>
+
       <v-list-item link to="/CompanySubAd">
         <v-list-item-icon>
           <v-icon>mdi-form-select</v-icon>
         </v-list-item-icon>
         <v-list-item-title>ثبت آگهی</v-list-item-title>
       </v-list-item>
+
       <v-list-item link to="/RecievedRequests">
         <v-list-item-icon>
           <v-icon>mdi-arrow-u-up-right-bold</v-icon>
         </v-list-item-icon>
         <v-list-item-title>درخواست های ارسالی</v-list-item-title>
       </v-list-item>
-      <v-list-item link to="/CompanyAdsList">
+
+      <v-list-item link to="/RecievedRequests" class="py-2">
+        <v-list-item-icon>
+          <v-icon>mdi-inbox-arrow-down-outline</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>درخواست های دریافت شده</v-list-item-title>
+      </v-list-item>
+
+      <v-list-item link to="/SentRequests" class="py-2">
+        <v-list-item-icon>
+          <v-icon>mdi-inbox-arrow-up-outline</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>درخواست های ارسال شده</v-list-item-title>
+      </v-list-item>
+
+      <v-list-item link to="/CompanyAdsList" class="py-2">
         <v-list-item-icon>
           <v-icon>mdi-file-document-edit-outline</v-icon>
         </v-list-item-icon>
         <v-list-item-title>آگهی های من</v-list-item-title>
       </v-list-item>
+
       <v-list-item link @click="Wallet()">
         <v-list-item-icon>
           <v-icon>mdi-credit-card-outline</v-icon>
         </v-list-item-icon>
         <v-list-item-title>کیف پول</v-list-item-title>
       </v-list-item>
+
       <v-list-item link @click="logout">
         <v-list-item-icon>
           <v-icon>mdi-exit-to-app</v-icon>
@@ -175,10 +197,24 @@
 
           <v-list-item link to="/RecievedRequests" class="py-2">
             <v-list-item-icon>
-              <v-icon>mdi-arrow-u-up-right-bold</v-icon>
+              <v-icon>mdi-inbox-arrow-down-outline</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>درخواست های ارسالی</v-list-item-title>
+            <v-list-item-title>درخواست های دریافت شده</v-list-item-title>
           </v-list-item>
+
+            <v-list-item link to="/SentRequests" class="py-2">
+            <v-list-item-icon>
+              <v-icon>mdi-inbox-arrow-up-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>درخواست های ارسال شده</v-list-item-title>
+          </v-list-item>
+
+        <v-list-item link to="/CompanyAdsList" class="py-2">
+          <v-list-item-icon>
+            <v-icon>mdi-file-document-edit-outline</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>آگهی های من</v-list-item-title>
+        </v-list-item>
 
           <!-- is the link correct? -->
           <v-list-item link to="/payment" class="py-2">
@@ -188,12 +224,6 @@
             <v-list-item-title>کیف پول</v-list-item-title>
           </v-list-item>
 
-        <v-list-item link to="/CompanyAdsList" class="py-2">
-          <v-list-item-icon>
-            <v-icon>mdi-file-document-edit-outline</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>آگهی های من</v-list-item-title>
-        </v-list-item>
         </v-list-item-group>
       </v-list>
 
