@@ -96,7 +96,7 @@
             </v-list-item-icon>
             <v-list-item-title>ثبت نام</v-list-item-title>
           </v-list-item>
-        </v-list-item-group> 
+        </v-list-item-group>
       </v-list>
 
       <v-divider></v-divider>
@@ -146,7 +146,7 @@ export default{
       let axios = require('axios');
       let config = {
         method: 'get',
-        url: 'http://localhost:8000/api/user/this',
+        url: this.$store.state.host + 'user/this',
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer '+this.$cookies.get('token')

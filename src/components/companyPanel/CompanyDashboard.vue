@@ -54,9 +54,9 @@ import CompanySidebarNavigationVue from "./CompanySidebarNavigation.vue";
 
 
 export default {
-  components: { 
-    UnansweredTicketsVue, AdsContainerVue, TopDisplayRowCardVue, 
-    DashboardChecklistVue, CompanySidebarNavigationVue 
+  components: {
+    UnansweredTicketsVue, AdsContainerVue, TopDisplayRowCardVue,
+    DashboardChecklistVue, CompanySidebarNavigationVue
   },
   onMounted() {
     this.$vuetify.rtl = true;
@@ -76,7 +76,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/ad/search',
+        url: this.$store.state.host + 'ad/search',
         headers: {
           'Accept': 'application/json',
         },

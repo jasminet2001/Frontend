@@ -177,7 +177,7 @@ export default {
 
         var config = {
           method: 'post',
-          url: 'http://localhost:8000/api/user/update',
+          url: this.$store.state.host + 'user/update',
           headers: {
             'Accept': 'application/json',
             'Authorization': 'Bearer '+this.$cookies.get('token'),

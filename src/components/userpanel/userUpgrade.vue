@@ -70,7 +70,7 @@
                     v-model="description"
                     label="درباره شرکت">
                     </v-textarea>
- 
+
                   <!-- save button -->
                   <v-btn
                     class="btn"
@@ -239,7 +239,7 @@ export default {
       var data = new FormData();
       var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/categories',
+        url: this.$store.state.host + 'categories',
         headers: {
           'Accept': 'application/json',
         },
@@ -271,7 +271,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/company/add',
+        url: this.$store.state.host + 'company/add',
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer '+this.$cookies.get('token'),

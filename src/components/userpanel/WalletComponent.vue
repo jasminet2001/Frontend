@@ -11,7 +11,7 @@
             <span style="font-size: 1.5em; color: white !important;" class="mr-10">موجودی</span>
           </div>
           <div class="justify-start" style="margin-top: 68px">
-            <span style="font-size: 1.5em; color: white !important;" class="mr-10">{{ credit }}</span>
+            <span style="font-size: 1.5em; color: white !important;" class="mr-10">{{ getBalance }}</span>
             &nbsp;
             <span style="font-size: 1.5em; color: white !important;">تومان</span>
           </div>
@@ -23,7 +23,7 @@
             <span style="font-size: 1.5em; color: white !important;" class="mr-5">موجودی</span>
           </div>
           <div class="justify-start" style="margin-top: 35px">
-            <span style="font-size: 1.5em; color: white !important;" class="mr-5">{{ credit }}</span>
+            <span style="font-size: 1.5em; color: white !important;" class="mr-5">{{ getBalance }}</span>
             &nbsp;
             <span style="font-size: 1.5em; color: white !important;">تومان</span>
           </div>
@@ -36,9 +36,9 @@
 <script>
 export default {
   name: "WalletComponent",
-  data () {
-    return {
-      credit: '500000'
+  computed:{
+    getBalance(){
+      return this.$cookies.get('user').wallet.toLocaleString()
     }
   }
 }
