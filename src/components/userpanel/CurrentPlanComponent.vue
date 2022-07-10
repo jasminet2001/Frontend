@@ -8,7 +8,9 @@
       <v-row>
         <v-spacer />
         <v-col cols="10" md="10" lg="10" xl="8" sm="8">
-          <v-card v-if="this.$vuetify.breakpoint.xsOnly" width="100%" elevation="1" class="rounded-xl py-2 px-4" outlined style="min-height: 181px; max-width: 277px; margin: 0 auto;">
+          <v-card v-if="this.$vuetify.breakpoint.xsOnly" width="100%" elevation="1" 
+          class="rounded-xl py-2 px-4 plan-card" 
+          outlined style="min-height: 181px; max-width: 277px; margin: 0 auto;">
             <v-card-text>
               <v-row class="my-2" style="font-size: 1.2em; font-weight: bolder">
                 <span>پلن فعال:</span>
@@ -35,8 +37,9 @@
               </v-row>
             </v-card-text>
           </v-card>
-          <v-card v-else width="100%" elevation="1" class="rounded-xl py-2 px-4" outlined style="min-height: 218px; max-width: 377px; margin: 0 auto">
-            <v-card-text>
+          <v-card v-else width="100%" elevation="1" class="rounded-xl py-2 px-4 plan-card" 
+          outlined style="min-height: 218px; max-width: 377px; margin: 0 auto">
+            <v-card-text class="white--text">
               <v-row class="my-2" style="font-size: 1.2em; font-weight: bolder">
                 <span>پلن فعال:</span>
                 <v-spacer />
@@ -93,5 +96,7 @@ export default {
 </script>
 
 <style scoped>
-
+.plan-card{
+  background-image: url("../../assets/plan-background.svg");
+}
 </style>

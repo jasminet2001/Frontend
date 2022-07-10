@@ -20,28 +20,40 @@
                 <v-col cols="6"
                 class="px-8 col"
                 >
-                  <p>رمز عبور فعلی</p>
+                <p>رمز عبور فعلی</p>
                   <v-text-field
-                  label="رمز عبور فعلی"
-                  v-model="password"
-                  type="password"
-                  outlined>
+                      label="رمز عبور فعلی"
+                      v-model="password"
+                      outlined
+                      :append-icon="show1 ? ImdiEye : ImdiEyeOff"
+                      :rules="[rules.required, rules.min]"
+                      :type="show1 ? 'text' : 'password'"
+                      @click:append="show1 = !show1"
+                      style="direction: ltr !important;">
                   </v-text-field>
 
                   <p>رمز عبور جدید</p>
                   <v-text-field
-                  label="رمز عبور جدید"
-                  v-model="newPassword"
-                  type="password"
-                  outlined>
+                      label="رمز عبور جدید"
+                      v-model="newPassword"
+                      outlined
+                      :append-icon="show2 ? ImdiEye : ImdiEyeOff"
+                      :rules="[rules.required, rules.min]"
+                      :type="show2 ? 'text' : 'password'"
+                      @click:append="show2 = !show2"
+                      style="direction: ltr !important;">
                   </v-text-field>
-                  <p>تکرار رمز عبور</p>
+
+                  <p>تکرار رمز عبور جدید</p>
                   <v-text-field
-                  v-model="newPasswordConfirm"
-                  type="password"
-                  clearable
-                  outlined
-                  label="تکرار رمز عبور">
+                      label="تکرار رمز عبور جدید"
+                      v-model="newPasswordConfirm"
+                      outlined
+                      :append-icon="show3 ? ImdiEye : ImdiEyeOff"
+                      :rules="[rules.required, rules.min]"
+                      :type="show3 ? 'text' : 'password'"
+                      @click:append="show3 = !show3"
+                      style="direction: ltr !important;">
                   </v-text-field>
 
                   <!-- save button -->
@@ -83,6 +95,7 @@
 
     <!-- responsive -->
     <v-app v-else>
+      <!-- what's the n? -->
       <CompanySidebarNavigationVue n/>
       <v-sheet class="pa-5" color="transparent" elevation="0">
         <h2 class="mb-5">ویرایش رمز عبور</h2>
@@ -101,28 +114,37 @@
                 <v-col cols="12"
                 class="px-8 col"
                 >
-                  <p>رمز عبور فعلی</p>
                   <v-text-field
-                  label="رمز عبور جدید"
-                  v-model="password"
-                  type="password"
-                  outlined>
+                      label="رمز عبور فعلی"
+                      v-model="password"
+                      outlined
+                      :append-icon="show4 ? ImdiEye : ImdiEyeOff"
+                      :rules="[rules.required, rules.min]"
+                      :type="show4 ? 'text' : 'password'"
+                      @click:append="show4 = !show4"
+                      style="direction: ltr !important;">
                   </v-text-field>
 
-                  <p>رمز عبور جدید</p>
                   <v-text-field
-                  label="رمز عبور جدید"
-                  v-model="newPassword"
-                  type="password"
-                  outlined>
+                      label="رمز عبور جدید"
+                      v-model="newPassword"
+                      outlined
+                      :append-icon="show5 ? ImdiEye : ImdiEyeOff"
+                      :rules="[rules.required, rules.min]"
+                      :type="show5 ? 'text' : 'password'"
+                      @click:append="show5 = !show5"
+                      style="direction: ltr !important;">
                   </v-text-field>
-                  <p>تکرار رمز عبور</p>
+
                   <v-text-field
-                  v-model="newPasswordConfirm"
-                  type="password"
-                  clearable
-                  outlined
-                  label="تکرار رمز عبور">
+                      label="تکرار رمز عبور جدید"
+                      v-model="newPasswordConfirm"
+                      outlined
+                      :append-icon="show6 ? ImdiEye : ImdiEyeOff"
+                      :rules="[rules.required, rules.min]"
+                      :type="show6 ? 'text' : 'password'"
+                      @click:append="show6 = !show6"
+                      style="direction: ltr !important;">
                   </v-text-field>
 
                   <!-- save button -->
@@ -161,13 +183,30 @@
 </template>
 
 <script>
+import { mdiEye, mdiEyeOff } from '@mdi/js';
 import CompanySidebarNavigationVue from './CompanySidebarNavigation.vue';
 export default {
   components: { CompanySidebarNavigationVue },
   data: () => ({
     password: "",
     newPassword: "",
-    newPasswordConfirm: ""
+    newPasswordConfirm: "",
+    ImdiEye: mdiEye,
+    ImdiEyeOff: mdiEyeOff,
+    show1: false,
+    show2: false,
+    show3: false,
+    show4: false,
+    show5: false,
+    show6: false,
+    rules: {
+      required: value => !!value || 'رمز عبور لازم است!',
+      min: v => v.length >= 8 || 'حداقل ۸ کارکتر بنویسید.',
+    },
+    emailRules: [
+      v => !!v || 'ایمیل را وارد کنید',
+      v => /.+@.+\..+/.test(v) || 'ایمیل صحیح وارد نمایید.',
+    ],
   }),
   methods: {
     errorToaster(msg, type='error'){

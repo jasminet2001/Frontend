@@ -35,13 +35,13 @@
                   type="password"
                   outlined>
                   </v-text-field>
-                  <p>تکرار رمز عبور</p>
+                  <p>تکرار رمز عبور جدید</p>
                   <v-text-field
                   v-model="newPasswordConfirm"
                   type="password"
                   clearable
                   outlined
-                  label="تکرار رمز عبور">
+                  label="تکرار رمز عبور جدید">
                   </v-text-field>
 
                   <!-- save button -->

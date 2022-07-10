@@ -8,7 +8,8 @@
       <v-row>
         <v-spacer />
         <v-col v-for="(card, index) in chargeCards" :key="index" cols="6" md="3" lg="2" xl="2">
-          <v-btn outlined class="rounded-lg pa-2" justify="center" align="center" width="100%" @click="addTotal(index)">
+          <v-btn outlined class="rounded-lg pa-2 btn" 
+          justify="center" align="center" width="100%" @click="addTotal(index)">
             <span>+</span>
             &nbsp;
             <span>{{ card.Amount }}</span>
@@ -80,5 +81,9 @@ export default {
 </script>
 
 <style scoped>
-
+.btn{
+  background: rgb(161,156,251);
+  background: linear-gradient(90deg, rgba(161,156,251,1) 0%, rgba(118,118,249,1) 68%);
+  color:white;
+}
 </style>

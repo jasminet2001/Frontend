@@ -20,7 +20,8 @@ import CompanySubAd from "./components/companyPanel/CompanySubmitAd.vue";
 import ChangeCPass from "./components/companyPanel/ChangeCompanyPass.vue";
 import CompanyAdsList from "./components/companyPanel/CompanyAdsList.vue";
 import CompanyDashboard from "./components/companyPanel/CompanyDashboard";
-import RecievedReq from "./components/companyPanel/RecievedRequests.vue";
+import SentReq from "./components/companyPanel/SentRequests.vue";
+import RecReq from "./components/companyPanel/RecievedRequests.vue";
 export default [
     {path: '/', component: Home},
     {path: '/login', component: Login},
@@ -44,5 +45,6 @@ export default [
     {path: '/ChangeCompanyPass', component: ChangeCPass},
     {path: '/CompanyAdsList', component: CompanyAdsList},
     {path: '/CompanyDashboard', component: CompanyDashboard},
-    {path: '/RecievedRequests', component: RecievedReq},
+    {path: '/SentRequests', component: SentReq},
+    {path: '/RecievedRequests', component: RecReq},
 ]
