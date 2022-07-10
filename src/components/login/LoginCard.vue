@@ -111,7 +111,10 @@ export default {
             var result=response.data;
             that.$cookies.set('token', result.token);
             that.$cookies.set('user', result.user);
-            that.$router.push('/dashboard');
+            if (result.user.role==='user')
+              that.$router.push('/dashboard');
+            if (result.user.role==='company')
+              that.$router.push('/companyDashboard')
           })
           .catch(function (error) {
             console.log(error);
