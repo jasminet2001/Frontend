@@ -65,12 +65,12 @@
         </v-list-item-icon>
         <v-list-item-title>ثبت آگهی</v-list-item-title>
       </v-list-item>
-      <v-list-item link to="/UserUpgrade">
+      <!-- <v-list-item link to="/UserUpgrade">
         <v-list-item-icon>
           <v-icon>mdi-arrow-u-up-right-bold</v-icon>
         </v-list-item-icon>
         <v-list-item-title>ارتقای حساب</v-list-item-title>
-      </v-list-item>
+      </v-list-item> -->
       <v-list-item link @click="Wallet()">
         <v-list-item-icon>
           <v-icon>mdi-credit-card-outline</v-icon>
@@ -173,12 +173,13 @@
             <v-list-item-title>ثبت آگهی</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link to="/userUpgrade" class="py-2">
+          <!-- <v-list-item link to="/userUpgrade" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-arrow-u-up-right-bold</v-icon>
             </v-list-item-icon>
             <v-list-item-title>ارتقای حساب</v-list-item-title>
-          </v-list-item>
+          </v-list-item> -->
+
           <v-list-item link to="/payment" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-credit-card-outline</v-icon>

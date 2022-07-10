@@ -20,6 +20,7 @@
                 <v-col cols="6"
                 class="px-8 col"
                 >
+                <p>رمز عبور فعلی</p>
                   <v-text-field
                       label="رمز عبور فعلی"
                       v-model="password"
@@ -31,6 +32,7 @@
                       style="direction: ltr !important;">
                   </v-text-field>
 
+                  <p>رمز عبور جدید</p>
                   <v-text-field
                       label="رمز عبور جدید"
                       v-model="newPassword"
@@ -42,6 +44,7 @@
                       style="direction: ltr !important;">
                   </v-text-field>
 
+                  <p>تکرار رمز عبور جدید</p>
                   <v-text-field
                       label="تکرار رمز عبور جدید"
                       v-model="newPasswordConfirm"
@@ -92,6 +95,7 @@
 
     <!-- responsive -->
     <v-app v-else>
+      <!-- what's the n? -->
       <CompanySidebarNavigationVue n/>
       <v-sheet class="pa-5" color="transparent" elevation="0">
         <h2 class="mb-5">ویرایش رمز عبور</h2>

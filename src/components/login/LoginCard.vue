@@ -32,7 +32,7 @@
               :type="show1 ? 'text' : 'password'"
               name="input-10-1"
               label="رمز عبور"
-              hint="At least 8 characters"
+              hint="رمز عبور حداقل 8 حرف باید باشد"
               counter
               @click:append="show1 = !show1"
               style="direction: ltr !important;"
@@ -79,7 +79,7 @@ export default {
       },
       emailRules: [
         v => !!v || 'ایمیل را وارد کنید',
-        v => /.+@.+\..+/.test(v) || 'ایمیل صحیح وارد نمایید.',
+        v => /.+@.+\..+/.test(v) || 'ایمیل صحیح وارد نمایید',
       ],
     }
   },
