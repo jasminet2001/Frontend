@@ -22,6 +22,7 @@
 </template>
 
 <script>
+
 import CompanyAdCardVue from "./CompanyAdCard.vue";
 import CompanySidebarNavigationVue from "./CompanySidebarNavigation.vue";
 export default {
@@ -43,7 +44,33 @@ export default {
         { Title: "نام آگهی", Description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد" }
       ]
     }
-  }
+  },
+  // methods:{
+  //   myAds(){
+  //     var axios = require('axios');
+  //     var FormData = require('form-data');
+  //     var data = new FormData();
+
+  //     data.append("sender", this.$cookies.get("user").id)
+  //     var config = {
+  //       method: 'post',
+  //       url: 'https://1cd9-80-210-55-189.eu.ngrok.io/api/ad/search',
+  //       headers: { 
+  //         'Accept': 'application/json', 
+  //       },
+  //       data : data
+  //     };
+
+  //     let that = this;
+  //     axios(config)
+  //     .then(function (response) {
+  //       that.ads = response.data;
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  //   }
+  // }
 }
 </script>
 
