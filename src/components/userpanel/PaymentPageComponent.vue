@@ -41,6 +41,11 @@ export default {
         Max: '#a4c3b2'
       }
     }
+  },
+  beforeMount() {
+    console.log(this.$store.state.loremText)
+    this.$store.commit('setLorem', 'hale ok')
+    console.log(this.$store.state.loremText)
   }
 }
 </script>
