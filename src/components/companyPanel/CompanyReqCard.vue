@@ -1,16 +1,15 @@
 <template>
   <v-card
-      shaped
       elevation="4"
-      class="pa-2 ma-2 white--text"
-      style="background: rgb(161,156,251);
-      background: linear-gradient(90deg, rgba(161,156,251,1) 0%, rgba(99,99,245,1) 68%);">
+      shaped
+      class="pa-2 ma-2 req-card white--text"
+      >
     <v-card-title class="mb-1 mt-0">
       {{ ad.Title }}
     </v-card-title>
-    <v-card-text class="my-2 mx-2 ">
-      <v-row class="white--text">
-        <p>{{ ad.Description }}</p>
+    <v-card-text class="my-1">
+      <v-row class="mx-4 my-1 white--text">
+        <h3>{{ ad.CompanyName }}</h3>
       </v-row>
       <v-row class="my-4 mx-2 white--text">
         <v-icon class="white--text">mdi-check-bold</v-icon>
@@ -45,9 +44,9 @@ export default {
 </script>
 
 <style scoped>
-
-.ad-card{
+.req-card{
 background: rgb(161,156,251);
 background: linear-gradient(90deg, rgba(161,156,251,1) 0%, rgba(99,99,245,1) 68%);
 }
+
 </style>
