@@ -5,6 +5,8 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueRouter from 'vue-router'
 import Routes from './routes'
+import Store from './store'
+
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 import VueCookies from 'vue-cookies'
@@ -21,8 +23,9 @@ const router=new VueRouter({
     mode:"history",
 })
 new Vue({
-  vuetify,
-  render: h => h(App),
-  router:router,
+    vuetify,
+    render: h => h(App),
+    router:router,
+    store: Store
 }).$mount('#app')
 

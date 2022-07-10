@@ -35,7 +35,7 @@
                     </v-text-field>
                   </v-row>
 
-                  <v-row class="row"><v-text-field 
+                  <v-row class="row"><v-text-field
                   label="ایمیل شرکت"
                   v-model="email"
                   outlined></v-text-field></v-row>
@@ -125,12 +125,12 @@
                                 </v-text-field>
                             </v-row>
 
-                            <v-row class="row-res"><v-text-field 
+                            <v-row class="row-res"><v-text-field
                             label="ایمیل شرکت"
                             v-model="email"
                             outlined></v-text-field></v-row>
 
-                            <v-row class="row-res"><v-text-field 
+                            <v-row class="row-res"><v-text-field
                             label="تلفن شرکت"
                             v-model="phone"
                             outlined></v-text-field></v-row>
@@ -200,7 +200,7 @@ export default {
 
         var config = {
           method: 'post',
-          url: 'http://localhost:8000/api/user/update',
+          url: this.$store.state.host + 'user/update',
           headers: {
             'Accept': 'application/json',
             'Authorization': 'Bearer '+this.$cookies.get('token'),

@@ -38,7 +38,6 @@
                   :description="item.description"
                   :id="item.id"
                   type="company"
-                  :image="item.logo"
                   :views="item.ViewCount"
               ></search-card>
               </v-col>
@@ -84,7 +83,6 @@
                   :description="item.description"
                   :id="item.id"
                   type="ad"
-                  :image="item.photo"
                   :views="item.ViewCount"
               ></search-card>
               </v-col>
@@ -149,7 +147,7 @@ export default {
       var data = new FormData();
       var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/categories',
+        url: this.$store.state.host + 'categories',
         headers: {
           'Accept': 'application/json',
         },
@@ -187,7 +185,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/company/search?page='+page,
+        url: this.$store.state.host + 'company/search?page='+page,
         headers: {
           'Accept': 'application/json',
         },
@@ -213,7 +211,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/ad/search?page='+page,
+        url: this.$store.state.host + 'ad/search?page='+page,
         headers: {
           'Accept': 'application/json',
         },

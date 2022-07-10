@@ -4,7 +4,7 @@
   <v-row class="my-10">
     <v-col cols="3" class="mr-5 mt-9">
       <contact-info :info="adInfo.sender"/>
-      <v-btn color="blue" rounded class="btn">
+      <v-btn :to="'/company/'+adInfo.sender.company.id" color="blue" rounded class="btn">
         <v-icon>mdi-factory</v-icon>
         <span> مشاهده پروفایل شرکت</span>
       </v-btn>
@@ -45,7 +45,7 @@
               <v-btn
                   color="#002F50"
                   style="color: white"
-                  @click="()=>{submit; dialog.value = false}"
+                  @click="()=>{submit(); dialog.value = false}"
               >ارسال</v-btn>
             </v-card-actions>
           </v-card>
@@ -91,6 +91,7 @@ export default {
     return {
       adInfo:'',
       categories:'',
+      message: ''
     }
   },
   methods:{
@@ -102,7 +103,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/ad/search',
+        url: this.$store.state.host + 'ad/search',
         headers: {
           'Accept': 'application/json',
         },
@@ -123,7 +124,7 @@ export default {
       var data = new FormData();
       var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/categories',
+        url: this.$store.state.host + 'categories',
         headers: {
           'Accept': 'application/json',
         },
@@ -142,6 +143,36 @@ export default {
           return this.categories[i].name;
         }
       }
+    },
+    async submit(){
+      if (!this.$cookies.get('user') || !this.$cookies.get('user').role==='company'){
+        console.log(this.$cookies.get('user'));
+        this.$toast.error('برای انجام این کار باید حساب شرکتی داشته باشید!')
+      }
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      data.append('ad_id', this.$route.params.id);
+      data.append('company_id', this.$cookies.get('user').company.id);
+      data.append('message', this.message);
+
+      var config = {
+        method: 'post',
+        url: this.$store.state.host + 'request/add',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer '+this.$cookies.get('token'),
+        },
+        data : data
+      };
+      let that = this;
+      axios(config)
+          .then(function () {
+            that.$toast.success('درخواست با موفقیت ارسال شد!')
+          })
+          .catch(function () {
+            that.$toast.error('مشکلی در ارسال رخ داد! مطمئن شوید با حساب یک شرکت وارد سایت شده اید.')
+          });
     }
   },
   async beforeRouteUpdate(to){

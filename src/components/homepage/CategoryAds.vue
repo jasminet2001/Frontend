@@ -3,72 +3,31 @@
     <span class="title-desktop">دسته بندی</span>
     <p class="category-text">خدمات</p>
 
-    <v-row align-content="center">
+    <v-row class="justify-center mx-auto">
       <v-col cols="3">
-        <img height="100%" src="../../assets/adone.jpg"/>
+        <img height="100%" width="100%" src="../../assets/adone.jpg"/>
       </v-col >
-        <v-col class="mr-6 ml-6" cols="5">
+      <v-col class="mt-16 pt-16" cols="5">
           <!-- container for buttons -->
-          <div>
-            <v-row class="flex-wrap">
-            <v-col
-              cols="3"
-              class="my-4"
-              v-for="(cat, key) in items" :key="key"
-            >
-              <v-btn
-              width="100%"
-              elevation="24"
-              rounded
-              x-large
-              :to="'/search?category='+cat.id"
-              style="background-image: linear-gradient( 135deg, #97ABFF 10%, #123597 100%);"
-              >{{cat.name}}</v-btn>
+              <v-row class="align-content-space-around"
+                     v-for="(row, key) in items" :key="key"
+              >
+                <v-col
+                    v-for="(cat, key) in row" :key="key"
+                >
+                  <v-btn
+                    class="cat-btn"
+                    width="100%"
+                    elevation="24"
+                    rounded
+                    x-large
+                    :to="'/search?category='+cat.id"
+                  >{{cat.name}}</v-btn>
+                </v-col>
+              </v-row>
             </v-col>
-            <v-col
-              cols="3"
-              class="my-4"
-              v-for="(cat, key) in items" :key="key"
-            >
-              <v-btn
-              elevation="24"
-              rounded
-              x-large
-              :to="'/search?category='+cat.id"
-              style="background-image: linear-gradient( 135deg, #97ABFF 10%, #123597 100%);"
-              >{{cat.name}}</v-btn>
-            </v-col>
-            <v-col
-              cols="3"
-              class="my-4"
-              v-for="(cat, key) in items" :key="key"
-            >
-              <v-btn
-              elevation="24"
-              rounded
-              x-large
-              :to="'/search?category='+cat.id"
-              style="background-image: linear-gradient( 135deg, #97ABFF 10%, #123597 100%);"
-              >{{cat.name}}</v-btn>
-            </v-col>
-            <v-col
-              cols="3"
-              class="my-4"
-              v-for="(cat, key) in items" :key="key"
-            >
-              <v-btn
-              elevation="24"
-              rounded
-              x-large
-              :to="'/search?category='+cat.id"
-              style="background-image: linear-gradient( 135deg, #97ABFF 10%, #123597 100%);"
-              >{{cat.name}}</v-btn>
-            </v-col>
-            </v-row>
-          </div>
-        </v-col>
       <v-col cols="3">
-        <img height="100%" src="../../assets/adtwo.jpg"/>
+        <img height="100%" width="100%" src="../../assets/adtwo.jpg"/>
       </v-col>
     </v-row>
 
@@ -96,12 +55,7 @@ export default {
   data(){
     return{
       select: ['دسته بندی'],
-      items: [
-        'غذایی',
-        'برودتی',
-        'پیچ و مهره',
-        'لبنیات',
-      ],
+      items: [],
     }
   },
   methods: {
@@ -111,21 +65,30 @@ export default {
       var data = new FormData();
       var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/categories',
+        url: this.$store.state.host + 'categories',
         headers: {
           'Accept': 'application/json',
         },
         data : data
       };
-      var catSaver=data=>this.saver(data);
+      let that = this;
       axios(config)
           .then(function (response) {
-            catSaver(response.data);
+            let temp = [];
+            for (let i=0; i<Object.keys(response.data.categories).length; i++){
+              if (i%3==0){
+                if (temp!=[]){
+                  that.items.unshift(temp)
+                }
+                temp=[];
+              }
+              console.log('temp', temp)
+              console.log('items', that.items)
+              temp.unshift(response.data.categories[i])
+            }
+            console.log(that.items)
           })
     },
-    saver(data){
-      this.items = data.categories;
-    }
   },
   mounted() {
     this.fetchData();
@@ -154,53 +117,10 @@ export default {
   margin: 1em;
 }
 
-/* CSS */
-.button-50 {
-  height: 50px;
-  appearance: button;
-  background-color: #000;
-  background-image: none;
-  border: 1px solid #000;
-  border-radius: 4px;
-  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  margin: 0 5px 10px 0;
-  overflow: visible;
-  padding: 12px 40px;
-  text-align: center;
-  text-transform: none;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.cat-btn{
+  font-size: 3rem;
+  height: 7rem !important;
 }
-
-.button-50:focus {
-  text-decoration: none;
-}
-
-.button-50:hover {
-  text-decoration: none;
-}
-
-.button-50:active {
-  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
-  outline: 0;
-}
-
-.button-50:not([disabled]):active {
-  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
-  transform: translate(2px, 2px);
-}
-
 @media (min-width: 768px) {
   .button-50 {
     padding: 12px 50px;

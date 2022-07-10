@@ -3,11 +3,20 @@
   <app-bar></app-bar>
   <v-sheet class="py-10 px-15">
     <v-row>
-      <header-component />
+      <header-component
+          :company-name="companyInfo.name"
+          :company-category="categoryName(companyInfo.category_id)"
+      />
     </v-row>
     <v-row>
       <v-col cols="12" md="4" lg="3" xl="3" class="ma-0">
-        <summary-side-bar />
+        <summary-side-bar
+            :name="companyInfo.name"
+            :email="companyInfo.email"
+            :owner="companyInfo.user_id.name"
+            :phone="companyInfo.phone"
+            :website="companyInfo.website"
+        />
       </v-col>
       <v-spacer />
       <v-col cols="12" md="8" lg="9" xl="9">
@@ -40,7 +49,7 @@ export default {
   },
   data () {
     return {
-      adInfo: '',
+      companyInfo: '',
       categories: '',
       infoForSummary: [
 
@@ -48,63 +57,63 @@ export default {
     }
   },
   methods:{
-    // async ad(id=this.$route.params.id){
-    //   var axios = require('axios');
-    //   var FormData = require('form-data');
-    //   var data = new FormData();
-    //   data.append('id', id);
-    //
-    //   var config = {
-    //     method: 'post',
-    //     url: 'http://localhost:8000/api/company/search',
-    //     headers: {
-    //       'Accept': 'application/json',
-    //     },
-    //     data : data
-    //   };
-    //   let that = this;
-    //   await axios(config)
-    //       .then(function (response) {
-    //         that.adInfo=response.data
-    //       })
-    //       .catch(function (error) {
-    //         console.log(error);
-    //       });
-    // },
-    // categoryFinder(){
-    //   var axios = require('axios');
-    //   var FormData = require('form-data');
-    //   var data = new FormData();
-    //   var config = {
-    //     method: 'get',
-    //     url: 'http://localhost:8000/api/categories',
-    //     headers: {
-    //       'Accept': 'application/json',
-    //     },
-    //     data : data
-    //   };
-    //   let that = this;
-    //   axios(config)
-    //       .then(function (response) {
-    //         that.categories=response.data.categories;
-    //         that.categories.unshift({id:'',name:'همه'});
-    //       })
-    // },
-    // categoryName(id){
-    //   for (let i=0;i<this.categories.length;i++){
-    //     if (this.categories[i].id===id){
-    //       return this.categories[i].name;
-    //     }
-    //   }
-    // }
+    async company(id=this.$route.params.id){
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      data.append('id', id);
+
+      var config = {
+        method: 'post',
+        url: this.$store.state.host + 'company/search',
+        headers: {
+          'Accept': 'application/json',
+        },
+        data : data
+      };
+      let that = this;
+      await axios(config)
+          .then(function (response) {
+            that.companyInfo=response.data
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    },
+    categoryFinder(){
+      var axios = require('axios');
+      var FormData = require('form-data');
+      var data = new FormData();
+      var config = {
+        method: 'get',
+        url: this.$store.state.host + 'categories',
+        headers: {
+          'Accept': 'application/json',
+        },
+        data : data
+      };
+      let that = this;
+      axios(config)
+          .then(function (response) {
+            that.categories=response.data.categories;
+            that.categories.unshift({id:'',name:'همه'});
+          })
+    },
+    categoryName(id){
+      for (let i=0;i<this.categories.length;i++){
+        if (this.categories[i].id===id){
+          return this.categories[i].name;
+        }
+      }
+    }
   },
-  // async beforeRouteUpdate(to){
-  //   await this.ad(to.params.id)
-  // },
-  // async beforeMount() {
-  //   await this.categoryFinder()
-  //   await this.ad()
-  // }
+  async beforeRouteUpdate(to){
+    await this.company(to.params.id)
+  },
+  async beforeMount() {
+    await this.categoryFinder()
+    await this.company()
+  }
 }
 </script>
 

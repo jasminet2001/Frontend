@@ -70,7 +70,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/ad/search',
+        url: this.$store.state.host + 'ad/search',
         headers: {
           'Accept': 'application/json',
         },

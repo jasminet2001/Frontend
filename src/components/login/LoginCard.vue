@@ -93,7 +93,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/user/login',
+        url: this.$store.state.host + 'user/login',
         headers: {
           'Accept': 'application/json',
         },
@@ -111,7 +111,10 @@ export default {
             var result=response.data;
             that.$cookies.set('token', result.token);
             that.$cookies.set('user', result.user);
-            that.$router.push('/dashboard');
+            if (result.user.role==='user')
+              that.$router.push('/dashboard');
+            if (result.user.role==='company')
+              that.$router.push('/companyDashboard')
           })
           .catch(function (error) {
             console.log(error);

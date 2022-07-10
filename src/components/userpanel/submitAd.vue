@@ -191,7 +191,7 @@ export default {
       var data = new FormData();
       var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/categories',
+        url: this.$store.state.host + 'categories',
         headers: {
           'Accept': 'application/json',
         },
@@ -214,7 +214,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/api/ad/makead',
+        url: this.$store.state.host + 'ad/makead',
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer '+this.$cookies.get('token'),

@@ -9,7 +9,7 @@
         <v-spacer />
         <v-col v-for="(card, index) in chargeCards" :key="index" cols="6" md="3" lg="2" xl="2">
           <v-btn outlined class="rounded-lg pa-2 btn" 
-          justify="center" align="center" width="100%" @click="addBalance(index)">
+          justify="center" align="center" width="100%" @click="addTotal(index)">
             <span>+</span>
             &nbsp;
             <span>{{ card.Amount }}</span>
@@ -23,18 +23,27 @@
         <v-spacer />
         <v-col cols="12" md="6" lg="6" xl="5">
           <v-text-field
-              v-model="amountToCharge"
+              v-model.number="amountToCharge"
               outlined
               label="مقدار شارژ"
               class="rounded-lg"
-              align="center" hide-details
+              align="center"
+              hide-details
               single-line
               type="number">
           </v-text-field>
         </v-col>
         <v-spacer />
         <v-col cols="12" md="4" lg="3" xl="3">
-          <v-btn outlined color="#3751FF" class="rounded-lg" width="100%" height="95%" min-height="50px" style="margin: 0 auto">
+          <v-btn
+              outlined
+              color="#3751FF"
+              class="rounded-lg"
+              width="100%"
+              height="95%"
+              min-height="50px"
+              style="margin: 0 auto"
+              @click="withdraw()">
             پرداخت
           </v-btn>
         </v-col>
@@ -56,12 +65,16 @@ export default {
         {Amount: '50,000', Num: 50000},
         {Amount: '100,000', Num: 100000}
       ],
-      amountToCharge: null
+      amountToCharge: 0
     }
   },
   methods: {
-    addBalance (index){
-      this.amountToCharge = this.chargeCards[index].Num
+    addTotal (index){
+      this.amountToCharge += this.chargeCards[index].Num
+    },
+    withdraw (){
+      this.$emit('addCash', this.amountToCharge)
+      this.amountToCharge = 0
     }
   }
 }
