@@ -27,4 +27,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### 
 ![image](https://s2.uupload.ir/files/vueproject_99fh.gif)
 
-<a href="https://uupload.ir/" target="_blank"><img src="https://s2.uupload.ir/files/vueproject_99fh.gif" border="0" alt="آپلود عکس" /></a>
+
