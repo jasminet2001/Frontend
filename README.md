@@ -1,7 +1,9 @@
-##
-![](https://github.com/jasminet2001/React/blob/a6d151ff0b3b4f4b926d60a3d9b5c866365aa139/VueProject.gif)
+
 
 # vue frontend
+
+## Quick Demonstration
+![](https://github.com/jasminet2001/React/blob/a6d151ff0b3b4f4b926d60a3d9b5c866365aa139/VueProject.gif)
 
 ## Project setup
 ```
