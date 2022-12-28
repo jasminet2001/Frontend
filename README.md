@@ -1,9 +1,11 @@
 
-
 # Industry Finder frontend
 
 ## Quick Demonstration
 ![](https://github.com/jasminet2001/React/blob/a6d151ff0b3b4f4b926d60a3d9b5c866365aa139/VueProject.gif)
+
+See [Industry Finder Presentation](https://drive.google.com/file/d/1zcf6umKtBOWFdrSg24xp790Uh_nYNb06/view?usp=sharing)
+
 
 ## Vue Project setup 
 ```
