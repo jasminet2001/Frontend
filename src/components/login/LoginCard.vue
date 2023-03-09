@@ -112,9 +112,9 @@ export default {
             that.$cookies.set('token', result.token);
             that.$cookies.set('user', result.user);
             if (result.user.role==='user')
-              that.$router.push('/dashboard');
+              that.$router.push('/user/dashboard');
             if (result.user.role==='company')
-              that.$router.push('/companyDashboard')
+              that.$router.push('/company/Dashboard')
           })
           .catch(function (error) {
             console.log(error);

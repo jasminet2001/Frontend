@@ -1,8 +1,8 @@
 import Home from './components/homepage/HomepageComponent'
 import Login from './components/login/LoginComponent'
 import Signup from "./components/signup/SignupComponent";
-import dashboard from "./components/userpanel/UserDashboard"
 import Search from "./components/Search/SearchComponent";
+
 import userpanel from "./components/userpanel/UserDashboard.vue";
 import editProfile from "./components/userpanel/EditProfile.vue"
 import submitAds from "./components/userpanel/submitAd.vue"
@@ -14,6 +14,7 @@ import StarredAds from "./components/userpanel/StarredAdsPageComponent.vue";
 import adOverview from "./components/adOverview/adOverview";
 import companyOverview from "./components/companyOverview/companyOverview.vue";
 import aboutUs from "@/components/aboutUs/aboutComponent";
+
 //company panel routes
 import EditCompanyProfile from "./components/companyPanel/EditCompanyProfile.vue";
 import CompanySubAd from "./components/companyPanel/CompanySubmitAd.vue";
@@ -22,29 +23,32 @@ import CompanyAdsList from "./components/companyPanel/CompanyAdsList.vue";
 import CompanyDashboard from "./components/companyPanel/CompanyDashboard";
 import SentReq from "./components/companyPanel/SentRequests.vue";
 import RecReq from "./components/companyPanel/RecievedRequests.vue";
+import CompanyPay from "./components/companyPanel/PaymentPageComponent.vue";
+import CompanyBookmarks from "./components/companyPanel/StarredAdsPageComponent.vue";
+
 export default [
     {path: '/', component: Home},
+    {path: '/about', component: aboutUs},
     {path: '/login', component: Login},
     {path: '/signup', component: Signup},
-    {path: '/dashboard', component: dashboard},
     {path: '/search', component: Search},
-    {path: '/userpanel', component: userpanel},
-    {path: '/editprofile', component: editProfile},
-    {path: '/subAds', component: submitAds},
-    {path: '/MyAdsList', component: AdsList},
-    {path: '/UserUpgrade', component: userUpgrade},
-    {path: '/ChangePass', component: ChangePass},
-    {path: '/Payment', component: Payment},
-    {path: '/Bookmarks', component: StarredAds},
     {path: '/ad/:id', component: adOverview},
+    {path: '/user/dashboard', component: userpanel},
+    {path: '/user/editprofile', component: editProfile},
+    {path: '/user/subAds', component: submitAds},
+    {path: '/user/MyAdsList', component: AdsList},
+    {path: '/user/UserUpgrade', component: userUpgrade},
+    {path: '/user/ChangePass', component: ChangePass},
+    {path: '/user/Payment', component: Payment},
+    {path: '/user/Bookmarks', component: StarredAds},
     {path: '/company/:id', component: companyOverview},
-    {path: '/about', component: aboutUs},
-    {path: '/company/:id', component: companyOverview},
-    {path: '/companyprofile', component: EditCompanyProfile},
-    {path: '/CompanySubAd', component: CompanySubAd},
-    {path: '/ChangeCompanyPass', component: ChangeCPass},
-    {path: '/CompanyAdsList', component: CompanyAdsList},
-    {path: '/CompanyDashboard', component: CompanyDashboard},
-    {path: '/SentRequests', component: SentReq},
-    {path: '/RecievedRequests', component: RecReq},
+    {path: '/company/editprofile', component: EditCompanyProfile},
+    {path: '/company/SubAd', component: CompanySubAd},
+    {path: '/company/ChangePass', component: ChangeCPass},
+    {path: '/company/AdsList', component: CompanyAdsList},
+    {path: '/company/Dashboard', component: CompanyDashboard},
+    {path: '/company/SentRequests', component: SentReq},
+    {path: '/company/RecievedRequests', component: RecReq},
+    {path: '/company/payment', component: CompanyPay},
+    {path: '/company/bookmarks', component: CompanyBookmarks},
 ]
