@@ -53,25 +53,25 @@
         </v-list-item-icon>
         <v-list-item-title>ویرایش رمز عبور</v-list-item-title>
       </v-list-item>
-      <v-list-item link to="/user/Bookmarks">
+      <v-list-item link to="/user/bookmarks">
         <v-list-item-icon>
           <v-icon>mdi-bookmark-multiple</v-icon>
         </v-list-item-icon>
         <v-list-item-title>نشانک ها</v-list-item-title>
       </v-list-item>
-      <v-list-item link to="/user/subAds">
+      <v-list-item link to="/user/subads">
         <v-list-item-icon>
           <v-icon>mdi-form-select</v-icon>
         </v-list-item-icon>
         <v-list-item-title>ثبت آگهی</v-list-item-title>
       </v-list-item>
-      <v-list-item link to="/UserUpgrade">
+      <v-list-item link to="/user/UserUpgrade">
         <v-list-item-icon>
           <v-icon>mdi-arrow-u-up-right-bold</v-icon>
         </v-list-item-icon>
         <v-list-item-title>ارتقای حساب</v-list-item-title>
       </v-list-item>
-      <v-list-item link @click="Wallet()">
+      <v-list-item link to="/user/Payment">
         <v-list-item-icon>
           <v-icon>mdi-credit-card-outline</v-icon>
         </v-list-item-icon>
@@ -159,21 +159,21 @@
             <v-list-item-title>ویرایش رمز عبور</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link to="/user/Bookmarks" class="py-2">
+          <v-list-item link to="/user/bookmarks" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-bookmark-multiple</v-icon>
             </v-list-item-icon>
             <v-list-item-title>نشانک ها</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link to="/user/subAds" class="py-2">
+          <v-list-item link to="/user/subads" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-form-select</v-icon>
             </v-list-item-icon>
             <v-list-item-title>ثبت آگهی</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link to="/userUpgrade" class="py-2">
+          <v-list-item link to="/user/UserUpgrade" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-arrow-u-up-right-bold</v-icon>
             </v-list-item-icon>

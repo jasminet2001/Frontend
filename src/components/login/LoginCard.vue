@@ -114,7 +114,7 @@ export default {
             if (result.user.role==='user')
               that.$router.push('/user/dashboard');
             if (result.user.role==='company')
-              that.$router.push('/company/Dashboard')
+              that.$router.push('/company/dashboard')
           })
           .catch(function (error) {
             console.log(error);

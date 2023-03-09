@@ -35,7 +35,7 @@
     <v-list nav
     dense
     >
-      <v-list-item link to="/company/Dashboard">
+      <v-list-item link to="/company/dashboard">
         <v-list-item-icon>
           <v-icon>mdi-monitor-dashboard</v-icon>
         </v-list-item-icon>
@@ -49,49 +49,49 @@
         <v-list-item-title>ویرایش پروفایل شرکت</v-list-item-title>
       </v-list-item>
 
-      <v-list-item link to="/company/ChangePass">
+      <v-list-item link to="/company/changepass">
         <v-list-item-icon>
           <v-icon>mdi-lock-outline</v-icon>
         </v-list-item-icon>
         <v-list-item-title>ویرایش رمز عبور</v-list-item-title>
       </v-list-item>
 
-      <v-list-item link to="/company/bookmarks">
+      <v-list-item link to="/user/bookmarks">
         <v-list-item-icon>
           <v-icon>mdi-bookmark-multiple</v-icon>
         </v-list-item-icon>
         <v-list-item-title>نشانک ها</v-list-item-title>
       </v-list-item>
 
-      <v-list-item link to="/company/SubAd">
+      <v-list-item link to="/company/subad">
         <v-list-item-icon>
           <v-icon>mdi-form-select</v-icon>
         </v-list-item-icon>
         <v-list-item-title>ثبت آگهی</v-list-item-title>
       </v-list-item>
 
-      <!-- <v-list-item link to="/company/SentRequests">
+      <!-- <v-list-item link to="/company/sentrequests">
         <v-list-item-icon>
           <v-icon>mdi-arrow-u-up-right-bold</v-icon>
         </v-list-item-icon>
         <v-list-item-title>درخواست های ارسالی</v-list-item-title>
       </v-list-item> -->
 
-      <v-list-item link to="/company/RecievedRequests" class="py-2">
+      <v-list-item link to="/company/recievedrequests" class="py-2">
         <v-list-item-icon>
           <v-icon>mdi-inbox-arrow-down-outline</v-icon>
         </v-list-item-icon>
         <v-list-item-title>درخواست های دریافت شده</v-list-item-title>
       </v-list-item>
 
-      <v-list-item link to="/company/SentRequests" class="py-2">
+      <v-list-item link to="/company/sentrequests" class="py-2">
         <v-list-item-icon>
           <v-icon>mdi-inbox-arrow-up-outline</v-icon>
         </v-list-item-icon>
         <v-list-item-title>درخواست های ارسال شده</v-list-item-title>
       </v-list-item>
 
-      <v-list-item link to="/company/AdsList" class="py-2">
+      <v-list-item link to="/company/adslist" class="py-2">
         <v-list-item-icon>
           <v-icon>mdi-file-document-edit-outline</v-icon>
         </v-list-item-icon>
@@ -160,7 +160,7 @@
         v-model="group"
         active-class="grey lighten-4--text text--accent-4"
         >
-          <v-list-item link to="/company/Dashboard" class="py-2">
+          <v-list-item link to="/company/dashboard" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-monitor-dashboard</v-icon>
             </v-list-item-icon>
@@ -174,42 +174,42 @@
             <v-list-item-title>ویرایش پروفایل شرکت</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link to="/company/ChangePass">
+          <v-list-item link to="/company/changepass">
             <v-list-item-icon>
               <v-icon>mdi-lock-outline</v-icon>
             </v-list-item-icon>
             <v-list-item-title>ویرایش رمز عبور</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link to="/company/bookmarks" class="py-2">
+          <v-list-item link to="/user/bookmarks" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-bookmark-multiple</v-icon>
             </v-list-item-icon>
             <v-list-item-title>نشانک ها</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link to="/company/SubAd" class="py-2">
+          <v-list-item link to="/company/subad" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-form-select</v-icon>
             </v-list-item-icon>
             <v-list-item-title>ثبت آگهی</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link to="/company/RecievedRequests" class="py-2">
+          <v-list-item link to="/company/recievedrequests" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-inbox-arrow-down-outline</v-icon>
             </v-list-item-icon>
             <v-list-item-title>درخواست های دریافت شده</v-list-item-title>
           </v-list-item>
 
-            <v-list-item link to="/company/SentRequests" class="py-2">
+            <v-list-item link to="/company/sentrequests" class="py-2">
             <v-list-item-icon>
               <v-icon>mdi-inbox-arrow-up-outline</v-icon>
             </v-list-item-icon>
             <v-list-item-title>درخواست های ارسال شده</v-list-item-title>
           </v-list-item>
 
-        <v-list-item link to="/company/AdsList" class="py-2">
+        <v-list-item link to="/company/adslist" class="py-2">
           <v-list-item-icon>
             <v-icon>mdi-file-document-edit-outline</v-icon>
           </v-list-item-icon>
