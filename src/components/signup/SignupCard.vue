@@ -130,7 +130,7 @@ export default {
             result=result.data;
             this.$cookies.set('token', result.token);
             this.$cookies.set('user', result.user);
-            this.$router.push('/dashboard');
+            this.$router.push('/user/dashboard');
           })
           .catch(error => {
             console.log(error);
