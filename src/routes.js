@@ -3,7 +3,7 @@ import Login from './components/login/LoginComponent'
 import Signup from "./components/signup/SignupComponent";
 import Search from "./components/Search/SearchComponent";
 
-import userpanel from "./components/userpanel/UserDashboard.vue";
+// import userpanel from "./components/userpanel/UserDashboard.vue";
 import editProfile from "./components/userpanel/EditProfile.vue"
 import submitAds from "./components/userpanel/submitAd.vue"
 import AdsList from "./components/userpanel/AdsList.vue"
@@ -26,6 +26,7 @@ import RecReq from "./components/companyPanel/RecievedRequests.vue";
 import CompanyPay from "./components/companyPanel/PaymentPageComponent.vue";
 import CompanyBookmarks from "./components/companyPanel/StarredAdsPageComponent.vue";
 
+import dashboardpage from "./pages/userpanel/dashboard-page.vue";
 export default [
     {path: '/', component: Home},
     {path: '/about', component: aboutUs},
@@ -33,7 +34,7 @@ export default [
     {path: '/signup', component: Signup},
     {path: '/search', component: Search},
     {path: '/ad/:id', component: adOverview},
-    {path: '/user/dashboard', component: userpanel},
+    // {path: '/user/dashboard', component: userpanel},
     {path: '/user/editprofile', component: editProfile},
     {path: '/user/subads', component: submitAds},
     {path: '/user/MyAdsList', component: AdsList},
@@ -51,4 +52,6 @@ export default [
     {path: '/company/payment', component: CompanyPay},
     {path: '/company/bookmarks', component: CompanyBookmarks},
     {path: '/company/:id', component: companyOverview},
+    
+    {path: '/user/dashboard', component: dashboardpage},
 ]

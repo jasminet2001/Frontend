@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <SidebarNavigation/>
+    <!-- <SidebarNavigation/> -->
     <v-sheet>
       <v-sheet color="transparent" class="pa-4">
         <div class="pa-4">
@@ -47,11 +47,10 @@ import TopDisplayRow from "@/components/userpanel/TopDisplayRowCard";
 import AdsContainer from "@/components/userpanel/AdsContainer";
 import DashboardChecklist from "@/components/userpanel/DashboardChecklist";
 import UnansweredTickets from "@/components/userpanel/UnansweredTickets";
-import SidebarNavigation from "./SidebarNavigation.vue";
 
 
 export default {
-  components: { UnansweredTickets, AdsContainer, TopDisplayRow, DashboardChecklist, SidebarNavigation },
+  components: { UnansweredTickets, AdsContainer, TopDisplayRow, DashboardChecklist },
   onMounted() {
     this.$vuetify.rtl = true;
   },
