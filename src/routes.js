@@ -5,5 +5,5 @@ import companyPanel from "@/routes/companyPanel";
 export default [
     ...general,
     ...userPanel,
-    ...companyPanel
+    ...companyPanel,
 ]

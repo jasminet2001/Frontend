@@ -3,8 +3,8 @@ import Home from "@/pages/homepage/home-page";
 import aboutUs from "@/pages/about/about-page";
 import Login from "@/pages/login/login-page";
 import Signup from "@/pages/signup/signup-page";
-import Search from "@/pages/search/search_page";
-import companyOverview from "@/pages/companyOverview/companyOverview_page";
+import Search from "@/pages/search/search-page";
+import companyOverview from "@/pages/companyOverview/companyOverview-page";
 
 export default [
     {path: '/', component: Home},
