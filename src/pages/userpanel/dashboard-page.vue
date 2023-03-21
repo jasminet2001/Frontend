@@ -1,7 +1,7 @@
 <template>
     <v-sheet>
         <sidebar-navigation></sidebar-navigation>
-        <user-dashboard></user-dashboard>
+        <user-dashboard style="width: 95%"></user-dashboard>
     </v-sheet>
 </template>
 

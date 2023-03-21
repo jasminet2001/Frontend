@@ -12,7 +12,7 @@ export default [
     {path: '/user/dashboard', component: dashboard},
     {path: '/user/editprofile', component: editProfile},
     {path: '/user/subads', component: submitAds},
-    {path: '/user/myadslist', component: AdsList},
+    {path: '/user/myads', component: AdsList},
     {path: '/user/upgrade', component: userUpgrade},
     {path: '/user/changepass', component: ChangePass},
     {path: '/user/payment', component: Payment},
