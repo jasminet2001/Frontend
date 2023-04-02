@@ -1,7 +1,6 @@
 <template>
     <!-- desktop -->
     <v-app v-if="this.$vuetify.breakpoint.mdAndUp">
-      <SidebarNavigation/>
       <v-sheet color="transparent" elevation="0" class="pa-8">
         <h2 class="mb-5 mr-5">تغییر رمز عبور</h2>
         <v-card
@@ -83,7 +82,6 @@
 
     <!-- responsive -->
     <v-app v-else>
-      <SidebarNavigation/>
       <v-sheet class="pa-5" color="transparent" elevation="0">
         <h2 class="mb-5">ویرایش رمز عبور</h2>
         <v-card
@@ -161,9 +159,7 @@
 </template>
 
 <script>
-import SidebarNavigation from "./SidebarNavigation.vue";
 export default {
-  components: { SidebarNavigation },
   data: () => ({
     password: "",
     newPassword: "",

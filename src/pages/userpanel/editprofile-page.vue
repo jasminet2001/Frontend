@@ -1,7 +1,7 @@
 <template>
     <v-sheet>
         <sidebar-navigation></sidebar-navigation>
-        <edit-profile></edit-profile>
+        <edit-profile :style="{'width': $vuetify.breakpoint.mdAndUp?'95%':'100%'}"></edit-profile>
     </v-sheet>
 </template>
 

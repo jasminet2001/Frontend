@@ -1,7 +1,7 @@
 <template>
     <v-sheet>
         <sidebar-navigation></sidebar-navigation>
-        <bookmarks-component></bookmarks-component>
+        <bookmarks-component :style="{'width': $vuetify.breakpoint.mdAndUp?'95%':'100%'}"></bookmarks-component>
     </v-sheet>
 </template>
 

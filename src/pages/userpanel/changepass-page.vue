@@ -1,7 +1,7 @@
 <template>
     <v-sheet>
         <sidebar-navigation></sidebar-navigation>
-        <change-pass></change-pass>
+        <change-pass :style="{'width': $vuetify.breakpoint.mdAndUp?'95%':'100%'}"></change-pass>
     </v-sheet>
 </template>
 

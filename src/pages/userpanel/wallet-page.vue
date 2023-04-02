@@ -1,16 +1,16 @@
 <template>
     <v-sheet>
         <sidebar-navigation></sidebar-navigation>
-        <wallet-component></wallet-component>
+        <payment-page-component style="width: 95%"></payment-page-component>
     </v-sheet>
 </template>
 
 <script>
 import SidebarNavigation from "@/components/userpanel/SidebarNavigation.vue";
-import WalletComponent from '@/components/userpanel/WalletComponent.vue';
+import paymentPageComponent from "@/components/userpanel/PaymentPageComponent";
 
 export default{
-    components: {SidebarNavigation, WalletComponent},
+    components: {SidebarNavigation, paymentPageComponent},
     onMounted() {
     this.$vuetify.rtl = true;
     },

@@ -1,6 +1,7 @@
 <template>
 	<v-card
 			class="overflow-hidden"
+			dir="rtl"
 	>
 		<v-app-bar
 				v-if="$vuetify.breakpoint.smAndDown"
@@ -92,7 +93,7 @@
 						<v-list-item-title>ارتقای حساب</v-list-item-title>
 					</v-list-item>
 
-					<v-list-item class="py-2" link to="/payment">
+					<v-list-item class="py-2" link to="payment">
 						<v-list-item-icon>
 							<v-icon>mdi-credit-card-outline</v-icon>
 						</v-list-item-icon>
@@ -111,20 +112,6 @@
 			<v-divider></v-divider>
 
 			<v-list>
-				<v-list-item link>
-					<v-list-item-icon>
-						<v-icon>mdi-brightness-4</v-icon>
-					</v-list-item-icon>
-					<v-list-item-title>
-						<v-switch
-								v-model="$vuetify.theme.dark"
-								inset
-								label="Dark Mode"
-								persistent-hint
-						></v-switch>
-					</v-list-item-title>
-				</v-list-item>
-
 				<v-list-item link @click="logout">
 					<v-list-item-icon>
 						<v-icon>mdi-exit-to-app</v-icon>

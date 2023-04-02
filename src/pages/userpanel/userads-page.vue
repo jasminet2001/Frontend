@@ -1,7 +1,7 @@
 <template>
     <v-sheet>
         <sidebar-navigation></sidebar-navigation>
-        <ads-list></ads-list>
+        <ads-list style="width: 95%"></ads-list>
     </v-sheet>
 </template>
 

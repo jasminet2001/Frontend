@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <!-- <SidebarNavigation/> -->
     <v-sheet>
       <v-sheet color="transparent" class="pa-4">
         <div class="pa-4">
