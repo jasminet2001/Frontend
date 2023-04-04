@@ -1,6 +1,6 @@
 <template>
   <v-sheet
-    class="pa-4">
+    class="pa-4" style="background: #f4f4f4">
     <v-row class="mt-2 mb-5">
       <v-spacer/>
       <span style="font-size: 1.5em">
@@ -16,6 +16,7 @@
     multiple
     :show-arrows="this.$vuetify.breakpoint.mdAndUp">
       <v-slide-item
+					style="background: white !important;"
       v-for="(item, index) in costumersList"
       :key="index"
       >
