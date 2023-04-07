@@ -42,6 +42,8 @@ describe('About component', () => {
     cy.get('.circle').should('have.css', 'height', '112px')
     cy.get('.circle').should('have.css', 'width', '112px')
   })
-
+  it('has the correct font size for the circle', () => {
+    cy.get('.circle').should('have.css', 'font-size', '24px')
+  })
 
 })
