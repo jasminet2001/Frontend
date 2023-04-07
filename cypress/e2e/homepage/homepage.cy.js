@@ -7,7 +7,7 @@ describe('home page', ()=>{
     it('should load correctly', ()=>{
         cy.get("footer").should("be.visible")
     })
-    it('should show categories', function () {
-        cy.get
-    });
+    // it('should show categories', function () {
+    //     cy.get
+    // });
 })
