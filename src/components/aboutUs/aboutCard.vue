@@ -4,7 +4,7 @@
   <v-card elevation="10" :class="'mb-14 pb-5 pt-16'+(right?'pr-10 pl-3':'pr-3 pl-10')" shaped id="card">
     <v-card class="circle" :style="(right?'right':'left')+': -3.5rem'" elevation="24">
       <v-row class="justify-center">
-        <v-icon color="white" size="40">{{icon}}</v-icon>
+        <v-icon color="white" size="40" >{{icon}}</v-icon>
       </v-row>
       <v-row class="justify-center">
         <h5>{{title}}</h5>
