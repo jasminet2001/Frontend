@@ -8,12 +8,6 @@ describe('home page', ()=>{
     it('should load correctly', ()=>{
         cy.get("footer").should("be.visible")
     })
-<<<<<<< HEAD
-    // it('should show categories', function () {
-    //     cy.get
-    // });
-})
-=======
 })
 describe('navBar', function () {
     beforeEach(function () {
@@ -57,4 +51,3 @@ describe('categories', function () {
         cy.get(".v-image__image[style *= \""+APIResults.categories.categories[0].photo+"\"]").should("be.visible")
     });
 });
->>>>>>> ffb2926bebb6543d6a03983d7466df49b6095ab7
