@@ -23,6 +23,5 @@ describe('Login component', () => {
   it('has a dark background', () => {
     cy.get('body').should('have.css', 'background-color', 'rgba(0, 0, 0, 0)')
   })
-  
 
 })
