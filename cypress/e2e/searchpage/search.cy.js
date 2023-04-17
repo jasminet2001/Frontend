@@ -15,7 +15,6 @@ describe('Search component', () => {
       //idk why it doesn't work?
       // let body = cy.get('body').first()
       // body.should('contain.search-card')
-
     });
 })
 
