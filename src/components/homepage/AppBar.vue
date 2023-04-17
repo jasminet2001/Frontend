@@ -1,7 +1,7 @@
 <template>
   <!-- desktop -->
   <v-app-bar
-  class="appbar"
+  :color="$v-app-bar-color"
   v-if="this.$vuetify.breakpoint.mdAndUp"
   clipped-right
   app
@@ -170,9 +170,9 @@ export default{
 }
 </script>
 <style scope lang="scss">
-@import '../../assets/styles/colors.scss';
+@import '@/assets/styles/colors.scss';
 
-.appbar {
-  background-color: $primary;
+v-app-bar {
+  background-color: $app-bar-color;
 }
 </style>
