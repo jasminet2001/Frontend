@@ -6,6 +6,7 @@ import VueAxios from 'vue-axios'
 import VueRouter from 'vue-router'
 import Routes from './routes'
 import Store from './store'
+import './assets/styles/global.scss';
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)

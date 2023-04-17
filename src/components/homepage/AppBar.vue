@@ -1,12 +1,11 @@
 <template>
   <!-- desktop -->
   <v-app-bar
+  class="appbar"
   v-if="this.$vuetify.breakpoint.mdAndUp"
   clipped-right
   app
   elevate-on-scroll
-  color="#000930"
-  dark
   scroll-target="#scrolling-techniques-3"
   height="70%"
   >
@@ -41,7 +40,7 @@
   fixed
   >
     <v-app-bar
-    color="#000930"
+    
     dark
     >
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
@@ -129,7 +128,6 @@
 </template>
 
 <script>
-
 export default{
   name: 'AppBar',
   data(){
@@ -139,6 +137,7 @@ export default{
       loggedIn: '',
       drawer: false,
       group: null,
+
     }
   },
   methods: {
@@ -170,5 +169,10 @@ export default{
   }
 }
 </script>
-<style scoped>
+<style scope lang="scss">
+@import '../../assets/styles/colors.scss';
+
+.appbar {
+  background-color: $primary;
+}
 </style>

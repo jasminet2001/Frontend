@@ -1,0 +1,23 @@
+$t_light: white;
+$t_dark: black;
+$primary: rgb(0, 9, 48);
+$sd_primary: navy;
+$td_primary: #ffeb3b;
+$border: #394DB8;
+$secondary:rgb(53, 59, 81);
+$success: #52b173;
+$warning: #d0a03b;
+$danger: #f44336;
+
+:export{
+    tLight:$t_light;
+    tDark:$t_dark;
+    primary:$primary;
+    sPrimary:$sd_primary;
+    tPrimary:$td_primary;
+    Border:$border;
+    secondary: $secondary;
+    success: $success;
+    warning: $warning;
+    danger:$danger;
+}
