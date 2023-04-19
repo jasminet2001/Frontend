@@ -1,11 +1,12 @@
 <template>
   <!-- desktop -->
   <v-app-bar
-  :color="$v-app-bar-color"
   v-if="this.$vuetify.breakpoint.mdAndUp"
   clipped-right
   app
   elevate-on-scroll
+  color="#000930"
+  dark
   scroll-target="#scrolling-techniques-3"
   height="70%"
   >
@@ -170,9 +171,4 @@ export default{
 }
 </script>
 <style scope lang="scss">
-@import '@/assets/styles/colors.scss';
-
-v-app-bar {
-  background-color: $app-bar-color;
-}
 </style>
