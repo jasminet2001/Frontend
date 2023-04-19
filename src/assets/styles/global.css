@@ -1,0 +1,12 @@
+:root {
+    --tlight: white;
+    --t_dark: black;
+    --primary: rgb(0, 9, 48);
+    --sd_primary: navy;
+    --td_primary: #ffeb3b;
+    --border: #394DB8;
+    --secondary:rgb(53, 59, 81);
+    --success: #52b173;
+    --warning: #d0a03b;
+    --danger: #f44336;
+  }

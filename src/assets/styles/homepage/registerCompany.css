@@ -1,19 +1,18 @@
-@import '../colors.scss';
+@import '../global.css';
 .main-div {
     background-image: url("../../register-company.webp") !important;
     background-size: cover;
     height: 90vh;
     padding: 10%;
-    color: $t_light;
+    color: var(--tlight);
     text-align: center;
 }
 .btn {
     margin: 4%;
     margin-top: 10%;
-    --color: $t_light;
     padding: 0.8em 1.7em;
     width: 32%;
-    background-color: $td_primary;
+    background-color: var(--td_primary);
     border-radius: 3em;
     position: relative;
     overflow: hidden;
@@ -23,8 +22,8 @@
     font-size: 17px;
     font-family: inherit;
     text-transform: uppercase;
-    color: navy;
     z-index: 1;
+    color: var(--sd_primary);
 }
   
 .btn::before, .btn::after {
@@ -36,7 +35,7 @@
    position: absolute;
    border-radius: 50%;
    z-index: -1;
-   background-color: var(--color);
+   background-color: var(--tlight);
    transition: 1s ease;
 }
   
@@ -46,8 +45,8 @@
 }
   
 .btn::after {
-   left: calc(100% + 1em);
-   top: calc(100% + 1em);
+   left: calc(80% + 1em);
+   top: calc(100% + 2em);
 }
   
 .btn:hover::before, .btn:hover::after {
