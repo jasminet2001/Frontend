@@ -12,14 +12,6 @@
     </v-row>
     <v-row>
       <v-col>
-        <!-- <v-btn
-          rounded
-          color="yellow"
-          width="40%"
-          elevation="1"
-          style="color: black">
-          ثبت شرکت
-        </v-btn> -->
         <button class="btn btn-mobile" v-if="this.$vuetify.breakpoint.smAndDown">
           ثبت شرکت
         </button>
