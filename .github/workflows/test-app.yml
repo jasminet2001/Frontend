@@ -14,3 +14,4 @@ jobs:
         uses: cypress-io/github-action@12.9.0
         with:
           build: npm run build
+          start: npm run serve
