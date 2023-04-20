@@ -24,4 +24,24 @@ describe('Login component', () => {
     cy.get('body').should('have.css', 'background-color', 'rgba(0, 0, 0, 0)')
   })
 
+  it('should show an error message when log in with invalid data', () => {
+    // enter invalid user data
+    cy.get('[name="input-10-0"]').type('invalid-email')
+    cy.get('[name="input-10-1"]').type('1234567')
+
+    cy.contains('ورود').click()
+    cy.get('.v-messages__message').should('have.length', 2)
+    cy.url().should('include', baseData.host + '/login')
+  })
+
+  it('should show dashboard page with successfull login!', () => {
+    // enter invalid user data
+    cy.get('[name="input-10-0"]').type('mahdieh9816@gmail.com')
+    cy.get('[name="input-10-1"]').type('56348055Mn')
+
+    cy.contains('ورود').click()
+    cy.get('.v-messages__message').should('have.length', 0)
+    cy.url().should('include', baseData.host + '/user/dashboard')
+  })
+
 })

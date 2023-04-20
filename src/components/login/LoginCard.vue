@@ -19,6 +19,7 @@
           <v-text-field
               v-model="email"
               :rules="emailRules"
+              name="input-10-0"
               label="ایمیل"
               style="direction: ltr !important;"
               required>
