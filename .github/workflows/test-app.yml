@@ -7,11 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5.6.1
+        uses: actions/checkout@12.9.0
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
-        uses: cypress-io/github-action@v5.6.1
+        uses: cypress-io/github-action@12.9.0
         with:
           build: npm run build
-          
