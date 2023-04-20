@@ -6,12 +6,26 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5.6.1
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v5.6.1
+        uses: actions/checkout@v3
+
+      # cache NPM modules and Cypress binary folder
+      # we can use "package-lock.json" as the key file
+      # to make sure we use the precise Cypress version
+      # (which is important when using ^ version in package.json)
+      # see https://github.com/actions/cache
+      - name: Cache NPM and Cypress 📦
+        uses: actions/cache@v3
         with:
-          build: npm run build
-          start: npm start
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Cypress 📥
+        run: npm i cypress@12.10.0
+
+      - name: Cypress tests 🧪
+        uses: ./
+        with:
+          working-directory: examples/install-only
+          install: false
