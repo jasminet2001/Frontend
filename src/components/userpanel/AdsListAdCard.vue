@@ -1,6 +1,6 @@
 <template>
   <v-hover v-slot="{ hover }">
-    <v-card class="rounded-lg pa-2" :elevation="hover ? 4 : 1" :outlined="hover" :class=" {'blue-text': hover}">
+    <v-card class="rounded-lg-pa-2" :elevation="hover ? 4 : 1" :outlined="hover" :class=" {'blue-text': hover}">
       <v-card-title
           class="justify-center"
           style="color: black">
