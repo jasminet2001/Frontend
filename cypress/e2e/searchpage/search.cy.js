@@ -29,7 +29,6 @@ describe('navBar', function () {
       firstTab.should("have.text", 'صفحه اصلی')
       firstTab.next().should("have.text", 'جستجو')
       firstTab.next().should("have.text", 'درباره ما')
-
   });
   it('should have current tab focussed', function () {
       cy.get('.v-tab--active').should("have.text", 'صفحه اصلی')
