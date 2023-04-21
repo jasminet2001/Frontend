@@ -27,7 +27,7 @@
 					nav
 			>
 				<v-list-item class="px-2">
-					<v-img
+					<v-img class="px-2-img"
 							:src="this.$cookies.get('user').avatar?'https://192.168.1.8/storage/avatars/'+this.$cookies.get('user').avatar:'images/avatar.png/'"
 							width="10rem"></v-img>
 				</v-list-item>
@@ -112,7 +112,7 @@
 			<v-divider></v-divider>
 
 			<v-list>
-				<v-list-item link @click="logout">
+				<v-list-item class="btn-log-out" link @click="logout">
 					<v-list-item-icon>
 						<v-icon>mdi-exit-to-app</v-icon>
 					</v-list-item-icon>

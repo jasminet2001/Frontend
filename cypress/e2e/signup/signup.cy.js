@@ -63,7 +63,7 @@ describe('SignupForm Component', () => {
 
     cy.contains('ثبت نام').click()
     cy.get('.v-messages__message').should('have.length', 3)
-    cy.url().should('include', baseData.host + '/signup') // replace with your expected URL
+    cy.url().should('include', baseData.host + '/signup')
   })
 
 })
