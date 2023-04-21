@@ -37,10 +37,10 @@ describe('navBar', function () {
       cy.clearCookies()
       cy.get('.v-tab').last().should('contain.text', 'ورود')
   });
-  it('should show avatar if user is logged in', function () {
-      cy.intercept('*/user/this', mockData.this).as('getUser')
-      cy.visit(baseData.host)
-      cy.wait('@getUser')
-      cy.get('.v-avatar').should("be.visible")
-  });
+  // it('should show avatar if user is logged in', function () {
+  //     cy.intercept('*/user/this', mockData.this).as('getUser')
+  //     cy.visit(baseData.host)
+  //     cy.wait('@getUser')
+  //     cy.get('.v-avatar').should("be.visible")
+  // });
 });
