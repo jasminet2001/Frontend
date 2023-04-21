@@ -11,7 +11,7 @@ describe('home page', ()=>{
 })
 describe('navBar', function () {
     beforeEach(function () {
-        cy.intercept('*/user/this')
+        cy.intercept('**/api/user/this')
         cy.visit(baseData.host)
     });
     it('should show tabs in desktop mode', function () {
@@ -30,7 +30,7 @@ describe('navBar', function () {
         cy.get('.v-tab').last().should('contain.text', 'ورود')
     });
     it('should show avatar if user is logged in', function () {
-        cy.intercept('*/user/this', APIResults.this).as('getUser')
+        cy.intercept('**/api/user/this', APIResults.this).as('getUser')
         cy.visit(baseData.host)
         cy.wait('@getUser')
         cy.get('.v-avatar').should("be.visible")
@@ -39,7 +39,7 @@ describe('navBar', function () {
 
 describe('categories', function () {
     beforeEach(()=>{
-        cy.intercept('*/categories', APIResults.categories).as("getCategories")
+        cy.intercept('**/api/categories', APIResults.categories).as("getCategories")
         cy.visit(baseData.host)
         cy.wait('@getCategories')
     })
