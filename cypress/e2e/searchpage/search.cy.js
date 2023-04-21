@@ -2,7 +2,7 @@ const baseData = require('../../fixtures/shared.json')
 const mockData = require('../../fixtures/APIResults.json')
 describe('Search component', () => {
     beforeEach(() => {
-      cy.intercept('*/search/*', mockData.search)
+      cy.intercept('**/company/search*', mockData.search)
       cy.visit(baseData.host + '/search')
     })
     it('renders the component', () => {
@@ -21,7 +21,7 @@ describe('Search component', () => {
 describe('navBar', function () {
   beforeEach(function () {
       cy.intercept('*/user/this')
-      cy.visit(baseData.host)
+      cy.visit(baseData.host + '/search')
   });
   it('should show tabs in desktop mode', function () {
       cy.get('.v-tab').should("have.length", 4)
@@ -31,16 +31,16 @@ describe('navBar', function () {
       firstTab.next().should("have.text", 'درباره ما')
   });
   it('should have current tab focussed', function () {
-      cy.get('.v-tab--active').should("have.text", 'صفحه اصلی')
+      cy.get('.v-tab--active').should("have.text", 'جستجو')
   });
   it('should show login button if user is not logged in', function () {
       cy.clearCookies()
       cy.get('.v-tab').last().should('contain.text', 'ورود')
   });
-  // it('should show avatar if user is logged in', function () {
-  //     cy.intercept('*/user/this', mockData.this).as('getUser')
-  //     cy.visit(baseData.host)
-  //     cy.wait('@getUser')
-  //     cy.get('.v-avatar').should("be.visible")
-  // });
+  it('should show avatar if user is logged in', function () {
+      cy.intercept('**/user/this', mockData.this).as('getUser')
+      cy.visit(baseData.host)
+      cy.wait('@getUser')
+      cy.get('.v-avatar').should("be.visible")
+  });
 });
