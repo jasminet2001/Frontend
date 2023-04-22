@@ -1,5 +1,5 @@
 <template>
-    <v-app style="background-color: #f4f4f4">
+    <v-app style="background-color: var(--tlight)">
       <app-bar />
       <search-bar />
       <category-ads />

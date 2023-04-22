@@ -5,7 +5,7 @@
       <v-icon size="6rem">mdi-factory</v-icon>
     </v-img>
   </v-card>
-  <h1>{{title}} <v-chip color="#ffeb3b">{{category}}</v-chip></h1>
+  <h1>{{title}} <v-chip>{{category}}</v-chip></h1>
 </v-card>
 </template>
 
@@ -20,16 +20,5 @@ export default {
 </script>
 
 <style scoped>
-.main{
-  position: relative;
-  width: 100%;
-  margin-top: 3rem;
-  padding-top: 5rem;
-}
-.img{
-  position: absolute;
-  right: 3%;
-  top: -3rem;
-  width: 100px;
-}
+@import '../../assets/styles/adoverview/adover.css';
 </style>

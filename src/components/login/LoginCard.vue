@@ -129,11 +129,5 @@ export default {
 </script>
 
 <style scoped>
-v-app{
-  background-color: #000824c8;
-}
-.link{
-  color: #999696;
-  text-decoration: none;
-}
+@import '../../assets/styles/login-signup/login.css';
 </style>
