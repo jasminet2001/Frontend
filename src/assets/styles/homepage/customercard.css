@@ -1,0 +1,26 @@
+img{
+    height: auto; 
+    width: 100%;
+}
+.pa-3{
+    font-size: 1.2em;
+}
+v-card{
+
+}
+v-sheet{
+    background-color: var(--tlight);
+}
+.companies{
+    font-size: 1.5em;
+}
+hr{
+    background-color: var(--t_dark) !important; 
+    width: 30%; 
+    margin: 0 auto; 
+    height: 3px; 
+    border: none;
+}
+v-slide-item{
+    background-color: var(--tlight) !important;
+}

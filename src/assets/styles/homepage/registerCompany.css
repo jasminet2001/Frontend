@@ -64,3 +64,11 @@
     padding: .5em;
     margin-top: 10em;
 }
+h1{
+   font-weight: bolder; 
+   font-size: 1.5em;
+}
+h2{
+   font-size: 1.2em; 
+   font-weight: normal;
+}

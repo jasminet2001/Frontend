@@ -170,5 +170,4 @@ export default{
   }
 }
 </script>
-<style scope lang="scss">
-</style>
+

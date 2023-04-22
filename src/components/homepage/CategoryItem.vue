@@ -1,6 +1,6 @@
 <template>
 	<nuxt-link :style="`background-color: ${category.color}`"  :to="`/ads/category/${category.slug}`" class="utf_category_small_box_part text-decoration-none">
-		<img style="width: 100px;height: auto;margin: auto" :src="category.icon" alt="" />
+		<img :src="category.icon" alt="" />
 		<h4>{{ category.name }}</h4>
 		<span>{{ category.businesses_count }}</span>
 	</nuxt-link>
@@ -20,5 +20,5 @@ export default {
 </script>
 
 <style scoped>
-
+@import '../../assets/styles/homepage/home.css';
 </style>

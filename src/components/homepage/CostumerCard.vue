@@ -5,17 +5,14 @@
     rounded
     height="150px"
     width="150px"
-    class="ma-4 pa-1">
+    class="ma-4 pa-1"
+  >
     <v-card-title class="my-1 pa-1">
-      <img
-          :src="item.pic"
-          style="height: auto; width: 100%"
-          :alt="item.title"/>
+      <img :src="item.pic" :alt="item.title" />
     </v-card-title>
-    <v-card-text align="center" style="font-size: 1.2em" class="pa-3">
+    <v-card-text align="center" class="pa-3">
       {{ item.title }}
     </v-card-text>
-
   </v-card>
 </template>
 
@@ -24,12 +21,12 @@ export default {
   props: {
     item: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
-}
+};
 </script>
 
 <style scoped>
-
+@import '../../assets/styles/homepage/customercard.css';
 </style>
