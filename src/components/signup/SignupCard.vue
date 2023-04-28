@@ -113,7 +113,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: this.$store.state.host + 'user/signup',
+        url: this.$store.state.host + 'authentication/signup',
         headers: {
           'Accept': 'application/json',
         },
