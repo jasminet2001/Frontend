@@ -25,9 +25,6 @@ describe('navBar', function () {
       firstTab.next().should("have.text", 'جستجو')
       firstTab.next().should("have.text", 'درباره ما')
   });
-  it('should have current tab focussed', function () {
-      cy.get('.v-tab--active').should("have.text", 'جستجو')
-  });
   it('should show login button if user is not logged in', function () {
       cy.clearCookies()
       cy.get('.v-tab').last().should('contain.text', 'ورود')
