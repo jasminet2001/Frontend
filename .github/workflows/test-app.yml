@@ -15,11 +15,12 @@ jobs:
         with:
           node-version: "12.x"
       - run: npm install
+      - run: npm run serve
       - name: Cypress run
         uses: cypress-io/github-action@v5
-        with:
-          build: npm run build
-          start: npm run serve
+        #with:
+         # build: npm run build
+       #   start: npm run serve
       - name: Upload screenshots
         uses: actions/upload-artifact@v3
         if: failure()
