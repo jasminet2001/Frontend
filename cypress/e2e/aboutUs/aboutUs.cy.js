@@ -1,10 +1,10 @@
 const baseData = require('../../fixtures/shared.json')
 describe('About component', () => {
-  // beforeEach(() => {
-
-  // })
-  it('renders AboutCard component correctly', () => {
+  beforeEach(() => {
     cy.visit(baseData.host + '/about')
+  })
+  it('renders AboutCard component correctly', () => {
+
     cy.get('[name="text-10-10-1"]')
         .should('have.css', 'height', '236px');
   })
