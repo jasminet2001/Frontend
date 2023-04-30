@@ -7,7 +7,7 @@ export default new Vuex.Store({
         loremText: 'lorem',
         user:'',
         token:'',
-        host:'https://192.168.85.132/api/'
+        host:'https://192.168.157.130/api/'
     },
     mutations: {
         setUser (state, info){
