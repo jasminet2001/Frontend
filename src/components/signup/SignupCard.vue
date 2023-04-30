@@ -53,9 +53,9 @@
               style="direction: ltr !important;"
           ></v-text-field>
         </v-row>
-        <v-row class="mt-16 mx-2" align="center" justify="center" no-gutters>
+        <v-row class="mt-6" justify="center" no-gutters>
           <v-col cols="12">
-            <v-btn class="btn white--text"
+            <v-btn class="button white--text"
             color="#000824" width="100%"
             @click="fetchData()">
               ثبت نام
@@ -149,11 +149,5 @@ export default {
 </script>
 
 <style scoped>
-v-app{
-  background-color: #000824c8;
-}
-.link{
-  color: #999696;
-  text-decoration: none;
-}
+@import '../../assets/styles/login-signup/login.css';
 </style>

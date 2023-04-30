@@ -44,7 +44,7 @@
           </v-col>
 
           <v-col cols="6">
-            <v-btn class="btn white--text"
+            <v-btn class="button white--text"
             color="#000824" width="100%"
             @click="fetchData()">
               ورود

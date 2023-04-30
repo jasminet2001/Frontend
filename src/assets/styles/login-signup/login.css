@@ -10,3 +10,7 @@ v-app {
   height: auto;
   margin: 0 auto;
 }
+.link{
+  color: #999696;
+  text-decoration: none;
+}
