@@ -58,6 +58,13 @@
 						<v-list-item-title>داشبورد</v-list-item-title>
 					</v-list-item>
 
+          <v-list-item class="py-2" link to="/">
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>صفحه اصلی</v-list-item-title>
+          </v-list-item>
+
 					<v-list-item class="py-2" link to="/user/editprofile">
 						<v-list-item-icon>
 							<v-icon>mdi-account-edit-outline</v-icon>
