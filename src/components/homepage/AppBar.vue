@@ -41,7 +41,7 @@
   fixed
   >
     <v-app-bar
-    color="#000930"
+    
     dark
     >
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
@@ -129,7 +129,6 @@
 </template>
 
 <script>
-
 export default{
   name: 'AppBar',
   data(){
@@ -139,6 +138,7 @@ export default{
       loggedIn: '',
       drawer: false,
       group: null,
+
     }
   },
   methods: {
@@ -170,5 +170,4 @@ export default{
   }
 }
 </script>
-<style scoped>
-</style>
+

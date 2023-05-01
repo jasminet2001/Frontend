@@ -5,12 +5,14 @@
       <v-card-title
           class="justify-center"
           style="color: white"
-          :class="{ 'blue-text': hover }">
+          :class="{ 'blue-text': hover }"
+          name="title">
         {{ item.Title }}
       </v-card-title>
       <v-card-text
           style="font-size: 1.5em !important;color: white;"
-          :class="{ 'blue-text': hover }">
+          :class="{ 'blue-text': hover }"
+          name="info">
         {{ item.Info }}
       </v-card-text>
     </v-card>

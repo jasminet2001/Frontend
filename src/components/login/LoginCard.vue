@@ -19,6 +19,7 @@
           <v-text-field
               v-model="email"
               :rules="emailRules"
+              name="input-10-0"
               label="ایمیل"
               style="direction: ltr !important;"
               required>
@@ -129,11 +130,5 @@ export default {
 </script>
 
 <style scoped>
-v-app{
-  background-color: #000824c8;
-}
-.link{
-  color: #999696;
-  text-decoration: none;
-}
+@import '../../assets/styles/login-signup/login.css';
 </style>
