@@ -15,7 +15,7 @@ describe('Search component', () => {
 
 describe('navBar', function () {
   beforeEach(function () {
-      cy.intercept('**/api/user/this')
+      cy.intercept('*/authentication/this')
       cy.visit(baseData.host)
   });
   it('should show tabs in desktop mode', function () {
@@ -28,5 +28,11 @@ describe('navBar', function () {
   it('should show login button if user is not logged in', function () {
       cy.clearCookies()
       cy.get('.v-tab').last().should('contain.text', 'ورود')
+  });
+  it('should show avatar if user is logged in', function () {
+      cy.intercept('*/authentication/this', mockData.this).as('getUser')
+      cy.visit(baseData.host)
+      cy.wait('@getUser')
+      cy.get('.v-avatar').should("be.visible")
   });
 });
