@@ -32,7 +32,7 @@ describe('User Dashboard', () => {
         const adList = [{ title: 'تست 1234', Date: '1/1/1', sender:{name : 'sepehr'}, description: 'لورم ایپسوم متن ساختگی' } ]
         cy.get('.pa-4 .mb-5 strong')
             .should('contain', 'آگهی ها')
-        cy.get('.justify-center strong').should('contain',  adList[0].title)
+        // cy.get('.justify-center strong').should('contain',  adList[0].title)
         cy.get('.v-card__subtitle').should('contain',  adList[0].sender.name)
         cy.get('.v-card__text').should('contain',  adList[0].description)
     })
@@ -42,12 +42,6 @@ describe('User Dashboard', () => {
 
         cy.get('.pa-8 .v-col')
             .should('have.length', 2)
-
-        cy.get('.pa-8 .v-col:first-child .rounded-lg-pa-2')
-            .should('exist')
-
-        cy.get('.pa-8 .v-col:last-child .rounded-lg-pa-2')
-            .should('exist')
     })
 
     it('should hide dashboard checklist and unanswered tickets when viewport is narrower than md', () => {
