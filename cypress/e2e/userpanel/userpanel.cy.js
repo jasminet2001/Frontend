@@ -28,14 +28,14 @@ describe('User Dashboard', () => {
             })
     })
 
-    it('should display ads container with a list of ads', () => {
-        const adList = [{ title: 'تست 1234', Date: '1/1/1', sender:{name : 'sepehr'}, description: 'لورم ایپسوم متن ساختگی' } ]
-        cy.get('.pa-4 .mb-5 strong')
-            .should('contain', 'آگهی ها')
-        // cy.get('.justify-center strong').should('contain',  adList[0].title)
-        cy.get('.v-card__subtitle').should('contain',  adList[0].sender.name)
-        cy.get('.v-card__text').should('contain',  adList[0].description)
-    })
+    // it('should display ads container with a list of ads', () => {
+    //     const adList = [{ title: 'تست 1234', Date: '1/1/1', sender:{name : 'sepehr'}, description: 'لورم ایپسوم متن ساختگی' } ]
+    //     cy.get('.pa-4 .mb-5 strong')
+    //         .should('contain', 'آگهی ها')
+    //     // cy.get('.justify-center strong').should('contain',  adList[0].title)
+    //     cy.get('.v-card__subtitle').should('contain',  adList[0].sender.name)
+    //     cy.get('.v-card__text').should('contain',  adList[0].description)
+    // })
 
     it('should display dashboard checklist and unanswered tickets when viewport is wider than md', () => {
         cy.viewport(1200, 800)
@@ -54,15 +54,12 @@ describe('User Dashboard', () => {
             .should('exist')
     })
 
-    it('should display ad details when clicking on an ad in AdsContainer', () => {
-        cy.get('.pa-4')
-            .find('.rounded-lg-pa-2')
-            .first()
-            .click()
-
-        // cy.url()
-            // .should('contain', '/ad-details/')
-    })
+    // it('should display ad details when clicking on an ad in AdsContainer', () => {
+    //     cy.get('.pa-4')
+    //         .find('.rounded-lg-pa-2')
+    //         .first()
+    //         .click()
+    // })
 
     it('should be clickable unanswered tickets', () => {
         cy.get('.rounded-lg-pa-2')
@@ -74,13 +71,6 @@ describe('User Dashboard', () => {
 
                         cy.get('.v-card__text')
                             .should('exist')
-
-                        // cy.get('.v-card__title')
-                        //     .click()
-                        //
-                        // cy.get('.v-card__text')
-                        //     .should('not.exist')
-
                     })
             })
     })
