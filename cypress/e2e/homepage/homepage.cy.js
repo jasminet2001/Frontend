@@ -39,7 +39,7 @@ describe('navBar', function () {
 
 describe('categories', function () {
     beforeEach(()=>{
-        cy.intercept('*/categories', APIResults.categories).as("getCategories")
+        cy.intercept('**/api/categories', APIResults.categories).as("getCategories")
         cy.visit(baseData.host)
         cy.wait('@getCategories')
     })

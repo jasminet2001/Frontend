@@ -8,7 +8,7 @@ node_modules/
 dist/
 npm-debug.log
 yarn-error.log
+cypress/screenshots/
 cypress/videos/
-cypress/screenshots
 
 # End of https://www.toptal.com/developers/gitignore/api/vuejs

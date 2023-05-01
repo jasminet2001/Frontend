@@ -3,8 +3,8 @@ describe('About component', () => {
   beforeEach(() => {
     cy.visit(baseData.host + '/about')
   })
-
   it('renders AboutCard component correctly', () => {
+
     cy.get('[name="text-10-10-1"]')
         .should('have.css', 'height', '272px');
   })
