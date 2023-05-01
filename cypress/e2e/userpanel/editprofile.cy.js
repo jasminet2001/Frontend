@@ -2,7 +2,7 @@ const APIResults = require("../../fixtures/APIResults.json");
 const baseData = require("../../fixtures/shared.json");
 describe('EditProfile component', () => {
   beforeEach(() => {
-    cy.intercept('*/user/this', APIResults.this).as('getUser')
+    cy.intercept('*/authentication/this', APIResults.this).as('getUser')
     cy.visit(baseData.host)
     cy.wait('@getUser')
     cy.visit(baseData.host + '/user/editprofile')
