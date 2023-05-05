@@ -4,7 +4,7 @@
       <v-row class="mb-5">
         <strong style="font-size: 1.5em">کیف پول</strong>
       </v-row>
-      <hr class="my-3"/>
+      <!-- <hr class="my-3"/> -->
       <v-row v-if="this.$vuetify.breakpoint.smAndUp">
         <div class="credit-card my-3 elevation-3" style="width: 377px; height: 218px; margin: 0 auto; background-color: transparent; border-radius: 11% !important;">
           <div class="mt-10 justify-start">
@@ -50,5 +50,8 @@ export default {
 }
 .credit-card-mobile{
   background-image: url("../../assets/WalletCardMobile.svg"); /* 277 * 181 */
+}
+strong{
+  margin-right: 6em;
 }
 </style>

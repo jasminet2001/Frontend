@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <SidebarNavigation />
     <v-sheet v-if="this.$vuetify.breakpoint.mdAndUp">
       <v-row>
         <v-col cols="6">
@@ -21,14 +20,13 @@
 </template>
 
 <script>
-import SidebarNavigation from "@/components/userpanel/SidebarNavigation";
 import WalletComponent from "@/components/userpanel/WalletComponent";
 import CurrentPlanComponent from "@/components/userpanel/CurrentPlanComponent";
 import ChargeWalletComponent from "@/components/userpanel/ChargeWalletComponent";
 import PurchasePlanComponent from "@/components/userpanel/PurchasePlanComponent";
 export default {
   name: "PaymentPageComponent",
-  components: {PurchasePlanComponent, ChargeWalletComponent, CurrentPlanComponent, WalletComponent, SidebarNavigation},
+  components: {PurchasePlanComponent, ChargeWalletComponent, CurrentPlanComponent, WalletComponent},
   data () {
     return {
       planColor: {
