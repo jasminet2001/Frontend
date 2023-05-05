@@ -6,7 +6,7 @@
     color: var(--tlight);
     text-align: center;
 }
-.btn {
+.btn-register {
     margin: 4%;
     margin-top: 10%;
     padding: 0.8em 1.7em;
@@ -25,7 +25,7 @@
     color: var(--sd_primary);
 }
   
-.btn::before, .btn::after {
+.btn-register::before, .btn-register::after {
    content: '';
    display: block;
    width: 50px;
@@ -38,29 +38,29 @@
    transition: 1s ease;
 }
   
-.btn::before {
+.btn-register::before {
    top: -1em;
    left: -1em;
 }
   
-.btn::after {
+.btn-register::after {
    left: calc(80% + 1em);
    top: calc(100% + 2em);
 }
   
-.btn:hover::before, .btn:hover::after {
+.btn-register:hover::before, .btn-register:hover::after {
    height: 410px;
    width: 410px;
 }
   
-.btn:hover {
+.btn-register:hover {
    color: rgb(10, 25, 30);
 }
   
-.btn:active {
+.btn-register:active {
    filter: brightness(.8);
 }
-.btn-mobile{
+.btn-register-mobile{
     padding: .5em;
     margin-top: 10em;
 }
