@@ -15,14 +15,14 @@
         <v-list-item-group>
           <div v-for="(ticket, index) in tickets" :key="index">
             <v-list-item>
-              <v-list-item-title>
+              <v-list-item-title class="mx-4">
                 {{ ticket.title }}
               </v-list-item-title>
-              <v-list-item-action style="color: #3751FF">
+              <v-list-item-action class="mx-6" style="color: #3751FF">
                 {{ ticket.id }}
               </v-list-item-action>
             </v-list-item>
-            <hr style="border-color: #DFE0EB; background-color: #DFE0EB"/>
+            <hr style="width: 90%; background-color: #3751FF !important;"/>
           </div>
         </v-list-item-group>
       </v-list>

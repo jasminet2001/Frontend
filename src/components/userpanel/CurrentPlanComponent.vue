@@ -4,7 +4,7 @@
       <v-row class="mb-5">
         <strong style="font-size: 1.5em">پلن فعال</strong>
       </v-row>
-      <hr class="my-3"/>
+      <!-- <hr class="my-3"/> -->
       <v-row>
         <v-spacer />
         <v-col cols="10" md="10" lg="10" xl="8" sm="8">
@@ -99,4 +99,7 @@ export default {
 .plan-card{
   background-image: url("../../assets/plan-background.svg");
 }
+strong{
+  margin-right: 6em;
+} 
 </style>

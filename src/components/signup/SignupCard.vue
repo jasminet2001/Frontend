@@ -2,7 +2,7 @@
   <v-card class="pa-4" elevation="8" outlined height="75%" shaped justify="center" align="center" width="100%">
     <v-form ref="form" color="transparent" v-model="valid" lazy-validation>
       <v-card-title v-if="!isMobile">
-        <img src="https://svgshare.com/i/g44.svg" style="height:10%; margin: 0 auto">
+        <img src="https://svgshare.com/i/g44.svg" class="card-pic">
       </v-card-title>
       <v-card-text>
         <v-row class="my-4 mx-2" justify="center" align="center" no-gutters>
@@ -53,9 +53,9 @@
               style="direction: ltr !important;"
           ></v-text-field>
         </v-row>
-        <v-row class="mt-16 mx-2" align="center" justify="center" no-gutters>
+        <v-row class="mt-6" justify="center" no-gutters>
           <v-col cols="12">
-            <v-btn class="btn white--text"
+            <v-btn class="button white--text"
             color="#000824" width="100%"
             @click="fetchData()">
               ثبت نام
@@ -149,11 +149,5 @@ export default {
 </script>
 
 <style scoped>
-v-app{
-  background-color: #000824c8;
-}
-.link{
-  color: #999696;
-  text-decoration: none;
-}
+@import '../../assets/styles/login-signup/login.css';
 </style>

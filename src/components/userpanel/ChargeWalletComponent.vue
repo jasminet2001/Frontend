@@ -4,7 +4,7 @@
       <v-row class="mb-5">
         <strong style="font-size: 1.5em">شارژ کیف پول</strong>
       </v-row>
-      <hr class="my-3"/>
+      <!-- <hr class="my-3"/> -->
       <v-row>
         <v-spacer />
         <v-col v-for="(card, index) in chargeCards" :key="index" cols="6" md="3" lg="2" xl="2">

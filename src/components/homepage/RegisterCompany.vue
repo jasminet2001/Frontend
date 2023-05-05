@@ -12,10 +12,10 @@
     </v-row>
     <v-row>
       <v-col>
-        <button class="btn btn-mobile" v-if="this.$vuetify.breakpoint.smAndDown">
+        <button class="btn-register btn-mobile" v-if="this.$vuetify.breakpoint.smAndDown">
           ثبت شرکت
         </button>
-        <button class="btn" v-else>
+        <button class="btn-register" v-else>
           ثبت شرکت
         </button>
       </v-col>

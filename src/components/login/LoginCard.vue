@@ -2,7 +2,7 @@
   <v-card class="pa-4" elevation="8" outlined height="75%" shaped justify="center" align="center">
     <v-form ref="form" color="transparent" v-model="valid" lazy-validation>
       <v-card-title v-if="!isMobile">
-        <img src="https://svgshare.com/i/g44.svg" style="height:10%; margin: 0 auto">
+        <img src="https://svgshare.com/i/g44.svg" class="card-pic">
       </v-card-title>
       <v-card-text>
         <v-row class="mt-8 mx-2" justify="center" align="center" no-gutters>
@@ -45,7 +45,7 @@
           </v-col>
 
           <v-col cols="6">
-            <v-btn class="btn white--text"
+            <v-btn class="button white--text"
             color="#000824" width="100%"
             @click="fetchData()">
               ورود

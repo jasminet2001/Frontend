@@ -40,7 +40,7 @@
               </span>
               </v-list-item-title>
             </v-list-item>
-            <hr style="border-color: #DFE0EB; background-color: #DFE0EB"/>
+            <hr style="border-color: black; background-color: #DFE0EB"/>
           </div>
         </v-list-item-group>
       </v-list>
