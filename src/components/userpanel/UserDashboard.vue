@@ -9,14 +9,14 @@
           <!-- <hr class="my-6" style="width: 90%; background-color: #3751FF !important;"/> -->
           <v-row>
             <v-spacer />
-              <v-col cols="12" sm="6" md="4" lg="4" xl="2">
-                <top-display-row :item="{ Title: 'بازدید از آگهی های شما', Info: '۶۴'}" />
+              <v-col class="cols" cols="12" sm="6" md="4" lg="4" xl="2">
+                <top-display-row name="item" :item="{ Title: 'بازدید از آگهی های شما', Info: '۶۴'}" />
               </v-col>
-              <v-col cols="12" sm="6" md="4" lg="4" xl="2">
-                <top-display-row :item="{ Title: 'آگهی های شما', Info: this.adsList.length}" />
+              <v-col class="cols" cols="12" sm="6" md="4" lg="4" xl="2">
+                <top-display-row name="item" :item="{ Title: 'آگهی های شما', Info: this.adsList.length}" />
               </v-col>
-              <v-col cols="12" sm="6" md="4" lg="4" xl="2">
-                <top-display-row :item="{ Title: 'کل آگهی ها', Info: '۳۲۵'}" />
+              <v-col class="cols" cols="12" sm="6" md="4" lg="4" xl="2">
+                <top-display-row name="item" :item="{ Title: 'کل آگهی ها', Info: '۳۲۵'}" />
               </v-col>
             <v-spacer />
           </v-row>
@@ -25,10 +25,10 @@
       <ads-container :ads-list="adsList" />
       <v-sheet v-if="this.$vuetify.breakpoint.mdAndUp" class="pa-8">
         <v-row>
-          <v-col cols="6">
+          <v-col class="v-col" cols="6">
             <dashboard-checklist />
           </v-col>
-          <v-col cols="6">
+          <v-col class="v-col" cols="6">
             <unanswered-tickets />
           </v-col>
         </v-row>

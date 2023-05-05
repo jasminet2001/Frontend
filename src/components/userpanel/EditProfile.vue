@@ -26,6 +26,7 @@
                 </v-row>
                 <v-row class="row">
                   <v-text-field
+                    name="username"
                     label="نام و نام خانوادگی"
                     v-model="name"
                     outlined
@@ -35,15 +36,26 @@
 
                 <v-row class="row"
                   ><v-text-field
+                    name="email"
                     label="ایمیل"
                     v-model="email"
                     outlined
                   ></v-text-field
                 ></v-row>
-
+              </v-col>
+              <v-col cols="6" class="px-8 col">
+                <v-row>
+                  <v-img
+                    src="@/assets/profile.png"
+                    class="img"
+                    height="150"
+                  ></v-img>
+                </v-row>
                 <v-row>
                   <v-text-field
+                    name="phone-number"
                     label="شماره همراه"
+                    class="mt-15"
                     v-model="phone"
                     outlined
                   ></v-text-field>
@@ -107,6 +119,7 @@
           <v-row class="d-flex flex-column">
             <v-col cols="12" class="px-8 col">
               <v-file-input
+                name="profile-img"
                 label="بارگزاری تصویر پروفایل"
                 outlined
                 prepend-icon="mdi-account-arrow-up"

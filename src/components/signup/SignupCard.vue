@@ -16,13 +16,13 @@
           </v-col>
         </v-row>
         <v-row class="mt-8 mx-2" justify="center" align="center">
-          <v-text-field label="نام و نام خانوادگی"
+          <v-text-field label="نام و نام خانوادگی" name="input-9-1"
           autofocus
           v-model="name">
           </v-text-field>
         </v-row>
         <v-row class="mt-5 mx-2" justify="center" align="center">
-          <v-text-field v-model="email" :rules="emailRules" label="ایمیل" required style="direction: ltr !important;">
+          <v-text-field v-model="email" name="input-9-2" :rules="emailRules" label="ایمیل" required style="direction: ltr !important;">
           </v-text-field>
         </v-row>
         <v-row class="mt-5 mx-2" justify="center" align="center">
@@ -45,7 +45,7 @@
               :append-icon="show2 ? ImdiEye : ImdiEyeOff"
               :rules="[rules.required, rules.min]"
               :type="show2 ? 'text' : 'password'"
-              name="input-10-1"
+              name="input-10-2"
               label="رمز عبور"
               hint="حداقل ۸ کارکتر بنویسید"
               counter
