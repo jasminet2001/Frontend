@@ -8,7 +8,7 @@
         style="margin-bottom: 4em"
         width="70vw"
         height="80%"
-        elevation="4"
+        elevation="12"
         raised
         rounded
         outlined
