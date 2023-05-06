@@ -204,7 +204,7 @@ export default {
 
       var config = {
         method: "post",
-        url: this.$store.state.host + "ad/makead",
+        url: this.$store.state.host + "ad/makeAd",
         headers: {
           Accept: "application/json",
           Authorization: "Bearer " + this.$cookies.get("token"),
