@@ -8,11 +8,6 @@
 			<v-alert v-if="successAlert" outlined text type="success">
 				نظر شما با موفقیت ثبت شد!
 			</v-alert>
-			<v-text-field
-					v-model="name"
-					class="rounded-lg"
-					outlined
-					placeholder="نام و نام خانوادگی"></v-text-field>
 			<v-row align="center" class="mb-1">
 				<v-col cols="12" lg="3" md="3" sm="4" xl="3">
 					<span style="bottom: 5px"> امتیاز شما:</span>
@@ -27,6 +22,7 @@
 							length="5"
 							hover
 							size="47"
+							v-model="rating"
 					></v-rating>
 				</v-col>
 			</v-row>
@@ -52,37 +48,57 @@ export default {
 	components: {CommentComponent},
 	data() {
 		return {
-			loremParagraph: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.',
-			loremOneLine: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ',
 			commentText: '',
 			successAlert: false,
 			failAlert: false,
-			name: '',
 			rating: '',
 			ImdiStar: mdiStar,
 			ImdiStarHalf: mdiStarHalfFull,
 			ImdiStarOutline: mdiStarOutline,
-			comments: [
-				{
-					user: {
-						name: "سپهر",
-						avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg'
-					},
-					comment: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ"
-				},
-				{
-					user: {
-						name: "سپهر",
-						avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg'
-					},
-					comment: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ"
-				}
-			]
+			comments: []
 		}
 	},
 	methods: {
 		async sendComment() {
+			var axios = require('axios');
+			var FormData = require('form-data');
+			var data = new FormData();
+			data.append('company_id', this.$route.params.id);
+			data.append('rating', this.rating);
+			data.append('comment', this.commentText);
 
+			var config = {
+				method: 'post',
+				url: this.$store.state.host + 'Comment/Add',
+				headers: {
+					'Accept': 'application/json',
+					'Authorization': 'Bearer '+this.$cookies.get('token'),
+					'Content-Type': 'multipart/form-data'
+				},
+				data : data
+			};
+			let errorToaster = (msg) => {
+				this.$toast.open({
+					message: msg,
+					type: 'error',
+				});
+			};
+			let that = this
+			await axios(config)
+					.then(() => {
+						that.successAlert = true
+					})
+					.catch(error => {
+						console.log(error);
+						if (error.response.status === 422) {
+							for (let err in error.response.data.errors) {
+								errorToaster(error.response.data.errors[err][0]);
+							}
+						}
+						else if (error.response.status === 401){
+							errorToaster("لطفا برای ارسال نظر ابتدا وارد شوید")
+						}
+					});
 		}
 	}
 }

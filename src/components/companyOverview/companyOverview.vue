@@ -94,24 +94,6 @@ export default {
 						console.log(error);
 					});
 		},
-		async getComments(id = this.$route.params.id) {
-			var axios = require('axios');
-			var config = {
-				method: 'get',
-				url: this.$store.state.host + 'Comment/GetByCompany/' + id,
-				headers: {
-					'Accept': 'application/json',
-				},
-			};
-			let that = this;
-			await axios(config)
-					.then(function (response) {
-						that.rate = response.data.avg
-					})
-					.catch(function (error) {
-						console.log(error);
-					});
-		},
 		categoryFinder() {
 			var axios = require('axios');
 			var FormData = require('form-data');
