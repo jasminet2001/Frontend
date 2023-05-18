@@ -20,7 +20,3 @@ export default {
   name: "requestDialog"
 }
 </script>
-
-<style scoped>
-
-</style>

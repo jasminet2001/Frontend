@@ -1,6 +1,6 @@
 <template>
   <v-card
-  class="rounded-lg pa-2"
+  class="rounded-lg-pa-2"
   outlined
   elevation="0"
   height="300px">
@@ -89,7 +89,7 @@ export default {
       let axios = require('axios');
       let config = {
         method: 'get',
-        url: this.$store.state.host + 'user/this',
+        url: this.$store.state.host + 'authentication/this',
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer '+this.$cookies.get('token')

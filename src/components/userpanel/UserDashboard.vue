@@ -6,7 +6,6 @@
           <v-row class="mb-5">
             <strong style="font-size: 1.5em">دید کلی</strong>
           </v-row>
-          <hr class="my-3"/>
           <v-row>
             <v-spacer />
               <v-col class="cols" cols="12" sm="6" md="4" lg="4" xl="2">

@@ -40,7 +40,7 @@
               </span>
               </v-list-item-title>
             </v-list-item>
-            <hr style="border-color: #DFE0EB; background-color: #DFE0EB"/>
+            <hr style="border-color: black; background-color: #DFE0EB"/>
           </div>
         </v-list-item-group>
       </v-list>
@@ -89,7 +89,7 @@ export default {
       let axios = require('axios');
       let config = {
         method: 'get',
-        url: this.$store.state.host + 'user/this',
+        url: this.$store.state.host + 'authentication/this',
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer '+this.$cookies.get('token')

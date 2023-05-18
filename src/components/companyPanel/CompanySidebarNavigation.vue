@@ -224,6 +224,13 @@
             <v-list-item-title>کیف پول</v-list-item-title>
           </v-list-item>
 
+          <v-list-item class="py-2" link to="/">
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>صفحه اصلی</v-list-item-title>
+          </v-list-item>
+
         </v-list-item-group>
       </v-list>
 
@@ -275,7 +282,7 @@ export default {
       let axios = require('axios');
       let config = {
         method: 'get',
-        url: this.$store.state.host + 'user/this',
+        url: this.$store.state.host + 'authentication/this',
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer '+this.$cookies.get('token')

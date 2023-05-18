@@ -3,10 +3,10 @@ describe('About component', () => {
   beforeEach(() => {
     cy.visit(baseData.host + '/about')
   })
-
   it('renders AboutCard component correctly', () => {
+
     cy.get('[name="text-10-10-1"]')
-        .should('have.css', 'height', '236px');
+        .should('have.css', 'height', '272px');
   })
 
   it('displays the correct title', () => {
@@ -36,11 +36,11 @@ describe('About component', () => {
     cy.get('.circle').should('have.css', 'border-radius', '100%')
   })
   it('has the correct background color for the circle', () => {
-    cy.get('.circle').should('have.css', 'background-color', 'rgb(59, 11, 249)')
+    cy.get('.circle').should('have.css', 'background-color', 'rgb(255, 255, 255)')
   })
   it('has the correct height and width for the circle', () => {
-    cy.get('.circle').should('have.css', 'height', '112px')
-    cy.get('.circle').should('have.css', 'width', '112px')
+    cy.get('.circle').should('have.css', 'height', '120px')
+    cy.get('.circle').should('have.css', 'width', '120px')
   })
   it('has the correct font size for the circle', () => {
     cy.get('.circle').should('have.css', 'font-size', '24px')

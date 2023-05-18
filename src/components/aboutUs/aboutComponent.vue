@@ -41,10 +41,8 @@ export default {
     TopHeader,
     BottomFooter,
     AppBar,
-    AboutCard
-  }
-}
+    AboutCard,
+  },
+};
 </script>
 
-<style scoped>
-</style>

@@ -2,7 +2,7 @@ const baseData = require('../../fixtures/shared.json')
 const APIResults = require("../../fixtures/APIResults.json");
 describe('SideBarNavigation component', () => {
   beforeEach(() => {
-    cy.intercept('*/user/this', APIResults.this).as('getUser')
+    cy.intercept('*/authentication/this', APIResults.this).as('getUser')
     cy.visit(baseData.host)
     cy.wait('@getUser')
     cy.visit(baseData.host + '/user/dashboard')
@@ -26,7 +26,7 @@ describe('SideBarNavigation component', () => {
 
 
   it('should navigate to the home route on logging out', () => {
-    cy.get('.btn-log-out').click()
+    cy.get('[name="logout"]').click()
     cy.url().should('eq', baseData.host+'/')
   })
 
@@ -124,6 +124,17 @@ describe('SideBarNavigation component', () => {
         .eq(9)
         .should('have.attr', 'href')
         .and('equal', '/user/myads')
+  })
+
+  it('renders home page', () => {
+    cy.get('.v-list-item__title')
+        .eq(9)
+        .should('have.text', 'صفحه اصلی')
+
+    cy.get('.v-list-item')
+        .eq(10)
+        .should('have.attr', 'href')
+        .and('equal', '/')
   })
 })
 

@@ -4,8 +4,8 @@
       <v-row class="mb-5" align="center">
         <strong style="font-size: 1.5em">آگهی ها</strong>
       </v-row>
-      <hr class="my-3"/>
-      <v-row calss="ad-row-dash">
+      <!-- <hr class="my-3"/> -->
+      <v-row>
         <v-spacer />
         <v-col v-for="(item, index) in adsToShow" cols="12" md="6" lg="6" xl="6" :key="index">
           <ads-list-ad-card :item="item" />

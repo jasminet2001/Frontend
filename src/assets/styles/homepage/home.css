@@ -1,0 +1,15 @@
+.category-label{
+	border-radius: 50px;
+	text-align: center;
+	border: 1px solid var(--secondary);
+	min-width: 7em;
+}
+.category-label:hover{
+	background: var(--secondary);
+	color: var(--tlight);
+}
+img{
+    width: 100px;
+    height: auto;
+    margin: auto;
+}

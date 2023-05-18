@@ -95,21 +95,12 @@ export default {
 		}
   },
   mounted() {
-    // this.fetchData();
+    this.fetchData();
   },
 };
 </script>
 
 <style scoped>
-.category-label{
-	border-radius: 50px;
-	text-align: center;
-	border: 1px solid #9FA2B4;
-	min-width: 7em;
-}
-.category-label:hover{
-	background: #999696;
-	color: white;
-}
+@import '../../assets/styles/homepage/home.css';
 </style>
 

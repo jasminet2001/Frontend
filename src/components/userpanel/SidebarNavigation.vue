@@ -1,104 +1,103 @@
 <template>
-	<v-card
-			class="overflow-hidden"
-			dir="rtl"
-	>
-		<v-app-bar
-				v-if="$vuetify.breakpoint.smAndDown"
-				color="grey darken-4"
-				dark
-				dir="rtl"
+  <v-card class="overflow-hidden" dir="rtl">
+    <v-app-bar
+      v-if="$vuetify.breakpoint.smAndDown"
+      color="grey darken-4"
+      dark
+      dir="rtl"
+    >
+      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+    </v-app-bar>
 
-		>
-			<v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-		</v-app-bar>
+    <v-navigation-drawer
+		permanent
+		v-model="$data[$vuetify.breakpoint.smAndDown ? 'drawer' : 'value']"
+		expand-on-hover
+		:value="true"
+		dark
+		fixed
+		hide-overlay
+		rail
+		right
+    >
+      <v-list dense nav>
+        <v-list-item class="px-2">
+          <v-img
+            :src="
+              this.$cookies.get('user').avatar
+                ? 'https://192.168.1.8/storage/avatars/' +
+                  this.$cookies.get('user').avatar
+                : 'images/avatar.png/'
+            "
+            width="10rem"
+          ></v-img>
+        </v-list-item>
 
-		<v-navigation-drawer
-				:expand-on-hover="$vuetify.breakpoint.mdAndUp"
-				:value="$vuetify.breakpoint.smAndDown? drawer : true"
-				dark
-				fixed
-				hide-overlay
-				rail
-				right
-		>
-			<v-list
-					dense
-					nav
-			>
-				<v-list-item class="px-2">
-					<v-img class="px-2-img"
-							:src="this.$cookies.get('user').avatar?'https://192.168.1.8/storage/avatars/'+this.$cookies.get('user').avatar:'images/avatar.png/'"
-							width="10rem"></v-img>
-				</v-list-item>
+        <v-list-item link>
+          <v-list-item-content>
+            <v-list-item-title class="text-h6 white--text">
+              {{ this.$cookies.get("user").name }}
+            </v-list-item-title>
+            <v-list-item-subtitle class="white--text">
+              {{ this.$cookies.get("user").email }}
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
 
-				<v-list-item link>
-					<v-list-item-content>
-						<v-list-item-title
-								class="text-h6 white--text">
-							{{ this.$cookies.get('user').name }}
-						</v-list-item-title>
-						<v-list-item-subtitle
-								class="white--text">
-							{{ this.$cookies.get('user').email }}
-						</v-list-item-subtitle>
-					</v-list-item-content>
-				</v-list-item>
+        <v-divider></v-divider>
 
-				<v-divider></v-divider>
+        <v-list-item-group
+          v-model="group"
+          active-class="grey lighten-4--text text--accent-4"
+        >
+          <v-list-item class="py-2" link to="/user/dashboard">
+            <v-list-item-icon>
+              <v-icon>mdi-monitor-dashboard</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>داشبورد</v-list-item-title>
+          </v-list-item>
 
-				<v-list-item-group
-						v-model="group"
-						active-class="grey lighten-4--text text--accent-4"
-				>
-					<v-list-item class="py-2" link to="/user/dashboard">
-						<v-list-item-icon>
-							<v-icon>mdi-monitor-dashboard</v-icon>
-						</v-list-item-icon>
-						<v-list-item-title>داشبورد</v-list-item-title>
-					</v-list-item>
+          <v-list-item class="py-2" link to="/user/editprofile">
+            <v-list-item-icon>
+              <v-icon>mdi-account-edit-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>ویرایش پروفایل</v-list-item-title>
+          </v-list-item>
 
-					<v-list-item class="py-2" link to="/user/editprofile">
-						<v-list-item-icon>
-							<v-icon>mdi-account-edit-outline</v-icon>
-						</v-list-item-icon>
-						<v-list-item-title>ویرایش پروفایل</v-list-item-title>
-					</v-list-item>
+          <v-list-item link to="/user/changepass">
+            <v-list-item-icon>
+              <v-icon>mdi-lock-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>ویرایش رمز عبور</v-list-item-title>
+          </v-list-item>
 
-					<v-list-item link to="/user/changepass">
-						<v-list-item-icon>
-							<v-icon>mdi-lock-outline</v-icon>
-						</v-list-item-icon>
-						<v-list-item-title>ویرایش رمز عبور</v-list-item-title>
-					</v-list-item>
+          <v-list-item class="py-2" link to="/user/bookmarks">
+            <v-list-item-icon>
+              <v-icon>mdi-bookmark-multiple</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>نشانک ها</v-list-item-title>
+          </v-list-item>
 
-					<v-list-item class="py-2" link to="/user/bookmarks">
-						<v-list-item-icon>
-							<v-icon>mdi-bookmark-multiple</v-icon>
-						</v-list-item-icon>
-						<v-list-item-title>نشانک ها</v-list-item-title>
-					</v-list-item>
+          <v-list-item class="py-2" link to="/user/subads">
+            <v-list-item-icon>
+              <v-icon>mdi-form-select</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>ثبت آگهی</v-list-item-title>
+          </v-list-item>
 
-					<v-list-item class="py-2" link to="/user/subads">
-						<v-list-item-icon>
-							<v-icon>mdi-form-select</v-icon>
-						</v-list-item-icon>
-						<v-list-item-title>ثبت آگهی</v-list-item-title>
-					</v-list-item>
+          <v-list-item class="py-2" link to="/user/upgrade">
+            <v-list-item-icon>
+              <v-icon>mdi-arrow-u-up-right-bold</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>ارتقای حساب</v-list-item-title>
+          </v-list-item>
 
-					<v-list-item class="py-2" link to="/user/upgrade">
-						<v-list-item-icon>
-							<v-icon>mdi-arrow-u-up-right-bold</v-icon>
-						</v-list-item-icon>
-						<v-list-item-title>ارتقای حساب</v-list-item-title>
-					</v-list-item>
-
-					<v-list-item class="py-2" link to="payment">
-						<v-list-item-icon>
-							<v-icon>mdi-credit-card-outline</v-icon>
-						</v-list-item-icon>
-						<v-list-item-title>کیف پول</v-list-item-title>
-					</v-list-item>
+          <v-list-item class="py-2" link to="payment">
+            <v-list-item-icon>
+              <v-icon>mdi-credit-card-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>کیف پول</v-list-item-title>
+          </v-list-item>
 
 					<v-list-item class="py-2" link to="/user/myads">
 						<v-list-item-icon>
@@ -106,25 +105,31 @@
 						</v-list-item-icon>
 						<v-list-item-title>آگهی های من</v-list-item-title>
 					</v-list-item>
+
+          <v-list-item class="py-2" link to="/">
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>صفحه اصلی</v-list-item-title>
+          </v-list-item>
 				</v-list-item-group>
 			</v-list>
 
-			<v-divider></v-divider>
+      <v-divider></v-divider>
 
-			<v-list>
-				<v-list-item class="btn-log-out" link @click="logout">
-					<v-list-item-icon>
-						<v-icon>mdi-exit-to-app</v-icon>
-					</v-list-item-icon>
-					<v-list-item-title>خروج</v-list-item-title>
-				</v-list-item>
-			</v-list>
-		</v-navigation-drawer>
-	</v-card>
+      <v-list>
+        <v-list-item name="logout" link @click="logout">
+          <v-list-item-icon>
+            <v-icon>mdi-exit-to-app</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>خروج</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+  </v-card>
 </template>
 
 <script>
-
 export default {
 	data: () => ({
 		drawer: false,
@@ -143,7 +148,7 @@ export default {
 			let axios = require('axios');
 			let config = {
 				method: 'get',
-				url: this.$store.state.host + 'user/this',
+				url: this.$store.state.host + 'authentication/this',
 				headers: {
 					'Accept': 'application/json',
 					'Authorization': 'Bearer ' + this.$cookies.get('token')
@@ -167,5 +172,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

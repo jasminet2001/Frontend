@@ -1,0 +1,49 @@
+/* ad overview */
+.btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+.btn1 {
+  color: var(--sd_primary);
+}
+.btn2 {
+  color: var(--td_primary);
+}
+.btn3 {
+  color: var(--tlight);
+}
+v-toolbar {
+  color: var(--sd_primary);
+}
+
+a{
+  color: var(--t_dark) !important;
+  text-decoration: none;
+}
+a:hover{
+  color: var(--sd_primary) !important;
+  font-weight: bold;
+}
+.icon{
+  color: var(--sd_primary);
+}
+.card{
+  width: 100%
+}
+
+/* title card */
+v-chip{
+  color: var(--td_primary);
+}
+.main{
+  position: relative;
+  width: 100%;
+  margin-top: 3rem;
+  padding-top: 5rem;
+}
+.img{
+  position: absolute;
+  right: 3%;
+  top: -3rem;
+  width: 100px;
+}

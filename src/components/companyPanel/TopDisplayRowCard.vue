@@ -1,17 +1,19 @@
 <template>
   <v-hover v-slot="{ hover }">
-    <v-card class="rounded-l" elevation="4" align="center" 
+    <v-card class="rounded-l" elevation="4" align="center"
     :outlined="hover" :class=" {'blue-text': hover}" shaped
     style="background-image: linear-gradient( 83.2deg,  rgba(150,93,233,1) 10.8%, rgba(99,88,238,1) 94.3% );">
       <v-card-title
           class="justify-center"
           style="color: white"
-          :class="{ 'blue-text': hover }">
+          :class="{ 'blue-text': hover }"
+          name="title">
         {{ item.Title }}
       </v-card-title>
       <v-card-text
           style="font-size: 1.5em !important; color: white;"
-          :class="{ 'blue-text': hover }">
+          :class="{ 'blue-text': hover }"
+          name="info">
         {{ item.Info }}
       </v-card-text>
     </v-card>
