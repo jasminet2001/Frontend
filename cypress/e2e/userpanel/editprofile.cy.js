@@ -9,7 +9,7 @@ describe('EditProfile component', () => {
   })
 
   it('should display page title', () => {
-    cy.get('.mb-5').should('contain', 'ویرایش پروفایل')
+    cy.get('.pa-8 strong').should('contain', 'ویرایش پروفایل')
   })
 
   it('should accept text in the name input field', () => {

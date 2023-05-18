@@ -118,7 +118,7 @@
       <v-divider></v-divider>
 
       <v-list>
-        <v-list-item link @click="logout">
+        <v-list-item name="logout" link @click="logout">
           <v-list-item-icon>
             <v-icon>mdi-exit-to-app</v-icon>
           </v-list-item-icon>
