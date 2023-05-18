@@ -2,10 +2,10 @@
   <v-app>
     <sidebar-navigation />
     <v-sheet fill-height color="transparent" class="pa-10">
-      <v-row class="mb-5" align="center">
+      <v-row class="mb-5 mx-16" align="center">
         <strong style="font-size: 1.5em">آگهی های من</strong>
       </v-row>
-      <hr class="my-3"/>
+      <!-- <hr class="my-3"/> -->
       <v-row justify="center" align="center" :dense="this.$vuetify.breakpoint.smAndDown">
         <v-col
             v-for="(ad, index) in starredAds"

@@ -7,7 +7,7 @@
           <v-row class="mb-5">
             <strong style="font-size: 1.5em">دید کلی</strong>
           </v-row>
-          <hr class="my-3"/>
+          <!-- <hr class="my-3"/> -->
           <v-row>
             <v-spacer />
               <v-col cols="12" sm="6" md="3" lg="3" xl="2">
@@ -29,10 +29,10 @@
       <AdsContainerVue :ads-list="adsList" />
       <v-sheet v-if="this.$vuetify.breakpoint.mdAndUp" class="pa-8">
         <v-row>
-          <v-col cols="6">
+          <v-col class="v-col" cols="6">
             <DashboardChecklistVue />
           </v-col>
-          <v-col cols="6">
+          <v-col class="v-col" cols="6">
             <UnansweredTicketsVue />
           </v-col>
         </v-row>
