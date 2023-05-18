@@ -2,22 +2,28 @@
   <v-card
       rounded
       elevation="3"
-      class="pa-2 ma-2">
-      <v-img
-        height="250"
-        src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
+      class="pa-2 ma-2 custom-card-bookmarked">
     <v-card-title class="mb-1 mt-0">
-      {{ ad.Title }}
+      {{ ad.name }}
     </v-card-title>
     <v-card-text class="my-1">
-      {{ ad.Description }}
+      <span class="card-label-bookmarked">توضیحات: </span>
     </v-card-text>
-    <v-card-actions class="justify-center align-center mt-1 mb-0">
-      <v-btn width="80%" text color="#3751FF">
-        <v-icon color="#3751FF" class="ml-2" style="bottom: 1px">{{ ImdiInfo }}</v-icon>
-        <span>اطلاعات بیشتر</span>
-      </v-btn>
-    </v-card-actions>
+    <v-card-text class="my-1">
+      <span class="description-bookmarked">{{ ad.description.replace(/n/g, '').replace("\\",'')}} </span>
+    </v-card-text>
+    <v-card-text class="my-1">
+      <span class="card-label-bookmarked">شماره تماس: </span>
+    </v-card-text>
+    <v-card-text class="my-1">
+      <span class="description-bookmarked">{{ ad.phone }} </span>
+    </v-card-text>
+    <v-card-text class="my-1">
+      <span class="card-label-bookmarked">ایمیل شرکت: </span>
+    </v-card-text>
+    <v-card-text class="my-1">
+      <span class="description-bookmarked">{{ ad.email }} </span>
+    </v-card-text>
   </v-card>
 </template>
 
@@ -39,5 +45,20 @@ export default {
 </script>
 
 <style scoped>
+.custom-card-bookmarked {
+  background-color: #112d4f;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+.card-label-bookmarked {
+  font-weight: bold;
+  color: #fff;
+}
+
+.description-bookmarked {
+  font-size: 16px;
+  color: yellow;
+}
 </style>

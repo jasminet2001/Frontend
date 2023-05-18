@@ -72,7 +72,7 @@ export default {
     }
   },
   methods: {
-    async mounted() {
+    async beforeRouteUpdate() {
       await this.issaved();
     },
     async issaved() {
@@ -132,11 +132,12 @@ export default {
         {
           let FormData = require('form-data');
           let data = new FormData();
+          data.append('marked_id', this.$route.params.id);
           let axios2 = require('axios');
           let config2 =
           {
             method: 'post',
-            url: this.$store.state.host + `user/bookmarks/add/${this.$route.params.id}`,
+            url: this.$store.state.host + `user/bookmarks/add`,
             headers:
             {
               'Accept': 'application/json',
@@ -147,7 +148,7 @@ export default {
           };
           await axios2(config2)
               .then((response) => {
-                if (response.status === 200 && response.data.message === 'success') {
+                if (response.status === 201 && response.data.message === 'success') {
                   this.saved = true;
                 }
               })
