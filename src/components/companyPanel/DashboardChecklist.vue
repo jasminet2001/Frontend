@@ -2,7 +2,7 @@
   <v-card
   class="rounded-lg pa-2"
   outlined
-  elevation="0"
+  elevation="12"
   height="300px">
     <v-card-title>
       <strong>
@@ -40,7 +40,7 @@
               </span>
               </v-list-item-title>
             </v-list-item>
-            <hr style="border-color: #DFE0EB; background-color: #DFE0EB"/>
+            <hr style="width: 95%; background-color: #3751FF !important;" class="my-2"/>
           </div>
         </v-list-item-group>
       </v-list>

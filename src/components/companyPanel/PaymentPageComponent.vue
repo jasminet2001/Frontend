@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import SidebarNavigation from "@/components/userpanel/SidebarNavigation";
-import WalletComponent from "@/components/userpanel/WalletComponent";
-import CurrentPlanComponent from "@/components/userpanel/CurrentPlanComponent";
-import ChargeWalletComponent from "@/components/userpanel/ChargeWalletComponent";
-import PurchasePlanComponent from "@/components/userpanel/PurchasePlanComponent";
+import SidebarNavigation from "@/components/companyPanel/CompanySidebarNavigation.vue";
+import WalletComponent from "@/components/companyPanel/PurchasePlanComponent.vue";
+import CurrentPlanComponent from "@/components/companyPanel/CurrentPlanComponent.vue";
+import ChargeWalletComponent from "@/components/userpanel/ChargeWalletComponent.vue";
+import PurchasePlanComponent from "@/components/companyPanel/PurchasePlanComponent.vue";
 export default {
   name: "PaymentPageComponent",
   components: {PurchasePlanComponent, ChargeWalletComponent, CurrentPlanComponent, WalletComponent, SidebarNavigation},

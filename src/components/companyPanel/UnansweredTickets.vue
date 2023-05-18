@@ -22,7 +22,7 @@
                 {{ ticket.id }}
               </v-list-item-action>
             </v-list-item>
-            <hr style="border-color: #DFE0EB; background-color: #DFE0EB"/>
+            <hr style="width: 95%; background-color: #3751FF !important;" class="my-2"/>
           </div>
         </v-list-item-group>
       </v-list>

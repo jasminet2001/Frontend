@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import AdCard from "@/components/userpanel/AdCard";
-import SidebarNavigation from "@/components/userpanel/SidebarNavigation";
+import AdCard from "@/components/companyPanel/CompanyAdCard.vue";
+import SidebarNavigation from "@/components/companyPanel/CompanySidebarNavigation.vue";
 export default {
   components: {SidebarNavigation, AdCard},
   data () {

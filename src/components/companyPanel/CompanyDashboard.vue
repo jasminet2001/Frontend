@@ -5,10 +5,10 @@
       <v-sheet color="transparent" class="pa-4">
         <div class="pa-4">
           <v-row class="mb-5">
-            <strong style="font-size: 1.5em">دید کلی</strong>
+            <strong class="mx-16">دید کلی</strong>
           </v-row>
-          <!-- <hr class="my-3"/> -->
-          <v-row>
+
+          <v-row class="mx-16">
             <v-spacer />
               <v-col cols="12" sm="6" md="3" lg="3" xl="2">
                 <TopDisplayRowCardVue :item="{ Title: 'بازدید از آگهی های شما', Info: '۶۴'}" />
@@ -26,8 +26,8 @@
           </v-row>
         </div>
       </v-sheet>
-      <AdsContainerVue :ads-list="adsList" />
-      <v-sheet v-if="this.$vuetify.breakpoint.mdAndUp" class="pa-8">
+      <AdsContainerVue :ads-list="adsList" class="mx-16"/>
+      <v-sheet v-if="this.$vuetify.breakpoint.mdAndUp" class="pa-8 mx-16">
         <v-row>
           <v-col class="v-col" cols="6">
             <DashboardChecklistVue />
