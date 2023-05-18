@@ -31,6 +31,18 @@ describe('Change Password Design Tests', () => {
         .should('have.value', password)
   })
 
+  it('should have the "رمز عبور جدید" text field', () => {
+    cy.get('label').contains('رمز عبور جدید').should('be.visible')
+  })
+
+  // Add similar tests for the other text fields and buttons
+
+  it('should enter a value in the "رمز عبور جدید" field', () => {
+    const password = 'password123'
+    cy.get('label').contains('رمز عبور جدید').next('input').type(password)
+        .should('have.value', password)
+  })
+
   // Add similar tests for entering values in the other fields
 
   it('should click the "ذخیره تغییرات" button', () => {
@@ -74,6 +86,9 @@ describe("Change Password Functionality Tests", () => {
 
     // Wait for the password change request to complete
     cy.wait('@changePassword')
+    cy.get('.v-toast').should('exist').then(toast => {
+      expect(toast).to.contain.text('رمز عبور با موفقیت تغییر یافت')
+    })
   })
 
   it('should handle validation error response', () => {
@@ -115,5 +130,33 @@ describe("Change Password Functionality Tests", () => {
 
     // Wait for the password change request to complete
     cy.wait('@changePassword')
+
+    cy.get('.v-toast').should('exist').then(toast => {
+      expect(toast).to.contain.text('رمز عبور فعلی نامعتبر است')
+    })
   })
+
+  it('should display error message for password mismatch', () => {
+    cy.intercept('POST', '*/user/changepass', {
+      statusCode: 422,
+      body: {
+        errors: {
+          newPassword: ["رمز عبور جدید با تاییدیه مطابقت ندارد."],
+        },
+      },
+    }).as('changePassword')
+    // Enter different values in the "رمز عبور جدید" and "تکرار رمز عبور جدید" fields
+    cy.get('label').contains('رمز عبور فعلی').next('input').type('5634MnMn')
+    cy.get('label').contains('رمز عبور جدید').next('input').type('2121sword1')
+    cy.get('label').contains('تکرار رمز عبور جدید').next('input').type('password2')
+
+    // Click outside the fields to trigger validation
+    cy.get('button').contains('ذخیره تغییرات').click()
+
+    // Verify the error message for password mismatch
+    cy.get('.v-toast').should('exist').then(toast => {
+      expect(toast).to.contain.text("رمز عبور جدید با تاییدیه مطابقت ندارد.")
+    })
+  })
+
 })
