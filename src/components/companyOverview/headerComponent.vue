@@ -21,30 +21,23 @@
           </h1>
         </v-col>
         <v-col cols="12" sm="6" md="6" lg="3" xl="3" align="center">
-          <v-rating
-              :empty-icon="ImdiStarOutline"
-              :full-icon="ImdiStar"
-              :half-icon="ImdiStarHalf"
-              hover
-              length="5"
-              readonly
-              value="3"
-              color="yellow"
-              background-color="gray"
-              style="direction: ltr;"
-          ></v-rating>
+					<v-rating
+							:empty-icon="ImdiStarOutline"
+							:full-icon="ImdiStar"
+							:half-icon="ImdiStarHalf"
+							background-color="#FFD700"
+							color="#FFD700"
+							length="5"
+							readonly
+							size="47"
+							:value="rate"
+					></v-rating>
         </v-col>
         <v-col cols="12" sm="6" md="6" lg="3" xl="3" align="center">
           <v-chip color="#ffeb3b">
             {{ companyCategory }}
           </v-chip>
         </v-col>
-<!--        <v-col cols="3">-->
-<!--          <v-icon small>-->
-<!--            {{ ImdiPin }}-->
-<!--          </v-icon>-->
-<!--          {{ companyLocation }}-->
-<!--        </v-col>-->
       </v-row>
     </div>
   </v-card>
@@ -58,6 +51,7 @@ export default {
       'companyName',
       'companyCategory',
       'companyLocation',
+			'rate'
   ],
   data () {
     return {
@@ -95,9 +89,7 @@ export default {
         axios0(config0)
             .then((response) => {
               if (response.status === 200) {
-                if (response.data.saved)
-                  this.saved = false;
-                else this.saved = true;
+                this.saved = !response.data.saved;
               }
             })
       } catch (error) {

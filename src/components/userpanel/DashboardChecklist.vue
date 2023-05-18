@@ -28,7 +28,7 @@
       <v-list flat color="transparent" style="height: 150px; overflow-y: auto;">
         <v-subheader class="subheading" v-if="todos.length === 0">فعالیتی برای انجام ندارید!</v-subheader>
         <v-list-item-group>
-          <div v-for="(task, index) in todos" :key="index">
+          <div v-for="(task, index) in todos" :key="index" :class="task.done?'done':''">
             <v-list-item @click="toggleTodo(index)">
               <v-list-item-action>
                 <v-icon v-if="task.done" color="#3751FF" style="bottom: 3px">{{ ImdiDone }}</v-icon>
@@ -75,15 +75,16 @@ export default {
         title: this.newTodo,
         done: false
       });
-      // this.send()
+      this.send()
       this.newTodo = "";
     },
     removeTodos() {
       this.todos=[];
-    },
+			this.send()
+		},
     toggleTodo(index) {
       this.todos[index].done = !this.todos[index].done
-      // this.send()
+      this.send()
     },
     async updater() {
       let axios = require('axios');
