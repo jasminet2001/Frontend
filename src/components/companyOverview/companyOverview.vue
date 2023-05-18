@@ -6,6 +6,7 @@
 				<header-component
 						:company-category="categoryName(companyInfo.category_id)"
 						:company-name="companyInfo.name"
+            :saved = this.saved
 				/>
 			</v-row>
 			<v-row>
@@ -51,10 +52,41 @@ export default {
 		return {
 			companyInfo: '',
 			categories: '',
-			infoForSummary: []
+			infoForSummary: [],
+      saved: false,
 		}
 	},
 	methods: {
+    async issaved(id = this.$route.params.id) {
+      try {
+        let FormData = require('form-data');
+        let data = new FormData();
+        data.append('token', this.$cookies.get('token'));
+        data.append('id', this.$route.params.id);
+        var axios0 = require('axios');
+        var config0 = {
+          method: 'get',
+          url: this.$store.state.host + `user/bookmarks/IsMarked/${id}`,
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + this.$cookies.get('token'),
+            'Content-Type': 'multipart/form-data'
+          },
+          data: data
+        };
+        axios0(config0)
+            .then((response) => {
+              if (response.status === 200) {
+                if (response.data.saved)
+                  this.saved = false;
+                else this.saved = true;
+              }
+            })
+      } catch (error) {
+        console.error(error);
+        this.saved = false;
+      }
+    },
 		async company(id = this.$route.params.id) {
 			var axios = require('axios');
 			var config = {
@@ -101,11 +133,13 @@ export default {
 		}
 	},
 	async beforeRouteUpdate(to) {
-		await this.company(to.params.id)
+		await this.company(to.params.id);
+    await this.issaved(to.params.id);
 	},
 	async beforeMount() {
 		await this.categoryFinder()
 		await this.company()
+    await this.issaved();
 	}
 }
 </script>
