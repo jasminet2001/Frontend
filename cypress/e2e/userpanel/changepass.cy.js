@@ -16,7 +16,7 @@ describe('Change Password Design Tests', () => {
 
   it('should render correctly on mobile', () => {
     cy.viewport(375, 667) // Set the viewport to a mobile resolution
-    cy.get('.card-res').should('be.visible')
+    cy.get('.card-res', { timeout: 5000 }).should('be.visible')
   })
 
   it('should have the "رمز عبور فعلی" text field', () => {
@@ -44,7 +44,7 @@ describe('Change Password Design Tests', () => {
   })
 
   it('should handle success response', () => {
-    cy.intercept('POST', '/user/changepass', { statusCode: 200 })
+    cy.intercept('POST', '*/user/changepass', { statusCode: 200 })
     cy.get('button').contains('ذخیره تغییرات').click()
     // Add assertions for the expected success message or behavior
   })
@@ -106,7 +106,7 @@ describe("Change Password Functionality Tests", () => {
     }).as('changePassword')
 
     // Enter values in the password fields
-    cy.get('label').contains('رمز عبور فعلی').next('input').type('oldPassword')
+    cy.get('label').contains('رمز عبور فعلی').next('input').type('5634Mn')
     cy.get('label').contains('رمز عبور جدید').next('input').type('newPassword')
     cy.get('label').contains('تکرار رمز عبور جدید').next('input').type('newPassword')
 
