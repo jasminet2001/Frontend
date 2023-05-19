@@ -7,10 +7,10 @@
       {{ ad.name }}
     </v-card-title>
     <v-card-text class="my-1">
-      <span class="card-label-bookmarked">توضیحات: </span>
+      <span class="card-label-bookmarked">آدرس شرکت: </span>
     </v-card-text>
     <v-card-text class="my-1">
-      <span class="description-bookmarked">{{ ad.description.replace(/n/g, '').replace("\\",'')}} </span>
+      <span class="description-bookmarked">{{ ad.description.replace(/n/g, '').replace("\\",'').replace("آدرس شرکت", '')}} </span>
     </v-card-text>
     <v-card-text class="my-1">
       <span class="card-label-bookmarked">شماره تماس: </span>
@@ -24,6 +24,12 @@
     <v-card-text class="my-1">
       <span class="description-bookmarked">{{ ad.email }} </span>
     </v-card-text>
+    <v-card-actions class="justify-center align-center mt-1 mb-0">
+      <v-btn width="80%" text color="#FFFFFFFF" :to="`/c/${ad.id}`">
+        <v-icon color="#FFFFFFFF" class="ml-2" style="bottom: 1px">{{ ImdiInfo }}</v-icon>
+        <span>اطلاعات بیشتر</span>
+      </v-btn>
+    </v-card-actions>
   </v-card>
 </template>
 
@@ -34,7 +40,7 @@ export default {
     ad: {
       type: Object,
       default: null
-    }
+    },
   },
   data () {
     return {
