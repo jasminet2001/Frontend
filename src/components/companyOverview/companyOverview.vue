@@ -58,34 +58,25 @@ export default {
 	},
 	methods: {
     async issaved(id = this.$route.params.id) {
-      try {
-        let FormData = require('form-data');
-        let data = new FormData();
-        data.append('token', this.$cookies.get('token'));
-        data.append('id', this.$route.params.id);
-        var axios0 = require('axios');
-        var config0 = {
-          method: 'get',
-          url: this.$store.state.host + `user/bookmarks/IsMarked/${id}`,
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ' + this.$cookies.get('token'),
-            'Content-Type': 'multipart/form-data'
-          },
-          data: data
-        };
-        axios0(config0)
-            .then((response) => {
-              if (response.status === 200) {
-                if (response.data.saved)
-                  this.saved = false;
-                else this.saved = true;
+      var axios = require('axios');
+      var config = {
+        method: 'get',
+        url: this.$store.state.host + 'user/bookmarks',
+        headers: {
+          'Authorization': 'Bearer '+this.$cookies.get('token'),
+          'Accept': 'application/json',
+        },
+      };
+      let that = this;
+      await axios(config)
+          .then(function (response) {
+            for (let i = 0; i < response.data.length; i++) {
+              if (response.data[i].marked_id == id)
+              {
+                that.saved = true;
               }
-            })
-      } catch (error) {
-        console.error(error);
-        this.saved = false;
-      }
+            }
+          })
     },
 		async company(id = this.$route.params.id) {
 			var axios = require('axios');

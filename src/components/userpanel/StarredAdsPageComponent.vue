@@ -76,7 +76,6 @@ export default {
       for (let i = 0; i < this.marked_id_list.length; i++) {
         that.get_company(that.marked_id_list[i]);
       }
-      console.log(this.adList);
     },
   },
   created(){

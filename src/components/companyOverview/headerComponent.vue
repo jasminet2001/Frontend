@@ -70,9 +70,34 @@ export default {
       ImdiStarHalf: mdiStarHalfFull,
       ImdiStarOutline: mdiStarOutline,
       starred: this.saved,
+      marked_id: 0,
     }
   },
   methods: {
+    async getBookmarks() {
+      var axios = require('axios');
+      var config = {
+        method: 'get',
+        url: this.$store.state.host + 'user/bookmarks',
+        headers: {
+          'Authorization': 'Bearer '+this.$cookies.get('token'),
+          'Accept': 'application/json',
+        },
+      };
+      let that = this;
+      await axios(config)
+          .then(function (response) {
+            for (let i = 0; i < response.data.length; i++) {
+              console.log("NO")
+              console.log(response.data[1].marked_id)
+              if (that.$route.params.id == response.data[i].marked_id)
+              {
+                console.log("yes")
+                that.marked_id = response.data[i].id;
+              }
+            }
+          })
+    },
     async save() {
       let errorToaster = (msg) => {
         this.$toast.open({
@@ -80,13 +105,17 @@ export default {
           type: 'error',
         });
       };
-      if (this.saved) {
+      let that = this;
+      if (that.saved) {
         try {
+          console.log(this.marked_id)
+          await (that.getBookmarks());
+          console.log(this.marked_id)
           let axios2 = require('axios');
           let config2 =
               {
                 method: 'delete' ,
-                url: this.$store.state.host + `user/bookmarks/del/${this.$route.params.id}`,
+                url: this.$store.state.host + `user/bookmarks/del/${this.marked_id}`,
                 headers:
                     {
                       'Accept': 'application/json',
@@ -96,8 +125,8 @@ export default {
               };
           await axios2(config2)
               .then((response) => {
-                if (response.status === 201 && response.data.message === 'success') {
-                  this.starred = false;
+                if (response.status === 200 && response.data.message === 'success') {
+                  that.saved = false;
                 }
               })
         } catch (error) {
@@ -125,7 +154,7 @@ export default {
           await axios2(config2)
               .then((response) => {
                 if (response.status === 201 && response.data.message === 'success') {
-                  this.starred = true;
+                  that.saved = true;
                 }
               })
         }
