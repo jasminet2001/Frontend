@@ -28,7 +28,7 @@
               this.$cookies.get('user').avatar
                 ? 'https://192.168.1.8/storage/avatars/' +
                   this.$cookies.get('user').avatar
-                : 'images/avatar.png/'
+                : this.$store.state.appURL + 'images/avatar.png/'
             "
             width="10rem"
           ></v-img>

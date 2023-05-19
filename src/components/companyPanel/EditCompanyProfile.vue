@@ -200,7 +200,7 @@ export default {
 
       var config = {
         method: "post",
-        url: this.$store.state.host + "user/update",
+        url: this.$store.state.host + "company/update/" + this.$cookies.get('user').company.id,
         headers: {
           Accept: "application/json",
           Authorization: "Bearer " + this.$cookies.get("token"),

@@ -1,7 +1,7 @@
 <template>
     <v-sheet>
         <sidebar-navigation></sidebar-navigation>
-        <company-dashboard></company-dashboard>
+        <company-dashboard :style="{'width': $vuetify.breakpoint.mdAndUp?'95%':'100%'}"></company-dashboard>
     </v-sheet>
 </template>
 

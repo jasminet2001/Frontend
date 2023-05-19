@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <CompanySidebarNavigationVue/>
     <v-sheet>
       <v-sheet color="transparent" class="pa-4">
         <div class="pa-4">
@@ -50,13 +49,11 @@ import TopDisplayRowCardVue from "./TopDisplayRowCard.vue";
 import AdsContainerVue from "./AdsContainer.vue";
 import DashboardChecklistVue from "./DashboardChecklist.vue";
 import UnansweredTicketsVue from "./UnansweredTickets.vue";
-import CompanySidebarNavigationVue from "./CompanySidebarNavigation.vue";
-
 
 export default {
   components: {
     UnansweredTicketsVue, AdsContainerVue, TopDisplayRowCardVue,
-    DashboardChecklistVue, CompanySidebarNavigationVue
+    DashboardChecklistVue
   },
   onMounted() {
     this.$vuetify.rtl = true;

@@ -1,7 +1,7 @@
 <template>
   <!-- desktop -->
   <v-app v-if="this.$vuetify.breakpoint.mdAndUp">
-    <CompanySidebarNavigationVue />
+
     <v-sheet color="transparent" elevation="0" class="pa-8">
       <strong class="mx-16">ثبت آگهی</strong>
       <v-card
