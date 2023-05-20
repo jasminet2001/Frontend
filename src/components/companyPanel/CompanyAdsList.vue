@@ -1,11 +1,10 @@
 <template>
   <v-app>
-    <CompanySidebarNavigationVue />
     <v-sheet fill-height color="transparent" class="pa-10">
-      <v-row class="mb-5" align="center">
-        <strong style="font-size: 1.5em">آگهی های من</strong>
+      <v-row class="mb-5 mx-16" align="center">
+        <strong>آگهی های من</strong>
       </v-row>
-      <hr class="my-3"/>
+
       <v-row justify="center" align="center" :dense="this.$vuetify.breakpoint.smAndDown">
         <v-col
             v-for="(ad, index) in adList"
@@ -24,9 +23,8 @@
 <script>
 
 import CompanyAdCardVue from "./CompanyAdCard.vue";
-import CompanySidebarNavigationVue from "./CompanySidebarNavigation.vue";
 export default {
-  components: {CompanySidebarNavigationVue, CompanyAdCardVue},
+  components: {CompanyAdCardVue},
   data () {
     return {
       adList: [],

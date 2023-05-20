@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <CompanySidebarNavigationVue />
     <v-sheet fill-height color="transparent" class="pa-10">
       <v-row class="mb-5" align="center">
         <strong class="mx-16">درخواست های دریافت شده</strong>
@@ -29,26 +28,40 @@
 
 <script>
 import CompanyReq from "./CompanyReqCard.vue";
-import CompanySidebarNavigationVue from "./CompanySidebarNavigation.vue";
+
 export default {
-  components: { CompanySidebarNavigationVue, CompanyReq },
+  components: { CompanyReq },
   data() {
     return {
-      adList: [
-        { Title: "نام آگهی", CompanyName: ":نام شرکت", Status: "پذیرفته شده" },
-        { Title: "نام آگهی", CompanyName: ":نام شرکت", Status: "پذیرفته شده" },
-        { Title: "نام آگهی", CompanyName: ":نام شرکت", Status: "پذیرفته شده" },
-        { Title: "نام آگهی", CompanyName: ":نام شرکت", Status: "پذیرفته شده" },
-        { Title: "نام آگهی", CompanyName: ":نام شرکت", Status: "پذیرفته شده" },
-        { Title: "نام آگهی", CompanyName: ":نام شرکت", Status: "پذیرفته شده" },
-        { Title: "نام آگهی", CompanyName: ":نام شرکت", Status: "پذیرفته شده" },
-        { Title: "نام آگهی", CompanyName: ":نام شرکت", Status: "پذیرفته شده" },
-        { Title: "نام آگهی", CompanyName: ":نام شرکت", Status: "پذیرفته شده" },
-        { Title: "نام آگهی", CompanyName: ":نام شرکت", Status: "پذیرفته شده" },
-        { Title: "نام آگهی", CompanyName: ":نام شرکت", Status: "پذیرفته شده" },
-        { Title: "نام آگهی", CompanyName: ":نام شرکت", Status: "پذیرفته شده" },
-      ],
+      recievedReqs: [],
+      Title: "",
+      Description: "",
+      Status:"",
     };
   },
+  methods:{
+    async recievedReq(){
+      var axios = require('axios');
+      var config = {
+        method: 'get',
+        url: this.$store.state.host + 'Request/GetByUser',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer '+this.$cookies.get('token'),
+        },
+      };
+      let that = this;
+      await axios(config)
+        .then(
+          function (response) {
+            // console.log(response.data);
+            that.recievedReqs = response.data;
+          }
+        )
+    }
+  },
+  created(){
+    this.recievedReq();
+  }
 };
 </script>

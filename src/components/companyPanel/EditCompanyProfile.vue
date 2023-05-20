@@ -1,7 +1,6 @@
 <template>
   <v-app class="grey lighten-4" v-if="this.$vuetify.breakpoint.mdAndUp">
     <v-sheet color="transparent" elevation="0" class="pa-8">
-      <CompanySidebarNavigationVue />
       <strong class="mx-16">ویرایش پروفایل شرکت</strong>
       <v-card
         class="card-desktop mx-16 mb-10"
@@ -178,7 +177,6 @@
 </template>
 
 <script>
-import CompanySidebarNavigationVue from "./CompanySidebarNavigation.vue";
 export default {
   name: "EditCompanyProfile",
   data: () => ({
@@ -229,7 +227,7 @@ export default {
       });
     },
   },
-  components: { CompanySidebarNavigationVue },
+  components: { },
 };
 </script>
 

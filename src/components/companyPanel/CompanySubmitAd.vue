@@ -1,7 +1,6 @@
 <template>
   <!-- desktop -->
   <v-app v-if="this.$vuetify.breakpoint.mdAndUp">
-
     <v-sheet color="transparent" elevation="0" class="pa-8">
       <strong class="mx-16">ثبت آگهی</strong>
       <v-card
@@ -133,7 +132,7 @@
                   raised
                   text
                   style="background-color: #3751ff; color: white"
-                  @click="submit"
+                  @click="adAdder"
                 >
                   ذخیره تغییرات
                 </v-btn>
@@ -206,7 +205,7 @@ export default {
 
       var config = {
         method: "post",
-        url: this.$store.state.host + "ad/makead",
+        url: this.$store.state.host + "ad/makeAd",
         headers: {
           Accept: "application/json",
           Authorization: "Bearer " + this.$cookies.get("token"),

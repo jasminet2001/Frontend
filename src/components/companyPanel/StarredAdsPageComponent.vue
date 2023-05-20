@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <sidebar-navigation />
     <v-sheet fill-height color="transparent" class="pa-10">
       <v-row class="mb-5 mx-16" align="center">
         <strong style="font-size: 1.5em">آگهی های من</strong>
@@ -23,9 +22,8 @@
 
 <script>
 import AdCard from "@/components/companyPanel/CompanyAdCard.vue";
-import SidebarNavigation from "@/components/companyPanel/CompanySidebarNavigation.vue";
 export default {
-  components: {SidebarNavigation, AdCard},
+  components: {AdCard},
   data () {
     return {
       adList:[],
@@ -50,7 +48,7 @@ export default {
         method: 'get',
         url: this.$store.state.host + 'user/bookmarks',
         headers: {
-          'Authorization': 'Bearer '+this.$cookies.get('token'),
+          'Authorization': 'Bearer '+ this.$cookies.get('token'),
           'Accept': 'application/json',
         },
       };
