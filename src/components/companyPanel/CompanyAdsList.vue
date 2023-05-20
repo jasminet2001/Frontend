@@ -39,7 +39,7 @@ export default {
       var axios = require('axios');
       var config = {
         method: 'get',
-        url: this.$store.state.host + 'ad',
+        url: this.$store.state.host + 'ad/show',
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer '+this.$cookies.get('token'),
