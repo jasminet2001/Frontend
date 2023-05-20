@@ -7,7 +7,7 @@
 
 <script>
 import SidebarNavigation from "@/components/companyPanel/CompanySidebarNavigation.vue";
-import submitAd from '@/components/userpanel/submitAd.vue';
+import submitAd from '@/components/companyPanel/CompanySubmitAd.vue';
 export default{
     components: {SidebarNavigation, submitAd},
     onMounted() {

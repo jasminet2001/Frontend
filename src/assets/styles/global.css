@@ -11,3 +11,6 @@
   --warning: #d0a03b;
   --danger: #f44336;
 }
+strong{
+  font-size: 1.5em;
+}

@@ -1,11 +1,10 @@
 <template>
   <v-app>
-    <sidebar-navigation />
     <v-sheet fill-height color="transparent" class="pa-10">
-      <v-row class="mb-5" align="center">
+      <v-row class="mb-5 mx-16" align="center">
         <strong style="font-size: 1.5em">آگهی های من</strong>
       </v-row>
-      <hr class="my-3"/>
+      <!-- <hr class="my-3"/> -->
       <v-row justify="center" align="center" :dense="this.$vuetify.breakpoint.smAndDown">
         <v-col
             v-for="(ad, index) in starredAds"
@@ -22,10 +21,9 @@
 </template>
 
 <script>
-import AdCard from "@/components/userpanel/AdCard";
-import SidebarNavigation from "@/components/userpanel/SidebarNavigation";
+import AdCard from "@/components/companyPanel/CompanyAdCard.vue";
 export default {
-  components: {SidebarNavigation, AdCard},
+  components: {AdCard},
   data () {
     return {
       adList:[],
@@ -50,7 +48,7 @@ export default {
         method: 'get',
         url: this.$store.state.host + 'user/bookmarks',
         headers: {
-          'Authorization': 'Bearer '+this.$cookies.get('token'),
+          'Authorization': 'Bearer '+ this.$cookies.get('token'),
           'Accept': 'application/json',
         },
       };

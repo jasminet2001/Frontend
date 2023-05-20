@@ -8,6 +8,8 @@ export default new Vuex.Store({
         user:'',
         token:'',
         host:'https://industries-backend.iran.liara.run/api/',
+        appURL: 'https://industryfinder.vercel.app/',
+        host:'https://industries-backend.iran.liara.run/api/',
         appURL: 'https://industryfinder.vercel.app/'
     },
     mutations: {

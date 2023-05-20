@@ -1,16 +1,16 @@
 <template>
     <v-sheet>
         <sidebar-navigation></sidebar-navigation>
-        <wallet-component></wallet-component>
+        <company-pay></company-pay>
     </v-sheet>
 </template>
 
 <script>
 import SidebarNavigation from "@/components/companyPanel/CompanySidebarNavigation.vue";
-import WalletComponent from '@/components/companyPanel/WalletComponent.vue';
+import CompanyPay from '@/components/companyPanel/PaymentPageComponent.vue'
 
 export default{
-    components: {SidebarNavigation, WalletComponent},
+    components: {SidebarNavigation, CompanyPay},
     onMounted() {
     this.$vuetify.rtl = true;
     },

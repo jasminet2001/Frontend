@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import TopDisplayRowCard from "@/components/userpanel/TopDisplayRowCard";
+import TopDisplayRowCard from "@/components/companyPanel/TopDisplayRowCard.vue";
 export default {
   components: {TopDisplayRowCard},
   props: {
