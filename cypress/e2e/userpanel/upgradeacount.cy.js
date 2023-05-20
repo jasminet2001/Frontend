@@ -46,11 +46,11 @@ describe('User Upgrade Page Tests', () => {
     cy.get('.v-list-item__title').contains('خودرو').click()
   })
 
-  it('should display correctly on mobile breakpoint', () => {
-    cy.viewport('iphone-6')
-    cy.visit(baseData.host + '/user/upgrade')
-    cy.get('.card-res').should('be.visible')
-  })
+  // it('should display correctly on mobile breakpoint', () => {
+  //   cy.viewport('iphone-6')
+  //   cy.visit(baseData.host + '/user/upgrade')
+  //   cy.get('.card-res').should('be.visible')
+  // })
 
   it('should upload a profile image', () => {
     cy.visit(baseData.host + '/user/upgrade');

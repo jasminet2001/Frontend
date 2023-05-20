@@ -193,6 +193,10 @@
                 outlined
                 raised
                 text
+                beforeMount()
+                {
+                this.categoryFinder();
+                },
                 style="background-color: #3751ff; color: white"
                 @click="submit"
               >
