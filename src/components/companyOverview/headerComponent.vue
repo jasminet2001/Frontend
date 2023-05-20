@@ -45,12 +45,13 @@
 
 <script>
 import { mdiMapMarker, mdiStar, mdiStarHalfFull, mdiStarOutline } from '@mdi/js'
-import axios from "axios";
+
 export default {
   props: [
       'companyName',
       'companyCategory',
       'companyLocation',
+      'saved',
 			'rate'
   ],
   data () {
@@ -62,39 +63,34 @@ export default {
       ImdiStar: mdiStar,
       ImdiStarHalf: mdiStarHalfFull,
       ImdiStarOutline: mdiStarOutline,
-      saved: false
+      starred: this.saved,
+      marked_id: 0,
     }
   },
   methods: {
-    async mounted() {
-      await this.issaved();
-    },
-    async issaved() {
-      try {
-        let FormData = require('form-data');
-        let data = new FormData();
-        data.append('token', this.$cookies.get('token'));
-        data.append('id', this.$route.params.id);
-        var axios0 = require('axios');
-        var config0 = {
-          method: 'get',
-          url: this.$store.state.host + `user/bookmarks/IsMarked/${this.$route.params.id}`,
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ' + this.$cookies.get('token'),
-            'Content-Type': 'multipart/form-data'
-          },
-          data: data
-        };
-        axios0(config0)
-            .then((response) => {
-              if (response.status === 200) {
-                this.saved = !response.data.saved;
+    async getBookmarks() {
+      var axios = require('axios');
+      var config = {
+        method: 'get',
+        url: this.$store.state.host + 'user/bookmarks',
+        headers: {
+          'Authorization': 'Bearer '+this.$cookies.get('token'),
+          'Accept': 'application/json',
+        },
+      };
+      let that = this;
+      await axios(config)
+          .then(function (response) {
+            for (let i = 0; i < response.data.length; i++) {
+              console.log("NO")
+              console.log(response.data[1].marked_id)
+              if (that.$route.params.id == response.data[i].marked_id)
+              {
+                console.log("yes")
+                that.marked_id = response.data[i].id;
               }
-            })
-      } catch (error) {
-        console.error(error);
-      }
+            }
+          })
     },
     async save() {
       let errorToaster = (msg) => {
@@ -103,19 +99,30 @@ export default {
           type: 'error',
         });
       };
-      if (this.saved) {
-        this.saved = false;
+      let that = this;
+      if (that.saved) {
         try {
-          const response = await axios.delete(
-              `${this.$store.state.host}user/bookmarks/del/${this.$route.params.id}`,
+          console.log(this.marked_id)
+          await (that.getBookmarks());
+          console.log(this.marked_id)
+          let axios2 = require('axios');
+          let config2 =
               {
-                headers: {
-                  'Accept': 'application/json',
-                  'Authorization': `Bearer ${this.$cookies.get('token')}`
+                method: 'delete' ,
+                url: this.$store.state.host + `user/bookmarks/del/${this.marked_id}`,
+                headers:
+                    {
+                      'Accept': 'application/json',
+                      'Authorization': 'Bearer ' + this.$cookies.get('token'),
+                      'Content-Type': 'multipart/form-data'
+                    },
+              };
+          await axios2(config2)
+              .then((response) => {
+                if (response.status === 200 && response.data.message === 'success') {
+                  that.saved = false;
                 }
-              }
-          );
-          console.log(response.data);
+              })
         } catch (error) {
           console.error(error);
         }
@@ -124,11 +131,12 @@ export default {
         {
           let FormData = require('form-data');
           let data = new FormData();
+          data.append('marked_id', this.$route.params.id);
           let axios2 = require('axios');
           let config2 =
           {
             method: 'post',
-            url: this.$store.state.host + `user/bookmarks/add/${this.$route.params.id}`,
+            url: this.$store.state.host + `user/bookmarks/add`,
             headers:
             {
               'Accept': 'application/json',
@@ -139,8 +147,8 @@ export default {
           };
           await axios2(config2)
               .then((response) => {
-                if (response.status === 200 && response.data.message === 'success') {
-                  this.saved = true;
+                if (response.status === 201 && response.data.message === 'success') {
+                  that.saved = true;
                 }
               })
         }
@@ -152,7 +160,7 @@ export default {
           }
         }
       }
-    },
+    }
   }
 }
 </script>

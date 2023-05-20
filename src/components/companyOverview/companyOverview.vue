@@ -6,6 +6,7 @@
 				<header-component
 						:company-category="categoryName(companyInfo.category_id)"
 						:company-name="companyInfo.name"
+            :saved = this.saved
 						:rate="rate"
 				/>
 			</v-row>
@@ -53,11 +54,33 @@ export default {
 			companyInfo: '',
 			categories: '',
 			infoForSummary: [],
+      saved: false,
 			rate: 0,
 			comments: {}
 		}
 	},
 	methods: {
+    async issaved(id = this.$route.params.id) {
+      var axios = require('axios');
+      var config = {
+        method: 'get',
+        url: this.$store.state.host + 'user/bookmarks',
+        headers: {
+          'Authorization': 'Bearer '+this.$cookies.get('token'),
+          'Accept': 'application/json',
+        },
+      };
+      let that = this;
+      await axios(config)
+          .then(function (response) {
+            for (let i = 0; i < response.data.length; i++) {
+              if (response.data[i].marked_id == id)
+              {
+                that.saved = true;
+              }
+            }
+          })
+    },
 		async company(id = this.$route.params.id) {
 			var axios = require('axios');
 			var config = {
@@ -122,13 +145,15 @@ export default {
 		}
 	},
 	async beforeRouteUpdate(to) {
-		await this.company(to.params.id)
-		await this.rating(to.params.id)
-		await this.getComments(to.params.id)
+		await this.company(to.params.id);
+    await this.issaved(to.params.id);
+		await this.rating(to.params.id);
+		await this.getComments(to.params.id);
 	},
 	async beforeMount() {
 		await this.categoryFinder()
 		await this.company()
+    await this.issaved()
 		await this.rating()
 		await this.getComments()
 	}
