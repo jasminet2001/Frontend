@@ -51,7 +51,7 @@ export default {
       'companyName',
       'companyCategory',
       'companyLocation',
-      'saved'
+      'saved',
 			'rate'
   ],
   data () {
