@@ -110,7 +110,7 @@ export default {
       var FormData = require('form-data');
       var data = new FormData();
       data.append('todo', this.todos?JSON.stringify(this.todos):null);
-
+      console.log( this.todos)
       var config = {
         method: 'post',
         url: this.$store.state.host + 'user/Todoupdate',
