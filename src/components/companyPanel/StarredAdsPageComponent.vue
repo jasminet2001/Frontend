@@ -6,9 +6,10 @@
       </v-row>
       <!-- <hr class="my-3"/> -->
       <v-row
-        justify="center"
-        align="center"
-        :dense="this.$vuetify.breakpoint.smAndDown"
+      justify="center"
+      align="center"
+      class="mx-2"
+      :dense="this.$vuetify.breakpoint.smAndDown"
       >
         <v-col
           v-for="(ad, index) in adList"

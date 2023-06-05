@@ -1,5 +1,5 @@
 <template>
-  <v-sheet color="transparent" class="pa-4">
+  <v-sheet color="transparent" class="pa-4 mx-16">
     <div class="pa-4">
       <v-row class="mb-5">
         <strong style="font-size: 1.5em">خرید پلن</strong>

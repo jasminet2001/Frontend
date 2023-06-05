@@ -1,9 +1,10 @@
 <template>
   <v-card
       shaped
-      elevation="4"
-      class="pa-2 ma-2 white--text"
-      style="background: rgb(161,156,251);
+      elevation="6"
+      class="pa-6 ma-6 white--text"
+      style="
+      background: rgb(161,156,251);
       background: linear-gradient(90deg, rgba(161,156,251,1) 0%, rgba(99,99,245,1) 68%);">
     <v-card-title class="mb-1 mt-0">
       {{ ad.marked.name }}
@@ -54,9 +55,4 @@ export default {
 </script>
 
 <style scoped>
-
-.ad-card{
-background: rgb(161,156,251);
-background: linear-gradient(90deg, rgba(161,156,251,1) 0%, rgba(99,99,245,1) 68%);
-}
 </style>
