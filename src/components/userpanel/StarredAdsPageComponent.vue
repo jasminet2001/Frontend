@@ -4,7 +4,6 @@
       <v-row class="mb-5" align="center">
         <strong style="font-size: 1.5em">نشانک ها</strong>
       </v-row>
-      <hr class="my-3"/>
       <v-row justify="center" align="center" :dense="this.$vuetify.breakpoint.smAndDown">
         <v-col
             v-for="(ad, index) in starredAds"
