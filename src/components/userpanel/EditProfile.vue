@@ -42,36 +42,9 @@
                     outlined
                   ></v-text-field
                 ></v-row>
-              </v-col>
-              <v-col cols="6" class="px-8 col">
-                <v-row>
-                  <v-img
-                    src="@/assets/profile.png"
-                    class="img"
-                    height="150"
-                  ></v-img>
-                </v-row>
-                <v-row>
-                  <v-text-field
-                    name="phone-number"
-                    label="شماره همراه"
-                    class="mt-15"
-                    v-model="phone"
-                    outlined
-                  ></v-text-field>
-                </v-row>
-              </v-col>
-              <v-col cols="6" class="px-8 col">
-                <v-row>
-                  <v-img
-                    src="@/assets/profile.png"
-                    class="img"
-                    height="250"
-                  ></v-img>
-                </v-row>
 
-                <!-- save button -->
-                <v-btn
+                                <!-- save button -->
+                                <v-btn
                   class="btn"
                   elevation="4"
                   large
@@ -92,8 +65,25 @@
                   large
                   raised
                   type="reset"
-                  >لغو</v-btn
-                >
+                  >لغو</v-btn>
+              </v-col>
+              <v-col cols="6" class="px-8 col">
+                <v-row>
+                  <v-img
+                    src="@/assets/profile.png"
+                    class="img"
+                    height="200px"
+                  ></v-img>
+                </v-row>
+                <v-row>
+                  <v-text-field
+                    name="phone-number"
+                    label="شماره همراه"
+                    class="mt-15"
+                    v-model="phone"
+                    outlined
+                  ></v-text-field>
+                </v-row>
               </v-col>
             </v-row>
           </v-form>
@@ -272,6 +262,6 @@ strong {
   vertical-align: middle;
 }
 .btn {
-  margin-top: 6em;
+  margin-top: 1em;
 }
 </style>

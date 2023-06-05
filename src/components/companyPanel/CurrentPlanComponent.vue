@@ -1,10 +1,9 @@
 <template>
   <v-sheet color="transparent" class="pa-4">
     <div class="pa-4">
-      <v-row class="mb-5">
-        <strong style="font-size: 1.5em">پلن فعال</strong>
+      <v-row class="mb-5 mx-16">
+        <strong>پلن فعال</strong>
       </v-row>
-      <hr class="my-3"/>
       <v-row>
         <v-spacer />
         <v-col cols="10" md="10" lg="10" xl="8" sm="8">
@@ -15,19 +14,19 @@
                 <v-spacer />
                 <span>{{ currentPlan.planName }}</span>
               </v-row>
-              <v-divider />
+              
               <v-row class="my-2" style="font-size: 1.0em">
                 <span>روزهای باقی مانده:</span>
-                <v-spacer />
+                <v-spacer/>
                 <span>{{ currentPlan.DaysRemaining }}</span>
               </v-row>
-              <v-divider />
+              
               <v-row class="my-2" style="font-size: 1.0em">
                 <span>آگهی های باقی مانده:</span>
                 <v-spacer />
                 <span>{{ currentPlan.AdsRemaining }}</span>
               </v-row>
-              <v-divider />
+              
               <v-row class="my-2" style="font-size: 1.0em">
                 <span>آگهی های استفاده شده:</span>
                 <v-spacer />

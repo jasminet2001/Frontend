@@ -22,7 +22,7 @@
 
 <script>
 import CurrentPlanComponent from "@/components/companyPanel/CurrentPlanComponent.vue";
-import ChargeWalletComponent from "@/components/userpanel/ChargeWalletComponent.vue";
+import ChargeWalletComponent from "@/components/companyPanel/ChargeWalletComponent.vue";
 import PurchasePlanComponent from "@/components/companyPanel/PurchasePlanComponent.vue";
 import WalletComponent from './WalletComponent.vue';
 
