@@ -107,13 +107,6 @@
             <v-list-item-title>کیف پول</v-list-item-title>
           </v-list-item>
 
-          <v-list-item class="py-2" link to="/">
-            <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>صفحه اصلی</v-list-item-title>
-          </v-list-item>
-
 					<v-list-item class="py-2" link to="/company/adslist">
 						<v-list-item-icon>
 							<v-icon>mdi-file-document-edit-outline</v-icon>
@@ -133,7 +126,7 @@
       <v-divider></v-divider>
 
       <v-list>
-        <v-list-item link @click="logout">
+        <v-list-item name="logout" link @click="logout">
           <v-list-item-icon>
             <v-icon>mdi-exit-to-app</v-icon>
           </v-list-item-icon>

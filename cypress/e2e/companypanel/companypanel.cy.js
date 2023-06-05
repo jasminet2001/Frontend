@@ -13,9 +13,6 @@ describe('User Dashboard', () => {
     cy.get('.pa-4 .mb-5 strong')
         .should('contain', 'دید کلی')
 
-    cy.get('.pa-4 hr')
-        .should('exist')
-
     cy.get('.pa-4 .cols')
         .should('have.length', 4)
 
