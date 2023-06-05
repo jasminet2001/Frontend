@@ -1,0 +1,16 @@
+.custom-card-bookmarked {
+    background-color: #112d4f;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-label-bookmarked {
+    font-weight: bold;
+    color: #fff;
+}
+
+.description-bookmarked {
+    font-size: 16px;
+    color: yellow;
+}

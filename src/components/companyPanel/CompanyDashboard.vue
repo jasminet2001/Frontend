@@ -9,17 +9,17 @@
 
           <v-row>
             <v-spacer />
-              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
-                <TopDisplayRowCardVue :item="{ Title: 'بازدید از آگهی های شما', Info: '۶۴'}" />
+              <v-col class="cols" cols="12" sm="6" md="3" lg="3" xl="2">
+                <TopDisplayRowCardVue name="item" :item="{ Title: 'بازدید از آگهی های شما', Info: '۶۴'}" />
               </v-col>
-              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
-                <TopDisplayRowCardVue :item="{ Title: 'آگهی های شما', Info: this.adsList.length}" />
+              <v-col class="cols" cols="12" sm="6" md="3" lg="3" xl="2">
+                <TopDisplayRowCardVue name="item" :item="{ Title: 'آگهی های شما', Info: this.adsList.length}" />
               </v-col>
-              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
-                <TopDisplayRowCardVue :item="{ Title: 'آگهی های مرتبط', Info: '4'}" />
+              <v-col class="cols" cols="12" sm="6" md="3" lg="3" xl="2">
+                <TopDisplayRowCardVue name="item" :item="{ Title: 'آگهی های مرتبط', Info: '4'}" />
               </v-col>
-              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
-                <TopDisplayRowCardVue :item="{ Title: 'کل آگهی ها', Info: '۳۲۵'}" />
+              <v-col class="cols" cols="12" sm="6" md="3" lg="3" xl="2">
+                <TopDisplayRowCardVue name="item" :item="{ Title: 'کل آگهی ها', Info: '۳۲۵'}" />
               </v-col>
             <v-spacer />
           </v-row>

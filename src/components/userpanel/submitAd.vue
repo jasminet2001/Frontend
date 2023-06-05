@@ -132,7 +132,7 @@
                   raised
                   text
                   style="background-color: #3751ff; color: white"
-                  @click="submit"
+                  @click="adAdder"
                 >
                   ذخیره تغییرات
                 </v-btn>
@@ -171,6 +171,12 @@ export default {
       this.$toast.open({
         message: msg,
         type: "error",
+      });
+    },
+    successToaster(msg) {
+      this.$toast.open({
+        message: msg,
+        type: "success",
       });
     },
     async categoryFinder() {
@@ -213,8 +219,8 @@ export default {
       };
       let that = this;
       await axios(config)
-        .then(function (response) {
-          console.log(response.data);
+        .then(function () {
+          that.successToaster("آگهی شما با موفقیت ثبت شد.");
         })
         .catch(function (error) {
           if (error.response.status === 422) {

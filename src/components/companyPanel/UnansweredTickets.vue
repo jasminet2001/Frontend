@@ -1,6 +1,6 @@
 <template>
   <v-card
-      class="rounded-lg pa-2"
+      class="rounded-lg-pa-2"
       outlined
       elevation="4"
       height="300px">

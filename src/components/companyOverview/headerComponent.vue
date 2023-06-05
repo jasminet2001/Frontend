@@ -40,12 +40,6 @@
             {{ companyCategory }}
           </v-chip>
         </v-col>
-        <!--        <v-col cols="3">-->
-        <!--          <v-icon small>-->
-        <!--            {{ ImdiPin }}-->
-        <!--          </v-icon>-->
-        <!--          {{ companyLocation }}-->
-        <!--        </v-col>-->
       </v-row>
     </div>
   </v-card>
@@ -112,8 +106,8 @@ export default {
           type: "error",
         });
       };
-      if (this.saved) {
-        this.saved = false;
+      let that = this;
+      if (that.saved) {
         try {
           const response = await axios.delete(
             `${this.$store.state.host}user/bookmarks/del/${this.$route.params.id}`,
