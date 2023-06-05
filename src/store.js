@@ -9,8 +9,6 @@ export default new Vuex.Store({
         token:'',
         host:'https://industries-backend.iran.liara.run/api/',
         appURL: 'https://industryfinder.vercel.app/',
-        host:'https://industries-backend.iran.liara.run/api/',
-        appURL: 'https://industryfinder.vercel.app/'
     },
     mutations: {
         setUser (state, info){
