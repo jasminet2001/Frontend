@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import AdCard from "@/components/companyPanel/CompanyAdCard.vue";
+import AdCard from "@/components/companyPanel/StarredAdCard.vue";
 export default {
   components: { AdCard },
   data() {
