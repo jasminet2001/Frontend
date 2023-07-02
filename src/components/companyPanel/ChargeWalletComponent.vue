@@ -33,7 +33,9 @@
         </v-col>
         <v-spacer />
         <v-col cols="12" md="4" lg="3" xl="3">
-          <v-btn outlined color="#3751FF" class="rounded-lg" width="100%" height="95%" min-height="50px" style="margin: 0 auto">
+          <v-btn outlined color="#3751FF" class="rounded-lg" 
+          width="100%" height="95%" min-height="50px" 
+          style="margin: 0 auto" @click="chargeWallet">
             پرداخت
           </v-btn>
         </v-col>
@@ -61,8 +63,32 @@ export default {
   methods: {
     addBalance (index){
       this.amountToCharge = this.chargeCards[index].Num
+    },
+    async chargeWallet(){
+      var axios = require("axios");
+      var FormData = require("form-data");
+      var data = new FormData();
+      data.append("cash" ,this.amountToCharge);
+      var config = {
+        method: 'post',
+        url: this.$store.state.host + 'user/Addcash',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer '+this.$cookies.get('token'),
+        },
+        data: data,
+      };
+      
+      let that = this;
+      await axios(config)
+        .then(
+          function (response) {
+            console.log(response.data.Balance);
+            that.cash = response.data.Balance;
+          }
+        )
     }
-  }
+  },
 }
 </script>
 

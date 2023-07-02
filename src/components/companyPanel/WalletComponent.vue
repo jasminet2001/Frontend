@@ -38,7 +38,7 @@ export default {
   name: "WalletComponent",
   data () {
     return {
-      credit: '500000'
+      credit: this.$cookies.get('user').wallet
     }
   }
   // computed:{
