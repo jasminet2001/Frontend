@@ -14,3 +14,11 @@
 strong{
   font-size: 1.5em;
 }
+.purple-background{
+  background: rgb(161, 156, 251) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(161, 156, 251, 1) 0%,
+    rgba(99, 99, 245, 1) 68%
+  ) !important;
+}
