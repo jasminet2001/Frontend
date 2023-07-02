@@ -39,7 +39,7 @@ export default {
       var axios = require('axios');
       var config = {
         method: 'get',
-        url: this.$store.state.host + 'ad/show',
+        url: this.$store.state.host + 'ad/searchBySender',
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer '+this.$cookies.get('token'),
@@ -49,7 +49,7 @@ export default {
       await axios(config)
         .then(
           function (response) {
-            // console.log(response.data);
+            console.log(response.data);
             that.adList = response.data;
           }
         )

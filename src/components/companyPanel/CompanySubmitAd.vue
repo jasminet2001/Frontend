@@ -168,10 +168,10 @@ export default {
     category: "",
   }),
   methods: {
-    errorToaster(msg) {
+    Toaster(msg, t) {
       this.$toast.open({
-        message: msg,
-        type: "error",
+        message: msg, 
+        type: t,
       });
     },
     async categoryFinder() {
@@ -216,11 +216,12 @@ export default {
       await axios(config)
         .then(function (response) {
           console.log(response.data);
+          that.Toaster("آگهی با موفقیت ثبت شد", "success"); 
         })
         .catch(function (error) {
           if (error.response.status === 422) {
             for (let err in error.response.data.errors) {
-              that.errorToaster(error.response.data.errors[err][0]);
+              that.Toaster(error.response.data.errors[err][0], "error");
             }
           }
         });
