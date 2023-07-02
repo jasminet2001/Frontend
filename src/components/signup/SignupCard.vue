@@ -2,7 +2,7 @@
   <v-card class="pa-4" elevation="8" outlined height="75%" shaped justify="center" align="center" width="100%">
     <v-form ref="form" color="transparent" v-model="valid" lazy-validation>
       <v-card-title v-if="!isMobile">
-        <img src="https://svgshare.com/i/g44.svg" style="height:10%; margin: 0 auto">
+        <img src="https://svgshare.com/i/g44.svg" class="card-pic">
       </v-card-title>
       <v-card-text>
         <v-row class="my-4 mx-2" justify="center" align="center" no-gutters>
@@ -16,13 +16,13 @@
           </v-col>
         </v-row>
         <v-row class="mt-8 mx-2" justify="center" align="center">
-          <v-text-field label="نام و نام خانوادگی"
+          <v-text-field label="نام و نام خانوادگی" name="input-9-1"
           autofocus
           v-model="name">
           </v-text-field>
         </v-row>
         <v-row class="mt-5 mx-2" justify="center" align="center">
-          <v-text-field v-model="email" :rules="emailRules" label="ایمیل" required style="direction: ltr !important;">
+          <v-text-field v-model="email" name="input-9-2" :rules="emailRules" label="ایمیل" required style="direction: ltr !important;">
           </v-text-field>
         </v-row>
         <v-row class="mt-5 mx-2" justify="center" align="center">
@@ -45,7 +45,7 @@
               :append-icon="show2 ? ImdiEye : ImdiEyeOff"
               :rules="[rules.required, rules.min]"
               :type="show2 ? 'text' : 'password'"
-              name="input-10-1"
+              name="input-10-2"
               label="رمز عبور"
               hint="حداقل ۸ کارکتر بنویسید"
               counter
@@ -53,9 +53,9 @@
               style="direction: ltr !important;"
           ></v-text-field>
         </v-row>
-        <v-row class="mt-16 mx-2" align="center" justify="center" no-gutters>
+        <v-row class="mt-6" justify="center" no-gutters>
           <v-col cols="12">
-            <v-btn class="btn white--text"
+            <v-btn class="button white--text"
             color="#000824" width="100%"
             @click="fetchData()">
               ثبت نام
@@ -113,7 +113,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: this.$store.state.host + 'user/signup',
+        url: this.$store.state.host + 'authentication/signup',
         headers: {
           'Accept': 'application/json',
         },
@@ -130,7 +130,7 @@ export default {
             result=result.data;
             this.$cookies.set('token', result.token);
             this.$cookies.set('user', result.user);
-            this.$router.push('/dashboard');
+            this.$router.push('/user/dashboard');
           })
           .catch(error => {
             console.log(error);
@@ -149,11 +149,5 @@ export default {
 </script>
 
 <style scoped>
-v-app{
-  background-color: #000824c8;
-}
-.link{
-  color: #999696;
-  text-decoration: none;
-}
+@import '../../assets/styles/login-signup/login.css';
 </style>

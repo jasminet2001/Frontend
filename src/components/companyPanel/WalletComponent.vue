@@ -2,9 +2,9 @@
   <v-sheet color="transparent" class="pa-4">
     <div class="pa-4">
       <v-row class="mb-5">
-        <strong style="font-size: 1.5em">کیف پول</strong>
+        <strong class="mx-16">کیف پول</strong>
       </v-row>
-      <hr class="my-3"/>
+
       <v-row v-if="this.$vuetify.breakpoint.smAndUp">
         <div class="credit-card my-3 elevation-3" style="width: 377px; height: 218px; margin: 0 auto; background-color: transparent; border-radius: 11% !important;">
           <div class="mt-10 justify-start">
@@ -41,6 +41,11 @@ export default {
       credit: '500000'
     }
   }
+  // computed:{
+  //   getBalance(){
+  //     return this.$cookies.get('user').wallet.toLocaleString()
+  //   }
+  // }
 }
 </script>
 

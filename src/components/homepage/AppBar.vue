@@ -21,7 +21,7 @@
           <v-btn to="/signup" color="white" elevation="0" tile flat outlined class="">ثبت نام</v-btn>
         </v-btn-toggle>
       </v-tab>
-      <v-tab v-else to="/dashboard">
+      <v-tab v-else to="/user/dashboard">
         <v-btn icon>
           <v-avatar
           color="transparent"
@@ -41,7 +41,7 @@
   fixed
   >
     <v-app-bar
-    color="#000930"
+
     dark
     >
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
@@ -129,7 +129,6 @@
 </template>
 
 <script>
-
 export default{
   name: 'AppBar',
   data(){
@@ -139,6 +138,7 @@ export default{
       loggedIn: '',
       drawer: false,
       group: null,
+
     }
   },
   methods: {
@@ -146,7 +146,7 @@ export default{
       let axios = require('axios');
       let config = {
         method: 'get',
-        url: this.$store.state.host + 'user/this',
+        url: this.$store.state.host + 'authentication/this',
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer '+this.$cookies.get('token')
@@ -170,5 +170,4 @@ export default{
   }
 }
 </script>
-<style scoped>
-</style>
+

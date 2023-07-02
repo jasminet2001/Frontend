@@ -1,53 +1,12 @@
 <template>
-  <div v-if="this.$vuetify.breakpoint.mdAndUp" class="pa-4 ma-4">
-    <span class="title-desktop">دسته بندی</span>
-    <p class="category-text">خدمات</p>
-
-    <v-row class="justify-center mx-auto">
-      <v-col cols="3">
-        <img height="100%" width="100%" src="../../assets/adone.jpg"/>
-      </v-col >
-      <v-col class="mt-16 pt-16" cols="5">
-          <!-- container for buttons -->
-              <v-row class="align-content-space-around"
-                     v-for="(row, key) in items" :key="key"
-              >
-                <v-col
-                    v-for="(cat, key) in row" :key="key"
-                >
-                  <v-btn
-                    class="cat-btn"
-                    width="100%"
-                    elevation="24"
-                    rounded
-                    x-large
-                    :to="'/search?category='+cat.id"
-                  >{{cat.name}}</v-btn>
-                </v-col>
-              </v-row>
-            </v-col>
-      <v-col cols="3">
-        <img height="100%" width="100%" src="../../assets/adtwo.jpg"/>
-      </v-col>
-    </v-row>
-
-  </div>
-
-  <div v-else>
-    <span class="title-res">دسته بندی</span>
-    <p class="category-text">خدمات</p>
-    <div class="pa-2">
-      <v-row>
-        <v-col class="mr-6 ml-6">
-          <v-combobox
-          clearable
-          v-model="select"
-          :items="items"></v-combobox>
-        </v-col>
-      </v-row>
-    </div>
-
-  </div>
+  <section class="pt-16">
+		<v-img class="mx-auto rounded-circle" height="35em" max-width="60%" contain :src="sliderAddress"></v-img>
+		<v-row class="pa-16 pt-5">
+			<v-col class="category-label mx-1" v-for="(item, key) in items" :key="key" @mouseover="slideChanger(item.photo)">
+				{{item.name}}
+			</v-col>
+		</v-row>
+	</section>
 </template>
 
 <script>
@@ -55,15 +14,67 @@ export default {
   data(){
     return{
       select: ['دسته بندی'],
-      items: [],
+			sliderAddress: 'https://files.virgool.io/upload/users/3216/posts/uzihttim3v9i/poslzzhshkyu.jpeg',
+			items: [
+				{
+					id: 9,
+					name: "غذایی",
+					photo: "https://www.atlas-group.co/myupload/filethumb/thumb_1667296573.jpg"
+				},
+				{
+					id: 10,
+					name: "ریخته گری",
+					photo: "https://blog.faradars.org/wp-content/uploads/2021/09/sand-casting-1.jpg"
+				},
+				{
+					id: 11,
+					name: "الکتریکی",
+					photo: "https://shirazknuaf.ir/wp-content/uploads/2021/12/barqi-1000x563.jpg"
+				},
+				{
+					id: 12,
+					name: "پلاستیک",
+					photo: "https://newsmedia.tasnimnews.com/Tasnim/Uploaded/Image/1397/07/01/1397070111031372915474444.jpg"
+				},
+				{
+					id: 13,
+					name: "خودرو",
+					photo:  "https://digiato.com/wp-content/uploads/2022/10/problems-car-parts-identification-plan-solution.jpg"
+				},
+				{
+					"id": 14,
+					"name": "شیشه",
+					photo: "https://koolivand.com/wp-content/uploads/2016/01/decorative-glass-gallery-2-1024x512.jpg"
+				},
+				{
+					"id": 15,
+					"name": "فلزی",
+					photo: "https://ahanbox.com/wp-content/uploads/2019/01/%D9%81%D9%84%D8%B2%D8%A7%D8%AA-%D8%BA%DB%8C%D8%B1-%D8%A2%D9%87%D9%86%DB%8C.jpg"
+				},
+				{
+					"id": 16,
+					"name": "رنگ",
+					photo: "https://rangtehran.ir/wp-content/uploads/2021/07/Paint-and-Coatings.jpg"
+				},
+				{
+					"id": 17,
+					"name": "آبکاری",
+					photo: "https://nanoplus.org/wp-content/uploads/2021/10/999.jpg"
+				},
+				{
+					"id": 18,
+					"name": "پزشکی",
+					photo: "https://media.tahlilbazaar.com/d/2021/10/09/3/90762.jpg"
+				}
+			],
     }
   },
   methods: {
-    fetchData() {
-      var axios = require('axios');
-      var FormData = require('form-data');
-      var data = new FormData();
-      var config = {
+    async fetchData() {
+      let axios = require('axios');
+      let FormData = require('form-data');
+      let data = new FormData();
+      let config = {
         method: 'get',
         url: this.$store.state.host + 'categories',
         headers: {
@@ -72,59 +83,24 @@ export default {
         data : data
       };
       let that = this;
-      axios(config)
+      await axios(config)
           .then(function (response) {
-            let temp = [];
-            for (let i=0; i<Object.keys(response.data.categories).length; i++){
-              if (i%3==0){
-                if (temp!=[]){
-                  that.items.unshift(temp)
-                }
-                temp=[];
-              }
-              console.log('temp', temp)
-              console.log('items', that.items)
-              temp.unshift(response.data.categories[i])
-            }
-            console.log(that.items)
+            that.items = response.data.categories
+						console.log(JSON.stringify(response.data.categories))
           })
     },
+		slideChanger(address){
+			this.sliderAddress = address
+			console.log(address)
+		}
   },
   mounted() {
     this.fetchData();
   },
 };
 </script>
-<style scoped>
-.title-desktop{
-  border-bottom: 4px solid #000930;
-  text-align: center;
-  font-size: 1.5em;
-  display: table;
-  margin: 0 auto;
-}
-.title-res{
-  border-bottom: 4px solid #000930;
-  text-align: center;
-  font-size: 1.5em;
-  display: table;
-  margin: 0 auto;
-  margin-top: 1em;
-}
-.category-text{
-  font-size: 2em;
-  text-align: center;
-  margin: 1em;
-}
 
-.cat-btn{
-  font-size: 3rem;
-  height: 7rem !important;
-}
-@media (min-width: 768px) {
-  .button-50 {
-    padding: 12px 50px;
-  }
-}
+<style scoped>
+@import '../../assets/styles/homepage/home.css';
 </style>
 

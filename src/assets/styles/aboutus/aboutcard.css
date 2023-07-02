@@ -1,0 +1,19 @@
+.circle {
+  position: absolute;
+  /*right: -3.5rem;*/
+  top: -3.5rem;
+  border-radius: 100% !important;
+  background: var(--secondary-purple);
+  color: var(--tlight);
+  height: 7.5rem;
+  width: 7.5rem;
+  padding-top: 2rem;
+  font-size: 1.5rem;
+}
+#card {
+  color: var(--tlight);
+  background-image: url("../../about-us.svg");
+  background-repeat: repeat;
+  background-position: center;
+  padding: 4em;
+}

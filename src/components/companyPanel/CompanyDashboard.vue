@@ -1,39 +1,41 @@
 <template>
   <v-app>
-    <CompanySidebarNavigationVue/>
     <v-sheet>
       <v-sheet color="transparent" class="pa-4">
         <div class="pa-4">
           <v-row class="mb-5">
-            <strong style="font-size: 1.5em">دید کلی</strong>
+            <strong>دید کلی</strong>
           </v-row>
-          <hr class="my-3"/>
+
           <v-row>
             <v-spacer />
-              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
-                <TopDisplayRowCardVue :item="{ Title: 'بازدید از آگهی های شما', Info: '۶۴'}" />
+              <v-col class="cols" cols="12" sm="6" md="3" lg="3" xl="2">
+                <TopDisplayRowCardVue name="item" :item="{ Title: 'بازدید از آگهی های شما', Info: '۶۴'}" />
               </v-col>
-              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
-                <TopDisplayRowCardVue :item="{ Title: 'آگهی های شما', Info: this.adsList.length}" />
+              <v-col class="cols" cols="12" sm="6" md="3" lg="3" xl="2">
+                <TopDisplayRowCardVue name="item" :item="{ Title: 'آگهی های شما', Info: this.adsList.length}" />
               </v-col>
-              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
-                <TopDisplayRowCardVue :item="{ Title: 'آگهی های مرتبط', Info: '4'}" />
+              <v-col class="cols" cols="12" sm="6" md="3" lg="3" xl="2">
+                <TopDisplayRowCardVue name="item" :item="{ Title: 'آگهی های مرتبط', Info: '4'}" />
               </v-col>
-              <v-col cols="12" sm="6" md="3" lg="3" xl="2">
-                <TopDisplayRowCardVue :item="{ Title: 'کل آگهی ها', Info: '۳۲۵'}" />
+              <v-col class="cols" cols="12" sm="6" md="3" lg="3" xl="2">
+                <TopDisplayRowCardVue name="item" :item="{ Title: 'کل آگهی ها', Info: '۳۲۵'}" />
               </v-col>
             <v-spacer />
           </v-row>
         </div>
+        <v-row>
+          <AdsContainerVue :ads-list="adsList"/>
+        </v-row>
       </v-sheet>
-      <AdsContainerVue :ads-list="adsList" />
+      
       <v-sheet v-if="this.$vuetify.breakpoint.mdAndUp" class="pa-8">
         <v-row>
-          <v-col cols="6">
-            <DashboardChecklistVue />
+          <v-col class="v-col" cols="6">
+            <DashboardChecklistVue  class="mx-8"/>
           </v-col>
-          <v-col cols="6">
-            <UnansweredTicketsVue />
+          <v-col class="v-col" cols="6">
+            <UnansweredTicketsVue class="mx-8"/>
           </v-col>
         </v-row>
       </v-sheet>
@@ -50,13 +52,11 @@ import TopDisplayRowCardVue from "./TopDisplayRowCard.vue";
 import AdsContainerVue from "./AdsContainer.vue";
 import DashboardChecklistVue from "./DashboardChecklist.vue";
 import UnansweredTicketsVue from "./UnansweredTickets.vue";
-import CompanySidebarNavigationVue from "./CompanySidebarNavigation.vue";
-
 
 export default {
   components: {
     UnansweredTicketsVue, AdsContainerVue, TopDisplayRowCardVue,
-    DashboardChecklistVue, CompanySidebarNavigationVue
+    DashboardChecklistVue
   },
   onMounted() {
     this.$vuetify.rtl = true;

@@ -2,7 +2,7 @@
   <v-card class="pa-4" elevation="8" outlined height="75%" shaped justify="center" align="center">
     <v-form ref="form" color="transparent" v-model="valid" lazy-validation>
       <v-card-title v-if="!isMobile">
-        <img src="https://svgshare.com/i/g44.svg" style="height:10%; margin: 0 auto">
+        <img src="https://svgshare.com/i/g44.svg" class="card-pic">
       </v-card-title>
       <v-card-text>
         <v-row class="mt-8 mx-2" justify="center" align="center" no-gutters>
@@ -19,6 +19,7 @@
           <v-text-field
               v-model="email"
               :rules="emailRules"
+              name="input-10-0"
               label="ایمیل"
               style="direction: ltr !important;"
               required>
@@ -44,7 +45,7 @@
           </v-col>
 
           <v-col cols="6">
-            <v-btn class="btn white--text"
+            <v-btn class="button white--text"
             color="#000824" width="100%"
             @click="fetchData()">
               ورود
@@ -93,7 +94,7 @@ export default {
 
       var config = {
         method: 'post',
-        url: this.$store.state.host + 'user/login',
+        url: this.$store.state.host + 'authentication/login',
         headers: {
           'Accept': 'application/json',
         },
@@ -112,9 +113,9 @@ export default {
             that.$cookies.set('token', result.token);
             that.$cookies.set('user', result.user);
             if (result.user.role==='user')
-              that.$router.push('/dashboard');
+              that.$router.push('/user/dashboard');
             if (result.user.role==='company')
-              that.$router.push('/companyDashboard')
+              that.$router.push('/company/dashboard')
           })
           .catch(function (error) {
             console.log(error);
@@ -129,11 +130,5 @@ export default {
 </script>
 
 <style scoped>
-v-app{
-  background-color: #000824c8;
-}
-.link{
-  color: #999696;
-  text-decoration: none;
-}
+@import '../../assets/styles/login-signup/login.css';
 </style>

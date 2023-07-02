@@ -4,7 +4,7 @@
       <v-row class="mb-5">
         <strong style="font-size: 1.5em">خرید پلن</strong>
       </v-row>
-      <hr class="my-3"/>
+      <!-- <hr class="my-3"/> -->
       <v-row v-if="this.$vuetify.breakpoint.mdAndUp">
         <v-col v-for="(plan, index) in plans" :key="index" cols="3">
           <v-card width="100%" elevation="1" class="rounded-xl pa-4 plan-card">

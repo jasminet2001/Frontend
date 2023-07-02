@@ -1,5 +1,5 @@
 <template>
-  <v-card elevation="16" class="my-5 px-8 py-5" style="width: 100%">
+  <v-card elevation="16" class="my-5 px-8 py-5 card">
     <h2>توضیحات:</h2>
     <p>{{description}}</p>
   </v-card>
@@ -15,5 +15,5 @@ export default {
 </script>
 
 <style scoped>
-
+@import '../../assets/styles/adoverview';
 </style>

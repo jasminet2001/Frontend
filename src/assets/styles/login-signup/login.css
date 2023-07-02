@@ -1,0 +1,16 @@
+v-app {
+  background-color: var(--primary);
+}
+.link {
+  color: #999696;
+  text-decoration: none;
+}
+.card-pic{
+  width: 250px;
+  height: auto;
+  margin: 0 auto;
+}
+.link{
+  color: #999696;
+  text-decoration: none;
+}

@@ -1,6 +1,6 @@
 <template>
   <v-card
-  class="rounded-lg pa-2"
+  class="rounded-lg-pa-2"
   outlined
   elevation="0"
   height="300px">
@@ -28,7 +28,7 @@
       <v-list flat color="transparent" style="height: 150px; overflow-y: auto;">
         <v-subheader class="subheading" v-if="todos.length === 0">فعالیتی برای انجام ندارید!</v-subheader>
         <v-list-item-group>
-          <div v-for="(task, index) in todos" :key="index">
+          <div v-for="(task, index) in todos" :key="index" :class="task.done?'done':''">
             <v-list-item @click="toggleTodo(index)">
               <v-list-item-action>
                 <v-icon v-if="task.done" color="#3751FF" style="bottom: 3px">{{ ImdiDone }}</v-icon>
@@ -40,7 +40,7 @@
               </span>
               </v-list-item-title>
             </v-list-item>
-            <hr style="border-color: #DFE0EB; background-color: #DFE0EB"/>
+            <hr style="width: 95%; background-color: #3751FF !important;" class="my-2"/>
           </div>
         </v-list-item-group>
       </v-list>
@@ -75,21 +75,22 @@ export default {
         title: this.newTodo,
         done: false
       });
-      // this.send()
+      this.send()
       this.newTodo = "";
     },
     removeTodos() {
       this.todos=[];
-    },
+			this.send()
+		},
     toggleTodo(index) {
       this.todos[index].done = !this.todos[index].done
-      // this.send()
+      this.send()
     },
     async updater() {
       let axios = require('axios');
       let config = {
         method: 'get',
-        url: this.$store.state.host + 'user/this',
+        url: this.$store.state.host + 'authentication/this',
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer '+this.$cookies.get('token')
