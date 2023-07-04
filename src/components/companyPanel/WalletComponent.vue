@@ -6,24 +6,28 @@
       </v-row>
 
       <v-row v-if="this.$vuetify.breakpoint.smAndUp">
-        <div class="credit-card my-3 elevation-3" style="width: 377px; height: 218px; margin: 0 auto; background-color: transparent; border-radius: 11% !important;">
+        <div class="credit-card my-3 elevation-3" style="width: 377px; height: 218px; 
+        margin: 0 auto; background-color: transparent; border-radius: 11% !important;">
           <div class="mt-10 justify-start">
             <span style="font-size: 1.5em; color: white !important;" class="mr-10">موجودی</span>
           </div>
           <div class="justify-start" style="margin-top: 68px">
-            <span style="font-size: 1.5em; color: white !important;" class="mr-10">{{ credit }}</span>
+            <span style="font-size: 1.5em; color: white !important;" 
+            class="mr-10">{{ credit }}</span>
             &nbsp;
             <span style="font-size: 1.5em; color: white !important;">تومان</span>
           </div>
         </div>
       </v-row>
       <v-row v-else>
-        <div class="credit-card-mobile elevation-3 my-3" style="margin: 0 auto; width: 276px !important; height: 180px !important; background-color: transparent; border-radius: 11% !important;">
+        <div class="credit-card-mobile elevation-3 my-3" style="margin: 0 auto; width: 276px !important; 
+        height: 180px !important; background-color: transparent; border-radius: 11% !important;">
           <div class="mt-8 justify-start">
             <span style="font-size: 1.5em; color: white !important;" class="mr-5">موجودی</span>
           </div>
           <div class="justify-start" style="margin-top: 35px">
-            <span style="font-size: 1.5em; color: white !important;" class="mr-5">{{ credit }}</span>
+            <span style="font-size: 1.5em; color: white !important;" 
+            class="mr-5">{{ credit }}</span>
             &nbsp;
             <span style="font-size: 1.5em; color: white !important;">تومان</span>
           </div>
@@ -35,16 +39,23 @@
 
 <script>
 export default {
+  props: {
+    credit: Number
+  },
   name: "WalletComponent",
   data () {
     return {
-      credit: '500000'
+      
     }
-  }
-  // computed:{
-  //   getBalance(){
-  //     return this.$cookies.get('user').wallet.toLocaleString()
-  //   }
+  },
+  // methods:{
+  //   // UpdateBalance (){
+  //   //   this.credit += this.newCredit;
+  //   //   console.log(this.credit);
+  //   // },
+  // },
+  // created() {
+  //   this.UpdateBalance();
   // }
 }
 </script>

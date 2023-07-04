@@ -5,16 +5,16 @@
       class="pa-2 ma-2 req-card white--text"
       >
     <v-card-title class="mb-1 mt-0">
-      {{ ad.Title }}
+      {{ ad.ad.title }}
     </v-card-title>
     <v-card-text class="my-1">
       <v-row class="mx-4 my-1 white--text">
-        <h3>{{ ad.CompanyName }}</h3>
+        <h3>{{ ad.message }}</h3>
       </v-row>
       <v-row class="my-4 mx-2 white--text">
         <v-icon class="white--text">mdi-check-bold</v-icon>
         وضعیت:
-        {{ ad.Status }}
+        {{ ad.status }}
       </v-row>
     </v-card-text>
     <v-card-actions class="justify-center align-center mt-1">
