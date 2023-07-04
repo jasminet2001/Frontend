@@ -7,6 +7,7 @@ import SentReq from "@/pages/companypanel/sent-requests";
 import RecReq from "@/pages/companypanel/recievedrequests-page";
 import CompanyPay from "@/pages/companypanel/wallet-page";
 import CompanyBookmarks from "@/pages/companypanel/bookmarks-page";
+import RelatedAds from "@/pages/companypanel/related-requests";
 
 export default [
     {path: '/company/editprofile', component: EditCompanyProfile},
@@ -18,4 +19,5 @@ export default [
     {path: '/company/recievedrequests', component: RecReq},
     {path: '/company/payment', component: CompanyPay},
     {path: '/company/bookmarks', component: CompanyBookmarks},
+    {path: '/company/related', component: RelatedAds},
 ]

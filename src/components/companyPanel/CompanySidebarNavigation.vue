@@ -1,15 +1,5 @@
 <template>
   <v-card class="overflow-hidden" dir="rtl">
-    <v-app-bar
-      v-if="$vuetify.breakpoint.smAndDown"
-      color="grey darken-4"
-      dark
-      dir="rtl"
-    >
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-    </v-app-bar>
-
-    <!-- why isn't responsive working? -->
     <v-navigation-drawer
 		permanent
 		v-model="$data[$vuetify.breakpoint.smAndDown ? 'drawer' : 'value']"
@@ -77,6 +67,13 @@
               <v-icon>mdi-bookmark-multiple</v-icon>
             </v-list-item-icon>
             <v-list-item-title>نشانک ها</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item link to="/company/related" class="py-2">
+              <v-list-item-icon>
+                <v-icon>mdi-bell-check-outline</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>درخواست‌های مرتبط</v-list-item-title>
           </v-list-item>
 
           <v-list-item link to="/company/recievedrequests" class="py-2">

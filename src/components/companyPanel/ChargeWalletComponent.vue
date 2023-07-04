@@ -64,7 +64,7 @@ export default {
     addBalance (index){
       this.amountToCharge = this.chargeCards[index].Num
     },
-    async chargeWallet(){
+    async chargeWallet(){   
       var axios = require("axios");
       var FormData = require("form-data");
       var data = new FormData();
@@ -84,12 +84,12 @@ export default {
         .then(
           function (response) {
             console.log(response.data.Balance);
-            that.cash = response.data.Balance;
+            that.$emit('update-wallet', response.data.Balance);
           }
         )
-    }
+    },
   },
-}
+ }
 </script>
 
 <style scoped>
