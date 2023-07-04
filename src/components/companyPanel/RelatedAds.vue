@@ -4,8 +4,8 @@
       <v-row class="mb-5" align="center">
         <strong class="mx-16">آگهی های مرتبط</strong>
       </v-row>
+      <!-- justify="center" -->
       <v-row
-        justify="center"
         class="mx-6"
         align="center"
         :dense="this.$vuetify.breakpoint.smAndDown"
