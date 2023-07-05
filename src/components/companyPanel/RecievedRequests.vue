@@ -4,7 +4,6 @@
       <v-row class="mb-5" align="center">
         <strong class="mx-16">درخواست های دریافت شده</strong>
       </v-row>
-
       <v-row
         class="mx-16"
         justify="center"
@@ -12,14 +11,16 @@
         :dense="this.$vuetify.breakpoint.smAndDown"
       >
         <v-col
-          v-for="(ad, index) in adList"
+          v-for="(ad, index) in recievedReqs"
           :key="index"
           cols="12"
           md="6"
           lg="4"
           xl="3"
         >
-          <CompanyReq :ad="ad" />
+          <span v-for="(req, i) in ad.requests" :key="i">
+            <CompanyReq :ad="req" :requestID="req.id"/>
+          </span>
         </v-col>
       </v-row>
     </v-sheet>
@@ -28,7 +29,6 @@
 
 <script>
 import CompanyReq from "./CompanyReqCard.vue";
-
 export default {
   components: { CompanyReq },
   data() {
@@ -36,32 +36,32 @@ export default {
       recievedReqs: [],
       Title: "",
       Description: "",
-      Status:"",
+      Status: "",
     };
   },
-  methods:{
-    async recievedReq(){
-      var axios = require('axios');
+  methods: {
+    async recievedReq() {
+      var axios = require("axios");
       var config = {
-        method: 'get',
-        url: this.$store.state.host + 'Request/GetByUser',
+        method: "get",
+        url:
+          this.$store.state.host +
+          "Request/GetByUser/" +
+          this.$cookies.get("user").id,
         headers: {
-          'Accept': 'application/json',
-          'Authorization': 'Bearer '+this.$cookies.get('token'),
+          Accept: "application/json",
+          Authorization: "Bearer " + this.$cookies.get("token"),
         },
       };
       let that = this;
-      await axios(config)
-        .then(
-          function (response) {
-            // console.log(response.data);
-            that.recievedReqs = response.data;
-          }
-        )
-    }
+      await axios(config).then(function (response) {
+        // console.log(response.data);
+        that.recievedReqs = response.data;
+      });
+    },
   },
-  created(){
+  beforeMount() {
     this.recievedReq();
-  }
+  },
 };
 </script>
