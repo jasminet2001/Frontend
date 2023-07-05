@@ -27,6 +27,7 @@
         v-model="dialogVisible"
         @accepted="handleAccept"
         @rejected="handleReject"
+        :reqid = "requestID"
       ></dialog-card>
     </v-card-actions>
 
@@ -89,6 +90,7 @@ export default {
       type: Object,
       default: null,
     },
+    requestID: Number,
   },
   data() {
     return {
@@ -103,5 +105,6 @@ export default {
       console.log("Rejected");
     },
   },
+ 
 };
 </script>

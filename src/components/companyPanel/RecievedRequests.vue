@@ -19,7 +19,7 @@
           xl="3"
         >
           <span v-for="(req, i) in ad.requests" :key="i">
-            <CompanyReq :ad="req" />
+            <CompanyReq :ad="req" :requestID="req.id"/>
           </span>
         </v-col>
       </v-row>
