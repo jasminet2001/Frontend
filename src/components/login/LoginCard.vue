@@ -41,7 +41,7 @@
         </v-row>
         <v-row class="mt-16 mx-2" align="center" justify="center" no-gutters>
           <v-col cols="6">
-            <a href="#" class="link mr-1" style="font-size: 0.9em">فراموشی رمز عبور؟</a>
+						<router-link to="/reset-link" class="link mr-1" style="font-size: 0.9em">فراموشی رمز عبور؟</router-link>
           </v-col>
 
           <v-col cols="6">
