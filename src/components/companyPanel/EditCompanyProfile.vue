@@ -25,20 +25,29 @@
                   ></v-file-input>
                 </v-row>
                 <v-row class="row">
-                  <v-text-field label="نام شرکت" v-model="name" outlined>
-                  </v-text-field>
-                </v-row>
-
-                <v-row class="row">
-                  <v-text-field label="ایمیل شرکت" v-model="email" outlined>
+                  <v-text-field
+                      name="companyname"
+                      label="نام شرکت"
+                      v-model="name"
+                      outlined>
                   </v-text-field>
                 </v-row>
 
                 <v-row class="row">
                   <v-text-field
-                    label="تلفن شرکت"
-                    v-model="phone"
-                    outlined
+                      name="email"
+                      label="ایمیل شرکت"
+                      v-model="email"
+                      outlined>
+                  </v-text-field>
+                </v-row>
+
+                <v-row class="row">
+                  <v-text-field
+                      name="phone-number"
+                      label="تلفن شرکت"
+                      v-model="phone"
+                      outlined
                   ></v-text-field>
                 </v-row>
 
@@ -107,6 +116,7 @@
           <v-row class="d-flex flex-column">
             <v-col cols="12" class="px-8 col">
               <v-file-input
+                name="profile-img"
                 label="بارگزاری لوگوی شرکت"
                 outlined
                 prepend-icon="mdi-account-arrow-up"
@@ -114,12 +124,13 @@
                 v-model="selectedFile"
               ></v-file-input>
               <v-row class="row-res">
-                <v-text-field v-model="name" label="نام شرکت" outlined>
+                <v-text-field name="companyname" v-model="name" label="نام شرکت" outlined>
                 </v-text-field>
               </v-row>
 
               <v-row class="row-res"
                 ><v-text-field
+                  name="email"
                   label="ایمیل شرکت"
                   v-model="email"
                   outlined
@@ -128,6 +139,7 @@
 
               <v-row class="row-res"
                 ><v-text-field
+                  name="phone-number"
                   label="تلفن شرکت"
                   v-model="phone"
                   outlined
