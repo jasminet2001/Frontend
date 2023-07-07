@@ -5,8 +5,8 @@
         <strong style="font-size: 1.5em">خرید پلن</strong>
       </v-row>
       <v-row v-if="this.$vuetify.breakpoint.mdAndUp">
-        <v-col v-for="(plan, index) in plans" :key="index" cols="3">
-          <v-card width="100%" elevation="1" class="rounded-xl pa-4">
+        <v-col name="plans" v-for="(plan, index) in plans" :key="index" cols="3">
+          <v-card name="plan-card-desktop" width="100%" elevation="1" class="rounded-xl pa-4">
             <v-card-text>
               <v-row class="my-4" style="font-size: 1.4em; font-weight: bolder">
                 <span>پلن:</span>
@@ -38,7 +38,7 @@
       </v-row>
       <div v-else>
         <v-row v-for="(plan, index) in plans" :key="index" class="my-3">
-          <v-card width="100%" elevation="1" class="rounded-xl pa-4">
+          <v-card name="plan-card-mobile" width="100%" elevation="1" class="rounded-xl pa-4">
             <v-card-text>
               <v-row>
                 <v-col cols="12">

@@ -1,20 +1,22 @@
 const APIResults = require("../../fixtures/APIResults.json");
 const baseData = require("../../fixtures/shared.json");
 describe('Related AdsComponent Tests', () => {
-  beforeEach(() => {
+  it('renders the component correctly', () => {
     cy.intercept('*/authentication/this', APIResults.this2).as('getUser')
     cy.visit(baseData.host)
     cy.wait('@getUser')
     cy.visit(baseData.host + '/company/related')
-  })
-
-  it('renders the component correctly', () => {
     cy.get('strong').should('contain', 'آگهی های مرتبط');
     cy.get('.v-col').should('have.length', 0);
   });
 
   it('fetches related ads on component mount', () => {
-    cy.intercept('POST', '**/ad/search', [{
+    cy.intercept('*/authentication/this', APIResults.this2).as('getUser')
+    cy.visit(baseData.host)
+    cy.wait('@getUser')
+    cy.visit(baseData.host + '/company/related')
+    cy.intercept('POST', '**/ad/search', [
+      {
         id: 1, title: "حمل و نقل مهتاب", category_id: 13, isCompany: 0, description: "آدرس شرکت:  شهرستان ری،جاده قدیم قم"
       },
       {
@@ -32,6 +34,10 @@ describe('Related AdsComponent Tests', () => {
   });
 
   it('displays related ads correctly', () => {
+    cy.intercept('*/authentication/this', APIResults.this2).as('getUser')
+    cy.visit(baseData.host)
+    cy.wait('@getUser')
+    cy.visit(baseData.host + '/company/related')
     const relatedAds = [
       { id: 1, title: "حمل و نقل مهتاب" },
       { id: 2, title: "حمل و نقل مهتاب" },
@@ -47,12 +53,20 @@ describe('Related AdsComponent Tests', () => {
   });
 
   it('does not fetch related ads if token is not provided', () => {
+    cy.intercept('*/authentication/this', APIResults.this2).as('getUser')
+    cy.visit(baseData.host)
+    cy.wait('@getUser')
+    cy.visit(baseData.host + '/company/related')
     cy.clearCookies();
     cy.visit(baseData.host + '/company/related')
     cy.get('.v-card').should('have.length', 1)
   });
 
   it('fetches related ads with correct request headers', () => {
+    cy.intercept('*/authentication/this', APIResults.this2).as('getUser')
+    cy.visit(baseData.host)
+    cy.wait('@getUser')
+    cy.visit(baseData.host + '/company/related')
     cy.intercept('POST', '**/ad/search', req => {
       expect(req.headers).to.include({
       });
