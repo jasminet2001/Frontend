@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<comment-component :comments="comments" class="mb-5 pa-3"/>
-		<v-card class="px-8 py-5" elevation="2" style="width: 100%">
+		<v-card name="commentscomponent" class="px-8 py-5" elevation="2" style="width: 100%">
 			<v-card-title>
 				ارسال نظر
 			</v-card-title>

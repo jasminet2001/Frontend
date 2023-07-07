@@ -1,57 +1,90 @@
 // const baseData = require('../../fixtures/shared.json')
 // const APIResults = require("../../fixtures/APIResults.json");
+
+const APIResults = require("../../fixtures/APIResults.json");
+const baseData = require("../../fixtures/shared.json");
+describe('Starred Ads Page Component Tests', () => {
+    beforeEach(() => {
+        const adList = [
+            { id: 1, marked: { name: 'Ad 1', description: 'Description 1', email: 'email1@example.com', phone: '1234567890' } },
+            { id: 2, marked: { name: 'Ad 2', description: 'Description 2', email: 'email2@example.com', phone: '9876543210' } },
+            { id: 3, marked: { name: 'Ad 3', description: 'Description 3', email: 'email3@example.com', phone: '5555555555' } }
+        ];
+        cy.intercept('*/authentication/this', APIResults.this2).as('getUser')
+        cy.intercept('GET', '**/user/bookmarks', adList).as('getBookmarks');
+        cy.visit(baseData.host)
+        cy.wait('@getUser')
+        cy.visit(baseData.host + '/company/bookmarks')
+        cy.wait('@getBookmarks');
+    });
+
+    it('displays the title correctly', () => {
+        cy.contains('نشانک های من').should('be.visible');
+    });
+
+    it('displays starred ads correctly', () => {
+        cy.get('.v-card').should('have.length', 4);
+    });
+
+})
+// describe(' Delete Starred Ads Tests', () => {
+//     it('initializes component correctly', () => {
+//         cy.intercept('*/authentication/this', APIResults.this2).as('getUser')
+//         cy.intercept('GET', '**/user/bookmarks', []).as('getBookmarks');
+//         cy.visit(baseData.host)
+//         cy.wait('@getUser')
+//         cy.visit(baseData.host + '/company/bookmarks')
+//         cy.wait('@getBookmarks');
+//         cy.window().then((win) => {
+//             expect(win).to.be.an('array');
+//             expect(win).to.be.empty;
+//         });
+//     });
+//     it('toggles the starred state of an ad correctly', () => {
+//         const adList = [
+//             { id: 1, marked: { name: 'Ad 1', description: 'Description 1', email: 'email1@example.com', phone: '1234567890' } },
+//             { id: 2, marked: { name: 'Ad 2', description: 'Description 2', email: 'email2@example.com', phone: '9876543210' } },
+//             { id: 3, marked: { name: 'Ad 3', description: 'Description 3', email: 'email3@example.com', phone: '5555555555' } }
+//         ];
+//         cy.intercept('*/authentication/this', APIResults.this2).as('getUser')
+//         cy.intercept('GET', '**/user/bookmarks', adList).as('getBookmarks');
+//         cy.visit(baseData.host)
+//         cy.wait('@getUser')
+//         cy.visit(baseData.host + '/company/bookmarks')
+//         cy.wait('@getBookmarks');
+//         cy.intercept('DELETE', '**/user/bookmarks/del/1', {}).as('deleteBookmark');
+//         cy.get('.v-card').each((card, index) => {
+//             if (index === 1) {
+//                 cy.wrap(card)
+//                     .find('[name="more-info-btn"]')
+//                     .as('deleteButton');
+//             }
+//         })
+//         cy.wait('@deleteBookmark');
+//         cy.get('@deleteButton').click();
+//         cy.get('.v-card').should('have.length', adList.length);
+//     });
 //
-// describe('Starred Ads Page Component Tests', () => {
-//   beforeEach(() => {
-//     cy.intercept('*/authentication/this', APIResults.this2).as('getUser')
-//     cy.visit(baseData.host)
-//     cy.wait('@getUser')
-//     cy.intercept('GET', '*/user/bookmarks', APIResults.bookmarks_for_user3).as('getBookmarks')
-//     cy.intercept('GET', '*/company/show/247', APIResults.company247).as('getCompany247')
-//     cy.intercept('GET', '*/company/show/253', APIResults.company253).as('getCompany253')
-//     cy.intercept('GET', '*/company/show/250', APIResults.company250).as('getCompany250')
-//     cy.visit(baseData.host + '/user/bookmarks')
-//     cy.wait('@getBookmarks')
-//     cy.wait('@getCompany247')
-//     cy.wait('@getCompany253')
-//     cy.wait('@getCompany250')
-//
-//   });
-//
-//   it('displays the title correctly', () => {
-//     cy.contains('نشانک ها').should('be.visible');
-//   });
-//
-//   it('should display ad card details', () => {
-//     cy.get('.custom-card-bookmarked:first')
-//         .should('contain', 'آدرس شرکت')
-//         .and('contain', 'شماره تماس')
-//         .and('contain', 'ایمیل شرکت')
-//   })
-//
-//   it('renders the component with a list of ad cards', () => {
-//     cy.get('.custom-card-bookmarked').should('have.length', 3)
-//     cy.get('.custom-card-bookmarked').should('have.length', 3)
-//   })
-//
-//   it('should successfully make an API call to get_company', () => {
-//     cy.intercept('GET', '**/company/show/**').as('getCompany')
-//     cy.visit(baseData.host + '/user/bookmarks')
-//     cy.wait('@getCompany').then((interception) => {
-//       expect(interception.response.statusCode).to.equal(200)
-//       expect(interception.response.body).to.have.property('id')
-//       expect(interception.response.body).to.have.property('name')
-//       expect(interception.response.body).to.have.property('email')
-//       expect(interception.response.body).to.have.property('description')
-//       expect(interception.response.body).to.be.an('object')
-//     })
-//   })
-//
-//   it('should navigate to the correct URL when "اطلاعات بیشتر" button is clicked', () => {
-//     cy.get('.custom-card-bookmarked:first').then(($adCard) => {
-//       const adId = $adCard.prop('id')
-//       cy.wrap($adCard).find('.v-card__actions').click()
-//       cy.url().should('include', `/c/${adId}`)
-//     })
-//   })
+//     it('deletes a bookmark correctly', () => {
+//         const adList = [
+//             { id: 1, marked: { name: 'Ad 1', description: 'Description 1', email: 'email1@example.com', phone: '1234567890' } },
+//             { id: 2, marked: { name: 'Ad 2', description: 'Description 2', email: 'email2@example.com', phone: '9876543210' } },
+//             { id: 3, marked: { name: 'Ad 3', description: 'Description 3', email: 'email3@example.com', phone: '5555555555' } }
+//         ];
+//         cy.intercept('*/authentication/this', APIResults.this2).as('getUser')
+//         cy.intercept('GET', '**/user/bookmarks', adList).as('getBookmarks');
+//         cy.visit(baseData.host)
+//         cy.wait('@getUser')
+//         cy.visit(baseData.host + '/company/bookmarks')
+//         cy.wait('@getBookmarks');
+//         const bookmarkId = 1;
+//         cy.intercept('DELETE', `**/user/bookmarks/del/${bookmarkId}`, {}).as('deleteBookmark');
+//         cy.window().then((win) => {
+//             win.deleteBookmark(bookmarkId);
+//         });
+//         cy.wait('@deleteBookmark').then((xhr) => {
+//             expect(xhr.response.statusCode).to.equal(200);
+//             expect(xhr.response.body).to.be.empty;
+//         });
+//     });
 // })

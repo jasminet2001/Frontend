@@ -1,5 +1,5 @@
 <template>
-  <v-card elevation="2" class="main px-8 pb-5">
+  <v-card name="header-component" elevation="2" class="main px-8 pb-5">
     <v-card class="img">
       <v-img elevation="5">
         <v-icon size="6rem">mdi-factory</v-icon>
@@ -11,7 +11,7 @@
         <v-col cols="12" sm="6" md="6" lg="3" xl="3" align="center">
           <div class="icon">
             <v-btn icon @click="save">
-              <v-icon size="64px" :color="saved ? 'black' : ''"
+              <v-icon name="saved-icon" size="64px" :color="saved ? 'black' : ''"
                 >{{saved? "mdi-bookmark" : "mdi-bookmark-outline"}}</v-icon>
             </v-btn>
           </div>

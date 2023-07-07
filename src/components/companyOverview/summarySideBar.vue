@@ -1,5 +1,5 @@
 <template>
-<v-card v-if="name" elevation="2" rounded class="pa-3">
+<v-card name="summary-side-bar" v-if="name" elevation="2" rounded class="pa-3">
   <v-list-item>
     <v-list-item-content>
       <v-list-item-title style="font-size: 1.5rem">

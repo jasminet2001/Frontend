@@ -1,5 +1,5 @@
 <template>
-	<v-card>
+	<v-card name="comment-component">
 		<v-card-title>
 			نظرات شما
 		</v-card-title>
