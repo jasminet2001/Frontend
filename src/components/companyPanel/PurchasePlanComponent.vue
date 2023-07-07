@@ -4,7 +4,6 @@
       <v-row class="mb-5">
         <strong style="font-size: 1.5em">خرید پلن</strong>
       </v-row>
-      <!-- <hr class="my-3"/> -->
       <v-row v-if="this.$vuetify.breakpoint.mdAndUp">
         <v-col v-for="(plan, index) in plans" :key="index" cols="3">
           <v-card width="100%" elevation="1" class="rounded-xl pa-4">
@@ -29,7 +28,7 @@
             </v-card-text>
             <v-card-actions>
               <v-row class="my-4" style="font-size: 1.2em" justify="center" align="center">
-                <v-btn class="rounded-lg" outlined width="80%" color="#3751FF">
+                <v-btn class="rounded-lg" outlined width="80%" color="#3751FF" @click="buyPlan(index)">
                   پرداخت (از اعتبار)
                 </v-btn>
               </v-row>
@@ -88,10 +87,7 @@
 <script>
 export default {
   props: {
-    credit: {
-      type: Number,
-      default: 0
-    }
+
   },
   name: "PurchasePlanComponent",
   data () {
@@ -109,6 +105,24 @@ export default {
         {Title: 'دلوکس', Color: 'rgba(55, 81, 255, 0.2)', Days: 90, Ads: 30, Price: 60000},
         {Title: 'مکس', Color: 'rgba(55, 81, 255, 0.3)', Days: 120, Ads: 45, Price: 80000}
       ]
+    }
+  },
+  methods:{
+    async buyPlan(index){
+      var axios = require("axios");
+      // var FormData = require("form-data");
+      // var data = new FormData();
+      // data.append("description", this.message);
+      var config = {
+        method: "get",
+        url: this.$store.state.host + "user/BuyPlan/" + (index+1),
+        headers: {
+          Accept: "application/json",
+          Authorization: "Bearer " + this.$cookies.get("token"),
+        },
+        // data: data,
+      };
+      await axios(config).then();
     }
   }
 }

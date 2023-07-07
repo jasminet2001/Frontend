@@ -5,6 +5,8 @@ import Login from "@/pages/login/login-page";
 import Signup from "@/pages/signup/signup-page";
 import Search from "@/pages/search/search-page";
 import companyOverview from "@/pages/companyOverview/companyOverview-page";
+import resetLinkPage from "@/pages/resetPassword/reset-link-page";
+import resetPasswordPage from "@/pages/resetPassword/reset-password-page";
 
 export default [
     {path: '/', component: Home},
@@ -14,4 +16,6 @@ export default [
     {path: '/search', component: Search},
     {path: '/c/:id', component: companyOverview},
     {path: '/user/dashboard', component: dashboard},
+    {path: '/reset-link', component: resetLinkPage},
+    {path: '/reset-password/:token', component: resetPasswordPage}
 ]
