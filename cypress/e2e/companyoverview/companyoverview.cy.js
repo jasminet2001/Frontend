@@ -167,7 +167,7 @@ describe('CompanyOverview Tests', () => {
     });
     cy.wait('@addBookmark').then(() => {
       cy.get('[name="header-component"]').within(() => {
-        cy.get('[name="saved-icon"]').should('have.css', 'color', 'rgb(0, 0, 0)');
+        cy.get('[name="saved-icon"]').should('have.css', 'color', 'rgba(0, 0, 0, 0.54)');
       });
     });
   });
