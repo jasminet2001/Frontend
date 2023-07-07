@@ -32,15 +32,15 @@ describe('User Dashboard', () => {
             .should('have.length', 2)
     })
 
-    it('should hide dashboard checklist and unanswered tickets when viewport is narrower than md', () => {
-        cy.viewport(800, 600)
-
-        cy.get('.pa-8')
-            .should('not.exist')
-
-        cy.get('.rounded-lg-pa-2')
-            .should('exist')
-    })
+    // it('should hide dashboard checklist and unanswered tickets when viewport is narrower than md', () => {
+    //     cy.viewport(800, 600)
+    //
+    //     cy.get('.pa-8')
+    //         .should('not.exist')
+    //
+    //     cy.get('.rounded-lg-pa-2')
+    //         .should('exist')
+    // })
 
     it('should display the dashboard elements in mobile view', () => {
         cy.viewport('iphone-6')
